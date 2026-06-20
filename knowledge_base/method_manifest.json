@@ -1,0 +1,5089 @@
+{
+  "total_cards": 292,
+  "modules": {
+    "资料分析": {
+      "card_count": 33,
+      "methods": [
+        {
+          "id": "da_chart_lookup_001",
+          "method_name": "图表查找四坑校验法",
+          "question_type": "图表查找比较",
+          "sub_type": "图表直接查找与排序",
+          "tags": [
+            "图表查找",
+            "排序",
+            "合计总计",
+            "单位",
+            "起止年份"
+          ],
+          "solver_tier": "lookup_or_compare",
+          "solver_rank": 15,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_abx_base_diff_003",
+          "method_name": "前期差值比较法",
+          "question_type": "基期量",
+          "sub_type": "前期差值",
+          "tags": [
+            "ABRX",
+            "前期差值",
+            "基期差",
+            "比较"
+          ],
+          "solver_tier": "core_formula",
+          "solver_rank": 10,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_abx_base_direct_001",
+          "method_name": "基期量直接公式法",
+          "question_type": "基期量",
+          "sub_type": "已知现期量B和增长率R求基期A",
+          "tags": [
+            "ABRX",
+            "基期量",
+            "前期量",
+            "现期量",
+            "增长率"
+          ],
+          "solver_tier": "core_formula",
+          "solver_rank": 10,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_abx_base_interval_002",
+          "method_name": "隔年前期先求间隔增长率法",
+          "question_type": "基期量",
+          "sub_type": "隔年前期量",
+          "tags": [
+            "ABRX",
+            "基期量",
+            "间隔增长率",
+            "隔年前期"
+          ],
+          "solver_tier": "core_formula",
+          "solver_rank": 10,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_base_terms_001",
+          "method_name": "资料分析基础术语与审题四步",
+          "question_type": "基础知识",
+          "sub_type": "统计术语与审题原则",
+          "tags": [
+            "统计术语",
+            "同比",
+            "环比",
+            "倍数",
+            "翻番",
+            "顺差逆差",
+            "人口自然增长率",
+            "审题"
+          ],
+          "solver_tier": "precheck",
+          "solver_rank": 0,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "da_growth_rate_general_001",
+          "method_name": "一般增长率公式法",
+          "question_type": "增长率",
+          "sub_type": "一般增长率",
+          "tags": [
+            "增长率",
+            "ABRX",
+            "R=X/A",
+            "增速"
+          ],
+          "solver_tier": "core_formula",
+          "solver_rank": 10,
+          "confidence": 0.97,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_growth_rate_interval_002",
+          "method_name": "间隔增长率及逆运用",
+          "question_type": "增长率",
+          "sub_type": "间隔增长率",
+          "tags": [
+            "增长率",
+            "间隔增长率",
+            "隔年增长率",
+            "R1R2"
+          ],
+          "solver_tier": "core_formula",
+          "solver_rank": 10,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_growth_rate_product_004",
+          "method_name": "乘积增长率公式法",
+          "question_type": "增长率",
+          "sub_type": "乘积增长率",
+          "tags": [
+            "乘积增长率",
+            "A=B×C",
+            "占比",
+            "增长率"
+          ],
+          "solver_tier": "core_formula",
+          "solver_rank": 10,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_growth_rate_ratio_003",
+          "method_name": "比值增长率公式法",
+          "question_type": "增长率",
+          "sub_type": "比值增长率",
+          "tags": [
+            "比值增长率",
+            "平均数增长率",
+            "人均增长率",
+            "倍数增长率",
+            "均前每后"
+          ],
+          "solver_tier": "core_formula",
+          "solver_rank": 10,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_growth_amount_001",
+          "method_name": "增长量公式与方法选择",
+          "question_type": "增长量",
+          "sub_type": "直接求增长量X",
+          "tags": [
+            "增长量",
+            "X",
+            "ABRX",
+            "415份数法",
+            "假设分配法",
+            "直除"
+          ],
+          "solver_tier": "core_formula",
+          "solver_rank": 10,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_growth_amount_compare_002",
+          "method_name": "B-R双大与N倍比较法",
+          "question_type": "增长量",
+          "sub_type": "增长量大小比较",
+          "tags": [
+            "增长量比较",
+            "比较类",
+            "B大R大",
+            "N倍"
+          ],
+          "solver_tier": "core_formula",
+          "solver_rank": 10,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_average_annual_growth_amount_002",
+          "method_name": "年均增长量基期判断法",
+          "question_type": "平均数",
+          "sub_type": "年均增长量",
+          "tags": [
+            "年均增长量",
+            "平均类",
+            "基期判断",
+            "严谨问法"
+          ],
+          "solver_tier": "core_formula",
+          "solver_rank": 10,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_average_annual_growth_rate_003",
+          "method_name": "年均增长率幂次与近似法",
+          "question_type": "平均数",
+          "sub_type": "年均增长率",
+          "tags": [
+            "年均增长率",
+            "幂次",
+            "平均增长率",
+            "近似"
+          ],
+          "solver_tier": "core_formula",
+          "solver_rank": 10,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_average_general_001",
+          "method_name": "一般平均值‘均前每后’法",
+          "question_type": "平均数",
+          "sub_type": "一般平均值",
+          "tags": [
+            "平均数",
+            "均前每后",
+            "平均每",
+            "每均",
+            "时间平均",
+            "除法转化"
+          ],
+          "solver_tier": "core_formula",
+          "solver_rank": 10,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_common_pitfalls_001",
+          "method_name": "资料分析常见陷阱清单",
+          "question_type": "易错点",
+          "sub_type": "资料分析常见陷阱",
+          "tags": [
+            "易错点",
+            "陷阱",
+            "审题",
+            "单位",
+            "时间",
+            "百分点"
+          ],
+          "solver_tier": "validation_guard",
+          "solver_rank": 99,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_compare_ratio_growth_001",
+          "method_name": "双线法与比值趋势法",
+          "question_type": "比较类",
+          "sub_type": "比值大小/增速大小比较",
+          "tags": [
+            "比较类",
+            "比值大小",
+            "双线法",
+            "分子分母",
+            "增速比较"
+          ],
+          "solver_tier": "lookup_or_compare",
+          "solver_rank": 15,
+          "confidence": 0.88,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_share_base_002",
+          "method_name": "基期比重公式法",
+          "question_type": "比重",
+          "sub_type": "基期比重/前期比重",
+          "tags": [
+            "基期比重",
+            "前期比重",
+            "比重",
+            "增长率"
+          ],
+          "solver_tier": "core_formula",
+          "solver_rank": 10,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_share_current_001",
+          "method_name": "本期比重主体定位法",
+          "question_type": "比重",
+          "sub_type": "本期/单期比重",
+          "tags": [
+            "比重",
+            "部分整体",
+            "占",
+            "单期比重",
+            "本期比重"
+          ],
+          "solver_tier": "core_formula",
+          "solver_rank": 10,
+          "confidence": 0.97,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_ratio_share_diff_005",
+          "method_name": "三类分式变化辨析表",
+          "question_type": "比重变化",
+          "sub_type": "比值增长率/比重差/比值差辨析",
+          "tags": [
+            "比值增长率",
+            "比重差",
+            "比值差",
+            "辨析",
+            "易混题"
+          ],
+          "solver_tier": "core_formula",
+          "solver_rank": 10,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_share_change_004",
+          "method_name": "比重差公式与秒杀法",
+          "question_type": "比重变化",
+          "sub_type": "比重差/百分点变化",
+          "tags": [
+            "比重差",
+            "百分点",
+            "比重变化",
+            "秒杀"
+          ],
+          "solver_tier": "core_formula",
+          "solver_rank": 10,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_share_trend_003",
+          "method_name": "比重趋势比较增速法",
+          "question_type": "比重变化",
+          "sub_type": "两期比重升降判断",
+          "tags": [
+            "比重趋势",
+            "两期比重",
+            "部分增速",
+            "整体增速",
+            "上升下降"
+          ],
+          "solver_tier": "core_formula",
+          "solver_rank": 10,
+          "confidence": 0.97,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_capacity_overlap_001",
+          "method_name": "两集合容斥边界判断法",
+          "question_type": "特殊考点",
+          "sub_type": "容斥问题",
+          "tags": [
+            "容斥问题",
+            "至少",
+            "至多",
+            "集合交集",
+            "占比超过100%"
+          ],
+          "solver_tier": "special_case",
+          "solver_rank": 20,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "da_ladong_contribution_001",
+          "method_name": "拉动增长率/增量贡献率公式法",
+          "question_type": "特殊考点",
+          "sub_type": "拉动增长率与增量贡献率",
+          "tags": [
+            "拉动增长率",
+            "增量贡献率",
+            "特殊考点",
+            "部分增量",
+            "整体基期"
+          ],
+          "solver_tier": "special_case",
+          "solver_rank": 20,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "da_abx_current_001",
+          "method_name": "现期量列式与假设增量法",
+          "question_type": "现期量",
+          "sub_type": "已知基期量或增长量求现期",
+          "tags": [
+            "ABRX",
+            "现期量",
+            "本期量",
+            "增长量",
+            "增长率"
+          ],
+          "solver_tier": "core_formula",
+          "solver_rank": 10,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_salt_cross_001",
+          "method_name": "十字交叉求分母之比",
+          "question_type": "盐水类",
+          "sub_type": "十字交叉法",
+          "tags": [
+            "盐水类",
+            "十字交叉",
+            "混合",
+            "浓度",
+            "分母之比"
+          ],
+          "solver_tier": "special_case",
+          "solver_rank": 20,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_salt_qualitative_002",
+          "method_name": "混合值不居中定性判断法",
+          "question_type": "盐水类",
+          "sub_type": "定性分析",
+          "tags": [
+            "盐水类",
+            "定性分析",
+            "混合值",
+            "增长率比较"
+          ],
+          "solver_tier": "special_case",
+          "solver_rank": 20,
+          "confidence": 0.89,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_salt_quantitative_003",
+          "method_name": "已知2R/3R与量之比反求R法",
+          "question_type": "盐水类",
+          "sub_type": "定量分析",
+          "tags": [
+            "盐水类",
+            "定量分析",
+            "人数相关",
+            "2R3R",
+            "量之比"
+          ],
+          "solver_tier": "special_case",
+          "solver_rank": 20,
+          "confidence": 0.87,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_time_segments_001",
+          "method_name": "累计期与单月分段比较法",
+          "question_type": "盐水类",
+          "sub_type": "时间分段",
+          "tags": [
+            "时间分段",
+            "累计",
+            "单月",
+            "1-7月",
+            "7月"
+          ],
+          "solver_tier": "special_case",
+          "solver_rank": 20,
+          "confidence": 0.91,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_415_parts_001",
+          "method_name": "415份数法",
+          "question_type": "速算方法",
+          "sub_type": "增长量速算",
+          "tags": [
+            "415份数法",
+            "增长量",
+            "份数",
+            "常用分数",
+            "速算"
+          ],
+          "solver_tier": "speed_tool",
+          "solver_rank": 30,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_assumption_allocation_001",
+          "method_name": "假设分配法",
+          "question_type": "速算方法",
+          "sub_type": "增长量速算",
+          "tags": [
+            "假设分配法",
+            "增长量",
+            "估算",
+            "小数分配",
+            "增长率小"
+          ],
+          "solver_tier": "speed_tool",
+          "solver_rank": 30,
+          "confidence": 0.88,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_estimation_add_sub_mul_001",
+          "method_name": "尾数-高位叠加-削峰填谷-乘法拆分法",
+          "question_type": "速算方法",
+          "sub_type": "加减乘速算",
+          "tags": [
+            "速算",
+            "尾数法",
+            "高位叠加",
+            "削峰填谷",
+            "乘法拆分",
+            "小分互换"
+          ],
+          "solver_tier": "speed_tool",
+          "solver_rank": 30,
+          "confidence": 0.91,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_fraction_compare_difference_001",
+          "method_name": "常用分数大小比较法",
+          "question_type": "速算方法",
+          "sub_type": "分数大小比较",
+          "tags": [
+            "分数比较",
+            "判断分数大小",
+            "分子分母同大同小",
+            "横向看倍数",
+            "纵向直除"
+          ],
+          "solver_tier": "speed_tool",
+          "solver_rank": 30,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "da_truncate_division_001",
+          "method_name": "截位直除法",
+          "question_type": "速算方法",
+          "sub_type": "除法截位与选项差距判断",
+          "tags": [
+            "截位直除",
+            "选项差距",
+            "速算",
+            "除法"
+          ],
+          "solver_tier": "speed_tool",
+          "solver_rank": 30,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        }
+      ]
+    },
+    "数量关系": {
+      "card_count": 65,
+      "methods": [
+        {
+          "id": "qr_indeterminate_equation_001",
+          "method_name": "奇偶、整除、代入、消元与赋零法",
+          "question_type": "不定方程",
+          "sub_type": "不定方程求解",
+          "tags": [
+            "不定方程",
+            "整数解",
+            "赋零法",
+            "奇偶性",
+            "整除"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 18,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_remainder_formula_001",
+          "method_name": "余同取余、和同加和、差同减差",
+          "question_type": "余数问题",
+          "sub_type": "特征余数",
+          "tags": [
+            "余数",
+            "口诀",
+            "最小公倍数",
+            "周期"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 20,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_remainder_enum_001",
+          "method_name": "LCM*n+x枚举法",
+          "question_type": "余数问题",
+          "sub_type": "无特征余数",
+          "tags": [
+            "余数",
+            "枚举",
+            "最小公倍数"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 28,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_geometry_scaling_001",
+          "method_name": "边长、面积、体积倍数关系",
+          "question_type": "几何问题",
+          "sub_type": "等比放缩",
+          "tags": [
+            "几何放缩",
+            "相似",
+            "比例",
+            "面积倍数",
+            "体积倍数"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 14,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_geometry_formula_001",
+          "method_name": "常用长度、面积、体积公式",
+          "question_type": "几何问题",
+          "sub_type": "几何计算与构造",
+          "tags": [
+            "几何",
+            "面积",
+            "体积",
+            "周长",
+            "弧长",
+            "扇形"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 16,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_shortest_distance_001",
+          "method_name": "对称展开与垂线最短",
+          "question_type": "几何问题",
+          "sub_type": "最短距离",
+          "tags": [
+            "最短距离",
+            "对称点",
+            "展开",
+            "垂线"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 16,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_geometry_extreme_001",
+          "method_name": "越接近圆/球极值越优",
+          "question_type": "几何问题",
+          "sub_type": "几何最值",
+          "tags": [
+            "几何最值",
+            "周长一定",
+            "面积一定",
+            "表面积一定",
+            "长方体切割"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 18,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_one_stroke_001",
+          "method_name": "一笔画奇点规则",
+          "question_type": "几何问题",
+          "sub_type": "最短遍历路径",
+          "tags": [
+            "一笔画",
+            "奇点",
+            "最短遍历",
+            "重复边"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 32,
+          "confidence": 0.88,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "qr_cycle_mod_001",
+          "method_name": "去掉完整周期看余数",
+          "question_type": "周期循环问题",
+          "sub_type": "周期余数",
+          "tags": [
+            "周期",
+            "循环",
+            "余数",
+            "最小公倍数"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 10,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_inclusion_exclusion_001",
+          "method_name": "圈内圈外与人次重复关系",
+          "question_type": "容斥问题",
+          "sub_type": "一般容斥",
+          "tags": [
+            "容斥",
+            "集合",
+            "至少一种",
+            "只参加",
+            "重复部分"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 16,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_inclusion_exclusion_extreme_001",
+          "method_name": "反向构造相交最小/最大",
+          "question_type": "容斥问题",
+          "sub_type": "容斥最值",
+          "tags": [
+            "容斥最值",
+            "反向构造",
+            "相交最小",
+            "相交最大"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 24,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_work_basic_001",
+          "method_name": "工作总量=效率×时间与赋值法",
+          "question_type": "工程问题",
+          "sub_type": "基础工程",
+          "tags": [
+            "工程问题",
+            "效率",
+            "时间",
+            "工作总量",
+            "赋值法"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 10,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_work_rest_001",
+          "method_name": "休息意味着另一人继续工作",
+          "question_type": "工程问题",
+          "sub_type": "休息时间",
+          "tags": [
+            "工程问题",
+            "休息时间",
+            "合作",
+            "单独工作量"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 16,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_average_number_001",
+          "method_name": "等距离/等时间平均速度及A=B*C迁移",
+          "question_type": "平均数问题",
+          "sub_type": "调和与算术平均",
+          "tags": [
+            "平均数",
+            "平均速度",
+            "调和平均数",
+            "算术平均数"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 18,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_age_problem_001",
+          "method_name": "年龄差与现实范围切入法",
+          "question_type": "年龄问题",
+          "sub_type": "年龄差不变",
+          "tags": [
+            "年龄",
+            "年龄差",
+            "同属相",
+            "平方数",
+            "代入"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 18,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_perm_comb_basic_001",
+          "method_name": "有序为排列、无序为组合，分类加法分步乘法",
+          "question_type": "排列组合与概率",
+          "sub_type": "基础排列组合",
+          "tags": [
+            "排列",
+            "组合",
+            "加法原理",
+            "乘法原理",
+            "至少",
+            "全部减不符"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 8,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_probability_basic_001",
+          "method_name": "符合情况/所有可能情况",
+          "question_type": "排列组合与概率",
+          "sub_type": "一般概率",
+          "tags": [
+            "概率",
+            "样本空间",
+            "符合情况",
+            "所有情况"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 9,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_adjacent_bundle_001",
+          "method_name": "捆绑法",
+          "question_type": "排列组合与概率",
+          "sub_type": "相邻问题",
+          "tags": [
+            "相邻",
+            "挨着",
+            "捆绑法",
+            "内部排序"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 10,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_nonadjacent_insert_001",
+          "method_name": "插空法",
+          "question_type": "排列组合与概率",
+          "sub_type": "不相邻问题",
+          "tags": [
+            "不相邻",
+            "不能连续",
+            "插空法",
+            "空位"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 10,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_average_grouping_001",
+          "method_name": "无序除堆排序，有序直接选",
+          "question_type": "排列组合与概率",
+          "sub_type": "平均分堆",
+          "tags": [
+            "平均分堆",
+            "分组",
+            "有序组",
+            "无序组"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 12,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_repeated_permutation_001",
+          "method_name": "每位独立选择n^m",
+          "question_type": "排列组合与概率",
+          "sub_type": "重复排列",
+          "tags": [
+            "重复排列",
+            "独立选择",
+            "密码",
+            "号码"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 12,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_same_elements_distribution_001",
+          "method_name": "插板法",
+          "question_type": "排列组合与概率",
+          "sub_type": "相同元素分配",
+          "tags": [
+            "插板法",
+            "相同元素",
+            "分配",
+            "至少一个"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 12,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_two_person_same_group_001",
+          "method_name": "先固定一人再看另一人",
+          "question_type": "排列组合与概率",
+          "sub_type": "两人同组概率",
+          "tags": [
+            "两人同组",
+            "同排",
+            "同车",
+            "同班",
+            "概率"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 12,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_derangement_001",
+          "method_name": "记忆1-6元素错排数",
+          "question_type": "排列组合与概率",
+          "sub_type": "错位排序",
+          "tags": [
+            "错位排序",
+            "都不在原位置",
+            "信封信箱",
+            "错排"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 14,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_geometric_probability_001",
+          "method_name": "长度/面积/体积比求概率",
+          "question_type": "排列组合与概率",
+          "sub_type": "几何概型",
+          "tags": [
+            "几何概型",
+            "长度比",
+            "面积比",
+            "体积比",
+            "随机点"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 18,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "qr_circular_permutation_001",
+          "method_name": "环形固定一位后排列",
+          "question_type": "排列组合与概率",
+          "sub_type": "环形排列",
+          "tags": [
+            "环形排列",
+            "圆桌",
+            "围坐",
+            "圆周排列"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 20,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_fixed_order_001",
+          "method_name": "全排列除以特定元素全排列",
+          "question_type": "排列组合与概率",
+          "sub_type": "定序问题",
+          "tags": [
+            "定序",
+            "顺序固定",
+            "先后顺序",
+            "拜访顺序"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 22,
+          "confidence": 0.88,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "qr_lottery_probability_001",
+          "method_name": "先抽后抽概率相同",
+          "question_type": "排列组合与概率",
+          "sub_type": "抽奖概率",
+          "tags": [
+            "抽奖",
+            "抓阄",
+            "先后顺序",
+            "中奖概率"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 24,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "qr_match_probability_order_001",
+          "method_name": "负场位置限制",
+          "question_type": "排列组合与概率",
+          "sub_type": "比赛类概率",
+          "tags": [
+            "比赛概率",
+            "几局几胜",
+            "负场位置",
+            "提前结束"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 26,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "qr_sequence_formula_001",
+          "method_name": "等差、等比与递推数列公式",
+          "question_type": "数列问题",
+          "sub_type": "基础数列",
+          "tags": [
+            "等差数列",
+            "等比数列",
+            "斐波那契",
+            "求和",
+            "归纳"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 24,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_numeric_reasoning_001",
+          "method_name": "差商幂修正与分组观察法",
+          "question_type": "数字推理",
+          "sub_type": "无特征数列",
+          "tags": [
+            "数字推理",
+            "无特征数列",
+            "多重数列",
+            "机械拆分",
+            "幂次数列",
+            "图形数列"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 30,
+          "confidence": 0.88,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "qr_number_property_001",
+          "method_name": "倍数、整除与余数特性",
+          "question_type": "数论与计算",
+          "sub_type": "数的特性",
+          "tags": [
+            "倍数",
+            "整除",
+            "最小公倍数",
+            "最大公约数",
+            "余数"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 26,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_calculation_formula_001",
+          "method_name": "常用代数公式与乘方尾数法",
+          "question_type": "数论与计算",
+          "sub_type": "基础公式",
+          "tags": [
+            "平方差",
+            "完全平方",
+            "立方和差",
+            "尾数",
+            "幂运算"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 35,
+          "confidence": 0.86,
+          "need_review": true,
+          "source_count": 2
+        },
+        {
+          "id": "qr_equation_method_001",
+          "method_name": "和差倍比与问什么设什么",
+          "question_type": "方程问题",
+          "sub_type": "普通方程",
+          "tags": [
+            "方程法",
+            "和差倍比",
+            "代入排除",
+            "比例"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 22,
+          "confidence": 0.88,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "qr_date_week_001",
+          "method_name": "粗算修正日期差法",
+          "question_type": "日期星期问题",
+          "sub_type": "天数与星期推断",
+          "tags": [
+            "日期",
+            "星期",
+            "平年",
+            "闰年",
+            "天数计算"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 12,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_extreme_unfavorable_001",
+          "method_name": "构造最不利保证n人满足",
+          "question_type": "最值问题",
+          "sub_type": "最不利问题",
+          "tags": [
+            "最不利",
+            "抽屉原理",
+            "保证",
+            "至少"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 10,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_extreme_sum_fixed_001",
+          "method_name": "总和固定下问某部分最多/最少",
+          "question_type": "最值问题",
+          "sub_type": "和定最值",
+          "tags": [
+            "和定最值",
+            "排名",
+            "抽屉原理",
+            "平均值"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 12,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_extreme_function_001",
+          "method_name": "二次函数顶点与均值定理",
+          "question_type": "最值问题",
+          "sub_type": "函数最值",
+          "tags": [
+            "函数最值",
+            "二次函数",
+            "顶点",
+            "均值定理"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 14,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_extreme_product_001",
+          "method_name": "总平均固定下的十字相乘极值",
+          "question_type": "最值问题",
+          "sub_type": "乘积最值",
+          "tags": [
+            "乘积最值",
+            "平均分",
+            "十字相乘",
+            "极端构造"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 24,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_extreme_three_end_001",
+          "method_name": "两端同向极端构造",
+          "question_type": "最值问题",
+          "sub_type": "三端最值",
+          "tags": [
+            "三端最值",
+            "混合",
+            "浓度",
+            "极端构造"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 30,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_competition_schedule_001",
+          "method_name": "循环赛、淘汰赛与轮空规则",
+          "question_type": "比赛问题",
+          "sub_type": "场次轮次轮空",
+          "tags": [
+            "比赛场次",
+            "循环赛",
+            "淘汰赛",
+            "轮空",
+            "已赛未赛"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 16,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_alligation_001",
+          "method_name": "已知3个浓度求两部分量之比",
+          "question_type": "浓度问题",
+          "sub_type": "十字相乘",
+          "tags": [
+            "十字相乘",
+            "盐水",
+            "浓度混合",
+            "已知3r"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 12,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_concentration_basic_001",
+          "method_name": "浓度基础公式与溶质守恒",
+          "question_type": "浓度问题",
+          "sub_type": "溶质不变",
+          "tags": [
+            "浓度",
+            "溶质",
+            "溶液",
+            "溶剂",
+            "混合"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 14,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_cow_grazing_001",
+          "method_name": "白吃牛与干活牛三步法",
+          "question_type": "牛吃草问题",
+          "sub_type": "原有草与生长草",
+          "tags": [
+            "牛吃草",
+            "草场",
+            "原有草",
+            "生长量",
+            "时间"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 14,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_chicken_rabbit_001",
+          "method_name": "理论最大值与实际值差值公式",
+          "question_type": "特殊情景应用",
+          "sub_type": "鸡兔同笼",
+          "tags": [
+            "鸡兔同笼",
+            "对错题",
+            "工资报酬",
+            "阶梯收费"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 14,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_surplus_deficit_001",
+          "method_name": "盈数亏数除以分配标准差",
+          "question_type": "特殊情景应用",
+          "sub_type": "盈亏问题",
+          "tags": [
+            "盈亏问题",
+            "分配",
+            "坐车",
+            "住宿",
+            "盈数",
+            "亏数"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 14,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_tree_planting_001",
+          "method_name": "两端/一端/环形/两端不植树公式",
+          "question_type": "特殊情景应用",
+          "sub_type": "植树问题",
+          "tags": [
+            "植树",
+            "间隔",
+            "路长",
+            "两端植树",
+            "环形"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 14,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_clock_problem_001",
+          "method_name": "时针分针追及模型",
+          "question_type": "特殊情景应用",
+          "sub_type": "钟表问题",
+          "tags": [
+            "钟表",
+            "时针",
+            "分针",
+            "夹角",
+            "坏表"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 16,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_square_array_001",
+          "method_name": "最外层边长平方与层人数公式",
+          "question_type": "特殊情景应用",
+          "sub_type": "方阵问题",
+          "tags": [
+            "方阵",
+            "正方形方阵",
+            "层数",
+            "最外层",
+            "空心方阵"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 20,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_tree_overlap_001",
+          "method_name": "两次植树最大公约数求无需移动棵数",
+          "question_type": "特殊情景应用",
+          "sub_type": "植树重合",
+          "tags": [
+            "植树重合",
+            "最大公约数",
+            "无需移动",
+            "间隔"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 36,
+          "confidence": 0.86,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "qr_profit_basic_001",
+          "method_name": "成本、售价、利润率基础公式",
+          "question_type": "经济利润问题",
+          "sub_type": "单件与多件销售",
+          "tags": [
+            "利润",
+            "成本",
+            "售价",
+            "折扣",
+            "利润率"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 12,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_profit_batch_001",
+          "method_name": "按各批收入相加列总收入方程",
+          "question_type": "经济利润问题",
+          "sub_type": "分批销售",
+          "tags": [
+            "分批销售",
+            "总收入",
+            "利润率",
+            "折扣"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 14,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_profit_fund_flow_001",
+          "method_name": "只看应收回金额不看过程",
+          "question_type": "经济利润问题",
+          "sub_type": "资金往来",
+          "tags": [
+            "资金往来",
+            "分账",
+            "收益",
+            "损失",
+            "合伙"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 30,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "qr_planning_optimal_001",
+          "method_name": "工程/运输/经济统筹的低耗优先法",
+          "question_type": "统筹规划问题",
+          "sub_type": "最优方案",
+          "tags": [
+            "统筹规划",
+            "最优方案",
+            "运输统筹",
+            "经济统筹",
+            "工程统筹"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 32,
+          "confidence": 0.88,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "qr_bottle_exchange_001",
+          "method_name": "n瓶换1瓶转化为n-1个空瓶换无瓶酒",
+          "question_type": "统筹规划问题",
+          "sub_type": "空瓶换酒",
+          "tags": [
+            "空瓶换酒",
+            "换购",
+            "空瓶",
+            "递推"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 45,
+          "confidence": 0.84,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "qr_time_planning_001",
+          "method_name": "等待时间最少与煎饼共用时间",
+          "question_type": "统筹规划问题",
+          "sub_type": "时间统筹",
+          "tags": [
+            "时间统筹",
+            "等待时间",
+            "煎饼问题",
+            "安排顺序"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 45,
+          "confidence": 0.82,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "qr_balance_weighing_001",
+          "method_name": "接近3^n判断称重次数",
+          "question_type": "统筹规划问题",
+          "sub_type": "天平称重",
+          "tags": [
+            "天平称重",
+            "重球",
+            "轻球",
+            "称重次数",
+            "三分"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 48,
+          "confidence": 0.78,
+          "need_review": true,
+          "source_count": 2
+        },
+        {
+          "id": "qr_meeting_chasing_001",
+          "method_name": "速度和/速度差公式",
+          "question_type": "行程问题",
+          "sub_type": "相遇追及",
+          "tags": [
+            "相遇",
+            "追及",
+            "速度和",
+            "速度差",
+            "距离差"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 10,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_travel_basic_001",
+          "method_name": "路程=速度×时间与比例法",
+          "question_type": "行程问题",
+          "sub_type": "普通行程",
+          "tags": [
+            "行程",
+            "速度",
+            "时间",
+            "路程",
+            "比例法",
+            "单位换算"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 10,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_stream_boat_001",
+          "method_name": "船速水速顺逆公式",
+          "question_type": "行程问题",
+          "sub_type": "流水行船",
+          "tags": [
+            "流水行船",
+            "顺水",
+            "逆水",
+            "船速",
+            "水速"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 14,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_circular_motion_001",
+          "method_name": "同起点同向追及/背向相遇",
+          "question_type": "行程问题",
+          "sub_type": "环形运动",
+          "tags": [
+            "环形运动",
+            "同向追及",
+            "背向相遇",
+            "圈长"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 18,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_train_bridge_001",
+          "method_name": "车身长不可忽略",
+          "question_type": "行程问题",
+          "sub_type": "火车过桥",
+          "tags": [
+            "火车过桥",
+            "桥长",
+            "车身长",
+            "过完全桥"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 18,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_multiple_meeting_001",
+          "method_name": "第N次相遇走2N-1个全程",
+          "question_type": "行程问题",
+          "sub_type": "多次相遇",
+          "tags": [
+            "多次相遇",
+            "全程",
+            "两端出发",
+            "单岸型",
+            "双岸型"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 20,
+          "confidence": 0.91,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "qr_escalator_001",
+          "method_name": "变形行船模型",
+          "question_type": "行程问题",
+          "sub_type": "上下扶梯",
+          "tags": [
+            "扶梯",
+            "电梯",
+            "上行",
+            "下行",
+            "级数",
+            "变形行船"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 30,
+          "confidence": 0.88,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "qr_team_marching_001",
+          "method_name": "队头到队尾的相对速度",
+          "question_type": "行程问题",
+          "sub_type": "队伍行进",
+          "tags": [
+            "队伍行进",
+            "队伍长度",
+            "队头",
+            "队尾",
+            "通信员"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 32,
+          "confidence": 0.88,
+          "need_review": false,
+          "source_count": 1
+        }
+      ]
+    },
+    "判断推理-图形推理": {
+      "card_count": 39,
+      "methods": [
+        {
+          "id": "gr_position_translate_001",
+          "method_name": "平移与移动路径法",
+          "question_type": "位置规律",
+          "sub_type": "平移",
+          "tags": [
+            "平移",
+            "移动",
+            "路径",
+            "宫格",
+            "方向"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 12,
+          "confidence": 0.91,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_position_rotation_001",
+          "method_name": "旋转角度与方向法",
+          "question_type": "位置规律",
+          "sub_type": "旋转",
+          "tags": [
+            "旋转",
+            "顺时针",
+            "逆时针",
+            "角度"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 13,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_position_flip_001",
+          "method_name": "翻转轴与镜像识别法",
+          "question_type": "位置规律",
+          "sub_type": "翻转",
+          "tags": [
+            "翻转",
+            "横轴对称",
+            "竖轴对称",
+            "中心对称",
+            "镜像"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 14,
+          "confidence": 0.91,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_total_flow_001",
+          "method_name": "图推总流程卡片",
+          "question_type": "图推总流程",
+          "sub_type": "总观察顺序",
+          "tags": [
+            "总流程",
+            "观察顺序",
+            "图形组成",
+            "十五字口诀",
+            "优先调用"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 1,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_question_form_001",
+          "method_name": "命题形式与读取顺序卡",
+          "question_type": "图推总流程",
+          "sub_type": "命题形式识别",
+          "tags": [
+            "一组图",
+            "两组图",
+            "九宫格",
+            "分组分类",
+            "立体类",
+            "读取顺序"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 2,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_mnemonic_15_001",
+          "method_name": "十五字口诀调用卡",
+          "question_type": "图推总流程",
+          "sub_type": "口诀",
+          "tags": [
+            "十五字口诀",
+            "屈臣氏整风",
+            "点线面角素",
+            "直接想位移"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 3,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "gr_exam_pacing_001",
+          "method_name": "图推分三轮处理策略",
+          "question_type": "图推总流程",
+          "sub_type": "考场策略",
+          "tags": [
+            "考场策略",
+            "时间分配",
+            "放弃策略"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 5,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "gr_split_compare_thinking_001",
+          "method_name": "拆分思维与对比思维卡",
+          "question_type": "图推总流程",
+          "sub_type": "拆分与对比思维",
+          "tags": [
+            "拆分思维",
+            "对比思维",
+            "局部观察",
+            "分组分类"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 25,
+          "confidence": 0.88,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "gr_property_symmetry_001",
+          "method_name": "对称性与对称轴法",
+          "question_type": "属性规律",
+          "sub_type": "对称性",
+          "tags": [
+            "对称性",
+            "轴对称",
+            "中心对称",
+            "对称轴数量",
+            "对称轴方向"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 30,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_property_open_closed_001",
+          "method_name": "开闭性判断法",
+          "question_type": "属性规律",
+          "sub_type": "开闭性",
+          "tags": [
+            "开闭性",
+            "开放图形",
+            "封闭图形",
+            "半开半闭"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 31,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_property_curve_straight_001",
+          "method_name": "曲直性判断法",
+          "question_type": "属性规律",
+          "sub_type": "曲直性",
+          "tags": [
+            "曲直性",
+            "全曲",
+            "全直",
+            "曲直混合",
+            "直线曲线"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 32,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_functional_element_001",
+          "method_name": "功能元素标记位置法",
+          "question_type": "数量/位置规律",
+          "sub_type": "功能元素",
+          "tags": [
+            "功能元素",
+            "标记点",
+            "标记线",
+            "标记面",
+            "标记角",
+            "相对位置"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 47,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_graph_relation_001",
+          "method_name": "图形间相离相交关系法",
+          "question_type": "数量/属性规律",
+          "sub_type": "图形间关系",
+          "tags": [
+            "图形间关系",
+            "相离",
+            "相交于点",
+            "相交于线",
+            "相交于面"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 46,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_quantity_one_stroke_001",
+          "method_name": "一笔画与笔画数法",
+          "question_type": "数量规律",
+          "sub_type": "一笔画",
+          "tags": [
+            "一笔画",
+            "奇点",
+            "笔画数",
+            "连通图"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 40,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_quantity_point_001",
+          "method_name": "点数量与交点类型法",
+          "question_type": "数量规律",
+          "sub_type": "点",
+          "tags": [
+            "点",
+            "交点",
+            "切点",
+            "出头点",
+            "曲直交点",
+            "内部交点"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 41,
+          "confidence": 0.91,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_quantity_line_001",
+          "method_name": "线数量与线组关系法",
+          "question_type": "数量规律",
+          "sub_type": "线",
+          "tags": [
+            "线",
+            "直线",
+            "曲线",
+            "平行线组",
+            "线段数量",
+            "线位置"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 42,
+          "confidence": 0.88,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_quantity_angle_001",
+          "method_name": "角数量与角类型法",
+          "question_type": "数量规律",
+          "sub_type": "角",
+          "tags": [
+            "角",
+            "直角",
+            "锐角",
+            "钝角",
+            "扇形中心角"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 43,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_quantity_face_001",
+          "method_name": "封闭面数量与面属性法",
+          "question_type": "数量规律",
+          "sub_type": "面",
+          "tags": [
+            "面",
+            "封闭空间",
+            "部分面",
+            "最大面",
+            "面形状",
+            "面积"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 44,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_quantity_element_001",
+          "method_name": "元素种类与元素个数法",
+          "question_type": "数量规律",
+          "sub_type": "素",
+          "tags": [
+            "素",
+            "元素",
+            "种类",
+            "个数",
+            "生活化图形",
+            "黑色相连图形"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 45,
+          "confidence": 0.89,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_common_misjudgment_001",
+          "method_name": "图推常见误判点清单",
+          "question_type": "易错点",
+          "sub_type": "常见误判",
+          "tags": [
+            "易错点",
+            "误判",
+            "防错",
+            "规则冲突"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 9,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_style_traversal_001",
+          "method_name": "样式/数量/位置遍历法",
+          "question_type": "样式规律",
+          "sub_type": "遍历",
+          "tags": [
+            "遍历",
+            "样式规律",
+            "重复出现",
+            "行列次数"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 20,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_style_add_sub_same_diff_001",
+          "method_name": "加减同异与去同去异法",
+          "question_type": "样式规律",
+          "sub_type": "加减同异",
+          "tags": [
+            "加减同异",
+            "去同存异",
+            "去异存同",
+            "叠加"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 21,
+          "confidence": 0.91,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_black_white_operation_001",
+          "method_name": "黑白块同位置运算法",
+          "question_type": "样式规律",
+          "sub_type": "黑白运算",
+          "tags": [
+            "黑白运算",
+            "黑白块",
+            "同位置比较",
+            "加减同异"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 22,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_black_white_block_001",
+          "method_name": "黑白块综合判断法",
+          "question_type": "特殊题型",
+          "sub_type": "黑白块",
+          "tags": [
+            "黑白块",
+            "面积",
+            "数量",
+            "连接",
+            "相邻比较",
+            "黑白运算"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 18,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_chinese_character_001",
+          "method_name": "汉字图形规律法",
+          "question_type": "特殊题型",
+          "sub_type": "汉字类",
+          "tags": [
+            "汉字",
+            "结构",
+            "偏旁",
+            "笔画",
+            "封闭面",
+            "曲直",
+            "对称"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 19,
+          "confidence": 0.91,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_digit_symbol_001",
+          "method_name": "数字图形规律法",
+          "question_type": "特殊题型",
+          "sub_type": "数字类",
+          "tags": [
+            "数字",
+            "对称性",
+            "曲直性",
+            "开闭性",
+            "封闭面",
+            "数字本身"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 23,
+          "confidence": 0.91,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_letter_symbol_001",
+          "method_name": "字母图形规律法",
+          "question_type": "特殊题型",
+          "sub_type": "字母类",
+          "tags": [
+            "字母",
+            "对称性",
+            "曲直性",
+            "开闭性",
+            "字母顺序",
+            "字母本身算法"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 24,
+          "confidence": 0.88,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_cube_net_overall_001",
+          "method_name": "六面体展开图总流程",
+          "question_type": "空间重构",
+          "sub_type": "六面体展开图",
+          "tags": [
+            "空间重构",
+            "六面体",
+            "展开图",
+            "还原母图",
+            "特殊展开图"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 10,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_cube_opposite_faces_001",
+          "method_name": "相对面排除法",
+          "question_type": "空间重构",
+          "sub_type": "相对面",
+          "tags": [
+            "相对面",
+            "展开图",
+            "六面体",
+            "排除法"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 11,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_cube_common_edge_001",
+          "method_name": "公共边验证法",
+          "question_type": "空间重构",
+          "sub_type": "公共边",
+          "tags": [
+            "公共边",
+            "展开图",
+            "相邻面",
+            "L型画边法"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 12,
+          "confidence": 0.89,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_cube_clockwise_method_001",
+          "method_name": "时针画边法",
+          "question_type": "空间重构",
+          "sub_type": "时针法",
+          "tags": [
+            "时针法",
+            "空间重构",
+            "方向验证",
+            "公共边"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 13,
+          "confidence": 0.88,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_spatial_section_001",
+          "method_name": "立体截面图判断法",
+          "question_type": "空间重构",
+          "sub_type": "截面图",
+          "tags": [
+            "截面图",
+            "六面体",
+            "圆柱体",
+            "圆锥体",
+            "截面形状"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 15,
+          "confidence": 0.89,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_spatial_three_view_001",
+          "method_name": "立体三视图还原法",
+          "question_type": "空间重构",
+          "sub_type": "三视图",
+          "tags": [
+            "三视图",
+            "主视图",
+            "左视图",
+            "俯视图",
+            "遮挡"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 16,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_spatial_assembly_001",
+          "method_name": "积木题分层画图法",
+          "question_type": "空间重构",
+          "sub_type": "立体拼合",
+          "tags": [
+            "立体拼合",
+            "积木题",
+            "分层画图",
+            "分层凑数"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 17,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_composition_same_001",
+          "method_name": "组成相同优先看位置规律",
+          "question_type": "组成判断",
+          "sub_type": "元素组成相同",
+          "tags": [
+            "组成相同",
+            "位置规律",
+            "平移",
+            "旋转",
+            "翻转"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 3,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_composition_similar_001",
+          "method_name": "组成相似优先看样式规律",
+          "question_type": "组成判断",
+          "sub_type": "元素组成相似",
+          "tags": [
+            "组成相似",
+            "遍历",
+            "加减同异",
+            "黑白运算",
+            "样式规律"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 4,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_composition_different_001",
+          "method_name": "组成不同优先看属性与数量",
+          "question_type": "组成判断",
+          "sub_type": "元素组成不同",
+          "tags": [
+            "组成不同",
+            "属性规律",
+            "数量规律",
+            "曲直",
+            "对称",
+            "开闭",
+            "点线面角素"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 6,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_special_shape_routing_001",
+          "method_name": "特殊图形优先专项路由",
+          "question_type": "组成判断",
+          "sub_type": "特殊图形入口",
+          "tags": [
+            "黑白块",
+            "汉字",
+            "数字",
+            "字母",
+            "专项题型"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 7,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "gr_option_verification_001",
+          "method_name": "图推选项验证流程卡",
+          "question_type": "选项验证",
+          "sub_type": "选项验证流程",
+          "tags": [
+            "选项验证",
+            "排除法",
+            "反向验证",
+            "防猜"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 8,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        }
+      ]
+    },
+    "判断推理-逻辑判断": {
+      "card_count": 42,
+      "methods": [
+        {
+          "id": "lj_truth_value_analysis_001",
+          "method_name": "真假分析矛盾-假设-代入法",
+          "question_type": "分析推理",
+          "sub_type": "真假分析",
+          "tags": [
+            "真假分析",
+            "矛盾关系",
+            "假设法",
+            "代入法"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 34,
+          "confidence": 0.84,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "lj_category_analysis_001",
+          "method_name": "文氏图范畴分析法",
+          "question_type": "分析推理",
+          "sub_type": "范畴分析",
+          "tags": [
+            "范畴分析",
+            "文氏图",
+            "集合关系"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 36,
+          "confidence": 0.82,
+          "need_review": true,
+          "source_count": 1
+        },
+        {
+          "id": "lj_daily_analysis_001",
+          "method_name": "日常分析列表/代入/画图法",
+          "question_type": "分析推理",
+          "sub_type": "日常分析",
+          "tags": [
+            "日常分析",
+            "列表法",
+            "代入法",
+            "画图法"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 37,
+          "confidence": 0.87,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "lj_attribution_general_001",
+          "method_name": "归因论证识别与攻击总法",
+          "question_type": "削弱",
+          "sub_type": "归因论证",
+          "tags": [
+            "归因类",
+            "因果关系",
+            "质疑削弱",
+            "对比实验"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 10,
+          "confidence": 0.97,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_weaken_alternative_cause_001",
+          "method_name": "另有他因削弱法",
+          "question_type": "削弱",
+          "sub_type": "另有他因",
+          "tags": [
+            "质疑削弱",
+            "归因类",
+            "另有他因"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 11,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_weaken_reverse_causation_001",
+          "method_name": "因果倒置削弱法",
+          "question_type": "削弱",
+          "sub_type": "因果倒置",
+          "tags": [
+            "质疑削弱",
+            "因果倒置",
+            "归因类"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 12,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_weaken_not_this_cause_001",
+          "method_name": "否定此因削弱法",
+          "question_type": "削弱",
+          "sub_type": "并非此因",
+          "tags": [
+            "质疑削弱",
+            "否定此因",
+            "归因类"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 13,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_experiment_missing_control_001",
+          "method_name": "缺少对照组/对照不当检查法",
+          "question_type": "削弱",
+          "sub_type": "对比实验",
+          "tags": [
+            "对比实验",
+            "对照组",
+            "实验设计",
+            "削弱"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 15,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_weaken_invalid_sample_001",
+          "method_name": "样本无效削弱法",
+          "question_type": "削弱",
+          "sub_type": "样本不代表总体",
+          "tags": [
+            "样本不代表总体",
+            "调查样本",
+            "样本无效",
+            "削弱"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 16,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_proportion_argument_001",
+          "method_name": "比例类论证分母校验法",
+          "question_type": "削弱",
+          "sub_type": "比例类",
+          "tags": [
+            "比例类",
+            "率",
+            "分子分母",
+            "数字比较",
+            "削弱"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 17,
+          "confidence": 0.97,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_weaken_root_surface_cause_001",
+          "method_name": "根本原因与表面原因转化法",
+          "question_type": "削弱",
+          "sub_type": "根表原因",
+          "tags": [
+            "质疑削弱",
+            "根本原因",
+            "表面原因",
+            "归因类"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 24,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_weaken_strict_conditional_001",
+          "method_name": "A且非B削弱条件命题法",
+          "question_type": "削弱",
+          "sub_type": "严谨逻辑关系",
+          "tags": [
+            "质疑削弱",
+            "必要条件",
+            "充分条件",
+            "A且非B"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 27,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_weaken_general_no_premise_001",
+          "method_name": "无论据有结论反驳结论法",
+          "question_type": "削弱",
+          "sub_type": "一般质疑",
+          "tags": [
+            "质疑削弱",
+            "无论据有结论",
+            "反驳结论"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 28,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_weaken_evidence_conclusion_001",
+          "method_name": "肯定论据否定结论法",
+          "question_type": "削弱",
+          "sub_type": "一般质疑",
+          "tags": [
+            "质疑削弱",
+            "有论据有结论",
+            "论证缺口"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 29,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_premise_general_001",
+          "method_name": "前提假设没它不行检验法",
+          "question_type": "前提假设",
+          "sub_type": "前提总原则",
+          "tags": [
+            "前提假设",
+            "没它不行",
+            "必要条件"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 18,
+          "confidence": 0.97,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_premise_bridge_001",
+          "method_name": "前提类断点搭桥法",
+          "question_type": "前提假设",
+          "sub_type": "断点搭桥",
+          "tags": [
+            "前提假设",
+            "断点搭桥",
+            "论证缺口"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 19,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_premise_fill_gap_001",
+          "method_name": "直接证据缺失补洞法",
+          "question_type": "前提假设",
+          "sub_type": "补充漏洞",
+          "tags": [
+            "前提假设",
+            "补充漏洞",
+            "间接证据"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 20,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_premise_enable_condition_001",
+          "method_name": "可行性前提法",
+          "question_type": "前提假设",
+          "sub_type": "能与不能",
+          "tags": [
+            "前提假设",
+            "能与不能",
+            "可行性条件"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 21,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_support_general_001",
+          "method_name": "支持题主体话题一致原则",
+          "question_type": "加强",
+          "sub_type": "支持加强类",
+          "tags": [
+            "支持类",
+            "加强",
+            "主体一致",
+            "话题一致"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 20,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_support_bridge_001",
+          "method_name": "支持类断点搭桥法",
+          "question_type": "加强",
+          "sub_type": "断点搭桥",
+          "tags": [
+            "支持类",
+            "断点搭桥",
+            "论证缺口"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 21,
+          "confidence": 0.97,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_support_necessary_condition_001",
+          "method_name": "必要条件式支持法",
+          "question_type": "加强",
+          "sub_type": "必要条件",
+          "tags": [
+            "支持类",
+            "必要条件",
+            "基础条件"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 22,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_support_self_block_001",
+          "method_name": "排除替代路径加强法",
+          "question_type": "加强",
+          "sub_type": "自断一臂",
+          "tags": [
+            "支持类",
+            "自断一臂",
+            "排除漏洞",
+            "加强因果"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 23,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_support_add_evidence_001",
+          "method_name": "新增事实数据支持法",
+          "question_type": "加强",
+          "sub_type": "加入论据和事实",
+          "tags": [
+            "支持类",
+            "加入论据",
+            "事实支持",
+            "数据支持"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 24,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_support_explain_mechanism_001",
+          "method_name": "解释说明式支持法",
+          "question_type": "加强",
+          "sub_type": "解释机制",
+          "tags": [
+            "支持类",
+            "解释说明",
+            "机制解释",
+            "原因解释"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 26,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_experiment_initial_state_001",
+          "method_name": "实验初始状态一致性检查法",
+          "question_type": "加强削弱",
+          "sub_type": "对比实验",
+          "tags": [
+            "对比实验",
+            "初始状态",
+            "实验控制",
+            "加强削弱"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 14,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_compare_experiment_construct_001",
+          "method_name": "构成对比实验变量控制法",
+          "question_type": "加强削弱",
+          "sub_type": "对比实验",
+          "tags": [
+            "对比实验",
+            "构成对比",
+            "实验变量",
+            "归因类"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 33,
+          "confidence": 0.82,
+          "need_review": true,
+          "source_count": 2
+        },
+        {
+          "id": "lj_conclusion_translation_001",
+          "method_name": "结论推出翻译-匹配-排除法",
+          "question_type": "结论推出",
+          "sub_type": "推出类总流程",
+          "tags": [
+            "结论推出",
+            "推出类",
+            "翻译推理",
+            "必然推出"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 7,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_sufficient_necessary_001",
+          "method_name": "充分条件与必要条件识别法",
+          "question_type": "结论推出",
+          "sub_type": "必要/充分条件",
+          "tags": [
+            "逻辑基本知识",
+            "充分条件",
+            "必要条件",
+            "翻译推理"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 8,
+          "confidence": 0.98,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_translation_if_001",
+          "method_name": "如果/只要/所有都前推后翻译法",
+          "question_type": "结论推出",
+          "sub_type": "假言命题",
+          "tags": [
+            "翻译推理",
+            "假言命题",
+            "前推后"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 12,
+          "confidence": 0.97,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_translation_only_001",
+          "method_name": "只有A才B后推前翻译法",
+          "question_type": "结论推出",
+          "sub_type": "假言命题",
+          "tags": [
+            "翻译推理",
+            "必要条件",
+            "后推前",
+            "不不"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 13,
+          "confidence": 0.98,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_translation_unless_001",
+          "method_name": "除非/否则翻译法",
+          "question_type": "结论推出",
+          "sub_type": "假言命题",
+          "tags": [
+            "翻译推理",
+            "除非否则",
+            "必要条件"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 14,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_inverse_contrapositive_001",
+          "method_name": "逆否命题等价验证法",
+          "question_type": "结论推出",
+          "sub_type": "命题等价",
+          "tags": [
+            "逆否命题",
+            "真假表",
+            "翻译推理"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 15,
+          "confidence": 0.97,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_or_and_negation_001",
+          "method_name": "或且关系否定法",
+          "question_type": "结论推出",
+          "sub_type": "选言/联言命题",
+          "tags": [
+            "或且关系",
+            "矛盾关系",
+            "命题否定"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 18,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_conclusion_equivalent_inference_001",
+          "method_name": "等价命题与选项替换法",
+          "question_type": "结论推出",
+          "sub_type": "等价推出",
+          "tags": [
+            "等价推出",
+            "逆否",
+            "推出类"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 22,
+          "confidence": 0.86,
+          "need_review": true,
+          "source_count": 2
+        },
+        {
+          "id": "lj_relation_quantifier_001",
+          "method_name": "所有/有些/可能/必然关系转换法",
+          "question_type": "结论推出",
+          "sub_type": "范畴关系",
+          "tags": [
+            "范畴关系",
+            "可能必然",
+            "所有有些",
+            "矛盾关系"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 25,
+          "confidence": 0.86,
+          "need_review": true,
+          "source_count": 2
+        },
+        {
+          "id": "lj_explanation_contradiction_001",
+          "method_name": "看似矛盾现象合理解释法",
+          "question_type": "解释说明",
+          "sub_type": "矛盾解释",
+          "tags": [
+            "解释说明",
+            "矛盾现象",
+            "合理事实"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 16,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "lj_argument_evaluation_001",
+          "method_name": "评价论证结构定位法",
+          "question_type": "评价论证",
+          "sub_type": "评价论证",
+          "tags": [
+            "评价论证",
+            "论证强弱",
+            "断点",
+            "漏洞"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 38,
+          "confidence": 0.78,
+          "need_review": true,
+          "source_count": 3
+        },
+        {
+          "id": "lj_total_flow_001",
+          "method_name": "逻辑判断论证题总流程",
+          "question_type": "逻辑判断",
+          "sub_type": "总流程",
+          "tags": [
+            "总流程",
+            "论点",
+            "论据",
+            "论证关系",
+            "选项验证"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 1,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 3
+        },
+        {
+          "id": "lj_argument_structure_001",
+          "method_name": "论点-论据-论证方式拆解法",
+          "question_type": "逻辑判断",
+          "sub_type": "论证结构",
+          "tags": [
+            "论点",
+            "论据",
+            "论证方式",
+            "评价论证"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 2,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 3
+        },
+        {
+          "id": "lj_strength_order_compare_001",
+          "method_name": "加强/削弱力度比较通用规则",
+          "question_type": "逻辑判断",
+          "sub_type": "力度比较",
+          "tags": [
+            "力度比较",
+            "加强力度",
+            "削弱力度",
+            "无关选项"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 5,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 3
+        },
+        {
+          "id": "lj_irrelevant_options_001",
+          "method_name": "常见无关选项排除法",
+          "question_type": "逻辑判断",
+          "sub_type": "无关选项",
+          "tags": [
+            "无关选项",
+            "主体一致",
+            "话题一致",
+            "偷换概念"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 6,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 3
+        },
+        {
+          "id": "lj_reasoning_mode_001",
+          "method_name": "演绎/归纳/类比推理识别法",
+          "question_type": "逻辑判断",
+          "sub_type": "逻辑基本知识",
+          "tags": [
+            "推理方式",
+            "演绎推理",
+            "归纳推理",
+            "类比推理"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 35,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        }
+      ]
+    },
+    "判断推理-定义判断": {
+      "card_count": 13,
+      "methods": [
+        {
+          "id": "dj_total_flow_001",
+          "method_name": "定义判断总体理解流程",
+          "question_type": "定义判断",
+          "sub_type": "总流程",
+          "tags": [
+            "定义判断",
+            "总流程",
+            "理解优先",
+            "整体把握"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 1,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "dj_belong_not_belong_001",
+          "method_name": "属于/不属于方向控制法",
+          "question_type": "定义判断",
+          "sub_type": "题干方向",
+          "tags": [
+            "属于",
+            "不属于",
+            "问法识别",
+            "方向控制"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 2,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "dj_defined_term_001",
+          "method_name": "抓住被定义词法",
+          "question_type": "定义判断",
+          "sub_type": "关键词拆解",
+          "tags": [
+            "被定义词",
+            "关键词拆解",
+            "核心特征"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 2,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "dj_option_setting_001",
+          "method_name": "定义判断三看选项设置法",
+          "question_type": "定义判断",
+          "sub_type": "选项设置",
+          "tags": [
+            "定义判断",
+            "选项设置",
+            "属于不属于",
+            "有效信息",
+            "防陷阱"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 2,
+          "confidence": 0.97,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "dj_keyword_lookup_001",
+          "method_name": "定义关键词查找抓手法",
+          "question_type": "定义判断",
+          "sub_type": "关键词查找",
+          "tags": [
+            "定义判断",
+            "关键词",
+            "抓手",
+            "必要条件",
+            "否定条件",
+            "枚举"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 3,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "dj_subject_check_001",
+          "method_name": "主体限定排除法",
+          "question_type": "定义判断",
+          "sub_type": "主体要素",
+          "tags": [
+            "主体",
+            "定义要素",
+            "排除法"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 3,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "dj_object_check_001",
+          "method_name": "对象限定排除法",
+          "question_type": "定义判断",
+          "sub_type": "客体/对象要素",
+          "tags": [
+            "对象",
+            "客体",
+            "崇拜对象",
+            "定义要素"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 4,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "dj_special_requirement_001",
+          "method_name": "特殊条件锁定法",
+          "question_type": "定义判断",
+          "sub_type": "特殊要求",
+          "tags": [
+            "特殊要求",
+            "条件",
+            "时间限定",
+            "场景限定"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 5,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "dj_multi_definition_001",
+          "method_name": "多定义一一对应法",
+          "question_type": "定义判断",
+          "sub_type": "多定义/枚举型",
+          "tags": [
+            "多定义",
+            "枚举型",
+            "一一对应",
+            "执行性求助",
+            "工具性求助"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 6,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "dj_way_purpose_result_001",
+          "method_name": "方式-目的-结果链检查法",
+          "question_type": "定义判断",
+          "sub_type": "方式/目的/结果要素",
+          "tags": [
+            "方式",
+            "目的",
+            "结果",
+            "定义要素",
+            "链条匹配"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 7,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "dj_elimination_001",
+          "method_name": "不符合定义项排除流程",
+          "question_type": "定义判断",
+          "sub_type": "排除法",
+          "tags": [
+            "排除法",
+            "主体不符",
+            "对象不符",
+            "条件不符"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 8,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "dj_time_change_001",
+          "method_name": "时间前后与变化对比法",
+          "question_type": "定义判断",
+          "sub_type": "时间变化",
+          "tags": [
+            "定义判断",
+            "时间前后",
+            "变化",
+            "现在情况",
+            "以前情况"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 8,
+          "confidence": 0.91,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "dj_common_traps_001",
+          "method_name": "定义判断常见陷阱防错卡",
+          "question_type": "定义判断",
+          "sub_type": "常见陷阱",
+          "tags": [
+            "陷阱",
+            "不属于",
+            "主体错误",
+            "对象错误",
+            "特殊要求"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 99,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        }
+      ]
+    },
+    "判断推理-类比推理": {
+      "card_count": 23,
+      "methods": [
+        {
+          "id": "ar_total_flow_001",
+          "method_name": "类比推理总体解题流程",
+          "question_type": "类比推理",
+          "sub_type": "总流程",
+          "tags": [
+            "类比推理",
+            "总流程",
+            "大众思维",
+            "简单思维",
+            "内在联系"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 1,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "ar_secondary_check_001",
+          "method_name": "二级辨析总控法",
+          "question_type": "类比推理",
+          "sub_type": "二级辨析",
+          "tags": [
+            "二级辨析",
+            "难点",
+            "种属组成",
+            "矛盾反对",
+            "特指泛指"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 2,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "ar_semantic_secondary_001",
+          "method_name": "语义关系感情色彩与程度二级辨析法",
+          "question_type": "类比推理",
+          "sub_type": "语义关系二级辨析",
+          "tags": [
+            "类比推理",
+            "语义关系",
+            "近义反义",
+            "感情色彩",
+            "程度轻重",
+            "二级辨析"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 6,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "ar_correspond_subject_quantity_001",
+          "method_name": "对应关系主体数量核对法",
+          "question_type": "类比推理",
+          "sub_type": "对应关系二级辨析",
+          "tags": [
+            "类比推理",
+            "对应关系",
+            "功能",
+            "时间顺序",
+            "方式目的",
+            "主体数量",
+            "二级辨析"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 7,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "ar_semantic_synonym_001",
+          "method_name": "近义关系识别法",
+          "question_type": "类比推理",
+          "sub_type": "语义关系",
+          "tags": [
+            "语义关系",
+            "近义",
+            "同义",
+            "词义"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 10,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "ar_semantic_antonym_001",
+          "method_name": "反义关系识别法",
+          "question_type": "类比推理",
+          "sub_type": "语义关系",
+          "tags": [
+            "语义关系",
+            "反义",
+            "近义反义"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 11,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "ar_logic_species_genus_001",
+          "method_name": "种属关系识别法",
+          "question_type": "类比推理",
+          "sub_type": "逻辑关系-包含",
+          "tags": [
+            "逻辑关系",
+            "种属关系",
+            "包含",
+            "特指泛指"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 12,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "ar_logic_composition_001",
+          "method_name": "组成关系识别法",
+          "question_type": "类比推理",
+          "sub_type": "逻辑关系-包含",
+          "tags": [
+            "逻辑关系",
+            "组成关系",
+            "部分整体"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 13,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "ar_logic_opposition_contradiction_001",
+          "method_name": "反对/矛盾二级辨析法",
+          "question_type": "类比推理",
+          "sub_type": "逻辑关系-并列",
+          "tags": [
+            "逻辑关系",
+            "并列",
+            "反对",
+            "矛盾",
+            "二级辨析"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 14,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "ar_logic_cross_001",
+          "method_name": "交叉关系识别法",
+          "question_type": "类比推理",
+          "sub_type": "逻辑关系-圈圈关系",
+          "tags": [
+            "逻辑关系",
+            "交叉",
+            "圈圈关系"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 15,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "ar_logic_equivalence_001",
+          "method_name": "全同关系识别法",
+          "question_type": "类比推理",
+          "sub_type": "逻辑关系",
+          "tags": [
+            "逻辑关系",
+            "全同",
+            "别称",
+            "同一事物"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 16,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "ar_semantic_extended_001",
+          "method_name": "引申义/象征义识别法",
+          "question_type": "类比推理",
+          "sub_type": "语义关系",
+          "tags": [
+            "语义关系",
+            "引申义",
+            "象征义",
+            "常识"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 18,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "ar_correspond_function_001",
+          "method_name": "功能关系识别法",
+          "question_type": "类比推理",
+          "sub_type": "对应关系",
+          "tags": [
+            "对应关系",
+            "功能关系",
+            "用途"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 19,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "ar_correspond_cause_effect_001",
+          "method_name": "因果关系识别法",
+          "question_type": "类比推理",
+          "sub_type": "对应关系",
+          "tags": [
+            "对应关系",
+            "因果关系",
+            "原因结果"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 20,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "ar_correspond_material_001",
+          "method_name": "原材料-成品关系识别法",
+          "question_type": "类比推理",
+          "sub_type": "对应关系",
+          "tags": [
+            "对应关系",
+            "原材料",
+            "成品",
+            "材料"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 21,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "ar_correspond_purpose_001",
+          "method_name": "目的关系识别法",
+          "question_type": "类比推理",
+          "sub_type": "对应关系",
+          "tags": [
+            "对应关系",
+            "目的",
+            "行为目的"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 22,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "ar_correspond_time_sequence_001",
+          "method_name": "时间顺序关系识别法",
+          "question_type": "类比推理",
+          "sub_type": "对应关系",
+          "tags": [
+            "对应关系",
+            "时间顺序",
+            "流程"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 23,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "ar_correspond_necessary_001",
+          "method_name": "必要性对应识别法",
+          "question_type": "类比推理",
+          "sub_type": "对应关系",
+          "tags": [
+            "对应关系",
+            "必要性",
+            "条件"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 24,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "ar_sentence_tool_object_place_001",
+          "method_name": "造句法：工具-对象-场所对应",
+          "question_type": "类比推理",
+          "sub_type": "对应关系",
+          "tags": [
+            "造句法",
+            "工具与对象",
+            "职业与场所",
+            "物品对象地点"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 25,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "ar_split_word_001",
+          "method_name": "拆词关系识别法",
+          "question_type": "类比推理",
+          "sub_type": "拆词关系",
+          "tags": [
+            "拆词",
+            "字词关系",
+            "寒冷",
+            "寒舍"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 28,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "ar_grammar_pos_001",
+          "method_name": "词性一致检查法",
+          "question_type": "类比推理",
+          "sub_type": "语法关系",
+          "tags": [
+            "语法关系",
+            "词性",
+            "名词",
+            "动词",
+            "形容词"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 30,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "ar_grammar_structure_001",
+          "method_name": "词语结构匹配法",
+          "question_type": "类比推理",
+          "sub_type": "语法关系",
+          "tags": [
+            "语法关系",
+            "主谓",
+            "动宾",
+            "偏正",
+            "词语结构"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 31,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "ar_common_traps_001",
+          "method_name": "类比推理常见误判防错卡",
+          "question_type": "类比推理",
+          "sub_type": "常见陷阱",
+          "tags": [
+            "陷阱",
+            "常识干扰",
+            "关系混淆",
+            "二级辨析"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 99,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        }
+      ]
+    },
+    "言语理解-主旨意图": {
+      "card_count": 32,
+      "methods": [
+        {
+          "id": "vr_mi_total_flow_001",
+          "method_name": "主旨意图题结构优先总流程",
+          "question_type": "中心理解",
+          "sub_type": "总流程",
+          "tags": [
+            "总流程",
+            "结构分析",
+            "主旨概括",
+            "意图判断",
+            "标题填入"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 1,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vr_mi_subject_word_001",
+          "method_name": "主体词与主题词锁定法",
+          "question_type": "中心理解",
+          "sub_type": "主体词",
+          "tags": [
+            "主体词",
+            "主题词",
+            "范围一致",
+            "高频词"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 3,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vr_mi_topic_sentence_001",
+          "method_name": "主题句定位法",
+          "question_type": "中心理解",
+          "sub_type": "主题句",
+          "tags": [
+            "主题句",
+            "观点句",
+            "对策句",
+            "重点句"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 4,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vr_mi_center_understanding_001",
+          "method_name": "中心理解结构概括法",
+          "question_type": "中心理解",
+          "sub_type": "中心题",
+          "tags": [
+            "中心理解",
+            "主要说明",
+            "概括",
+            "结构"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 5,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vr_mi_turning_point_001",
+          "method_name": "转折后重点法",
+          "question_type": "中心理解",
+          "sub_type": "转折关系",
+          "tags": [
+            "转折",
+            "但是",
+            "然而",
+            "不过",
+            "重点句"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 7,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vr_mi_two_layer_structure_001",
+          "method_name": "二层结构主次判断法",
+          "question_type": "中心理解",
+          "sub_type": "二层结构",
+          "tags": [
+            "二层结构",
+            "转折",
+            "并列",
+            "因果",
+            "背景知识"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 13,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vr_mi_progression_001",
+          "method_name": "递进后重点法",
+          "question_type": "中心理解",
+          "sub_type": "递进关系",
+          "tags": [
+            "递进",
+            "甚至",
+            "更",
+            "不仅而且",
+            "不但而且"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 18,
+          "confidence": 0.78,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "vr_mi_main_summary_001",
+          "method_name": "主旨概括整体覆盖法",
+          "question_type": "主旨概括",
+          "sub_type": "主旨概括",
+          "tags": [
+            "主旨概括",
+            "主要内容",
+            "整体覆盖"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 6,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "vr_mi_view_explain_001",
+          "method_name": "观点—解释/论证结构解题法",
+          "question_type": "主旨概括",
+          "sub_type": "观点-解释",
+          "tags": [
+            "观点",
+            "解释说明",
+            "论证",
+            "重复论点"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 6,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vr_mi_causality_001",
+          "method_name": "因果结构重点判断法",
+          "question_type": "主旨概括",
+          "sub_type": "因果关系",
+          "tags": [
+            "因果",
+            "原因类",
+            "果因",
+            "因此",
+            "因为"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 9,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vr_mi_opening_topic_001",
+          "method_name": "开门见山引出话题结构",
+          "question_type": "主旨概括",
+          "sub_type": "开门见山",
+          "tags": [
+            "开门见山",
+            "引出话题",
+            "问题-分析-对策"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 10,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vr_mi_total_part_001",
+          "method_name": "总分/分总结构总句优先法",
+          "question_type": "主旨概括",
+          "sub_type": "总分/分总",
+          "tags": [
+            "总分",
+            "分总",
+            "概括",
+            "总句"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 11,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vr_mi_parallel_001",
+          "method_name": "并列结构整体概括法",
+          "question_type": "主旨概括",
+          "sub_type": "并列结构",
+          "tags": [
+            "并列",
+            "大并列",
+            "A且B",
+            "时间轴"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 12,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vr_mi_background_new_discovery_001",
+          "method_name": "背景知识引出新发现法",
+          "question_type": "主旨概括",
+          "sub_type": "背景-新发现",
+          "tags": [
+            "背景知识",
+            "新发现",
+            "研究发现",
+            "出处判断"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 14,
+          "confidence": 0.91,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "vr_mi_intention_solution_001",
+          "method_name": "意图判断对策优先法",
+          "question_type": "意图判断",
+          "sub_type": "意图判断",
+          "tags": [
+            "意图判断",
+            "旨在强调",
+            "意在说明",
+            "对策"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 5,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "vr_mi_problem_solution_001",
+          "method_name": "问题—对策结构解题法",
+          "question_type": "意图判断",
+          "sub_type": "问题-对策",
+          "tags": [
+            "问题",
+            "对策",
+            "意图判断",
+            "主旨意图"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 5,
+          "confidence": 0.96,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vr_mi_necessary_condition_001",
+          "method_name": "必要条件关系表对策法",
+          "question_type": "意图判断",
+          "sub_type": "必要条件",
+          "tags": [
+            "必要条件",
+            "只有才",
+            "关键",
+            "基础",
+            "前提",
+            "对策"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 8,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vr_mi_end_sentence_focus_001",
+          "method_name": "尾句观点/对策重点法",
+          "question_type": "意图判断",
+          "sub_type": "尾句重点",
+          "tags": [
+            "尾句",
+            "后对策",
+            "后观点",
+            "总结句"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 15,
+          "confidence": 0.87,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vr_mi_title_total_001",
+          "method_name": "标题拟定总流程卡片",
+          "question_type": "标题填入",
+          "sub_type": "标题总流程",
+          "tags": [
+            "标题选择",
+            "标题填入",
+            "主旨压缩",
+            "简洁准确"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 4,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "vr_mi_title_keyword_001",
+          "method_name": "标题关键词覆盖法",
+          "question_type": "标题填入",
+          "sub_type": "标题关键词",
+          "tags": [
+            "标题",
+            "关键词",
+            "主体词",
+            "醒目"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 16,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "vr_mi_eliminate_source_001",
+          "method_name": "出处不对排除法",
+          "question_type": "选项排除",
+          "sub_type": "出处不对",
+          "tags": [
+            "选项分析",
+            "出处",
+            "背景",
+            "例子",
+            "分析"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 20,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vr_mi_eliminate_concept_shift_001",
+          "method_name": "偷换概念/主体不一致排除法",
+          "question_type": "选项排除",
+          "sub_type": "偷换概念",
+          "tags": [
+            "偷换概念",
+            "主语不一致",
+            "主题词错位"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 21,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vr_mi_eliminate_scope_001",
+          "method_name": "范围扩大、缩小与片面排除法",
+          "question_type": "选项排除",
+          "sub_type": "范围扩大/缩小",
+          "tags": [
+            "范围扩大",
+            "范围缩小",
+            "片面",
+            "并列关系"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 22,
+          "confidence": 0.95,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vr_mi_eliminate_absolute_001",
+          "method_name": "绝对化选项排除法",
+          "question_type": "选项排除",
+          "sub_type": "绝对化选项",
+          "tags": [
+            "绝对化",
+            "最高级",
+            "比较级",
+            "最",
+            "全部"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 23,
+          "confidence": 0.93,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vr_mi_eliminate_none_001",
+          "method_name": "无中生有排除法",
+          "question_type": "选项排除",
+          "sub_type": "无中生有",
+          "tags": [
+            "无中生有",
+            "过度引申",
+            "原文无依据"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 24,
+          "confidence": 0.94,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vr_mi_eliminate_definition_001",
+          "method_name": "下定义选项慎选法",
+          "question_type": "选项排除",
+          "sub_type": "下定义选项",
+          "tags": [
+            "下定义",
+            "A是B",
+            "中性表达",
+            "无态度"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 25,
+          "confidence": 0.88,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "vr_mi_eliminate_splice_001",
+          "method_name": "杂糅拼凑选项排除法",
+          "question_type": "选项排除",
+          "sub_type": "杂糅选项",
+          "tags": [
+            "杂糅",
+            "拼凑",
+            "不同语句拼接"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 26,
+          "confidence": 0.88,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "vr_mi_eliminate_compare_001",
+          "method_name": "比较类/区别比较类选项验证法",
+          "question_type": "选项排除",
+          "sub_type": "比较类选项",
+          "tags": [
+            "比较类",
+            "区别比较",
+            "双主语"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 27,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "vr_mi_eliminate_neutral_001",
+          "method_name": "太中性/未体现问题态度排除法",
+          "question_type": "选项排除",
+          "sub_type": "太中性选项",
+          "tags": [
+            "太中性",
+            "问题意识",
+            "态度"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 28,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "vr_mi_specific_option_001",
+          "method_name": "具体类选项验证法",
+          "question_type": "选项排除",
+          "sub_type": "具体类选项",
+          "tags": [
+            "具体类",
+            "一二三四",
+            "具体方法",
+            "具体意义"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 29,
+          "confidence": 0.88,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "vr_mi_one_compare_001",
+          "method_name": "有更具体选项时优选具体法",
+          "question_type": "选项比较",
+          "sub_type": "优选具体",
+          "tags": [
+            "选项比较",
+            "具体优先",
+            "一个比较"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 30,
+          "confidence": 0.87,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "vr_mi_question_router_001",
+          "method_name": "主旨/意图/标题/中心题问法路由",
+          "question_type": "题型识别",
+          "sub_type": "问法识别",
+          "tags": [
+            "router",
+            "题干触发词",
+            "问法"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 2,
+          "confidence": 0.92,
+          "need_review": false,
+          "source_count": 2
+        }
+      ]
+    },
+    "言语理解-语句表达": {
+      "card_count": 25,
+      "methods": [
+        {
+          "id": "vecl_next_tail_newinfo_001",
+          "method_name": "尾句承上启下看新信息法",
+          "question_type": "下文推断",
+          "sub_type": "尾句新信息",
+          "tags": [
+            "下文推断",
+            "尾句",
+            "新信息",
+            "话题延续"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 20,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_next_topic_finished_002",
+          "method_name": "总分话题结束反向续写法",
+          "question_type": "下文推断",
+          "sub_type": "话题结束",
+          "tags": [
+            "下文推断",
+            "话题结束",
+            "反向续写",
+            "整体文段"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 21,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_next_problem_solution_003",
+          "method_name": "提出问题后接原因或对策法",
+          "question_type": "下文推断",
+          "sub_type": "问题对策",
+          "tags": [
+            "下文推断",
+            "问题—对策",
+            "原因分析"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 22,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_next_specific_solution_004",
+          "method_name": "文末大对策后接具体做法法",
+          "question_type": "下文推断",
+          "sub_type": "文末对策",
+          "tags": [
+            "下文推断",
+            "对策展开",
+            "具体措施"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 23,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_next_already_discussed_005",
+          "method_name": "已谈内容排除法",
+          "question_type": "下文推断",
+          "sub_type": "已谈不再谈",
+          "tags": [
+            "下文推断",
+            "排除法",
+            "已谈内容"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 24,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "vecl_next_option_elimination_023",
+          "method_name": "下文推断干扰项排除法",
+          "question_type": "下文推断",
+          "sub_type": "下文干扰项",
+          "tags": [
+            "下文推断",
+            "干扰项",
+            "话题一致"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 25,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_title_mainidea_001",
+          "method_name": "标题拟定主旨变形法",
+          "question_type": "标题填入",
+          "sub_type": "主旨题变形",
+          "tags": [
+            "标题拟定",
+            "主旨变形",
+            "结构概括"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 10,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_title_keyword_002",
+          "method_name": "标题关键词主语一致法",
+          "question_type": "标题填入",
+          "sub_type": "关键词与主语",
+          "tags": [
+            "标题拟定",
+            "关键词",
+            "主语一致",
+            "观点对策"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 11,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_title_readability_003",
+          "method_name": "标题可读性与力度法",
+          "question_type": "标题填入",
+          "sub_type": "标题表达",
+          "tags": [
+            "标题拟定",
+            "可读性",
+            "对策标题",
+            "问题标题"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 12,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_title_option_elimination_022",
+          "method_name": "标题题干扰项排除法",
+          "question_type": "标题填入",
+          "sub_type": "标题干扰项",
+          "tags": [
+            "标题拟定",
+            "干扰项",
+            "片面",
+            "无中生有"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 13,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_total_flow_001",
+          "method_name": "先判题型后结构化求解流程",
+          "question_type": "综合流程",
+          "sub_type": "语句表达与逻辑填空总流程",
+          "tags": [
+            "总流程",
+            "题型路由",
+            "结构优先",
+            "语境优先"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 1,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 3
+        },
+        {
+          "id": "vecl_sentence_fill_position_019",
+          "method_name": "横线位置功能判断法",
+          "question_type": "语句填入",
+          "sub_type": "横线位置功能",
+          "tags": [
+            "语句填入",
+            "位置功能",
+            "段首段中段尾"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 29,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_insert_global_001",
+          "method_name": "语句填入整体通篇法",
+          "question_type": "语句填入",
+          "sub_type": "整体首句/通篇",
+          "tags": [
+            "语句填入",
+            "整体理解",
+            "首句",
+            "总领句"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 30,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_insert_keyword_002",
+          "method_name": "包含全篇关键词法",
+          "question_type": "语句填入",
+          "sub_type": "关键词覆盖",
+          "tags": [
+            "语句填入",
+            "关键词",
+            "因果衔接"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 31,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_insert_topic_consistency_003",
+          "method_name": "话题一致与多主体概括法",
+          "question_type": "语句填入",
+          "sub_type": "话题一致",
+          "tags": [
+            "语句填入",
+            "话题一致",
+            "多主体",
+            "总领"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 32,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_insert_summary_004",
+          "method_name": "概括得当与具体承接法",
+          "question_type": "语句填入",
+          "sub_type": "总结句/概括句",
+          "tags": [
+            "语句填入",
+            "总结句",
+            "概括句",
+            "例证承接"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 33,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_insert_pronoun_grammar_005",
+          "method_name": "主语语法与指代一致法",
+          "question_type": "语句填入",
+          "sub_type": "主语语法指代",
+          "tags": [
+            "语句填入",
+            "代词指代",
+            "语法",
+            "主语一致"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 34,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_order_overall_001",
+          "method_name": "语句排序整体结构套入法",
+          "question_type": "语句排序",
+          "sub_type": "整体结构",
+          "tags": [
+            "语句排序",
+            "整体分析",
+            "结构套入"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 40,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_order_first_sentence_002",
+          "method_name": "首句下定义与范围优先法",
+          "question_type": "语句排序",
+          "sub_type": "首句判断",
+          "tags": [
+            "语句排序",
+            "首句判断",
+            "下定义",
+            "范围"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 41,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_order_last_sentence_003",
+          "method_name": "尾句总结对策法",
+          "question_type": "语句排序",
+          "sub_type": "尾句判断",
+          "tags": [
+            "语句排序",
+            "尾句判断",
+            "总结",
+            "对策"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 42,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_order_binding_transition_004",
+          "method_name": "转折关系寻找上句法",
+          "question_type": "语句排序",
+          "sub_type": "转折捆绑",
+          "tags": [
+            "语句排序",
+            "转折",
+            "捆绑",
+            "关联词"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 43,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_order_pronoun_005",
+          "method_name": "指示代词寻找上句法",
+          "question_type": "语句排序",
+          "sub_type": "代词指代",
+          "tags": [
+            "语句排序",
+            "代词指代",
+            "衔接"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 44,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_order_tail_head_006",
+          "method_name": "尾首重复词相连法",
+          "question_type": "语句排序",
+          "sub_type": "尾首相连",
+          "tags": [
+            "语句排序",
+            "尾首相连",
+            "重复词"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 45,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_order_time_logic_007",
+          "method_name": "时间轴与逻辑顺序法",
+          "question_type": "语句排序",
+          "sub_type": "时间与逻辑顺序",
+          "tags": [
+            "语句排序",
+            "时间顺序",
+            "逻辑顺序"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 46,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_order_pair_binding_020",
+          "method_name": "并列句组捆绑法",
+          "question_type": "语句排序",
+          "sub_type": "并列捆绑",
+          "tags": [
+            "语句排序",
+            "捆绑",
+            "并列提示"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 47,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        }
+      ]
+    },
+    "言语理解-逻辑填空": {
+      "card_count": 20,
+      "methods": [
+        {
+          "id": "vecl_cloze_multi_blank_024",
+          "method_name": "强提示空优先突破法",
+          "question_type": "逻辑填空",
+          "sub_type": "多空题策略",
+          "tags": [
+            "逻辑填空",
+            "多空题",
+            "突破口"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 58,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_cloze_relation_word_021",
+          "method_name": "关联词语义约束法",
+          "question_type": "逻辑填空",
+          "sub_type": "关联词提示",
+          "tags": [
+            "逻辑填空",
+            "关联词",
+            "逻辑关系",
+            "反向提示"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 59,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_cloze_total_001",
+          "method_name": "逻辑填空语境优先总流程",
+          "question_type": "逻辑填空",
+          "sub_type": "总流程",
+          "tags": [
+            "逻辑填空",
+            "总流程",
+            "语境",
+            "搭配"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 60,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_cloze_idiom_context_002",
+          "method_name": "成语意思与适用语境法",
+          "question_type": "逻辑填空",
+          "sub_type": "成语辨析",
+          "tags": [
+            "逻辑填空",
+            "成语辨析",
+            "语境",
+            "褒贬"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 61,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_cloze_realword_morpheme_003",
+          "method_name": "实词不同字组词法",
+          "question_type": "逻辑填空",
+          "sub_type": "实词辨析",
+          "tags": [
+            "逻辑填空",
+            "实词辨析",
+            "组词法",
+            "词义侧重"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 62,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_cloze_logic_correspondence_004",
+          "method_name": "逻辑对应关系定位法",
+          "question_type": "逻辑填空",
+          "sub_type": "逻辑对应",
+          "tags": [
+            "逻辑填空",
+            "逻辑对应",
+            "解释提示",
+            "后文提示"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 63,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_cloze_intent_object_005",
+          "method_name": "作者意图与对象特征法",
+          "question_type": "逻辑填空",
+          "sub_type": "对象特征",
+          "tags": [
+            "逻辑填空",
+            "对象特征",
+            "作者意图",
+            "宏观把握"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 64,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_cloze_as_writer_006",
+          "method_name": "如果是你会怎么写法",
+          "question_type": "逻辑填空",
+          "sub_type": "语境还原",
+          "tags": [
+            "逻辑填空",
+            "语境还原",
+            "写作意图"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 65,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_cloze_transition_007",
+          "method_name": "转折前后反向定位法",
+          "question_type": "逻辑填空",
+          "sub_type": "转折提示",
+          "tags": [
+            "逻辑填空",
+            "转折",
+            "关联词",
+            "反向提示"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 66,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_cloze_progressive_008",
+          "method_name": "递进程度加重法",
+          "question_type": "逻辑填空",
+          "sub_type": "递进提示",
+          "tags": [
+            "逻辑填空",
+            "递进",
+            "程度轻重",
+            "关联词"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 67,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_cloze_parallel_009",
+          "method_name": "并列同向与结构一致法",
+          "question_type": "逻辑填空",
+          "sub_type": "并列提示",
+          "tags": [
+            "逻辑填空",
+            "并列",
+            "同义对应",
+            "结构一致"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 68,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_cloze_fixed_collocation_010",
+          "method_name": "固定用法优先法",
+          "question_type": "逻辑填空",
+          "sub_type": "固定搭配",
+          "tags": [
+            "逻辑填空",
+            "固定搭配",
+            "近义词搭配"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 69,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_cloze_degree_011",
+          "method_name": "程度轻重匹配法",
+          "question_type": "逻辑填空",
+          "sub_type": "程度轻重",
+          "tags": [
+            "逻辑填空",
+            "程度轻重",
+            "强弱比较"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 70,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_cloze_sentiment_012",
+          "method_name": "褒贬色彩匹配法",
+          "question_type": "逻辑填空",
+          "sub_type": "感情色彩",
+          "tags": [
+            "逻辑填空",
+            "感情色彩",
+            "褒贬"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 71,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_cloze_grammar_013",
+          "method_name": "主谓宾语法检查法",
+          "question_type": "逻辑填空",
+          "sub_type": "语法正确",
+          "tags": [
+            "逻辑填空",
+            "语法",
+            "词性",
+            "主谓宾"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 72,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_cloze_style_metaphor_014",
+          "method_name": "语体色彩和比喻一致法",
+          "question_type": "逻辑填空",
+          "sub_type": "语体与比喻",
+          "tags": [
+            "逻辑填空",
+            "语体色彩",
+            "比喻一致",
+            "形象表达"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 73,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 2
+        },
+        {
+          "id": "vecl_cloze_political_context_015",
+          "method_name": "政策语境与正向表达法",
+          "question_type": "逻辑填空",
+          "sub_type": "政治语境",
+          "tags": [
+            "逻辑填空",
+            "政治语境",
+            "规范表达",
+            "反义对应"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 74,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "vecl_cloze_common_words_016",
+          "method_name": "常考实词差异积累卡",
+          "question_type": "逻辑填空",
+          "sub_type": "实词积累",
+          "tags": [
+            "逻辑填空",
+            "实词积累",
+            "词义侧重",
+            "备查"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 80,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "vecl_cloze_collocation_bank_017",
+          "method_name": "近义词习惯搭配备查卡",
+          "question_type": "逻辑填空",
+          "sub_type": "搭配积累",
+          "tags": [
+            "逻辑填空",
+            "近义词搭配",
+            "固定搭配",
+            "备查"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 81,
+          "confidence": 0.9,
+          "need_review": false,
+          "source_count": 1
+        },
+        {
+          "id": "vecl_cloze_idiom_misread_018",
+          "method_name": "望文生义防错卡",
+          "question_type": "逻辑填空",
+          "sub_type": "成语误用",
+          "tags": [
+            "逻辑填空",
+            "成语",
+            "望文生义",
+            "备查"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 82,
+          "confidence": 0.72,
+          "need_review": true,
+          "source_count": 1
+        }
+      ]
+    }
+  }
+}

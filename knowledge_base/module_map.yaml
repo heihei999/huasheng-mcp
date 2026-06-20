@@ -1,0 +1,650 @@
+资料分析:
+  图表查找比较:
+    图表直接查找与排序:
+    - da_chart_lookup_001
+  基期量:
+    前期差值:
+    - da_abx_base_diff_003
+    已知现期量B和增长率R求基期A:
+    - da_abx_base_direct_001
+    隔年前期量:
+    - da_abx_base_interval_002
+  基础知识:
+    统计术语与审题原则:
+    - da_base_terms_001
+  增长率:
+    一般增长率:
+    - da_growth_rate_general_001
+    间隔增长率:
+    - da_growth_rate_interval_002
+    乘积增长率:
+    - da_growth_rate_product_004
+    比值增长率:
+    - da_growth_rate_ratio_003
+  增长量:
+    直接求增长量X:
+    - da_growth_amount_001
+    增长量大小比较:
+    - da_growth_amount_compare_002
+  平均数:
+    年均增长量:
+    - da_average_annual_growth_amount_002
+    年均增长率:
+    - da_average_annual_growth_rate_003
+    一般平均值:
+    - da_average_general_001
+  易错点:
+    资料分析常见陷阱:
+    - da_common_pitfalls_001
+  比较类:
+    比值大小/增速大小比较:
+    - da_compare_ratio_growth_001
+  比重:
+    基期比重/前期比重:
+    - da_share_base_002
+    本期/单期比重:
+    - da_share_current_001
+  比重变化:
+    比值增长率/比重差/比值差辨析:
+    - da_ratio_share_diff_005
+    比重差/百分点变化:
+    - da_share_change_004
+    两期比重升降判断:
+    - da_share_trend_003
+  特殊考点:
+    容斥问题:
+    - da_capacity_overlap_001
+    拉动增长率与增量贡献率:
+    - da_ladong_contribution_001
+  现期量:
+    已知基期量或增长量求现期:
+    - da_abx_current_001
+  盐水类:
+    十字交叉法:
+    - da_salt_cross_001
+    定性分析:
+    - da_salt_qualitative_002
+    定量分析:
+    - da_salt_quantitative_003
+    时间分段:
+    - da_time_segments_001
+  速算方法:
+    增长量速算:
+    - da_415_parts_001
+    - da_assumption_allocation_001
+    加减乘速算:
+    - da_estimation_add_sub_mul_001
+    分数大小比较:
+    - da_fraction_compare_difference_001
+    除法截位与选项差距判断:
+    - da_truncate_division_001
+数量关系:
+  不定方程:
+    不定方程求解:
+    - qr_indeterminate_equation_001
+  余数问题:
+    特征余数:
+    - qr_remainder_formula_001
+    无特征余数:
+    - qr_remainder_enum_001
+  几何问题:
+    等比放缩:
+    - qr_geometry_scaling_001
+    几何计算与构造:
+    - qr_geometry_formula_001
+    最短距离:
+    - qr_shortest_distance_001
+    几何最值:
+    - qr_geometry_extreme_001
+    最短遍历路径:
+    - qr_one_stroke_001
+  周期循环问题:
+    周期余数:
+    - qr_cycle_mod_001
+  容斥问题:
+    一般容斥:
+    - qr_inclusion_exclusion_001
+    容斥最值:
+    - qr_inclusion_exclusion_extreme_001
+  工程问题:
+    基础工程:
+    - qr_work_basic_001
+    休息时间:
+    - qr_work_rest_001
+  平均数问题:
+    调和与算术平均:
+    - qr_average_number_001
+  年龄问题:
+    年龄差不变:
+    - qr_age_problem_001
+  排列组合与概率:
+    基础排列组合:
+    - qr_perm_comb_basic_001
+    一般概率:
+    - qr_probability_basic_001
+    相邻问题:
+    - qr_adjacent_bundle_001
+    不相邻问题:
+    - qr_nonadjacent_insert_001
+    平均分堆:
+    - qr_average_grouping_001
+    重复排列:
+    - qr_repeated_permutation_001
+    相同元素分配:
+    - qr_same_elements_distribution_001
+    两人同组概率:
+    - qr_two_person_same_group_001
+    错位排序:
+    - qr_derangement_001
+    几何概型:
+    - qr_geometric_probability_001
+    环形排列:
+    - qr_circular_permutation_001
+    定序问题:
+    - qr_fixed_order_001
+    抽奖概率:
+    - qr_lottery_probability_001
+    比赛类概率:
+    - qr_match_probability_order_001
+  数列问题:
+    基础数列:
+    - qr_sequence_formula_001
+  数字推理:
+    无特征数列:
+    - qr_numeric_reasoning_001
+  数论与计算:
+    数的特性:
+    - qr_number_property_001
+    基础公式:
+    - qr_calculation_formula_001
+  方程问题:
+    普通方程:
+    - qr_equation_method_001
+  日期星期问题:
+    天数与星期推断:
+    - qr_date_week_001
+  最值问题:
+    最不利问题:
+    - qr_extreme_unfavorable_001
+    和定最值:
+    - qr_extreme_sum_fixed_001
+    函数最值:
+    - qr_extreme_function_001
+    乘积最值:
+    - qr_extreme_product_001
+    三端最值:
+    - qr_extreme_three_end_001
+  比赛问题:
+    场次轮次轮空:
+    - qr_competition_schedule_001
+  浓度问题:
+    十字相乘:
+    - qr_alligation_001
+    溶质不变:
+    - qr_concentration_basic_001
+  牛吃草问题:
+    原有草与生长草:
+    - qr_cow_grazing_001
+  特殊情景应用:
+    鸡兔同笼:
+    - qr_chicken_rabbit_001
+    盈亏问题:
+    - qr_surplus_deficit_001
+    植树问题:
+    - qr_tree_planting_001
+    钟表问题:
+    - qr_clock_problem_001
+    方阵问题:
+    - qr_square_array_001
+    植树重合:
+    - qr_tree_overlap_001
+  经济利润问题:
+    单件与多件销售:
+    - qr_profit_basic_001
+    分批销售:
+    - qr_profit_batch_001
+    资金往来:
+    - qr_profit_fund_flow_001
+  统筹规划问题:
+    最优方案:
+    - qr_planning_optimal_001
+    空瓶换酒:
+    - qr_bottle_exchange_001
+    时间统筹:
+    - qr_time_planning_001
+    天平称重:
+    - qr_balance_weighing_001
+  行程问题:
+    相遇追及:
+    - qr_meeting_chasing_001
+    普通行程:
+    - qr_travel_basic_001
+    流水行船:
+    - qr_stream_boat_001
+    环形运动:
+    - qr_circular_motion_001
+    火车过桥:
+    - qr_train_bridge_001
+    多次相遇:
+    - qr_multiple_meeting_001
+    上下扶梯:
+    - qr_escalator_001
+    队伍行进:
+    - qr_team_marching_001
+判断推理-图形推理:
+  位置规律:
+    平移:
+    - gr_position_translate_001
+    旋转:
+    - gr_position_rotation_001
+    翻转:
+    - gr_position_flip_001
+  图推总流程:
+    总观察顺序:
+    - gr_total_flow_001
+    命题形式识别:
+    - gr_question_form_001
+    口诀:
+    - gr_mnemonic_15_001
+    考场策略:
+    - gr_exam_pacing_001
+    拆分与对比思维:
+    - gr_split_compare_thinking_001
+  属性规律:
+    对称性:
+    - gr_property_symmetry_001
+    开闭性:
+    - gr_property_open_closed_001
+    曲直性:
+    - gr_property_curve_straight_001
+  数量/位置规律:
+    功能元素:
+    - gr_functional_element_001
+  数量/属性规律:
+    图形间关系:
+    - gr_graph_relation_001
+  数量规律:
+    一笔画:
+    - gr_quantity_one_stroke_001
+    点:
+    - gr_quantity_point_001
+    线:
+    - gr_quantity_line_001
+    角:
+    - gr_quantity_angle_001
+    面:
+    - gr_quantity_face_001
+    素:
+    - gr_quantity_element_001
+  易错点:
+    常见误判:
+    - gr_common_misjudgment_001
+  样式规律:
+    遍历:
+    - gr_style_traversal_001
+    加减同异:
+    - gr_style_add_sub_same_diff_001
+    黑白运算:
+    - gr_black_white_operation_001
+  特殊题型:
+    黑白块:
+    - gr_black_white_block_001
+    汉字类:
+    - gr_chinese_character_001
+    数字类:
+    - gr_digit_symbol_001
+    字母类:
+    - gr_letter_symbol_001
+  空间重构:
+    六面体展开图:
+    - gr_cube_net_overall_001
+    相对面:
+    - gr_cube_opposite_faces_001
+    公共边:
+    - gr_cube_common_edge_001
+    时针法:
+    - gr_cube_clockwise_method_001
+    截面图:
+    - gr_spatial_section_001
+    三视图:
+    - gr_spatial_three_view_001
+    立体拼合:
+    - gr_spatial_assembly_001
+  组成判断:
+    元素组成相同:
+    - gr_composition_same_001
+    元素组成相似:
+    - gr_composition_similar_001
+    元素组成不同:
+    - gr_composition_different_001
+    特殊图形入口:
+    - gr_special_shape_routing_001
+  选项验证:
+    选项验证流程:
+    - gr_option_verification_001
+判断推理-逻辑判断:
+  分析推理:
+    真假分析:
+    - lj_truth_value_analysis_001
+    范畴分析:
+    - lj_category_analysis_001
+    日常分析:
+    - lj_daily_analysis_001
+  削弱:
+    归因论证:
+    - lj_attribution_general_001
+    另有他因:
+    - lj_weaken_alternative_cause_001
+    因果倒置:
+    - lj_weaken_reverse_causation_001
+    并非此因:
+    - lj_weaken_not_this_cause_001
+    对比实验:
+    - lj_experiment_missing_control_001
+    样本不代表总体:
+    - lj_weaken_invalid_sample_001
+    比例类:
+    - lj_proportion_argument_001
+    根表原因:
+    - lj_weaken_root_surface_cause_001
+    严谨逻辑关系:
+    - lj_weaken_strict_conditional_001
+    一般质疑:
+    - lj_weaken_general_no_premise_001
+    - lj_weaken_evidence_conclusion_001
+  前提假设:
+    前提总原则:
+    - lj_premise_general_001
+    断点搭桥:
+    - lj_premise_bridge_001
+    补充漏洞:
+    - lj_premise_fill_gap_001
+    能与不能:
+    - lj_premise_enable_condition_001
+  加强:
+    支持加强类:
+    - lj_support_general_001
+    断点搭桥:
+    - lj_support_bridge_001
+    必要条件:
+    - lj_support_necessary_condition_001
+    自断一臂:
+    - lj_support_self_block_001
+    加入论据和事实:
+    - lj_support_add_evidence_001
+    解释机制:
+    - lj_support_explain_mechanism_001
+  加强削弱:
+    对比实验:
+    - lj_experiment_initial_state_001
+    - lj_compare_experiment_construct_001
+  结论推出:
+    推出类总流程:
+    - lj_conclusion_translation_001
+    必要/充分条件:
+    - lj_sufficient_necessary_001
+    假言命题:
+    - lj_translation_if_001
+    - lj_translation_only_001
+    - lj_translation_unless_001
+    命题等价:
+    - lj_inverse_contrapositive_001
+    选言/联言命题:
+    - lj_or_and_negation_001
+    等价推出:
+    - lj_conclusion_equivalent_inference_001
+    范畴关系:
+    - lj_relation_quantifier_001
+  解释说明:
+    矛盾解释:
+    - lj_explanation_contradiction_001
+  评价论证:
+    评价论证:
+    - lj_argument_evaluation_001
+  逻辑判断:
+    总流程:
+    - lj_total_flow_001
+    论证结构:
+    - lj_argument_structure_001
+    力度比较:
+    - lj_strength_order_compare_001
+    无关选项:
+    - lj_irrelevant_options_001
+    逻辑基本知识:
+    - lj_reasoning_mode_001
+判断推理-定义判断:
+  定义判断:
+    总流程:
+    - dj_total_flow_001
+    题干方向:
+    - dj_belong_not_belong_001
+    关键词拆解:
+    - dj_defined_term_001
+    选项设置:
+    - dj_option_setting_001
+    关键词查找:
+    - dj_keyword_lookup_001
+    主体要素:
+    - dj_subject_check_001
+    客体/对象要素:
+    - dj_object_check_001
+    特殊要求:
+    - dj_special_requirement_001
+    多定义/枚举型:
+    - dj_multi_definition_001
+    方式/目的/结果要素:
+    - dj_way_purpose_result_001
+    排除法:
+    - dj_elimination_001
+    时间变化:
+    - dj_time_change_001
+    常见陷阱:
+    - dj_common_traps_001
+判断推理-类比推理:
+  类比推理:
+    总流程:
+    - ar_total_flow_001
+    二级辨析:
+    - ar_secondary_check_001
+    语义关系二级辨析:
+    - ar_semantic_secondary_001
+    对应关系二级辨析:
+    - ar_correspond_subject_quantity_001
+    语义关系:
+    - ar_semantic_synonym_001
+    - ar_semantic_antonym_001
+    - ar_semantic_extended_001
+    逻辑关系-包含:
+    - ar_logic_species_genus_001
+    - ar_logic_composition_001
+    逻辑关系-并列:
+    - ar_logic_opposition_contradiction_001
+    逻辑关系-圈圈关系:
+    - ar_logic_cross_001
+    逻辑关系:
+    - ar_logic_equivalence_001
+    对应关系:
+    - ar_correspond_function_001
+    - ar_correspond_cause_effect_001
+    - ar_correspond_material_001
+    - ar_correspond_purpose_001
+    - ar_correspond_time_sequence_001
+    - ar_correspond_necessary_001
+    - ar_sentence_tool_object_place_001
+    拆词关系:
+    - ar_split_word_001
+    语法关系:
+    - ar_grammar_pos_001
+    - ar_grammar_structure_001
+    常见陷阱:
+    - ar_common_traps_001
+言语理解-主旨意图:
+  中心理解:
+    总流程:
+    - vr_mi_total_flow_001
+    主体词:
+    - vr_mi_subject_word_001
+    主题句:
+    - vr_mi_topic_sentence_001
+    中心题:
+    - vr_mi_center_understanding_001
+    转折关系:
+    - vr_mi_turning_point_001
+    二层结构:
+    - vr_mi_two_layer_structure_001
+    递进关系:
+    - vr_mi_progression_001
+  主旨概括:
+    主旨概括:
+    - vr_mi_main_summary_001
+    观点-解释:
+    - vr_mi_view_explain_001
+    因果关系:
+    - vr_mi_causality_001
+    开门见山:
+    - vr_mi_opening_topic_001
+    总分/分总:
+    - vr_mi_total_part_001
+    并列结构:
+    - vr_mi_parallel_001
+    背景-新发现:
+    - vr_mi_background_new_discovery_001
+  意图判断:
+    意图判断:
+    - vr_mi_intention_solution_001
+    问题-对策:
+    - vr_mi_problem_solution_001
+    必要条件:
+    - vr_mi_necessary_condition_001
+    尾句重点:
+    - vr_mi_end_sentence_focus_001
+  标题填入:
+    标题总流程:
+    - vr_mi_title_total_001
+    标题关键词:
+    - vr_mi_title_keyword_001
+  选项排除:
+    出处不对:
+    - vr_mi_eliminate_source_001
+    偷换概念:
+    - vr_mi_eliminate_concept_shift_001
+    范围扩大/缩小:
+    - vr_mi_eliminate_scope_001
+    绝对化选项:
+    - vr_mi_eliminate_absolute_001
+    无中生有:
+    - vr_mi_eliminate_none_001
+    下定义选项:
+    - vr_mi_eliminate_definition_001
+    杂糅选项:
+    - vr_mi_eliminate_splice_001
+    比较类选项:
+    - vr_mi_eliminate_compare_001
+    太中性选项:
+    - vr_mi_eliminate_neutral_001
+    具体类选项:
+    - vr_mi_specific_option_001
+  选项比较:
+    优选具体:
+    - vr_mi_one_compare_001
+  题型识别:
+    问法识别:
+    - vr_mi_question_router_001
+言语理解-语句表达:
+  下文推断:
+    尾句新信息:
+    - vecl_next_tail_newinfo_001
+    话题结束:
+    - vecl_next_topic_finished_002
+    问题对策:
+    - vecl_next_problem_solution_003
+    文末对策:
+    - vecl_next_specific_solution_004
+    已谈不再谈:
+    - vecl_next_already_discussed_005
+    下文干扰项:
+    - vecl_next_option_elimination_023
+  标题填入:
+    主旨题变形:
+    - vecl_title_mainidea_001
+    关键词与主语:
+    - vecl_title_keyword_002
+    标题表达:
+    - vecl_title_readability_003
+    标题干扰项:
+    - vecl_title_option_elimination_022
+  综合流程:
+    语句表达与逻辑填空总流程:
+    - vecl_total_flow_001
+  语句填入:
+    横线位置功能:
+    - vecl_sentence_fill_position_019
+    整体首句/通篇:
+    - vecl_insert_global_001
+    关键词覆盖:
+    - vecl_insert_keyword_002
+    话题一致:
+    - vecl_insert_topic_consistency_003
+    总结句/概括句:
+    - vecl_insert_summary_004
+    主语语法指代:
+    - vecl_insert_pronoun_grammar_005
+  语句排序:
+    整体结构:
+    - vecl_order_overall_001
+    首句判断:
+    - vecl_order_first_sentence_002
+    尾句判断:
+    - vecl_order_last_sentence_003
+    转折捆绑:
+    - vecl_order_binding_transition_004
+    代词指代:
+    - vecl_order_pronoun_005
+    尾首相连:
+    - vecl_order_tail_head_006
+    时间与逻辑顺序:
+    - vecl_order_time_logic_007
+    并列捆绑:
+    - vecl_order_pair_binding_020
+言语理解-逻辑填空:
+  逻辑填空:
+    多空题策略:
+    - vecl_cloze_multi_blank_024
+    关联词提示:
+    - vecl_cloze_relation_word_021
+    总流程:
+    - vecl_cloze_total_001
+    成语辨析:
+    - vecl_cloze_idiom_context_002
+    实词辨析:
+    - vecl_cloze_realword_morpheme_003
+    逻辑对应:
+    - vecl_cloze_logic_correspondence_004
+    对象特征:
+    - vecl_cloze_intent_object_005
+    语境还原:
+    - vecl_cloze_as_writer_006
+    转折提示:
+    - vecl_cloze_transition_007
+    递进提示:
+    - vecl_cloze_progressive_008
+    并列提示:
+    - vecl_cloze_parallel_009
+    固定搭配:
+    - vecl_cloze_fixed_collocation_010
+    程度轻重:
+    - vecl_cloze_degree_011
+    感情色彩:
+    - vecl_cloze_sentiment_012
+    语法正确:
+    - vecl_cloze_grammar_013
+    语体与比喻:
+    - vecl_cloze_style_metaphor_014
+    政治语境:
+    - vecl_cloze_political_context_015
+    实词积累:
+    - vecl_cloze_common_words_016
+    搭配积累:
+    - vecl_cloze_collocation_bank_017
+    成语误用:
+    - vecl_cloze_idiom_misread_018

@@ -1,0 +1,3751 @@
+version: final_merged_v1
+routing_policy:
+  first_step: 先识别大模块，再识别题型，最后调用 priority_method_id 对应卡片；禁止跳过方法卡片直接作答。
+  need_review_policy: 引用 need_review=true 或 route.need_review=true 的规则时，必须提示人工复核，不作为高优先级自动调用。
+  source: 合并七个 source-audited 模块 zip 的 router_rules。
+modules:
+- 资料分析
+- 数量关系
+- 判断推理-图形推理
+- 判断推理-逻辑判断
+- 判断推理-定义判断
+- 判断推理-类比推理
+- 言语理解-主旨意图
+- 言语理解-语句表达
+- 言语理解-逻辑填空
+routes:
+- route_id: gr_d45601ed
+  module: 判断推理-图形推理
+  question_type: 图推总流程
+  sub_type: 总流程
+  stem_triggers:
+  - 任意图推题
+  - 图形推理
+  - 图推
+  - 缺一项
+  - 规律
+  - 选项
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_total_flow_001
+  backup_method_ids:
+  - gr_mnemonic_15_001
+  - gr_question_form_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_total_flow_001
+    original_backup_method_id:
+    - gr_mnemonic_15_001
+    - gr_question_form_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_1c0f000f
+  module: 判断推理-图形推理
+  question_type: 图推总流程
+  sub_type: 命题形式
+  stem_triggers:
+  - 3x3九宫格
+  - 一组图
+  - 一行图形
+  - 两组图
+  - 两行图形
+  - 九宫格
+  - 分组分类
+  - 立体图
+  - 立体类
+  - 要求分组
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_question_form_001
+  backup_method_ids:
+  - gr_total_flow_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_question_form_001
+    original_backup_method_id:
+    - gr_total_flow_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_becb8ad9
+  module: 判断推理-图形推理
+  question_type: 组成判断
+  sub_type: 组成相同
+  stem_triggers:
+  - 仅位置或方向变化
+  - 位置
+  - 元素种类和数量相同
+  - 方向
+  - 旋转
+  - 相同
+  - 移动
+  - 翻转
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_composition_same_001
+  backup_method_ids:
+  - gr_position_translate_001
+  - gr_position_rotation_001
+  - gr_position_flip_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_composition_same_001
+    original_backup_method_id:
+    - gr_position_translate_001
+    - gr_position_rotation_001
+    - gr_position_flip_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_9e8cb9f9
+  module: 判断推理-图形推理
+  question_type: 位置规律
+  sub_type: 平移
+  stem_triggers:
+  - 位移
+  - 位置变化
+  - 宫格位置改变
+  - 小元素沿路径移动
+  - 平移
+  - 格子
+  - 移动
+  - 路径
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_position_translate_001
+  backup_method_ids:
+  - gr_composition_same_001
+  - gr_option_verification_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_position_translate_001
+    original_backup_method_id:
+    - gr_composition_same_001
+    - gr_option_verification_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_79b5a656
+  module: 判断推理-图形推理
+  question_type: 位置规律
+  sub_type: 旋转
+  stem_triggers:
+  - 图形方向按角度变化
+  - 旋转
+  - 角度
+  - 逆时针
+  - 顺时针
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_position_rotation_001
+  backup_method_ids:
+  - gr_position_flip_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_position_rotation_001
+    original_backup_method_id:
+    - gr_position_flip_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_69ca6555
+  module: 判断推理-图形推理
+  question_type: 位置规律
+  sub_type: 翻转
+  stem_triggers:
+  - 中心对称
+  - 横轴
+  - 相邻图呈上下/左右镜像
+  - 竖轴
+  - 翻转
+  - 镜像
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_position_flip_001
+  backup_method_ids:
+  - gr_position_rotation_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_position_flip_001
+    original_backup_method_id:
+    - gr_position_rotation_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_34716a5e
+  module: 判断推理-图形推理
+  question_type: 组成判断
+  sub_type: 组成相似
+  stem_triggers:
+  - 元素局部重复
+  - 去同
+  - 去异
+  - 叠加
+  - 相似
+  - 相邻图可叠加
+  - 遍历
+  - 黑白运算
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_composition_similar_001
+  backup_method_ids:
+  - gr_style_traversal_001
+  - gr_style_add_sub_same_diff_001
+  - gr_black_white_operation_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_composition_similar_001
+    original_backup_method_id:
+    - gr_style_traversal_001
+    - gr_style_add_sub_same_diff_001
+    - gr_black_white_operation_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_54898fa9
+  module: 判断推理-图形推理
+  question_type: 样式规律
+  sub_type: 遍历
+  stem_triggers:
+  - 元素种类在行列中重复
+  - 每行每列
+  - 缺失
+  - 遍历
+  - 重复出现
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_style_traversal_001
+  backup_method_ids:
+  - gr_option_verification_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_style_traversal_001
+    original_backup_method_id:
+    - gr_option_verification_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_fbc9bef8
+  module: 判断推理-图形推理
+  question_type: 样式规律
+  sub_type: 加减同异
+  stem_triggers:
+  - 两个图形叠成第三个
+  - 去同
+  - 去异
+  - 叠加
+  - 相减
+  - 相加
+  - 线条同异变化
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_style_add_sub_same_diff_001
+  backup_method_ids:
+  - gr_black_white_operation_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_style_add_sub_same_diff_001
+    original_backup_method_id:
+    - gr_black_white_operation_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_f653354c
+  module: 判断推理-图形推理
+  question_type: 样式规律
+  sub_type: 黑白运算
+  stem_triggers:
+  - 同尺寸黑白格
+  - 格子
+  - 白块
+  - 运算
+  - 黑块
+  - 黑白
+  - 黑白状态变化
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_black_white_operation_001
+  backup_method_ids:
+  - gr_black_white_block_001
+  - gr_position_translate_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_black_white_operation_001
+    original_backup_method_id:
+    - gr_black_white_block_001
+    - gr_position_translate_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_1045283c
+  module: 判断推理-图形推理
+  question_type: 组成判断
+  sub_type: 组成不同
+  stem_triggers:
+  - 元素差异大
+  - 对称
+  - 属性
+  - 开闭
+  - 数量
+  - 曲直
+  - 没有重复元素可移动或叠加
+  - 点线面角素
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_composition_different_001
+  backup_method_ids:
+  - gr_property_symmetry_001
+  - gr_quantity_face_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_composition_different_001
+    original_backup_method_id:
+    - gr_property_symmetry_001
+    - gr_quantity_face_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_9b788869
+  module: 判断推理-图形推理
+  question_type: 属性规律
+  sub_type: 对称性
+  stem_triggers:
+  - Z/S/风车/太极/正多边形
+  - 中心对称
+  - 对称
+  - 对称轴
+  - 规整图形
+  - 轴对称
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_property_symmetry_001
+  backup_method_ids:
+  - gr_option_verification_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_property_symmetry_001
+    original_backup_method_id:
+    - gr_option_verification_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_cb4d21f4
+  module: 判断推理-图形推理
+  question_type: 属性规律
+  sub_type: 开闭性
+  stem_triggers:
+  - 图形有缺口或闭合空间
+  - 封闭
+  - 封闭空间
+  - 开放
+  - 开闭
+  - 缺口
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_property_open_closed_001
+  backup_method_ids:
+  - gr_quantity_face_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_property_open_closed_001
+    original_backup_method_id:
+    - gr_quantity_face_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_c1498eaa
+  module: 判断推理-图形推理
+  question_type: 属性规律
+  sub_type: 曲直性
+  stem_triggers:
+  - 全曲
+  - 全直
+  - 曲直
+  - 曲线
+  - 直线
+  - 直线曲线差异明显
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_property_curve_straight_001
+  backup_method_ids:
+  - gr_quantity_line_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_property_curve_straight_001
+    original_backup_method_id:
+    - gr_quantity_line_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_89192201
+  module: 判断推理-图形推理
+  question_type: 数量规律
+  sub_type: 一笔画
+  stem_triggers:
+  - T点
+  - 一笔画
+  - 五角星
+  - 出头
+  - 分离图形
+  - 圆相切/相交
+  - 奇点
+  - 田字变形
+  - 端点
+  - 笔画
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_quantity_one_stroke_001
+  backup_method_ids:
+  - gr_quantity_point_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_quantity_one_stroke_001
+    original_backup_method_id:
+    - gr_quantity_point_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_be604f8b
+  module: 判断推理-图形推理
+  question_type: 数量规律
+  sub_type: 点
+  stem_triggers:
+  - 交叉线条多
+  - 交点
+  - 出头点
+  - 切点
+  - 点
+  - 相切/相交图形
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_quantity_point_001
+  backup_method_ids:
+  - gr_quantity_one_stroke_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_quantity_point_001
+    original_backup_method_id:
+    - gr_quantity_one_stroke_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_a16b8ff6
+  module: 判断推理-图形推理
+  question_type: 数量规律
+  sub_type: 线
+  stem_triggers:
+  - 平行线
+  - 曲线
+  - 直线
+  - 线
+  - 线条数量或线组关系明显
+  - 线段
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_quantity_line_001
+  backup_method_ids:
+  - gr_property_curve_straight_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_quantity_line_001
+    original_backup_method_id:
+    - gr_property_curve_straight_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_2f11f44f
+  module: 判断推理-图形推理
+  question_type: 数量规律
+  sub_type: 角
+  stem_triggers:
+  - 中心角
+  - 折线或三角结构明显
+  - 直角
+  - 角
+  - 钝角
+  - 锐角
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_quantity_angle_001
+  backup_method_ids:
+  - gr_quantity_line_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_quantity_angle_001
+    original_backup_method_id:
+    - gr_quantity_line_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_fd6a0e7d
+  module: 判断推理-图形推理
+  question_type: 数量规律
+  sub_type: 面
+  stem_triggers:
+  - 封闭空间
+  - 封闭面
+  - 明显封闭区域或分割图
+  - 最大面
+  - 面
+  - 面积
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_quantity_face_001
+  backup_method_ids:
+  - gr_property_open_closed_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_quantity_face_001
+    original_backup_method_id:
+    - gr_property_open_closed_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_758aff19
+  module: 判断推理-图形推理
+  question_type: 数量规律
+  sub_type: 素
+  stem_triggers:
+  - 个数
+  - 元素
+  - 多个小元素或生活化图形
+  - 小元素
+  - 生活化图形
+  - 种类
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_quantity_element_001
+  backup_method_ids:
+  - gr_graph_relation_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_quantity_element_001
+    original_backup_method_id:
+    - gr_graph_relation_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_dfd25014
+  module: 判断推理-图形推理
+  question_type: 数量/位置规律
+  sub_type: 功能元素
+  stem_triggers:
+  - 功能元素
+  - 图中出现独立标记元素
+  - 标记点
+  - 标记线
+  - 标记面
+  - 箭头
+  - 黑点
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_functional_element_001
+  backup_method_ids:
+  - gr_position_translate_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_functional_element_001
+    original_backup_method_id:
+    - gr_position_translate_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_72f3fe99
+  module: 判断推理-图形推理
+  question_type: 特殊题型
+  sub_type: 黑白块专项
+  stem_triggers:
+  - 主体为黑白格图
+  - 白格
+  - 连通块
+  - 黑格
+  - 黑白块
+  - 黑色面积
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_black_white_block_001
+  backup_method_ids:
+  - gr_black_white_operation_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_black_white_block_001
+    original_backup_method_id:
+    - gr_black_white_operation_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_50d60c37
+  module: 判断推理-图形推理
+  question_type: 特殊题型
+  sub_type: 汉字类
+  stem_triggers:
+  - 主体为汉字
+  - 偏旁
+  - 拼音
+  - 汉字
+  - 笔画
+  - 部件
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_chinese_character_001
+  backup_method_ids:
+  - gr_property_symmetry_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_chinese_character_001
+    original_backup_method_id:
+    - gr_property_symmetry_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_9395e271
+  module: 判断推理-图形推理
+  question_type: 特殊题型
+  sub_type: 数字类
+  stem_triggers:
+  - 主体为阿拉伯数字
+  - 大小
+  - 封闭面
+  - 数字
+  - 数字本身
+  - 运算
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_digit_symbol_001
+  backup_method_ids:
+  - gr_property_open_closed_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_digit_symbol_001
+    original_backup_method_id:
+    - gr_property_open_closed_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_8e9f0d92
+  module: 判断推理-图形推理
+  question_type: 特殊题型
+  sub_type: 字母类
+  stem_triggers:
+  - alphabet
+  - 主体为英文字母
+  - 大小写
+  - 字母
+  - 字母表
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_letter_symbol_001
+  backup_method_ids:
+  - gr_property_symmetry_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_letter_symbol_001
+    original_backup_method_id:
+    - gr_property_symmetry_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_a7ffdb7c
+  module: 判断推理-图形推理
+  question_type: 空间重构
+  sub_type: 六面体展开图
+  stem_triggers:
+  - 公共边
+  - 六面体
+  - 展开图
+  - 折叠
+  - 正方体
+  - 相对面
+  - 立方体展开图与立体选项
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_cube_net_overall_001
+  backup_method_ids:
+  - gr_cube_opposite_faces_001
+  - gr_cube_common_edge_001
+  - gr_cube_clockwise_method_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_cube_net_overall_001
+    original_backup_method_id:
+    - gr_cube_opposite_faces_001
+    - gr_cube_common_edge_001
+    - gr_cube_clockwise_method_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_c6a1e496
+  module: 判断推理-图形推理
+  question_type: 空间重构
+  sub_type: 相对面
+  stem_triggers:
+  - 不能同时出现
+  - 正方体选项同时展示多个面
+  - 相对面
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_cube_opposite_faces_001
+  backup_method_ids:
+  - gr_cube_common_edge_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_cube_opposite_faces_001
+    original_backup_method_id:
+    - gr_cube_common_edge_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_d9bd6ccb
+  module: 判断推理-图形推理
+  question_type: 空间重构
+  sub_type: 公共边
+  stem_triggers:
+  - L型
+  - 公共边
+  - 画边
+  - 相邻面
+  - 需要比对面上图案方向
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_cube_common_edge_001
+  backup_method_ids:
+  - gr_cube_clockwise_method_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_cube_common_edge_001
+    original_backup_method_id:
+    - gr_cube_clockwise_method_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_01c514c7
+  module: 判断推理-图形推理
+  question_type: 空间重构
+  sub_type: 时针法
+  stem_triggers:
+  - 方向性图案且公共边不够排除
+  - 方向验证
+  - 时针法
+  - 逆时针
+  - 顺时针
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_cube_clockwise_method_001
+  backup_method_ids:
+  - gr_cube_common_edge_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_cube_clockwise_method_001
+    original_backup_method_id:
+    - gr_cube_common_edge_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_d8d87c66
+  module: 判断推理-图形推理
+  question_type: 空间重构
+  sub_type: 截面图
+  stem_triggers:
+  - 六面体
+  - 切割
+  - 圆柱
+  - 圆锥
+  - 截面
+  - 立体被平面切割
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_spatial_section_001
+  backup_method_ids:
+  - gr_option_verification_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_spatial_section_001
+    original_backup_method_id:
+    - gr_option_verification_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_19788fcb
+  module: 判断推理-图形推理
+  question_type: 空间重构
+  sub_type: 三视图
+  stem_triggers:
+  - 三视图
+  - 主视图
+  - 俯视图
+  - 左视图
+  - 给出立体或多视角平面图
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_spatial_three_view_001
+  backup_method_ids:
+  - gr_option_verification_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_spatial_three_view_001
+    original_backup_method_id:
+    - gr_option_verification_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_5984c9bf
+  module: 判断推理-图形推理
+  question_type: 空间重构
+  sub_type: 立体拼合
+  stem_triggers:
+  - 分层
+  - 多个方块组合成目标立体
+  - 方块
+  - 积木
+  - 立体拼合
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_spatial_assembly_001
+  backup_method_ids:
+  - gr_spatial_three_view_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_spatial_assembly_001
+    original_backup_method_id:
+    - gr_spatial_three_view_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: gr_e40ff5b3
+  module: 判断推理-图形推理
+  question_type: 选项验证
+  sub_type: 选项验证
+  stem_triggers:
+  - 不确定
+  - 多个选项可能满足
+  - 排除
+  - 空间/黑白/数量题
+  - 选项
+  - 验证
+  option_features: []
+  negative_triggers: []
+  priority_method_id: gr_option_verification_001
+  backup_method_ids:
+  - gr_common_misjudgment_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: gr_option_verification_001
+    original_backup_method_id:
+    - gr_common_misjudgment_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: lj_3d7443ae
+  module: 判断推理-逻辑判断
+  question_type: 加强
+  sub_type: 加强
+  stem_triggers:
+  - 加强
+  - 支持
+  - 最能加强
+  - 最能支持
+  - 最能证明
+  - 证明
+  option_features:
+  - 主体一致
+  - 加入事实
+  - 必要条件
+  - 排除漏洞
+  - 有论据
+  - 有论点
+  - 补断点
+  - 解释机制
+  - 话题一致
+  - 选项使结论更可信
+  negative_triggers:
+  - 不能削弱
+  - 最能解释
+  - 由此可以推出
+  - 需要补充的前提
+  priority_method_id: lj_support_general_001
+  backup_method_ids:
+  - lj_support_bridge_001
+  - lj_support_add_evidence_001
+  - lj_support_explain_mechanism_001
+  - lj_support_necessary_condition_001
+  - lj_support_self_block_001
+  - lj_strength_order_compare_001
+  reasoning_policy:
+    route_source_section: question_type_routes
+    original_priority_method_id: lj_support_general_001
+    original_backup_method_id:
+    - lj_support_bridge_001
+    - lj_support_add_evidence_001
+    - lj_support_explain_mechanism_001
+    - lj_support_necessary_condition_001
+    - lj_support_self_block_001
+    - lj_strength_order_compare_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: lj_79cd71b8
+  module: 判断推理-逻辑判断
+  question_type: 削弱
+  sub_type: 削弱
+  stem_triggers:
+  - 不能支持
+  - 削弱
+  - 反驳
+  - 最能削弱
+  - 最能反驳
+  - 最能质疑
+  - 质疑
+  option_features:
+  - A且非B
+  - 分母差异
+  - 另有他因
+  - 否定此因
+  - 因果倒置
+  - 实验前差异
+  - 有因果/比例/实验/条件/样本漏洞
+  - 有结论
+  - 样本不代表总体
+  - 缺少对照
+  negative_triggers:
+  - 最能解释
+  - 由此可以推出
+  - 需要补充的前提
+  priority_method_id: lj_attribution_general_001
+  backup_method_ids:
+  - lj_weaken_evidence_conclusion_001
+  - lj_weaken_general_no_premise_001
+  - lj_weaken_strict_conditional_001
+  - lj_proportion_argument_001
+  - lj_weaken_invalid_sample_001
+  - lj_strength_order_compare_001
+  reasoning_policy:
+    route_source_section: question_type_routes
+    original_priority_method_id: lj_attribution_general_001
+    original_backup_method_id:
+    - lj_weaken_evidence_conclusion_001
+    - lj_weaken_general_no_premise_001
+    - lj_weaken_strict_conditional_001
+    - lj_proportion_argument_001
+    - lj_weaken_invalid_sample_001
+    - lj_strength_order_compare_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: lj_02129c02
+  module: 判断推理-逻辑判断
+  question_type: 前提假设
+  sub_type: 前提假设
+  stem_triggers:
+  - 依据
+  - 假设
+  - 前提
+  - 所需的假设
+  - 结论成立
+  - 还需基于
+  - 需要补充
+  option_features:
+  - 必要条件
+  - 断点搭桥
+  - 能与不能
+  - 补充漏洞
+  - 论据到论点存在缺口
+  - 选项为没它不行条件
+  negative_triggers:
+  - 最能削弱
+  - 最能支持但非前提
+  - 最能解释
+  priority_method_id: lj_premise_general_001
+  backup_method_ids:
+  - lj_premise_bridge_001
+  - lj_premise_fill_gap_001
+  - lj_premise_enable_condition_001
+  - lj_support_necessary_condition_001
+  reasoning_policy:
+    route_source_section: question_type_routes
+    original_priority_method_id: lj_premise_general_001
+    original_backup_method_id:
+    - lj_premise_bridge_001
+    - lj_premise_fill_gap_001
+    - lj_premise_enable_condition_001
+    - lj_support_necessary_condition_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: lj_5d3d59e0
+  module: 判断推理-逻辑判断
+  question_type: 解释说明
+  sub_type: 解释说明
+  stem_triggers:
+  - 最能解释
+  - 看似矛盾
+  - 解释
+  - 解释上述矛盾
+  - 说明上述现象
+  option_features:
+  - 不要求证明结论
+  - 两个事实表面冲突
+  - 合理事实
+  - 同时解释矛盾双方
+  - 题干未提及但可接受
+  negative_triggers:
+  - 削弱
+  - 前提
+  - 加强
+  - 由此推出
+  priority_method_id: lj_explanation_contradiction_001
+  backup_method_ids:
+  - lj_argument_structure_001
+  - lj_irrelevant_options_001
+  reasoning_policy:
+    route_source_section: question_type_routes
+    original_priority_method_id: lj_explanation_contradiction_001
+    original_backup_method_id:
+    - lj_argument_structure_001
+    - lj_irrelevant_options_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: lj_ad1ae670
+  module: 判断推理-逻辑判断
+  question_type: 评价论证
+  sub_type: 评价论证
+  stem_triggers:
+  - 判断该论证
+  - 最能评价
+  - 论证是否成立取决于
+  - 评价上述论证
+  - 需要考察
+  option_features:
+  - 回答不同会影响论证强弱
+  - 检验变量是否相关
+  - 检验断点
+  - 选项用于检验关键断点
+  - 题干有论点论据
+  negative_triggers:
+  - 最能解释
+  - 直接问削弱
+  - 直接问支持
+  priority_method_id: lj_argument_evaluation_001
+  backup_method_ids:
+  - lj_argument_structure_001
+  - lj_strength_order_compare_001
+  reasoning_policy:
+    route_source_section: question_type_routes
+    original_priority_method_id: lj_argument_evaluation_001
+    original_backup_method_id:
+    - lj_argument_structure_001
+    - lj_strength_order_compare_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: lj_b70c0ffa
+  module: 判断推理-逻辑判断
+  question_type: 结论推出
+  sub_type: 结论推出
+  stem_triggers:
+  - 一定为真
+  - 可以得出
+  - 必然推出
+  - 据此可知
+  - 由此可以推出
+  option_features:
+  - 不超出题干
+  - 保守结论
+  - 原命题
+  - 要求必然结论
+  - 逆否命题
+  - 题干给条件命题/量词/复合命题
+  negative_triggers:
+  - 最能削弱
+  - 最能支持
+  - 最能解释
+  priority_method_id: lj_conclusion_translation_001
+  backup_method_ids:
+  - lj_sufficient_necessary_001
+  - lj_translation_if_001
+  - lj_translation_only_001
+  - lj_translation_unless_001
+  - lj_inverse_contrapositive_001
+  - lj_or_and_negation_001
+  - lj_relation_quantifier_001
+  reasoning_policy:
+    route_source_section: question_type_routes
+    original_priority_method_id: lj_conclusion_translation_001
+    original_backup_method_id:
+    - lj_sufficient_necessary_001
+    - lj_translation_if_001
+    - lj_translation_only_001
+    - lj_translation_unless_001
+    - lj_inverse_contrapositive_001
+    - lj_or_and_negation_001
+    - lj_relation_quantifier_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: lj_e5b44372
+  module: 判断推理-逻辑判断
+  question_type: 削弱
+  sub_type: 比例类
+  stem_triggers:
+  - 人数显著低于
+  - 占比
+  - 威胁
+  - 患者人数
+  - 死亡人数
+  - 比例
+  - 比率
+  - 销量
+  - 风险
+  option_features:
+  - 分母不同
+  - 总体人数不同
+  - 患者人数不同
+  - 率无法比较
+  - 由绝对数推出率或风险大小
+  negative_triggers: []
+  priority_method_id: lj_proportion_argument_001
+  backup_method_ids:
+  - lj_weaken_evidence_conclusion_001
+  - lj_strength_order_compare_001
+  reasoning_policy:
+    route_source_section: question_type_routes
+    original_priority_method_id: lj_proportion_argument_001
+    original_backup_method_id:
+    - lj_weaken_evidence_conclusion_001
+    - lj_strength_order_compare_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: lj_d12be93b
+  module: 判断推理-逻辑判断
+  question_type: 削弱
+  sub_type: 归因类削弱
+  stem_triggers:
+  - 原因
+  - 导致
+  - 归因
+  - 影响
+  - 得益于
+  - 由此得出
+  - 造成
+  option_features:
+  - A与B相关推出A导致B
+  - 另有他因
+  - 否定此因
+  - 因果倒置
+  - 根表原因
+  negative_triggers: []
+  priority_method_id: lj_attribution_general_001
+  backup_method_ids:
+  - lj_weaken_alternative_cause_001
+  - lj_weaken_reverse_causation_001
+  - lj_weaken_not_this_cause_001
+  - lj_weaken_root_surface_cause_001
+  reasoning_policy:
+    route_source_section: question_type_routes
+    original_priority_method_id: lj_attribution_general_001
+    original_backup_method_id:
+    - lj_weaken_alternative_cause_001
+    - lj_weaken_reverse_causation_001
+    - lj_weaken_not_this_cause_001
+    - lj_weaken_root_surface_cause_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: lj_1616ce6e
+  module: 判断推理-逻辑判断
+  question_type: 加强削弱
+  sub_type: 对比实验
+  stem_triggers:
+  - 两组
+  - 实验
+  - 实验组
+  - 对照
+  - 小鼠
+  - 测试者
+  - 研究人员
+  - 调查分析
+  option_features:
+  - 分组正确
+  - 初始状态
+  - 变量一致
+  - 对照组
+  - 样本有效
+  - 由实验组和对照组差异推出处理变量导致结果
+  negative_triggers: []
+  priority_method_id: lj_experiment_initial_state_001
+  backup_method_ids:
+  - lj_experiment_missing_control_001
+  - lj_compare_experiment_construct_001
+  - lj_weaken_invalid_sample_001
+  reasoning_policy:
+    route_source_section: question_type_routes
+    original_priority_method_id: lj_experiment_initial_state_001
+    original_backup_method_id:
+    - lj_experiment_missing_control_001
+    - lj_compare_experiment_construct_001
+    - lj_weaken_invalid_sample_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: lj_cc24bbe6
+  module: 判断推理-逻辑判断
+  question_type: 分析推理
+  sub_type: 真假分析
+  stem_triggers:
+  - 假话
+  - 只有一假
+  - 只有一真
+  - 真话
+  - 谁说的是真的
+  option_features:
+  - 假设代入
+  - 多条陈述真假受数量约束
+  - 矛盾关系
+  negative_triggers: []
+  priority_method_id: lj_truth_value_analysis_001
+  backup_method_ids:
+  - lj_or_and_negation_001
+  reasoning_policy:
+    route_source_section: question_type_routes
+    original_priority_method_id: lj_truth_value_analysis_001
+    original_backup_method_id:
+    - lj_or_and_negation_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: lj_4e0ecf1f
+  module: 判断推理-逻辑判断
+  question_type: 分析推理
+  sub_type: 范畴分析
+  stem_triggers:
+  - 不确定
+  - 属于
+  - 所有
+  - 有些
+  - 某些
+  - 没有
+  option_features:
+  - 不相交
+  - 包含
+  - 文氏图
+  - 相交
+  - 集合/范围关系
+  negative_triggers: []
+  priority_method_id: lj_category_analysis_001
+  backup_method_ids:
+  - lj_relation_quantifier_001
+  reasoning_policy:
+    route_source_section: question_type_routes
+    original_priority_method_id: lj_category_analysis_001
+    original_backup_method_id:
+    - lj_relation_quantifier_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: lj_fc2258ee
+  module: 判断推理-逻辑判断
+  question_type: 分析推理
+  sub_type: 日常分析
+  stem_triggers:
+  - 位置
+  - 分别
+  - 匹配
+  - 安排
+  - 对应
+  - 甲乙丙丁
+  - 顺序
+  option_features:
+  - 代入法
+  - 列表法
+  - 多对象多条件约束
+  - 画图法
+  negative_triggers: []
+  priority_method_id: lj_daily_analysis_001
+  backup_method_ids:
+  - lj_truth_value_analysis_001
+  reasoning_policy:
+    route_source_section: question_type_routes
+    original_priority_method_id: lj_daily_analysis_001
+    original_backup_method_id:
+    - lj_truth_value_analysis_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_5224bf96
+  module: 数量关系
+  question_type: 排列组合与概率
+  sub_type: 排列组合基础
+  stem_triggers:
+  - 不能
+  - 安排
+  - 排列
+  - 方案数
+  - 组合
+  - 至少
+  - 选择
+  option_features:
+  - 选项为整数方案数
+  - 题干有限元素计数
+  negative_triggers: []
+  priority_method_id: qr_perm_comb_basic_001
+  backup_method_ids:
+  - qr_probability_basic_001
+  - qr_indeterminate_equation_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_perm_comb_basic_001
+    original_backup_method_id:
+    - qr_probability_basic_001
+    - qr_indeterminate_equation_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_ec1dc8c7
+  module: 数量关系
+  question_type: 排列组合与概率
+  sub_type: 相邻问题
+  stem_triggers:
+  - 必须在一起
+  - 挨着
+  - 相邻
+  - 连续
+  option_features:
+  - 方案数可能含捆内排序
+  negative_triggers: []
+  priority_method_id: qr_adjacent_bundle_001
+  backup_method_ids:
+  - qr_perm_comb_basic_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_adjacent_bundle_001
+    original_backup_method_id:
+    - qr_perm_comb_basic_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_806dfba6
+  module: 数量关系
+  question_type: 排列组合与概率
+  sub_type: 不相邻问题
+  stem_triggers:
+  - 不相邻
+  - 不能相邻
+  - 不能连续
+  option_features:
+  - 需数空位
+  negative_triggers: []
+  priority_method_id: qr_nonadjacent_insert_001
+  backup_method_ids:
+  - qr_perm_comb_basic_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_nonadjacent_insert_001
+    original_backup_method_id:
+    - qr_perm_comb_basic_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_cbe60dac
+  module: 数量关系
+  question_type: 排列组合与概率
+  sub_type: 平均分堆
+  stem_triggers:
+  - 分堆
+  - 分组
+  - 平均分成
+  - 每组相同
+  option_features:
+  - 组是否有标签影响是否除以n!
+  negative_triggers: []
+  priority_method_id: qr_average_grouping_001
+  backup_method_ids:
+  - qr_perm_comb_basic_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_average_grouping_001
+    original_backup_method_id:
+    - qr_perm_comb_basic_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_653aa9a5
+  module: 数量关系
+  question_type: 排列组合与概率
+  sub_type: 相同元素分配
+  stem_triggers:
+  - 分给
+  - 每人至少
+  - 相同元素
+  - 相同小球
+  option_features:
+  - 元素相同，下限约束明显
+  negative_triggers: []
+  priority_method_id: qr_same_elements_distribution_001
+  backup_method_ids:
+  - qr_perm_comb_basic_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_same_elements_distribution_001
+    original_backup_method_id:
+    - qr_perm_comb_basic_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_3bd49884
+  module: 数量关系
+  question_type: 排列组合与概率
+  sub_type: 错位排序
+  stem_triggers:
+  - 不在原位置
+  - 放错
+  - 都不回
+  - 错位
+  option_features:
+  - n<=6时可记忆错排数
+  negative_triggers: []
+  priority_method_id: qr_derangement_001
+  backup_method_ids:
+  - qr_perm_comb_basic_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_derangement_001
+    original_backup_method_id:
+    - qr_perm_comb_basic_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_12341de8
+  module: 数量关系
+  question_type: 排列组合与概率
+  sub_type: 概率基础
+  stem_triggers:
+  - 可能性
+  - 恰好
+  - 抽到
+  - 概率
+  - 随机
+  option_features:
+  - 需要分子分母同口径
+  negative_triggers: []
+  priority_method_id: qr_probability_basic_001
+  backup_method_ids:
+  - qr_geometric_probability_001
+  - qr_lottery_probability_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_probability_basic_001
+    original_backup_method_id:
+    - qr_geometric_probability_001
+    - qr_lottery_probability_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_06ac4adc
+  module: 数量关系
+  question_type: 排列组合与概率
+  sub_type: 几何概型
+  stem_triggers:
+  - 体积
+  - 区域
+  - 长度
+  - 随机位置
+  - 随机时刻
+  - 面积
+  option_features:
+  - 连续样本空间
+  negative_triggers: []
+  priority_method_id: qr_geometric_probability_001
+  backup_method_ids:
+  - qr_probability_basic_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_geometric_probability_001
+    original_backup_method_id:
+    - qr_probability_basic_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_a7db350c
+  module: 数量关系
+  question_type: 几何问题
+  sub_type: 几何计算
+  stem_triggers:
+  - 三角形
+  - 体积
+  - 周长
+  - 圆
+  - 弧长
+  - 扇形
+  - 面积
+  option_features:
+  - 选项带面积/体积/长度单位
+  negative_triggers: []
+  priority_method_id: qr_geometry_formula_001
+  backup_method_ids:
+  - qr_geometry_scaling_001
+  - qr_geometry_extreme_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_geometry_formula_001
+    original_backup_method_id:
+    - qr_geometry_scaling_001
+    - qr_geometry_extreme_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_123f6d2a
+  module: 数量关系
+  question_type: 几何问题
+  sub_type: 几何最值
+  stem_triggers:
+  - 体积最大
+  - 周长一定
+  - 周长最小
+  - 表面积最小
+  - 面积最大
+  option_features:
+  - 选项多为图形或最大/最小值
+  negative_triggers: []
+  priority_method_id: qr_geometry_extreme_001
+  backup_method_ids:
+  - qr_geometry_formula_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_geometry_extreme_001
+    original_backup_method_id:
+    - qr_geometry_formula_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_5f5f9105
+  module: 数量关系
+  question_type: 几何问题
+  sub_type: 最短距离
+  stem_triggers:
+  - 最短距离
+  - 最短路径
+  - 点到直线
+  - 表面路径
+  option_features:
+  - 需要对称或展开
+  negative_triggers: []
+  priority_method_id: qr_shortest_distance_001
+  backup_method_ids:
+  - qr_one_stroke_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_shortest_distance_001
+    original_backup_method_id:
+    - qr_one_stroke_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_94675144
+  module: 数量关系
+  question_type: 行程问题
+  sub_type: 普通行程
+  stem_triggers:
+  - 提前
+  - 提速
+  - 时间
+  - 晚到
+  - 路程
+  - 速度
+  option_features:
+  - S=v*t，比例关系明显
+  negative_triggers: []
+  priority_method_id: qr_travel_basic_001
+  backup_method_ids:
+  - qr_meeting_chasing_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_travel_basic_001
+    original_backup_method_id:
+    - qr_meeting_chasing_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_111e134b
+  module: 数量关系
+  question_type: 行程问题
+  sub_type: 相遇追及
+  stem_triggers:
+  - 同向
+  - 相向
+  - 相遇
+  - 距离差
+  - 追上
+  option_features:
+  - 速度和/速度差
+  negative_triggers: []
+  priority_method_id: qr_meeting_chasing_001
+  backup_method_ids:
+  - qr_multiple_meeting_001
+  - qr_circular_motion_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_meeting_chasing_001
+    original_backup_method_id:
+    - qr_multiple_meeting_001
+    - qr_circular_motion_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_4d904b4b
+  module: 数量关系
+  question_type: 行程问题
+  sub_type: 流水行船
+  stem_triggers:
+  - 水速
+  - 漂流
+  - 船速
+  - 逆水
+  - 顺水
+  option_features:
+  - 顺逆速度可拆
+  negative_triggers: []
+  priority_method_id: qr_stream_boat_001
+  backup_method_ids:
+  - qr_travel_basic_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_stream_boat_001
+    original_backup_method_id:
+    - qr_travel_basic_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_f175f728
+  module: 数量关系
+  question_type: 工程问题
+  sub_type: 工程问题
+  stem_triggers:
+  - 单独完成
+  - 合作
+  - 工作总量
+  - 效率
+  - 时间
+  option_features:
+  - 适合赋值LCM
+  negative_triggers: []
+  priority_method_id: qr_work_basic_001
+  backup_method_ids:
+  - qr_work_rest_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_work_basic_001
+    original_backup_method_id:
+    - qr_work_rest_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_5b7996eb
+  module: 数量关系
+  question_type: 经济利润问题
+  sub_type: 利润问题
+  stem_triggers:
+  - 利润率
+  - 售价
+  - 定价
+  - 总利润
+  - 成本
+  - 折扣
+  option_features:
+  - 利润率分母为成本
+  negative_triggers: []
+  priority_method_id: qr_profit_basic_001
+  backup_method_ids:
+  - qr_profit_batch_001
+  - qr_profit_fund_flow_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_profit_basic_001
+    original_backup_method_id:
+    - qr_profit_batch_001
+    - qr_profit_fund_flow_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_b076881b
+  module: 数量关系
+  question_type: 浓度问题
+  sub_type: 浓度问题
+  stem_triggers:
+  - 加水
+  - 浓度
+  - 混合
+  - 溶液
+  - 溶质
+  - 蒸发
+  option_features:
+  - 溶质守恒或十字相乘
+  negative_triggers: []
+  priority_method_id: qr_concentration_basic_001
+  backup_method_ids:
+  - qr_alligation_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_concentration_basic_001
+    original_backup_method_id:
+    - qr_alligation_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_71cd8ba4
+  module: 数量关系
+  question_type: 浓度问题
+  sub_type: 十字相乘
+  stem_triggers:
+  - 两种浓度
+  - 比例
+  - 混合浓度
+  - 配成
+  option_features:
+  - 已知3个浓度求两部分量比
+  negative_triggers: []
+  priority_method_id: qr_alligation_001
+  backup_method_ids:
+  - qr_concentration_basic_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_alligation_001
+    original_backup_method_id:
+    - qr_concentration_basic_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_1a430e2d
+  module: 数量关系
+  question_type: 容斥问题
+  sub_type: 容斥问题
+  stem_triggers:
+  - 参加
+  - 只参加
+  - 同时
+  - 至少一种
+  - 都不
+  option_features:
+  - 集合计数，交集/圈外
+  negative_triggers: []
+  priority_method_id: qr_inclusion_exclusion_001
+  backup_method_ids:
+  - qr_inclusion_exclusion_extreme_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_inclusion_exclusion_001
+    original_backup_method_id:
+    - qr_inclusion_exclusion_extreme_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_009f29b1
+  module: 数量关系
+  question_type: 周期循环问题
+  sub_type: 周期循环
+  stem_triggers:
+  - 周期
+  - 循环
+  - 每几天
+  - 每隔
+  - 第N天
+  option_features:
+  - 取余数，余0按周期末
+  negative_triggers: []
+  priority_method_id: qr_cycle_mod_001
+  backup_method_ids:
+  - qr_date_week_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_cycle_mod_001
+    original_backup_method_id:
+    - qr_date_week_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_09e0aae8
+  module: 数量关系
+  question_type: 日期星期问题
+  sub_type: 日期星期
+  stem_triggers:
+  - 几月几日
+  - 平年
+  - 日期
+  - 星期
+  - 闰年
+  option_features:
+  - 天数拆整周和余天
+  negative_triggers: []
+  priority_method_id: qr_date_week_001
+  backup_method_ids:
+  - qr_cycle_mod_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_date_week_001
+    original_backup_method_id:
+    - qr_cycle_mod_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_8ae66a33
+  module: 数量关系
+  question_type: 年龄问题
+  sub_type: 年龄问题
+  stem_triggers:
+  - 几年前
+  - 几年后
+  - 属相
+  - 岁数
+  - 年龄
+  option_features:
+  - 年龄差不变
+  negative_triggers: []
+  priority_method_id: qr_age_problem_001
+  backup_method_ids:
+  - qr_equation_method_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_age_problem_001
+    original_backup_method_id:
+    - qr_equation_method_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_bf92facf
+  module: 数量关系
+  question_type: 最值问题
+  sub_type: 最不利问题
+  stem_triggers:
+  - 一定有
+  - 保证
+  - 最坏情况
+  - 至少
+  option_features:
+  - 抽屉原理，最后加1
+  negative_triggers: []
+  priority_method_id: qr_extreme_unfavorable_001
+  backup_method_ids:
+  - qr_extreme_sum_fixed_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_extreme_unfavorable_001
+    original_backup_method_id:
+    - qr_extreme_sum_fixed_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_15251d98
+  module: 数量关系
+  question_type: 最值问题
+  sub_type: 和定最值
+  stem_triggers:
+  - 总和
+  - 最后一名
+  - 最多
+  - 最少
+  - 第一名
+  option_features:
+  - 排名约束、能否相等
+  negative_triggers: []
+  priority_method_id: qr_extreme_sum_fixed_001
+  backup_method_ids:
+  - qr_extreme_product_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_extreme_sum_fixed_001
+    original_backup_method_id:
+    - qr_extreme_product_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_fb2a897d
+  module: 数量关系
+  question_type: 最值问题
+  sub_type: 函数最值
+  stem_triggers:
+  - 乘积最大
+  - 二次函数
+  - 最大值
+  - 最小值
+  option_features:
+  - 可化为二次函数或两因子和定
+  negative_triggers: []
+  priority_method_id: qr_extreme_function_001
+  backup_method_ids:
+  - qr_extreme_sum_fixed_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_extreme_function_001
+    original_backup_method_id:
+    - qr_extreme_sum_fixed_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_c06c3ee1
+  module: 数量关系
+  question_type: 特殊情景应用
+  sub_type: 鸡兔同笼
+  stem_triggers:
+  - 对错题
+  - 工资
+  - 得分
+  - 阶梯收费
+  - 鸡兔
+  option_features:
+  - 两类贡献差
+  negative_triggers: []
+  priority_method_id: qr_chicken_rabbit_001
+  backup_method_ids:
+  - qr_surplus_deficit_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_chicken_rabbit_001
+    original_backup_method_id:
+    - qr_surplus_deficit_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_ed1ec8b1
+  module: 数量关系
+  question_type: 特殊情景应用
+  sub_type: 盈亏问题
+  stem_triggers:
+  - 不足
+  - 亏
+  - 多出
+  - 每房
+  - 每车
+  - 盈
+  option_features:
+  - 两种分配标准差
+  negative_triggers: []
+  priority_method_id: qr_surplus_deficit_001
+  backup_method_ids:
+  - qr_equation_method_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_surplus_deficit_001
+    original_backup_method_id:
+    - qr_equation_method_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_3af5f7ec
+  module: 数量关系
+  question_type: 特殊情景应用
+  sub_type: 植树问题
+  stem_triggers:
+  - 两端
+  - 植树
+  - 环形
+  - 路灯
+  - 间隔
+  option_features:
+  - 棵数与间隔关系
+  negative_triggers: []
+  priority_method_id: qr_tree_planting_001
+  backup_method_ids:
+  - qr_tree_overlap_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_tree_planting_001
+    original_backup_method_id:
+    - qr_tree_overlap_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_58665e8c
+  module: 数量关系
+  question_type: 特殊情景应用
+  sub_type: 钟表问题
+  stem_triggers:
+  - 分针
+  - 垂直
+  - 夹角
+  - 时针
+  - 重合
+  - 钟表
+  option_features:
+  - 相对角速度5.5°/min
+  negative_triggers: []
+  priority_method_id: qr_clock_problem_001
+  backup_method_ids:
+  - qr_meeting_chasing_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_clock_problem_001
+    original_backup_method_id:
+    - qr_meeting_chasing_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_f8d7c47b
+  module: 数量关系
+  question_type: 比赛问题
+  sub_type: 比赛场次
+  stem_triggers:
+  - 单循环
+  - 双循环
+  - 场次
+  - 淘汰赛
+  - 轮空
+  option_features:
+  - 赛制识别
+  negative_triggers: []
+  priority_method_id: qr_competition_schedule_001
+  backup_method_ids:
+  - qr_match_probability_order_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_competition_schedule_001
+    original_backup_method_id:
+    - qr_match_probability_order_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: qr_ae97de09
+  module: 数量关系
+  question_type: 数字推理
+  sub_type: 数字推理
+  stem_triggers:
+  - 找规律
+  - 数列
+  - 数字推理
+  - 缺项
+  option_features:
+  - 选项为缺失数字
+  negative_triggers: []
+  priority_method_id: qr_numeric_reasoning_001
+  backup_method_ids:
+  - qr_sequence_formula_001
+  reasoning_policy:
+    route_source_section: rules
+    original_priority_method_id: qr_numeric_reasoning_001
+    original_backup_method_id:
+    - qr_sequence_formula_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vecl_03e66a76
+  module: 言语理解-语句表达
+  question_type: 标题填入
+  sub_type: 标题填入
+  stem_triggers:
+  - 拟题
+  - 最适合做标题
+  - 标题
+  - 标题最恰当
+  option_features:
+  - 含主题词或对策
+  - 标题化表达
+  - 短语式概括
+  negative_triggers:
+  - 依次填入
+  - 填入横线
+  - 排序
+  - 接下来
+  priority_method_id: vecl_title_mainidea_001
+  backup_method_ids:
+  - vecl_title_keyword_002
+  - vecl_title_readability_003
+  - vecl_title_option_elimination_022
+  reasoning_policy:
+    route_source_section: routes
+    original_priority_method_id: vecl_title_mainidea_001
+    original_backup_method_id:
+    - vecl_title_keyword_002
+    - vecl_title_readability_003
+    - vecl_title_option_elimination_022
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vecl_1f064af0
+  module: 言语理解-语句表达
+  question_type: 下文推断
+  sub_type: 下文推断
+  stem_triggers:
+  - 下文
+  - 接下来
+  - 接着讲
+  - 最可能讲
+  option_features:
+  - 原因/对策/新话题
+  - 续写方向
+  negative_triggers:
+  - 填入画横线部分最恰当的一句
+  - 排序
+  - 标题
+  priority_method_id: vecl_next_tail_newinfo_001
+  backup_method_ids:
+  - vecl_next_topic_finished_002
+  - vecl_next_problem_solution_003
+  - vecl_next_specific_solution_004
+  - vecl_next_already_discussed_005
+  - vecl_next_option_elimination_023
+  reasoning_policy:
+    route_source_section: routes
+    original_priority_method_id: vecl_next_tail_newinfo_001
+    original_backup_method_id:
+    - vecl_next_topic_finished_002
+    - vecl_next_problem_solution_003
+    - vecl_next_specific_solution_004
+    - vecl_next_already_discussed_005
+    - vecl_next_option_elimination_023
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vecl_da2cfbd9
+  module: 言语理解-语句表达
+  question_type: 语句填入
+  sub_type: 语句填入
+  stem_triggers:
+  - 填入文中画横线处
+  - 填入画横线部分最恰当的一句
+  - 横线处最恰当的一项
+  option_features:
+  - 可作总领句/承接句/总结句
+  - 完整句子
+  negative_triggers:
+  - 依次填入划横线部分最恰当的一项
+  - 成语
+  - 编号句子
+  priority_method_id: vecl_sentence_fill_position_019
+  backup_method_ids:
+  - vecl_insert_global_001
+  - vecl_insert_keyword_002
+  - vecl_insert_topic_consistency_003
+  - vecl_insert_summary_004
+  - vecl_insert_pronoun_grammar_005
+  reasoning_policy:
+    route_source_section: routes
+    original_priority_method_id: vecl_sentence_fill_position_019
+    original_backup_method_id:
+    - vecl_insert_global_001
+    - vecl_insert_keyword_002
+    - vecl_insert_topic_consistency_003
+    - vecl_insert_summary_004
+    - vecl_insert_pronoun_grammar_005
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vecl_4c29192a
+  module: 言语理解-语句表达
+  question_type: 语句排序
+  sub_type: 语句排序
+  stem_triggers:
+  - 排序最恰当
+  - 组成一段语意连贯的话
+  - 语序正确
+  - 重新排列
+  option_features:
+  - 句子编号①②③
+  - 选项为数字编号序列
+  negative_triggers:
+  - 依次填入
+  - 接下来
+  - 标题
+  priority_method_id: vecl_order_overall_001
+  backup_method_ids:
+  - vecl_order_first_sentence_002
+  - vecl_order_last_sentence_003
+  - vecl_order_binding_transition_004
+  - vecl_order_pronoun_005
+  - vecl_order_tail_head_006
+  - vecl_order_time_logic_007
+  - vecl_order_pair_binding_020
+  reasoning_policy:
+    route_source_section: routes
+    original_priority_method_id: vecl_order_overall_001
+    original_backup_method_id:
+    - vecl_order_first_sentence_002
+    - vecl_order_last_sentence_003
+    - vecl_order_binding_transition_004
+    - vecl_order_pronoun_005
+    - vecl_order_tail_head_006
+    - vecl_order_time_logic_007
+    - vecl_order_pair_binding_020
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vecl_3a416366
+  module: 言语理解-逻辑填空
+  question_type: 逻辑填空
+  sub_type: 逻辑填空
+  stem_triggers:
+  - 依次填入
+  - 填入划横线部分最恰当的一项
+  - 填入画横线部分最恰当的一项
+  - 横线部分最恰当
+  option_features:
+  - 多空词语组
+  - 近义实词或成语
+  - 选项为词语/成语组合
+  negative_triggers:
+  - 完整句子填入
+  - 接下来
+  - 语句排序
+  priority_method_id: vecl_cloze_total_001
+  backup_method_ids:
+  - vecl_cloze_multi_blank_024
+  - vecl_cloze_idiom_context_002
+  - vecl_cloze_realword_morpheme_003
+  - vecl_cloze_logic_correspondence_004
+  - vecl_cloze_relation_word_021
+  - vecl_cloze_fixed_collocation_010
+  reasoning_policy:
+    route_source_section: routes
+    original_priority_method_id: vecl_cloze_total_001
+    original_backup_method_id:
+    - vecl_cloze_multi_blank_024
+    - vecl_cloze_idiom_context_002
+    - vecl_cloze_realword_morpheme_003
+    - vecl_cloze_logic_correspondence_004
+    - vecl_cloze_relation_word_021
+    - vecl_cloze_fixed_collocation_010
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vecl_437d5d9e
+  module: 言语理解-逻辑填空
+  question_type: 逻辑填空
+  sub_type: 逻辑填空-成语辨析
+  stem_triggers:
+  - 填入画横线部分最恰当
+  - 成语
+  option_features:
+  - 四个选项均为成语
+  - 存在褒贬/望文生义差异
+  negative_triggers: []
+  priority_method_id: vecl_cloze_idiom_context_002
+  backup_method_ids:
+  - vecl_cloze_idiom_misread_018
+  - vecl_cloze_sentiment_012
+  - vecl_cloze_degree_011
+  reasoning_policy:
+    route_source_section: routes
+    original_priority_method_id: vecl_cloze_idiom_context_002
+    original_backup_method_id:
+    - vecl_cloze_idiom_misread_018
+    - vecl_cloze_sentiment_012
+    - vecl_cloze_degree_011
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vecl_5327ec9a
+  module: 言语理解-逻辑填空
+  question_type: 逻辑填空
+  sub_type: 逻辑填空-实词辨析
+  stem_triggers:
+  - 依次填入
+  - 实词
+  option_features:
+  - 单字差异明显
+  - 近义实词
+  negative_triggers: []
+  priority_method_id: vecl_cloze_realword_morpheme_003
+  backup_method_ids:
+  - vecl_cloze_common_words_016
+  - vecl_cloze_collocation_bank_017
+  - vecl_cloze_grammar_013
+  reasoning_policy:
+    route_source_section: routes
+    original_priority_method_id: vecl_cloze_realword_morpheme_003
+    original_backup_method_id:
+    - vecl_cloze_common_words_016
+    - vecl_cloze_collocation_bank_017
+    - vecl_cloze_grammar_013
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vecl_4248f0ba
+  module: 言语理解-逻辑填空
+  question_type: 逻辑填空
+  sub_type: 逻辑填空-关联词语境
+  stem_triggers:
+  - 不仅
+  - 但
+  - 否则
+  - 既不能
+  - 更不能
+  - 然而
+  - 甚至
+  option_features:
+  - 选项词义方向或程度不同
+  negative_triggers: []
+  priority_method_id: vecl_cloze_relation_word_021
+  backup_method_ids:
+  - vecl_cloze_transition_007
+  - vecl_cloze_progressive_008
+  - vecl_cloze_parallel_009
+  reasoning_policy:
+    route_source_section: routes
+    original_priority_method_id: vecl_cloze_relation_word_021
+    original_backup_method_id:
+    - vecl_cloze_transition_007
+    - vecl_cloze_progressive_008
+    - vecl_cloze_parallel_009
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vrmi_dca6b2f5
+  module: 言语理解-主旨意图
+  question_type: 主旨概括
+  sub_type: ''
+  stem_triggers:
+  - 主旨
+  - 主要介绍
+  - 主要概括
+  - 主要讲述
+  - 主要说明
+  - 概括最准确
+  option_features:
+  - 'prefer: 不扩大、不缩小、不片面'
+  - 'prefer: 覆盖全文主体和重点层'
+  - 'reject: 只对应例子'
+  - 'reject: 只对应背景'
+  - 'reject: 无中生有'
+  - 'reject: 绝对化'
+  - 说明或议论文段
+  - 需要概括主体+核心内容
+  negative_triggers: []
+  priority_method_id: vr_mi_total_flow_001
+  backup_method_ids:
+  - vr_mi_main_summary_001
+  - vr_mi_center_understanding_001
+  - vr_mi_subject_word_001
+  - vr_mi_topic_sentence_001
+  - vr_mi_eliminate_scope_001
+  reasoning_policy:
+    route_source_section: question_type_routes
+    original_priority_method_id:
+    - vr_mi_total_flow_001
+    - vr_mi_main_summary_001
+    - vr_mi_center_understanding_001
+    original_backup_method_id:
+    - vr_mi_subject_word_001
+    - vr_mi_topic_sentence_001
+    - vr_mi_eliminate_scope_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vrmi_ba5bb118
+  module: 言语理解-主旨意图
+  question_type: 意图判断
+  sub_type: ''
+  stem_triggers:
+  - 想表达
+  - 意图
+  - 意在说明
+  - 旨在强调
+  - 旨在说明
+  - 重在说明
+  option_features:
+  - 'prefer: 体现作者观点或对策'
+  - 'prefer: 对策能针对文段问题'
+  - 'reject: 仅复述背景'
+  - 'reject: 仅陈述问题但原文已有对策'
+  - 'reject: 过度引申的无依据对策'
+  - 常见问题-对策、观点-解释结构
+  - 有作者观点、问题或对策
+  negative_triggers: []
+  priority_method_id: vr_mi_total_flow_001
+  backup_method_ids:
+  - vr_mi_intention_solution_001
+  - vr_mi_problem_solution_001
+  - vr_mi_view_explain_001
+  - vr_mi_turning_point_001
+  - vr_mi_necessary_condition_001
+  - vr_mi_eliminate_none_001
+  reasoning_policy:
+    route_source_section: question_type_routes
+    original_priority_method_id:
+    - vr_mi_total_flow_001
+    - vr_mi_intention_solution_001
+    - vr_mi_problem_solution_001
+    original_backup_method_id:
+    - vr_mi_view_explain_001
+    - vr_mi_turning_point_001
+    - vr_mi_necessary_condition_001
+    - vr_mi_eliminate_none_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vrmi_03e66a76
+  module: 言语理解-主旨意图
+  question_type: 标题填入
+  sub_type: ''
+  stem_triggers:
+  - 作为标题最恰当
+  - 最适合做标题
+  - 标题
+  - 题目
+  option_features:
+  - 'prefer: 准确、简洁、醒目'
+  - 'prefer: 包含核心主题词'
+  - 'prefer: 覆盖文段中心'
+  - 'reject: 不准确或态度不符'
+  - 'reject: 只对应例子'
+  - 'reject: 缺核心主题词'
+  - 'reject: 过泛'
+  - 'reject: 过细'
+  - 先确定主旨中心，再压缩标题
+  negative_triggers: []
+  priority_method_id: vr_mi_title_total_001
+  backup_method_ids:
+  - vr_mi_title_keyword_001
+  - vr_mi_total_flow_001
+  - vr_mi_subject_word_001
+  - vr_mi_eliminate_scope_001
+  reasoning_policy:
+    route_source_section: question_type_routes
+    original_priority_method_id:
+    - vr_mi_title_total_001
+    - vr_mi_title_keyword_001
+    original_backup_method_id:
+    - vr_mi_total_flow_001
+    - vr_mi_subject_word_001
+    - vr_mi_eliminate_scope_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vrmi_b0920223
+  module: 言语理解-主旨意图
+  question_type: 中心理解
+  sub_type: ''
+  stem_triggers:
+  - 中心意思
+  - 文段重点
+  - 最能概括
+  - 核心观点
+  - 这段文字主要讲了
+  option_features:
+  - 'prefer: 主体一致'
+  - 'prefer: 整体概括'
+  - 'prefer: 结构重点一致'
+  - 'reject: 偷换概念'
+  - 'reject: 出处不对'
+  - 'reject: 范围扩大或缩小'
+  - 不宜过度推断作者未说内容
+  - 需要结构概括
+  negative_triggers: []
+  priority_method_id: vr_mi_total_flow_001
+  backup_method_ids:
+  - vr_mi_center_understanding_001
+  - vr_mi_subject_word_001
+  - vr_mi_topic_sentence_001
+  - vr_mi_eliminate_concept_shift_001
+  reasoning_policy:
+    route_source_section: question_type_routes
+    original_priority_method_id:
+    - vr_mi_total_flow_001
+    - vr_mi_center_understanding_001
+    original_backup_method_id:
+    - vr_mi_subject_word_001
+    - vr_mi_topic_sentence_001
+    - vr_mi_eliminate_concept_shift_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vrmi_problem_solution
+  module: 言语理解-主旨意图
+  question_type: 文段结构识别
+  sub_type: problem_solution
+  stem_triggers:
+  - 不足
+  - 为此
+  - 只有
+  - 困境
+  - 应
+  - 弊端
+  - 必须
+  - 问题
+  - 需要
+  - 风险
+  option_features: []
+  negative_triggers: []
+  priority_method_id: vr_mi_problem_solution_001
+  backup_method_ids:
+  - vr_mi_intention_solution_001
+  - vr_mi_necessary_condition_001
+  reasoning_policy:
+    route_source_section: structure_routes
+    original_priority_method_id: vr_mi_problem_solution_001
+    original_backup_method_id:
+    - vr_mi_intention_solution_001
+    - vr_mi_necessary_condition_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vrmi_turning_point
+  module: 言语理解-主旨意图
+  question_type: 文段结构识别
+  sub_type: turning_point
+  stem_triggers:
+  - 不过
+  - 但是
+  - 其实
+  - 可是
+  - 然而
+  option_features: []
+  negative_triggers: []
+  priority_method_id: vr_mi_turning_point_001
+  backup_method_ids:
+  - vr_mi_topic_sentence_001
+  - vr_mi_problem_solution_001
+  reasoning_policy:
+    route_source_section: structure_routes
+    original_priority_method_id: vr_mi_turning_point_001
+    original_backup_method_id:
+    - vr_mi_topic_sentence_001
+    - vr_mi_problem_solution_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vrmi_progression
+  module: 言语理解-主旨意图
+  question_type: 文段结构识别
+  sub_type: progression
+  stem_triggers:
+  - 不仅
+  - 不但
+  - 尤其
+  - 更
+  - 甚至
+  option_features: []
+  negative_triggers: []
+  priority_method_id: vr_mi_progression_001
+  backup_method_ids:
+  - vr_mi_topic_sentence_001
+  - vr_mi_total_flow_001
+  reasoning_policy:
+    route_source_section: structure_routes
+    original_priority_method_id: vr_mi_progression_001
+    original_backup_method_id:
+    - vr_mi_topic_sentence_001
+    - vr_mi_total_flow_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vrmi_causal
+  module: 言语理解-主旨意图
+  question_type: 文段结构识别
+  sub_type: causal
+  stem_triggers:
+  - 因为
+  - 因此
+  - 所以
+  - 根源在于
+  - 由于
+  - 这是因为
+  option_features: []
+  negative_triggers: []
+  priority_method_id: vr_mi_causality_001
+  backup_method_ids:
+  - vr_mi_topic_sentence_001
+  - vr_mi_eliminate_none_001
+  reasoning_policy:
+    route_source_section: structure_routes
+    original_priority_method_id: vr_mi_causality_001
+    original_backup_method_id:
+    - vr_mi_topic_sentence_001
+    - vr_mi_eliminate_none_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vrmi_necessary_condition
+  module: 言语理解-主旨意图
+  question_type: 文段结构识别
+  sub_type: necessary_condition
+  stem_triggers:
+  - 关键
+  - 前提
+  - 只有
+  - 基础
+  - 必须
+  - 才
+  - 除非
+  - 需要
+  option_features: []
+  negative_triggers: []
+  priority_method_id: vr_mi_necessary_condition_001
+  backup_method_ids:
+  - vr_mi_problem_solution_001
+  reasoning_policy:
+    route_source_section: structure_routes
+    original_priority_method_id: vr_mi_necessary_condition_001
+    original_backup_method_id:
+    - vr_mi_problem_solution_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vrmi_total_part
+  module: 言语理解-主旨意图
+  question_type: 文段结构识别
+  sub_type: total_part
+  stem_triggers:
+  - 一方面
+  - 其次
+  - 另一方面
+  - 总之
+  - 此外
+  - 首先
+  option_features: []
+  negative_triggers: []
+  priority_method_id: vr_mi_total_part_001
+  backup_method_ids:
+  - vr_mi_parallel_001
+  reasoning_policy:
+    route_source_section: structure_routes
+    original_priority_method_id: vr_mi_total_part_001
+    original_backup_method_id:
+    - vr_mi_parallel_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vrmi_parallel
+  module: 言语理解-主旨意图
+  question_type: 文段结构识别
+  sub_type: parallel
+  stem_triggers:
+  - 一方面
+  - 古时候
+  - 另一方面
+  - 同时
+  - 如今
+  - 此外
+  - 现代
+  option_features: []
+  negative_triggers: []
+  priority_method_id: vr_mi_parallel_001
+  backup_method_ids:
+  - vr_mi_eliminate_scope_001
+  reasoning_policy:
+    route_source_section: structure_routes
+    original_priority_method_id: vr_mi_parallel_001
+    original_backup_method_id:
+    - vr_mi_eliminate_scope_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vrmi_source_error
+  module: 言语理解-主旨意图
+  question_type: ''
+  sub_type: source_error
+  stem_triggers:
+  - 选项来自例子
+  - 选项来自因此前
+  - 选项来自背景
+  - 选项来自转折前
+  option_features: []
+  negative_triggers: []
+  priority_method_id: vr_mi_eliminate_source_001
+  backup_method_ids: []
+  reasoning_policy:
+    route_source_section: option_elimination_routes
+    original_priority_method_id: vr_mi_eliminate_source_001
+    original_backup_method_id: []
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vrmi_concept_shift
+  module: 言语理解-主旨意图
+  question_type: ''
+  sub_type: concept_shift
+  stem_triggers:
+  - 主语不一致
+  - 偷换概念
+  - 关系方向变化
+  - 对象变化
+  option_features: []
+  negative_triggers: []
+  priority_method_id: vr_mi_eliminate_concept_shift_001
+  backup_method_ids: []
+  reasoning_policy:
+    route_source_section: option_elimination_routes
+    original_priority_method_id: vr_mi_eliminate_concept_shift_001
+    original_backup_method_id: []
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vrmi_scope_error
+  module: 言语理解-主旨意图
+  question_type: ''
+  sub_type: scope_error
+  stem_triggers:
+  - 只说其一
+  - 片面
+  - 范围扩大
+  - 范围缩小
+  option_features: []
+  negative_triggers: []
+  priority_method_id: vr_mi_eliminate_scope_001
+  backup_method_ids: []
+  reasoning_policy:
+    route_source_section: option_elimination_routes
+    original_priority_method_id: vr_mi_eliminate_scope_001
+    original_backup_method_id: []
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vrmi_absolute
+  module: 言语理解-主旨意图
+  question_type: ''
+  sub_type: absolute
+  stem_triggers:
+  - 一定
+  - 全部
+  - 唯一
+  - 完全
+  - 最
+  - 都
+  option_features: []
+  negative_triggers: []
+  priority_method_id: vr_mi_eliminate_absolute_001
+  backup_method_ids: []
+  reasoning_policy:
+    route_source_section: option_elimination_routes
+    original_priority_method_id: vr_mi_eliminate_absolute_001
+    original_backup_method_id: []
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vrmi_none
+  module: 言语理解-主旨意图
+  question_type: ''
+  sub_type: none
+  stem_triggers:
+  - 原文未提
+  - 无中生有
+  - 过度引申
+  option_features: []
+  negative_triggers: []
+  priority_method_id: vr_mi_eliminate_none_001
+  backup_method_ids: []
+  reasoning_policy:
+    route_source_section: option_elimination_routes
+    original_priority_method_id: vr_mi_eliminate_none_001
+    original_backup_method_id: []
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: vrmi_comparison
+  module: 言语理解-主旨意图
+  question_type: ''
+  sub_type: comparison
+  stem_triggers:
+  - 不同
+  - 优势
+  - 低于
+  - 区别
+  - 高于
+  option_features: []
+  negative_triggers: []
+  priority_method_id: vr_mi_eliminate_compare_001
+  backup_method_ids: []
+  reasoning_policy:
+    route_source_section: option_elimination_routes
+    original_priority_method_id: vr_mi_eliminate_compare_001
+    original_backup_method_id: []
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_precheck_terms
+  module: 资料分析
+  question_type: 基础知识
+  sub_type: 统计术语与审题原则
+  stem_triggers:
+  - 产业增加值
+  - 人口自然增长率
+  - 倍数
+  - 同比
+  - 材料包含基础统计术语
+  - 环比
+  - 翻番
+  - 逆差
+  - 顺差
+  - 题干需要确认时间/主体/单位/图例
+  option_features:
+  - 所有资料分析题通用
+  negative_triggers: []
+  priority_method_id: da_base_terms_001
+  backup_method_ids:
+  - da_common_pitfalls_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_base_terms_001
+    original_backup_method_id:
+    - da_common_pitfalls_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_growth_rate_general
+  module: 资料分析
+  question_type: 增长率
+  sub_type: 一般增长率
+  stem_triggers:
+  - 下降
+  - 同比增长
+  - 同比增长百分之几
+  - 增速
+  - 增速为
+  - 增长率
+  - 增长率为多少
+  - 提高
+  - 比上年增长
+  - 降低
+  option_features:
+  - 选项多为%
+  - 问法不含平均/人均/占比
+  negative_triggers:
+  - 人均增长率
+  - 占
+  - 平均增长率
+  - 比重
+  - 百分点
+  priority_method_id: da_growth_rate_general_001
+  backup_method_ids:
+  - da_truncate_division_001
+  - da_common_pitfalls_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_growth_rate_general_001
+    original_backup_method_id:
+    - da_truncate_division_001
+    - da_common_pitfalls_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_interval_growth_rate
+  module: 资料分析
+  question_type: 增长率
+  sub_type: 间隔增长率
+  stem_triggers:
+  - 2015年比2013年
+  - 与两年前相比
+  - 两年前
+  - 增速比上年下降
+  - 增速比上年提高
+  - 较上一年下降
+  - 较上一年提高
+  - 间隔
+  - 隔年
+  option_features:
+  - 给出连续两期增长率
+  - 选项为%
+  negative_triggers:
+  - 占比
+  - 比重差
+  priority_method_id: da_growth_rate_interval_002
+  backup_method_ids:
+  - da_abx_base_interval_002
+  - da_truncate_division_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_growth_rate_interval_002
+    original_backup_method_id:
+    - da_abx_base_interval_002
+    - da_truncate_division_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_ratio_growth
+  module: 资料分析
+  question_type: 增长率
+  sub_type: 比值增长率
+  stem_triggers:
+  - 人均...同比增长
+  - 人均增长率
+  - 倍数增长率
+  - 单位增长率
+  - 平均...增长率
+  - 平均增长率
+  - 每...增长率
+  option_features:
+  - 分子分母单位通常不同
+  - 选项为%
+  negative_triggers:
+  - 占比
+  - 比重
+  - 百分点
+  priority_method_id: da_growth_rate_ratio_003
+  backup_method_ids:
+  - da_ratio_share_diff_005
+  - da_truncate_division_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_growth_rate_ratio_003
+    original_backup_method_id:
+    - da_ratio_share_diff_005
+    - da_truncate_division_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_product_growth
+  module: 资料分析
+  question_type: 增长率
+  sub_type: 乘积增长率
+  stem_triggers:
+  - A=B×C
+  - 两个因素共同增长
+  - 乘积
+  - 占比×整体
+  - 总量=平均×人数
+  - 求乘积型指标增长率
+  option_features:
+  - 给出两个因子的增长率
+  negative_triggers: []
+  priority_method_id: da_growth_rate_product_004
+  backup_method_ids:
+  - da_growth_rate_interval_002
+  - da_truncate_division_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_growth_rate_product_004
+    original_backup_method_id:
+    - da_growth_rate_interval_002
+    - da_truncate_division_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_growth_amount
+  module: 资料分析
+  question_type: 增长量
+  sub_type: 直接求增长量
+  stem_triggers:
+  - 下降量
+  - 减少
+  - 减少了多少
+  - 增加
+  - 增加了多少
+  - 增长量
+  - 增长量为
+  - 多多少
+  - 少多少
+  - 比上年多
+  option_features:
+  - 不是%或百分点
+  - 选项单位与材料原量单位相同
+  negative_triggers:
+  - 增速
+  - 增长率
+  - 比重
+  - 百分点
+  priority_method_id: da_growth_amount_001
+  backup_method_ids:
+  - da_415_parts_001
+  - da_assumption_allocation_001
+  - da_truncate_division_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_growth_amount_001
+    original_backup_method_id:
+    - da_415_parts_001
+    - da_assumption_allocation_001
+    - da_truncate_division_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_growth_amount_compare
+  module: 资料分析
+  question_type: 增长量
+  sub_type: 增长量大小比较
+  stem_triggers:
+  - 减少最多
+  - 增加最多
+  - 增加最多的是
+  - 增长最快
+  - 增长最快的年份是
+  - 增长量最大
+  - 增长量最大的是
+  - 增长量最小
+  - 按增长量排序
+  - 排序
+  option_features:
+  - 材料常给出现期量和增速
+  - 选项为年份或对象
+  negative_triggers:
+  - 增速最高
+  - 增长率最高
+  priority_method_id: da_growth_amount_compare_002
+  backup_method_ids:
+  - da_growth_amount_001
+  - da_compare_ratio_growth_001
+  - da_chart_lookup_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_growth_amount_compare_002
+    original_backup_method_id:
+    - da_growth_amount_001
+    - da_compare_ratio_growth_001
+    - da_chart_lookup_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_base_amount
+  module: 资料分析
+  question_type: 基期量
+  sub_type: 直接基期量
+  stem_triggers:
+  - 2018年...为多少
+  - 上年
+  - 上年为多少
+  - 上期
+  - 前期
+  - 去年
+  - 去年为多少
+  - 基期
+  - 基期量为
+  option_features:
+  - 选项为具体数量单位
+  - 题干给出现期量和增长率
+  negative_triggers:
+  - 平均增长率
+  - 年均增长量
+  priority_method_id: da_abx_base_direct_001
+  backup_method_ids:
+  - da_415_parts_001
+  - da_assumption_allocation_001
+  - da_truncate_division_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_abx_base_direct_001
+    original_backup_method_id:
+    - da_415_parts_001
+    - da_assumption_allocation_001
+    - da_truncate_division_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_interval_base_amount
+  module: 资料分析
+  question_type: 基期量
+  sub_type: 隔年前期量
+  stem_triggers:
+  - 2013年为多少
+  - 与上上年相比
+  - 两年前
+  - 两年前为多少
+  - 隔年
+  - 隔年前期
+  option_features:
+  - 给出连续两期增长率
+  - 选项为具体数量
+  negative_triggers: []
+  priority_method_id: da_abx_base_interval_002
+  backup_method_ids:
+  - da_growth_rate_interval_002
+  - da_abx_base_direct_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_abx_base_interval_002
+    original_backup_method_id:
+    - da_growth_rate_interval_002
+    - da_abx_base_direct_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_base_difference
+  module: 资料分析
+  question_type: 基期量
+  sub_type: 前期差值
+  stem_triggers:
+  - 上年两者相差多少
+  - 上年差值
+  - 前期差值
+  - 前期差值为
+  - 去年相差
+  option_features:
+  - 两个对象均给出现期量和增长率
+  negative_triggers: []
+  priority_method_id: da_abx_base_diff_003
+  backup_method_ids:
+  - da_abx_base_direct_001
+  - da_truncate_division_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_abx_base_diff_003
+    original_backup_method_id:
+    - da_abx_base_direct_001
+    - da_truncate_division_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_current_amount
+  module: 资料分析
+  question_type: 现期量
+  sub_type: 本期/未来现期量
+  stem_triggers:
+  - 今年
+  - 今年为多少
+  - 保持同比增速不变
+  - 保持同比增量不变
+  - 保持增速
+  - 保持增长量
+  - 当年
+  - 未来
+  - 未来第几年超过
+  - 本期
+  - 超过
+  - 达到
+  option_features:
+  - 选项为年份或数量
+  - 题干给出基期和增长量/增速
+  negative_triggers:
+  - 年均增长率
+  - 年均增长量
+  priority_method_id: da_abx_current_001
+  backup_method_ids:
+  - da_growth_amount_001
+  - da_truncate_division_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_abx_current_001
+    original_backup_method_id:
+    - da_growth_amount_001
+    - da_truncate_division_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_share_current
+  module: 资料分析
+  question_type: 比重
+  sub_type: 本期比重
+  stem_triggers:
+  - 其中
+  - 占
+  - 占...的比重
+  - 占全部...
+  - 占总量的
+  - 占比
+  - 在...中占比
+  - 整体
+  - 比例
+  - 比重
+  - 部分
+  option_features:
+  - 选项为%
+  - 问本期或某年占比
+  negative_triggers:
+  - 上年占比
+  - 比重比上年
+  - 百分点
+  priority_method_id: da_share_current_001
+  backup_method_ids:
+  - da_truncate_division_001
+  - da_common_pitfalls_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_share_current_001
+    original_backup_method_id:
+    - da_truncate_division_001
+    - da_common_pitfalls_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_share_base
+  module: 资料分析
+  question_type: 比重
+  sub_type: 基期比重
+  stem_triggers:
+  - 2018年...在...中的占比
+  - 上年...占比
+  - 上年占比
+  - 前期比重
+  - 去年...比重
+  - 去年占比
+  - 基期比重
+  option_features:
+  - 给出部分和整体的现期量及增长率
+  - 选项为%或区间
+  negative_triggers:
+  - 上升
+  - 下降
+  - 百分点
+  priority_method_id: da_share_base_002
+  backup_method_ids:
+  - da_share_trend_003
+  - da_truncate_division_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_share_base_002
+    original_backup_method_id:
+    - da_share_trend_003
+    - da_truncate_division_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_share_trend
+  module: 资料分析
+  question_type: 比重变化
+  sub_type: 两期比重升降
+  stem_triggers:
+  - 占比提高
+  - 占比提高还是下降
+  - 占比降低
+  - 哪个对象增长最快
+  - 增速大于整体
+  - 比重上升
+  - 比重下降
+  - 比重是否上升
+  option_features:
+  - 可只比较部分与整体增速
+  - 选项含上升/下降
+  negative_triggers: []
+  priority_method_id: da_share_trend_003
+  backup_method_ids:
+  - da_share_change_004
+  - da_ratio_share_diff_005
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_share_trend_003
+    original_backup_method_id:
+    - da_share_change_004
+    - da_ratio_share_diff_005
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_share_change
+  module: 资料分析
+  question_type: 比重变化
+  sub_type: 比重差/百分点变化
+  stem_triggers:
+  - 占比下降多少
+  - 占比变化
+  - 占比提高多少
+  - 提高百分点
+  - 比上年上升了多少个百分点
+  - 比重差
+  - 比重比上年
+  - 降低百分点
+  option_features:
+  - 选项单位为百分点或%
+  negative_triggers:
+  - 人均增长率
+  - 平均增长率
+  priority_method_id: da_share_change_004
+  backup_method_ids:
+  - da_share_trend_003
+  - da_assumption_allocation_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_share_change_004
+    original_backup_method_id:
+    - da_share_trend_003
+    - da_assumption_allocation_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_ratio_share_diff
+  module: 资料分析
+  question_type: 比重变化
+  sub_type: 比值增长率/比重差/比值差辨析
+  stem_triggers:
+  - 判断分式变化类型
+  - 区分百分数和百分点
+  - 占...比重
+  - 平均增长率
+  - 比值增长率
+  - 比值差
+  - 比重差
+  option_features:
+  - 选项单位可能为%、百分点或实际单位
+  negative_triggers: []
+  priority_method_id: da_ratio_share_diff_005
+  backup_method_ids:
+  - da_growth_rate_ratio_003
+  - da_share_change_004
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_ratio_share_diff_005
+    original_backup_method_id:
+    - da_growth_rate_ratio_003
+    - da_share_change_004
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_average_general
+  module: 资料分析
+  question_type: 平均数
+  sub_type: 一般平均值
+  stem_triggers:
+  - 人均
+  - 单价
+  - 单位
+  - 单位...为多少
+  - 平均
+  - 平均每
+  - 每
+  - 每实现
+  option_features:
+  - 不是%或百分点
+  - 选项为实际量单位
+  negative_triggers:
+  - 平均增长率
+  - 年均增长率
+  - 年均增长量
+  priority_method_id: da_average_general_001
+  backup_method_ids:
+  - da_truncate_division_001
+  - da_growth_rate_ratio_003
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_average_general_001
+    original_backup_method_id:
+    - da_truncate_division_001
+    - da_growth_rate_ratio_003
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_average_annual_amount
+  module: 资料分析
+  question_type: 平均数
+  sub_type: 年均增长量
+  stem_triggers:
+  - 平均每年增加
+  - 年均增加
+  - 年均增长量
+  - 年平均增加量
+  - 年平均增长量
+  option_features:
+  - 给出末期和初期
+  - 选项为数量单位
+  negative_triggers:
+  - 年均增长率
+  priority_method_id: da_average_annual_growth_amount_002
+  backup_method_ids:
+  - da_chart_lookup_001
+  - da_common_pitfalls_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_average_annual_growth_amount_002
+    original_backup_method_id:
+    - da_chart_lookup_001
+    - da_common_pitfalls_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_average_annual_rate
+  module: 资料分析
+  question_type: 平均数
+  sub_type: 年均增长率
+  stem_triggers:
+  - 平均增速
+  - 平均每年增长率
+  - 年均增速
+  - 年均增长率
+  - 年平均增速
+  - 年平均增长率
+  option_features:
+  - 给出末期/基期倍数关系
+  - 选项为%
+  negative_triggers:
+  - 年均增长量
+  priority_method_id: da_average_annual_growth_rate_003
+  backup_method_ids:
+  - da_truncate_division_001
+  - da_common_pitfalls_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_average_annual_growth_rate_003
+    original_backup_method_id:
+    - da_truncate_division_001
+    - da_common_pitfalls_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_ratio_comparison
+  module: 资料分析
+  question_type: 比较类
+  sub_type: 比值大小/增速大小比较
+  stem_triggers:
+  - 下列比值最大
+  - 分数大小
+  - 增速大小
+  - 增长最快
+  - 增长率最高
+  - 排序正确
+  - 最大
+  - 最小
+  - 比值大小
+  - 趋势
+  option_features:
+  - 可能只需比较趋势
+  - 选项为年份/对象
+  negative_triggers: []
+  priority_method_id: da_compare_ratio_growth_001
+  backup_method_ids:
+  - da_fraction_compare_difference_001
+  - da_chart_lookup_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_compare_ratio_growth_001
+    original_backup_method_id:
+    - da_fraction_compare_difference_001
+    - da_chart_lookup_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_chart_lookup
+  module: 资料分析
+  question_type: 图表查找比较
+  sub_type: 图表直接查找
+  stem_triggers:
+  - 下列排序正确的是
+  - 下列正确
+  - 图中
+  - 排序
+  - 最低
+  - 最低的是
+  - 最大
+  - 最小
+  - 最高
+  - 最高的是
+  - 根据图表
+  - 表中
+  option_features:
+  - 材料含图表
+  - 选项为对象排序或年份
+  negative_triggers: []
+  priority_method_id: da_chart_lookup_001
+  backup_method_ids:
+  - da_compare_ratio_growth_001
+  - da_growth_amount_compare_002
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_chart_lookup_001
+    original_backup_method_id:
+    - da_compare_ratio_growth_001
+    - da_growth_amount_compare_002
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_truncate_division
+  module: 资料分析
+  question_type: 速算方法
+  sub_type: 截位直除
+  stem_triggers:
+  - 人均
+  - 占
+  - 占比
+  - 平均
+  - 最接近
+  - 比值
+  - 约为
+  - 选项差距
+  - 除以
+  option_features:
+  - 四个数值选项差距可比较
+  - 计算式以除法为主
+  negative_triggers:
+  - 精确到个位且选项接近
+  priority_method_id: da_truncate_division_001
+  backup_method_ids:
+  - da_common_pitfalls_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_truncate_division_001
+    original_backup_method_id:
+    - da_common_pitfalls_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_415
+  module: 资料分析
+  question_type: 速算方法
+  sub_type: 415份数法
+  stem_triggers:
+  - R接近分数
+  - 三分之一
+  - 二分之一
+  - 五分之一
+  - 减少了多少
+  - 四分之一
+  - 增加了多少
+  - 增长量
+  - 增长量约为
+  option_features:
+  - R≥10%且接近常用分数
+  - 给出现期B和增长率R
+  negative_triggers:
+  - R小于10%
+  - 选项差距极小
+  priority_method_id: da_415_parts_001
+  backup_method_ids:
+  - da_growth_amount_001
+  - da_assumption_allocation_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_415_parts_001
+    original_backup_method_id:
+    - da_growth_amount_001
+    - da_assumption_allocation_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_assumption_allocation
+  module: 资料分析
+  question_type: 速算方法
+  sub_type: 假设分配法
+  stem_triggers:
+  - R较小
+  - 估算
+  - 减少量约为
+  - 增长量
+  - 增长量约为
+  - 小于10%
+  option_features:
+  - R较小或不适合化分数
+  - 选项差距允许估算
+  negative_triggers:
+  - R接近1/2
+  - R接近1/3
+  - R接近1/4
+  priority_method_id: da_assumption_allocation_001
+  backup_method_ids:
+  - da_growth_amount_001
+  - da_truncate_division_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_assumption_allocation_001
+    original_backup_method_id:
+    - da_growth_amount_001
+    - da_truncate_division_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_add_sub_mul_estimation
+  module: 资料分析
+  question_type: 速算方法
+  sub_type: 加减乘速算
+  stem_triggers:
+  - 乘以百分数
+  - 乘法拆分
+  - 削峰填谷
+  - 基准值
+  - 小分互换
+  - 尾数
+  - 求和
+  - 求平均数
+  - 选项尾数不同
+  - 高位叠加
+  option_features:
+  - 加减乘计算为主
+  - 可利用选项差距
+  negative_triggers: []
+  priority_method_id: da_estimation_add_sub_mul_001
+  backup_method_ids:
+  - da_truncate_division_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_estimation_add_sub_mul_001
+    original_backup_method_id:
+    - da_truncate_division_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_fraction_compare
+  module: 资料分析
+  question_type: 速算方法
+  sub_type: 分数大小比较
+  stem_triggers:
+  - 一大一小
+  - 两个分数谁大
+  - 分子分母
+  - 分数比较
+  - 判断分数大小
+  - 判断分数趋势
+  - 同大同小
+  - 比较占比大小
+  option_features:
+  - 只需比较大小
+  - 可用横向倍数或纵向直除
+  negative_triggers: []
+  priority_method_id: da_fraction_compare_difference_001
+  backup_method_ids:
+  - da_truncate_division_001
+  - da_compare_ratio_growth_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_fraction_compare_difference_001
+    original_backup_method_id:
+    - da_truncate_division_001
+    - da_compare_ratio_growth_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_salt_cross
+  module: 资料分析
+  question_type: 盐水类
+  sub_type: 十字交叉
+  stem_triggers:
+  - 农村
+  - 出口
+  - 城镇
+  - 女性
+  - 已知两个部分和整体
+  - 整体
+  - 整体与部分
+  - 求量之比
+  - 混合
+  - 男性
+  - 进口
+  - 部分
+  - 量之比
+  option_features:
+  - 常问分母之比或占比
+  - 题干有三量加和关系
+  negative_triggers:
+  - 三量无加和关系
+  priority_method_id: da_salt_cross_001
+  backup_method_ids:
+  - da_salt_qualitative_002
+  - da_salt_quantitative_003
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_salt_cross_001
+    original_backup_method_id:
+    - da_salt_qualitative_002
+    - da_salt_quantitative_003
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_salt_qualitative
+  module: 资料分析
+  question_type: 盐水类
+  sub_type: 定性分析
+  stem_triggers:
+  - 不居中
+  - 判断哪一部分量更大
+  - 整体位于两部分之间
+  - 整体值更靠近谁
+  - 混合值
+  - 靠近
+  option_features:
+  - 不一定要求精确计算
+  negative_triggers: []
+  priority_method_id: da_salt_qualitative_002
+  backup_method_ids:
+  - da_salt_cross_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_salt_qualitative_002
+    original_backup_method_id:
+    - da_salt_cross_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_time_segments
+  module: 资料分析
+  question_type: 盐水类
+  sub_type: 时间分段
+  stem_triggers:
+  - 1-7月
+  - 7月
+  - 上半年
+  - 上半年月均
+  - 单月
+  - 月均
+  - 累计
+  - 累计完成
+  option_features:
+  - 材料给累计期和单月
+  - 需要拆分时间段
+  negative_triggers: []
+  priority_method_id: da_time_segments_001
+  backup_method_ids:
+  - da_chart_lookup_001
+  - da_common_pitfalls_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_time_segments_001
+    original_backup_method_id:
+    - da_chart_lookup_001
+    - da_common_pitfalls_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_special_ladong
+  module: 资料分析
+  question_type: 特殊考点
+  sub_type: 拉动增长率/贡献率
+  stem_triggers:
+  - 增量贡献率
+  - 拉动
+  - 拉动...增长
+  - 拉动增长率
+  - 贡献率
+  - 贡献率为
+  option_features:
+  - 题干给部分增量、整体基期或整体增量
+  negative_triggers:
+  - 普通增长率
+  priority_method_id: da_ladong_contribution_001
+  backup_method_ids:
+  - da_growth_amount_001
+  - da_common_pitfalls_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_ladong_contribution_001
+    original_backup_method_id:
+    - da_growth_amount_001
+    - da_common_pitfalls_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_special_overlap
+  module: 资料分析
+  question_type: 特殊考点
+  sub_type: 容斥问题
+  stem_triggers:
+  - 一定有交集
+  - 交集
+  - 占比超过100%
+  - 容斥
+  - 至多
+  - 至多有多少
+  - 至少
+  - 至少有多少
+  option_features:
+  - 两个集合占比或数量
+  - 同一总体
+  negative_triggers:
+  - 不同总体
+  priority_method_id: da_capacity_overlap_001
+  backup_method_ids:
+  - da_common_pitfalls_001
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_capacity_overlap_001
+    original_backup_method_id:
+    - da_common_pitfalls_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: da_da_route_final_pitfalls
+  module: 资料分析
+  question_type: 易错点
+  sub_type: 最终校验
+  stem_triggers:
+  - 下列说法正确/错误
+  - 主体
+  - 单位
+  - 合计
+  - 图例
+  - 总计
+  - 时间
+  - 检查是否有陷阱
+  - 百分点
+  - 陷阱
+  option_features:
+  - 可作为任何题型的末端校验
+  negative_triggers: []
+  priority_method_id: da_common_pitfalls_001
+  backup_method_ids: []
+  reasoning_policy:
+    route_source_section: router_rules
+    original_priority_method_id: da_common_pitfalls_001
+    original_backup_method_id: []
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: dj_ar_definition_judgment
+  module: 判断推理-定义判断
+  question_type: 定义判断
+  sub_type: definition_judgment
+  stem_triggers:
+  - 下列不属于
+  - 下列属于
+  - 不符合定义
+  - 与上述定义最为密切
+  - 根据上述定义
+  - 符合定义
+  option_features:
+  - 四个选项为具体情境、行为、现象或案例
+  - 题干先给出一个或多个概念定义
+  negative_triggers:
+  - 如果题干只有词语对、冒号、括号式类比，不进入定义判断
+  priority_method_id: dj_total_flow_001
+  backup_method_ids:
+  - dj_option_setting_001
+  - dj_defined_term_001
+  - dj_subject_check_001
+  - dj_object_check_001
+  - dj_special_requirement_001
+  - dj_multi_definition_001
+  - dj_keyword_lookup_001
+  - dj_time_change_001
+  - dj_common_traps_001
+  reasoning_policy:
+    route_source_section: routing
+    original_priority_method_id:
+    - dj_total_flow_001
+    - dj_option_setting_001
+    - dj_defined_term_001
+    original_backup_method_id:
+    - dj_subject_check_001
+    - dj_object_check_001
+    - dj_special_requirement_001
+    - dj_multi_definition_001
+    - dj_keyword_lookup_001
+    - dj_time_change_001
+    - dj_common_traps_001
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+  output_constraints: []
+- route_id: dj_ar_analogy_reasoning
+  module: 判断推理-类比推理
+  question_type: 类比推理
+  sub_type: analogy_reasoning
+  stem_triggers:
+  - '::'
+  - ∶
+  - 与上述关系最相似
+  - 与这组词逻辑关系最为一致
+  - 对于
+  - 相当于
+  option_features:
+  - 选项也为词项组合，核心是比较词与词关系
+  - 题干通常为二词、三词或括号式词项
+  negative_triggers:
+  - 如果题干有完整概念定义和属于/不属于问法，优先进入定义判断
+  priority_method_id: ar_total_flow_001
+  backup_method_ids:
+  - ar_secondary_check_001
+  - ar_semantic_synonym_001
+  - ar_semantic_antonym_001
+  - ar_semantic_extended_001
+  - ar_semantic_secondary_001
+  - ar_grammar_pos_001
+  - ar_grammar_structure_001
+  - ar_logic_cross_001
+  - ar_logic_species_genus_001
+  - ar_logic_composition_001
+  - ar_logic_opposition_contradiction_001
+  - ar_logic_equivalence_001
+  - ar_correspond_necessary_001
+  - ar_correspond_material_001
+  - ar_correspond_function_001
+  - ar_correspond_purpose_001
+  - ar_correspond_cause_effect_001
+  - ar_correspond_time_sequence_001
+  - ar_sentence_tool_object_place_001
+  - ar_correspond_subject_quantity_001
+  - ar_split_word_001
+  - ar_common_traps_001
+  reasoning_policy:
+    route_source_section: routing
+    original_priority_method_id:
+    - ar_total_flow_001
+    - ar_secondary_check_001
+    original_backup_method_id:
+    - 'semantic: ar_semantic_synonym_001'
+    - 'semantic: ar_semantic_antonym_001'
+    - 'semantic: ar_semantic_extended_001'
+    - 'semantic: ar_semantic_secondary_001'
+    - 'grammar: ar_grammar_pos_001'
+    - 'grammar: ar_grammar_structure_001'
+    - 'logic: ar_logic_cross_001'
+    - 'logic: ar_logic_species_genus_001'
+    - 'logic: ar_logic_composition_001'
+    - 'logic: ar_logic_opposition_contradiction_001'
+    - 'logic: ar_logic_equivalence_001'
+    - 'correspondence: ar_correspond_necessary_001'
+    - 'correspondence: ar_correspond_cause_effect_001'
+    - 'correspondence: ar_correspond_material_001'
+    - 'correspondence: ar_correspond_function_001'
+    - 'correspondence: ar_correspond_purpose_001'
+    - 'correspondence: ar_correspond_time_sequence_001'
+    - 'correspondence: ar_sentence_tool_object_place_001'
+    - 'correspondence: ar_correspond_subject_quantity_001'
+    - 'other: ar_split_word_001'
+    - 'other: ar_common_traps_001'
+    matching_policy: 按题干触发词、选项特征与模块优先级匹配；命中后读取 method card 执行 steps。
+    patch_v1_1_note: 对应关系类卡片存在于 all_cards.jsonl，已恢复进 backup_method_ids，避免总路由仅回退到 ar_total_flow_001。
+  output_constraints: []
+  method_id_fix_notes:
+  - 'semantic: ar_semantic_synonym_001 -> ar_semantic_synonym_001'
+  - 'semantic: ar_semantic_antonym_001 -> ar_semantic_antonym_001'
+  - 'semantic: ar_semantic_extended_001 -> ar_semantic_extended_001'
+  - 'semantic: ar_semantic_secondary_001 -> ar_semantic_secondary_001'
+  - 'grammar: ar_grammar_pos_001 -> ar_grammar_pos_001'
+  - 'grammar: ar_grammar_structure_001 -> ar_grammar_structure_001'
+  - 'logic: ar_logic_cross_001 -> ar_logic_cross_001'
+  - 'logic: ar_logic_species_genus_001 -> ar_logic_species_genus_001'
+  - 'logic: ar_logic_composition_001 -> ar_logic_composition_001'
+  - 'logic: ar_logic_opposition_contradiction_001 -> ar_logic_opposition_contradiction_001'
+  - 'logic: ar_logic_equivalence_001 -> ar_logic_equivalence_001'
+  - 'correspondence: ar_correspond_cause_effect_001 -> ar_correspond_cause_effect_001'
+  - 'correspondence: ar_correspond_time_sequence_001 -> ar_correspond_time_sequence_001'
+  - 'correspondence: ar_sentence_tool_object_place_001 -> ar_sentence_tool_object_place_001'
+  - 'correspondence: ar_correspond_subject_quantity_001 -> ar_correspond_subject_quantity_001'
+  - 'other: ar_split_word_001 -> ar_split_word_001'
+  - 'other: ar_common_traps_001 -> ar_common_traps_001'
+  - 'patch_v1_1: restored existing correspondence cards to backup_method_ids: ar_correspond_necessary_001, ar_correspond_material_001,
+    ar_correspond_function_001, ar_correspond_purpose_001'
