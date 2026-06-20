@@ -2,7 +2,7 @@
 
 > 注意：本项目不是独立自动答题器。MCP 负责题型路由、方法卡检索、解题脚手架、答题提示词约束和安全门控；最终读图、读表、计算、推理和选答案仍由接入的大模型完成。因此，实际答题正确率会受到接入模型能力影响。建议使用中文理解、多模态视觉、表格阅读和推理能力较强的大模型。
 
-基于花生十三行测方法论的 MCP 解题辅助工具。为 Claude Code 等 LLM 客户端提供结构化的行测题型路由、方法检索和答题引导。
+基于花生十三行测方法论的 MCP 解题辅助工具。为 Claude Code、Codex 等支持 MCP 协议的 LLM Agent 提供结构化的行测题型路由、方法检索和答题引导。
 
 ## 功能概述
 
@@ -20,7 +20,7 @@
         知识库（292张方法卡片 + 路由规则）
 ```
 
-MCP Server 本身不调用外部 LLM，只生成严格约束的 prompt，由 Claude Code 作为执行者解题。
+MCP Server 本身不调用外部 LLM，只生成严格约束的 prompt，由接入的 LLM Agent（如 Claude Code、Codex 等）执行解题。
 
 ## 安装
 
@@ -81,13 +81,17 @@ python -m xingce_solver.mcp_server
 | 引导 | `get_quantity_relation_scaffold` | 数量关系方法论 |
 | 引导 | `get_verbal_reasoning_scaffold` | 言语理解方法论 |
 
-### 接入 Claude Code
+### 接入 LLM Agent
+
+以 Claude Code 为例：
 
 ```bash
 claude mcp add-json xingce-solver '{"type":"stdio","command":"python","args":["-m","xingce_solver.mcp_server"]}' --scope user
 ```
 
 重启 Claude Code 后运行 `/mcp` 验证 tool 列表。
+
+其他支持 MCP 协议的 Agent（如 Codex、Cline、opencode 等）可参照各自的 MCP 配置方式接入，server 启动命令相同。
 
 ## 与 LLM 的协作模式
 
@@ -156,7 +160,7 @@ knowledge_base/
 
 本 MCP Server 本身不具备视觉能力，不能直接识别图片。行测中的图形推理、资料分析（含图表）等需要看图的题型，依赖 LLM 客户端的多模态能力：
 
-1. **客户端负责看图**：Claude Code 等支持视觉的 LLM 先识别图片内容，将图形特征、图表数据转写为文字描述
+1. **客户端负责看图**：支持视觉的 LLM Agent 先识别图片内容，将图形特征、图表数据转写为文字描述
 2. **MCP 负责结构化分析**：将转写后的文字描述传入 MCP tool，由路由和 scaffold 引导分析流程
 
 推荐使用支持视觉的模型（如 Claude Sonnet/Opus、GPT-4o 等）作为客户端，以完整覆盖图形推理和资料分析等含图表的题型。纯文本模型只能处理文字类题型。
