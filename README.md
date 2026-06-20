@@ -1,5 +1,7 @@
 # xingce-solver
 
+> 本项目不是自动答题器，也不保证最终答案正确率。它是 MCP route / scaffold / prompt / safety gate 辅助系统，最终答案由接入的大模型负责。
+
 基于花生十三行测方法论的 MCP 解题辅助工具。为 Claude Code 等 LLM 客户端提供结构化的行测题型路由、方法检索和答题引导。
 
 ## 功能概述
