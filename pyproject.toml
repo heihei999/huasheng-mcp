@@ -4,9 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "xingce-solver"
-version = "0.1.0"
-description = "Phase-1 CLI and retrieval utilities for the Xingce knowledge base."
+version = "0.5.1"
+description = "基于花生十三行测方法论的 MCP 解题辅助工具"
 readme = "README.md"
+license = "MIT"
 requires-python = ">=3.10"
 dependencies = ["mcp>=1.0.0"]
 
@@ -19,4 +20,3 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
-testpaths = ["tests"]

@@ -106,8 +106,11 @@ claude mcp add-json xingce-solver '{"type":"stdio","command":"python","args":["-
 ## 测试
 
 ```bash
+# 冒烟测试
+PYTHONPATH=src python smoke_test_core.py
+
+# 完整测试（需安装 pytest）
 python -m pytest
-python smoke_test_core.py
 ```
 
 ## 项目结构
