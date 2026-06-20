@@ -1,4 +1,4 @@
-# xingce-solver
+# 花生十三-mcp
 
 > 注意：本项目不是独立自动答题器。MCP 负责题型路由、方法卡检索、解题脚手架、答题提示词约束和安全门控；最终读图、读表、计算、推理和选答案仍由接入的大模型完成。因此，实际答题正确率会受到接入模型能力影响。建议使用中文理解、多模态视觉、表格阅读和推理能力较强的大模型。
 
@@ -41,22 +41,22 @@ python smoke_test_core.py
 
 ```bash
 # 搜索方法卡
-xingce-solver search --query "比重 增长率"
+huasheng-mcp search --query "比重 增长率"
 
 # 查看方法卡详情
-xingce-solver card --id da_share_change_004
+huasheng-mcp card --id da_share_change_004
 
 # 资料分析求解
-xingce-solver solve-data --text "2020年某产业收入为132亿元，同比增长10%，问2019年收入约为多少？ A.100亿元 B.110亿元 C.120亿元 D.132亿元"
+huasheng-mcp solve-data --text
 
 # 逻辑判断求解
-xingce-solver solve-logic --text "只有缴费，才可以报名。小王已经报名。根据上述信息，可以推出的是：A.小王没有缴费 B.缴费的人一定报名 C.小王已经缴费 D.没有报名的人一定没有缴费"
+huasheng-mcp solve-logic --text
 ```
 
 ## MCP Server
 
 ```bash
-xingce-solver-mcp
+huasheng-mcp-server
 # 或
 python -m xingce_solver.mcp_server
 ```
@@ -86,7 +86,7 @@ python -m xingce_solver.mcp_server
 以 Claude Code 为例：
 
 ```bash
-claude mcp add-json xingce-solver '{"type":"stdio","command":"python","args":["-m","xingce_solver.mcp_server"]}' --scope user
+claude mcp add-json huasheng-mcp '{"type":"stdio","command":"python","args":["-m","xingce_solver.mcp_server"]}' --scope user
 ```
 
 重启 Claude Code 后运行 `/mcp` 验证 tool 列表。
