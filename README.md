@@ -79,7 +79,29 @@ cd huasheng-mcp
 pip install -e .
 ```
 
-安装完成后，你可以选择 **Claude Code** 或 **Codex** 作为你的 AI 助手平台。两个方案二选一即可，不需要都装。
+安装完成后，你可以选择 **Claude Code** 或 **Codex** 作为你的 AI 助手平台。三个方案选一个即可，不需要都装。
+
+### 方案零：让 AI 自己安装（最省事）
+
+如果你已经在用 Claude Code 或 Codex，可以直接在会话中发一条消息，让 AI 帮你完成 MCP 配置。
+
+#### Claude Code 用户
+
+启动 Claude Code 后，直接发送以下内容：
+
+> 请帮我添加 MCP 服务：执行命令 `claude mcp add huasheng-mcp --scope user -- python -m xingce_solver.mcp_server`，然后验证连接状态。
+
+Claude Code 会在后台执行命令并告诉你结果。
+
+#### Codex 用户
+
+启动 Codex 后，直接发送以下内容：
+
+> 请帮我添加 MCP 服务：执行命令 `codex mcp add huasheng-mcp -- python -m xingce_solver.mcp_server`，然后验证连接状态。
+
+Codex 会在后台执行命令并告诉你结果。
+
+> ⚠️ 注意：使用此方法前，请确保你已经完成了上方「一键克隆安装」步骤（git clone + pip install），否则 AI 安装了 MCP 但项目文件不在本地，会报错。
 
 ### 前置条件
 
