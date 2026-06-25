@@ -60,6 +60,185 @@ python -c "import xingce_solver.mcp_server; print('ok')"
 python smoke_test_core.py
 ```
 
+## 快速部署指南（傻瓜式接入）
+
+> 本节面向不熟悉命令行的同学。跟着步骤一步步来，10 分钟内就能跑通。
+
+### 一键克隆安装
+
+打开终端（Windows 用户打开 PowerShell，Mac/Linux 用户打开 Terminal），依次输入以下三条命令：
+
+```bash
+# 第一步：把项目下载到本地
+git clone https://github.com/heihei999/huasheng-mcp.git
+
+# 第二步：进入项目文件夹
+cd huasheng-mcp
+
+# 第三步：安装项目（会自动下载所有依赖）
+pip install -e .
+```
+
+安装完成后，你可以选择 **Claude Code** 或 **Codex** 作为你的 AI 助手平台。两个方案二选一即可，不需要都装。
+
+### 前置条件
+
+在接入之前，请确认你的电脑满足以下条件：
+
+| 条件 | 说明 |
+|------|------|
+| Python 3.10 或更高版本 | 终端输入 `python --version` 查看。如果版本低于 3.10，需要先升级 Python |
+| git | 用来下载项目代码。终端输入 `git --version` 检查是否已安装 |
+| Claude Code **或** Codex（二选一） | 分别参考下方的「方案一」或「方案二」 |
+
+> 💡 **怎么查看 Python 版本？** 打开终端，输入 `python --version`，如果显示 `Python 3.10.x` 或 `3.11.x`、`3.12.x` 等就是合格的。如果显示 `3.9.x` 或更低，需要去 [python.org](https://www.python.org) 下载最新版本。
+
+### 方案一：Claude Code 接入
+
+如果你已经安装了 Claude Code（Anthropic 官方的命令行 AI 助手），选择这个方案。
+
+#### 方法 A：一条命令搞定（推荐）
+
+在终端中输入：
+
+```bash
+claude mcp add huasheng-mcp --scope user -- python -m xingce_solver.mcp_server
+```
+
+执行完毕后重启 Claude Code 即可。
+
+#### 方法 B：手动配置 JSON 文件
+
+如果命令行方式不生效，可以手动编辑配置文件：
+
+1. 找到配置文件：在项目根目录创建 `.mcp.json`，或者编辑用户目录下的 `~/.claude.json`
+2. 添加以下内容（`~/.claude.json` 文件中找到或新建 `mcpServers` 字段）：
+
+```json
+{
+  "mcpServers": {
+    "huasheng-mcp": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["-m", "xingce_solver.mcp_server"]
+    }
+  }
+}
+```
+
+> ⚠️ 如果你的 Python 安装路径不在系统 PATH 中，需要把 `"python"` 替换为完整的 Python 路径，例如 `"/usr/local/bin/python3"` 或 `"C:\\Python312\\python.exe"`。
+
+#### 验证 Claude Code 接入
+
+1. 重启 Claude Code
+2. 输入 `/mcp` 查看 MCP 服务列表，应该能看到 `huasheng-mcp` 旁边显示 ✓ Connected
+3. 也可以在终端输入 `claude mcp list` 检查状态
+
+### 方案二：Codex 接入
+
+如果你使用的是 OpenAI Codex CLI，选择这个方案。
+
+#### 方法 A：一条命令搞定（推荐）
+
+在终端中输入：
+
+```bash
+codex mcp add huasheng-mcp -- python -m xingce_solver.mcp_server
+```
+
+执行完毕后重启 Codex 即可。
+
+#### 方法 B：手动编辑 TOML 配置文件
+
+1. 打开或创建配置文件 `~/.codex/config.toml`
+2. 添加以下内容：
+
+```toml
+[mcp_servers.huasheng-mcp]
+command = "python"
+args = ["-m", "xingce_solver.mcp_server"]
+```
+
+> ⚠️ 同样，如果 Python 不在系统 PATH 中，需要把 `"python"` 替换为完整路径。
+
+#### 验证 Codex 接入
+
+1. 启动 Codex 会话
+2. 输入 `/mcp` 查看 MCP 服务列表，确认 `huasheng-mcp` 已连接
+
+### 验证连接
+
+接入完成后，试一试下面的操作来确认一切正常：
+
+**Claude Code 用户：**
+
+1. 打开终端，输入 `claude mcp list`，确认 `huasheng-mcp` 旁边有 ✓ Connected 标记
+2. 启动 Claude Code 会话，发送以下测试问题：
+
+```
+帮我路由这道题：资料分析，某市2023年GDP为5.2万亿元，同比增长8.5%，其中第二产业增加值2.1万亿元，同比增长6.3%。问第二产业增加值占GDP比重与上年相比如何变化？
+```
+
+3. 如果 Claude 能给出路由结果（识别为"资料分析"模块）并开始分析，说明接入成功 ✅
+
+**Codex 用户：**
+
+1. 启动 Codex 会话，输入 `/mcp` 确认连接状态
+2. 发送类似的测试问题，确认 Codex 能正常调用 MCP 工具并返回分析结果
+
+### 常见问题
+
+#### ❌ 报错 "command not found: claude" 或 "command not found: codex"
+
+**原因：** 你还没有安装对应的 AI 助手工具。
+
+**解决：** 
+- Claude Code：参考 [Anthropic 官方文档](https://docs.anthropic.com/en/docs/claude-code) 安装
+- Codex：参考 [OpenAI 官方文档](https://platform.openai.com/docs) 安装
+
+#### ❌ 报错 "ModuleNotFoundError: No module named 'xingce_solver'"
+
+**原因：** 项目还没有安装到你的 Python 环境中。
+
+**解决：** 回到项目文件夹，重新运行安装命令：
+
+```bash
+cd huasheng-mcp
+pip install -e .
+```
+
+#### ❌ 连接失败 / MCP 工具不出现
+
+**原因：** 可能是以下几种情况之一：
+
+1. **Python 版本太低** — 请确认 `python --version` 显示 3.10 或更高版本
+2. **配置文件路径错误** — 重新检查 JSON/TOML 配置文件的内容和路径是否正确
+3. **会话没有重启** — 每次修改 MCP 配置后，必须关闭并重新打开 Claude Code 或 Codex 会话
+
+#### ❌ 工具列表里看不到花生成相关的 tool
+
+**解决：** 添加 MCP 配置后，一定要**完全退出并重新启动**会话（不是开新对话，而是退出程序重新打开）。然后输入 `/mcp` 检查状态。
+
+#### ❌ Windows 用户 Python 命令找不到
+
+**解决：** Windows 上有时需要用 `python3` 或完整路径。在 PowerShell 中运行：
+
+```powershell
+# 查看 Python 安装位置
+where.exe python
+
+# 如果上面没结果，试试
+where.exe python3
+```
+
+找到路径后，在配置中把 `"command": "python"` 改为完整路径，例如：
+
+```json
+"command": "C:\\Users\\你的用户名\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+```
+
+> 💡 **万能解决方法：** 如果遇到奇怪的问题，最简单的方式是删掉已有的 MCP 配置，重新跑一遍上面的"一条命令"。对于 Claude Code 可以先执行 `claude mcp remove huasheng-mcp`，然后再执行 `claude mcp add`。
+
 ## CLI 使用
 
 ```bash
