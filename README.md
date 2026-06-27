@@ -216,7 +216,6 @@ python smoke_test_core.py
 
 <div align="center">
 
-**基于 [花生十三行测方法论](https://space.bilibili.com/)** · 专为非计算机专业学生设计
 
 MIT License · 2024-2026
 
