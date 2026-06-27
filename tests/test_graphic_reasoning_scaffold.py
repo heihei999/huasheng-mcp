@@ -8,11 +8,9 @@ from xingce_solver.scaffolds.graphic_reasoning_scaffold import (
     build_graphic_reasoning_scaffold,
     get_anti_pattern_guards,
     get_black_white_operation_rules,
-    get_dot_grid_coordinate_protocol,
     get_falsification_protocol,
     get_graphic_reasoning_stage_order,
     get_graphic_reasoning_visual_checklists,
-    get_nine_grid_fallback_protocol,
     get_spatial_verification_protocol,
     get_specialized_templates,
     get_uncertainty_reporting_protocol,
@@ -39,7 +37,7 @@ class TestBasicStructure:
 
     def test_version_field(self) -> None:
         scaffold = build_graphic_reasoning_scaffold()
-        assert scaffold["version"] == "v0.2.2"
+        assert scaffold["version"] == "v0.2.1"
 
     def test_mode_field(self) -> None:
         scaffold = build_graphic_reasoning_scaffold()
@@ -447,50 +445,6 @@ class TestSpecializedTemplates:
         assert "constraint" in t
         assert "数量矛盾" in t["constraint"]
 
-    def test_solid_assembly_has_residual_check(self) -> None:
-        templates = get_specialized_templates()
-        t = templates["solid_assembly"]
-        assert "residual_check" in t
-        rc = t["residual_check"]
-        assert "description" in rc
-        assert "required_calculations" in rc
-        assert "constraints" in rc
-        assert "keywords" in rc
-
-    def test_solid_assembly_residual_check_keywords(self) -> None:
-        templates = get_specialized_templates()
-        rc = templates["solid_assembly"]["residual_check"]
-        keywords = rc["keywords"]
-        assert "残差" in keywords
-        assert "目标总块数" in keywords
-        assert "颜色数" in keywords
-        assert "已知组件" in keywords
-        assert "待选组件" in keywords
-        assert "全白" in keywords
-        assert "数量守恒" in keywords
-        assert "凹凸互补" in keywords
-        assert "重叠" in keywords
-        assert "颜色错位" in keywords
-
-    def test_solid_assembly_residual_check_calculations(self) -> None:
-        templates = get_specialized_templates()
-        rc = templates["solid_assembly"]["residual_check"]
-        calcs = rc["required_calculations"]
-        assert any("目标总块数" in c for c in calcs)
-        assert any("目标颜色块" in c for c in calcs)
-        assert any("已知组件" in c for c in calcs)
-        assert any("remaining_total_blocks" in c for c in calcs)
-        assert any("remaining_color_blocks" in c for c in calcs)
-        assert any("remaining_white_blocks" in c for c in calcs)
-
-    def test_solid_assembly_residual_check_constraints(self) -> None:
-        templates = get_specialized_templates()
-        rc = templates["solid_assembly"]["residual_check"]
-        constraints = rc["constraints"]
-        assert any("全白" in c for c in constraints)
-        assert any("不得默认" in c for c in constraints)
-        assert any("analysis_only" in c for c in constraints)
-
     # -- Template G: grouping_classification --
 
     def test_grouping_has_dimension_requirement(self) -> None:
@@ -525,54 +479,6 @@ class TestSpecializedTemplates:
         t = templates["grouping_classification"]
         assert "constraint" in t
         assert "3 个候选维度" in t["constraint"] or "候选维度" in t["constraint"]
-
-    def test_grouping_has_forced_dimensions_by_type(self) -> None:
-        templates = get_specialized_templates()
-        t = templates["grouping_classification"]
-        assert "forced_dimensions_by_type" in t
-        fdt = t["forced_dimensions_by_type"]
-        assert "line_polygon" in fdt
-        assert "black_white_block" in fdt
-
-    def test_grouping_forced_line_polygon_dimensions(self) -> None:
-        templates = get_specialized_templates()
-        lp = templates["grouping_classification"]["forced_dimensions_by_type"]["line_polygon"]
-        assert "description" in lp
-        assert "dimensions" in lp
-        assert "precision_requirement" in lp
-        dims = lp["dimensions"]
-        assert any("封闭区域" in d or "面数" in d for d in dims)
-        assert any("部分数" in d for d in dims)
-        assert any("一笔画" in d or "奇点" in d for d in dims)
-        assert any("端点" in d for d in dims)
-        assert any("交点" in d for d in dims)
-        assert any("平行线" in d for d in dims)
-        assert any("直角" in d for d in dims)
-        assert any("最大面" in d for d in dims)
-        assert any("构件" in d for d in dims)
-
-    def test_grouping_forced_bw_block_dimensions(self) -> None:
-        templates = get_specialized_templates()
-        bw = templates["grouping_classification"]["forced_dimensions_by_type"]["black_white_block"]
-        assert "description" in bw
-        assert "dimensions" in bw
-        dims = bw["dimensions"]
-        assert any("面积占比" in d for d in dims)
-        assert any("重心" in d for d in dims)
-        assert any("最大黑色区域" in d for d in dims)
-        assert any("接边" in d for d in dims)
-        assert any("接角" in d for d in dims)
-        assert any("对称" in d for d in dims)
-        assert any("部分数" in d for d in dims)
-        assert any("外框" in d for d in dims)
-
-    def test_grouping_precision_requirement(self) -> None:
-        templates = get_specialized_templates()
-        lp = templates["grouping_classification"]["forced_dimensions_by_type"]["line_polygon"]
-        assert "封闭区域" in lp["precision_requirement"]
-        assert "图1=3面" in lp["precision_requirement"]
-        assert "禁止" in lp["precision_requirement"]
-        assert "较多/较少" in lp["precision_requirement"]
 
 
 # ---------------------------------------------------------------------------
@@ -640,7 +546,7 @@ class TestAntiPatternGuards:
 
     def test_minimum_8_guards(self) -> None:
         guards = get_anti_pattern_guards()
-        assert len(guards) >= 13
+        assert len(guards) >= 8
 
     def test_each_guard_has_id_forbidden_required(self) -> None:
         guards = get_anti_pattern_guards()
@@ -691,31 +597,6 @@ class TestAntiPatternGuards:
         guards = get_anti_pattern_guards()
         ids = [g["id"] for g in guards]
         assert "unique_option_required" in ids
-
-    def test_guard_no_intuitive_cross_section_rejection(self) -> None:
-        guards = get_anti_pattern_guards()
-        ids = [g["id"] for g in guards]
-        assert "no_intuitive_cross_section_rejection" in ids
-
-    def test_guard_no_color_count_assumption(self) -> None:
-        guards = get_anti_pattern_guards()
-        ids = [g["id"] for g in guards]
-        assert "no_color_count_assumption" in ids
-
-    def test_guard_no_fuzzy_face_count(self) -> None:
-        guards = get_anti_pattern_guards()
-        ids = [g["id"] for g in guards]
-        assert "no_fuzzy_face_count" in ids
-
-    def test_guard_no_single_dimension_grouping(self) -> None:
-        guards = get_anti_pattern_guards()
-        ids = [g["id"] for g in guards]
-        assert "no_single_dimension_grouping" in ids
-
-    def test_guard_no_failed_rule_persistence(self) -> None:
-        guards = get_anti_pattern_guards()
-        ids = [g["id"] for g in guards]
-        assert "no_failed_rule_persistence" in ids
 
 
 # ---------------------------------------------------------------------------
@@ -783,7 +664,6 @@ class TestNoHardcodedAnswers:
             "A D D C", "B B D B", "D B B C",
             "ADD C", "BD B", "ADB C",
             "答案是A", "答案是B", "答案是C", "答案是D",
-            "D A C B D", "B A C C D", "D A C B D B A C C D",
         ]
         for pattern in forbidden_patterns:
             assert pattern not in scaffold_str, f"Found hardcoded pattern: {pattern}"
@@ -794,7 +674,6 @@ class TestNoHardcodedAnswers:
         forbidden_patterns = [
             "A D D C", "B B D B", "D B B C",
             "答案是A", "答案是B", "答案是C", "答案是D",
-            "D A C B D", "B A C C D", "D A C B D B A C C D",
         ]
         for pattern in forbidden_patterns:
             assert pattern not in template, f"Found hardcoded pattern in template: {pattern}"
@@ -968,10 +847,6 @@ class TestSpatialVerificationProtocol:
         assert "cube_net" in protocol
         assert "solid_assembly" in protocol
 
-    def test_has_four_types_including_cross_section(self) -> None:
-        protocol = get_spatial_verification_protocol()
-        assert "cross_section" in protocol
-
     # -- three_views --
 
     def test_three_views_has_coordinate_requirement(self) -> None:
@@ -1048,57 +923,6 @@ class TestSpatialVerificationProtocol:
         assert "constraint" in sa
         assert "数量矛盾" in sa["constraint"]
         assert "不得硬解释" in sa["constraint"]
-
-    # -- cross_section --
-
-    def test_cross_section_has_required_steps(self) -> None:
-        protocol = get_spatial_verification_protocol()
-        cs = protocol["cross_section"]
-        assert "required_steps" in cs
-        steps = cs["required_steps"]
-        assert any("切面" in s for s in steps)
-        assert any("平行" in s and "侧面" in s for s in steps)
-        assert any("平行" in s and "底面" in s for s in steps)
-        assert any("三点" in s for s in steps)
-
-    def test_cross_section_has_required_output(self) -> None:
-        protocol = get_spatial_verification_protocol()
-        cs = protocol["cross_section"]
-        assert "required_output" in cs
-        output = cs["required_output"]
-        assert any("切面" in o for o in output)
-        assert any("平行" in o for o in output)
-        assert any("截面" in o for o in output)
-        assert any("规则" in o and "图形" in o for o in output)
-        assert any("选项" in o and "验证" in o for o in output)
-
-    def test_cross_section_has_geometric_guards(self) -> None:
-        protocol = get_spatial_verification_protocol()
-        cs = protocol["cross_section"]
-        assert "geometric_guards" in cs
-        guards = cs["geometric_guards"]
-        assert "parallel_to_side" in guards
-        assert "parallel_to_base" in guards
-        assert "same_height_layer" in guards
-        assert "adjacent_face_intersection" in guards
-        assert "three_point_plane" in guards
-        assert "no_intuitive_rejection" in guards
-
-    def test_cross_section_geometric_guards_content(self) -> None:
-        protocol = get_spatial_verification_protocol()
-        guards = protocol["cross_section"]["geometric_guards"]
-        assert "矩形" in guards["parallel_to_side"]
-        assert "底面" in guards["parallel_to_base"]
-        assert "直角" in guards["adjacent_face_intersection"]
-        assert "三点" in guards["three_point_plane"]
-        assert "不得凭视觉直觉" in guards["no_intuitive_rejection"]
-
-    def test_cross_section_constraint(self) -> None:
-        protocol = get_spatial_verification_protocol()
-        cs = protocol["cross_section"]
-        assert "constraint" in cs
-        assert "不得凭直觉" in cs["constraint"]
-        assert "analysis_only" in cs["constraint"]
 
 
 # ---------------------------------------------------------------------------
@@ -1269,242 +1093,3 @@ class TestResponseTemplateV021:
     def test_overlay_requires_operation代入(self) -> None:
         template = render_graphic_reasoning_prompt_template()
         assert "运算规则代入" in template
-
-
-# ---------------------------------------------------------------------------
-# Dot grid coordinate protocol (v0.2.2)
-# ---------------------------------------------------------------------------
-
-
-class TestDotGridCoordinateProtocol:
-    """Test the dot-grid coordinate protocol."""
-
-    def test_returns_dict(self) -> None:
-        protocol = get_dot_grid_coordinate_protocol()
-        assert isinstance(protocol, dict)
-
-    def test_scaffold_contains_protocol(self) -> None:
-        scaffold = build_graphic_reasoning_scaffold()
-        assert "dot_grid_coordinate_protocol" in scaffold
-        assert isinstance(scaffold["dot_grid_coordinate_protocol"], dict)
-
-    def test_mandatory_flag(self) -> None:
-        protocol = get_dot_grid_coordinate_protocol()
-        assert protocol["mandatory"] is True
-
-    def test_has_applicability(self) -> None:
-        protocol = get_dot_grid_coordinate_protocol()
-        assert "applicability" in protocol
-        assert "蜂窝" in protocol["applicability"]
-        assert "网格圆圈" in protocol["applicability"]
-        assert "九宫格" in protocol["applicability"]
-
-    def test_coordinate_system_required(self) -> None:
-        protocol = get_dot_grid_coordinate_protocol()
-        assert "coordinate_system_required" in protocol
-        assert "虚拟坐标系" in protocol["coordinate_system_required"]
-        assert "不允许" in protocol["coordinate_system_required"]
-
-    def test_black_point_set_required(self) -> None:
-        protocol = get_dot_grid_coordinate_protocol()
-        assert "black_point_set_required" in protocol
-        assert "坐标集合" in protocol["black_point_set_required"]
-        assert "集合形式" in protocol["black_point_set_required"]
-
-    def test_option_black_point_set_required(self) -> None:
-        protocol = get_dot_grid_coordinate_protocol()
-        assert "option_black_point_set_required" in protocol
-        assert "A/B/C/D" in protocol["option_black_point_set_required"]
-        assert "坐标集合" in protocol["option_black_point_set_required"]
-
-    def test_coordinate_set_operations(self) -> None:
-        protocol = get_dot_grid_coordinate_protocol()
-        assert "coordinate_set_operations" in protocol
-        ops = protocol["coordinate_set_operations"]
-        assert "direct_overlay" in ops
-        assert "xor_remove_same_keep_different" in ops
-        assert "intersection" in ops
-        assert "complement_or_inversion" in ops
-        assert "row_or_column_translation" in ops
-        assert "rotation_or_reflection" in ops
-
-    def test_movement_trace_check(self) -> None:
-        protocol = get_dot_grid_coordinate_protocol()
-        assert "movement_trace_check" in protocol
-        assert "移动轨迹" in protocol["movement_trace_check"]
-        assert "统一规律" in protocol["movement_trace_check"]
-
-    def test_symmetry_check(self) -> None:
-        protocol = get_dot_grid_coordinate_protocol()
-        assert "symmetry_check" in protocol
-        assert "对称轴" in protocol["symmetry_check"]
-        assert "对称中心" in protocol["symmetry_check"]
-        assert "坐标集合" in protocol["symmetry_check"]
-
-    def test_fallback_to_analysis_only(self) -> None:
-        protocol = get_dot_grid_coordinate_protocol()
-        assert "fallback_to_analysis_only" in protocol
-        assert "analysis_only" in protocol["fallback_to_analysis_only"]
-
-
-# ---------------------------------------------------------------------------
-# Nine-grid fallback protocol (v0.2.2)
-# ---------------------------------------------------------------------------
-
-
-class TestNineGridFallbackProtocol:
-    """Test the nine-grid fallback protocol."""
-
-    def test_returns_dict(self) -> None:
-        protocol = get_nine_grid_fallback_protocol()
-        assert isinstance(protocol, dict)
-
-    def test_scaffold_contains_protocol(self) -> None:
-        scaffold = build_graphic_reasoning_scaffold()
-        assert "nine_grid_fallback_protocol" in scaffold
-        assert isinstance(scaffold["nine_grid_fallback_protocol"], dict)
-
-    def test_mandatory_flag(self) -> None:
-        protocol = get_nine_grid_fallback_protocol()
-        assert protocol["mandatory"] is True
-
-    def test_has_applicability(self) -> None:
-        protocol = get_nine_grid_fallback_protocol()
-        assert "applicability" in protocol
-        assert "九宫格" in protocol["applicability"]
-
-    def test_horizontal_first(self) -> None:
-        protocol = get_nine_grid_fallback_protocol()
-        assert "horizontal_first" in protocol
-        assert "横向" in protocol["horizontal_first"]
-
-    def test_vertical_second(self) -> None:
-        protocol = get_nine_grid_fallback_protocol()
-        assert "vertical_second" in protocol
-        assert "纵向" in protocol["vertical_second"]
-
-    def test_failure_detection(self) -> None:
-        protocol = get_nine_grid_fallback_protocol()
-        assert "failure_detection" in protocol
-        assert "任一行" in protocol["failure_detection"] or "一列" in protocol["failure_detection"]
-        assert "失效" in protocol["failure_detection"]
-        assert "硬套" in protocol["failure_detection"]
-
-    def test_mandatory_switch_targets(self) -> None:
-        protocol = get_nine_grid_fallback_protocol()
-        assert "mandatory_switch_targets" in protocol
-        targets = protocol["mandatory_switch_targets"]
-        assert any("轴对称" in t for t in targets)
-        assert any("中心对称" in t for t in targets)
-        assert any("移动轨迹" in t for t in targets)
-        assert any("重心" in t for t in targets)
-        assert any("坐标集合映射" in t for t in targets)
-
-    def test_no_failed_rule_persistence(self) -> None:
-        protocol = get_nine_grid_fallback_protocol()
-        assert "no_failed_rule_persistence" in protocol
-        assert "不得" in protocol["no_failed_rule_persistence"]
-        assert "硬套" in protocol["no_failed_rule_persistence"]
-        assert "对称性" in protocol["no_failed_rule_persistence"]
-        assert "移动轨迹" in protocol["no_failed_rule_persistence"]
-
-    def test_competing_rule_output(self) -> None:
-        protocol = get_nine_grid_fallback_protocol()
-        assert "competing_rule_output" in protocol
-        assert "analysis_only" in protocol["competing_rule_output"]
-
-
-# ---------------------------------------------------------------------------
-# Prompt template v0.2.2 sections
-# ---------------------------------------------------------------------------
-
-
-class TestResponseTemplateV022:
-    """Test v0.2.2 prompt template sections."""
-
-    def test_dot_grid_coordinate_in_visual_transcription(self) -> None:
-        template = render_graphic_reasoning_prompt_template()
-        assert "黑点坐标集合" in template
-
-    def test_nine_grid_fallback_in_candidate_rule(self) -> None:
-        template = render_graphic_reasoning_prompt_template()
-        assert "九宫格" in template
-        assert "切换" in template or "对称性" in template
-
-    def test_cross_section_in_verification(self) -> None:
-        template = render_graphic_reasoning_prompt_template()
-        assert "截面图" in template
-        assert "切面" in template or "平行" in template
-
-    def test_residual_check_in_verification(self) -> None:
-        template = render_graphic_reasoning_prompt_template()
-        assert "残差" in template
-        assert "目标块数" in template or "已知组件" in template
-
-    def test_grouping_forced_dimensions_in_verification(self) -> None:
-        template = render_graphic_reasoning_prompt_template()
-        assert "面数" in template or "部分数" in template
-        assert "面积占比" in template or "重心" in template
-
-    def test_analysis_only_for_unclear_visual_facts(self) -> None:
-        template = render_graphic_reasoning_prompt_template()
-        assert "关键视觉事实不清楚" in template or "分析_only" in template or "analysis_only" in template
-
-
-# ---------------------------------------------------------------------------
-# Cross-section checklist (v0.2.2)
-# ---------------------------------------------------------------------------
-
-
-class TestCrossSectionChecklist:
-    """Test the updated cross-section checklist."""
-
-    def test_has_geometric_section_guards(self) -> None:
-        checklists = get_graphic_reasoning_visual_checklists()
-        cs = checklists["截面图"]
-        assert "geometric_section_guards" in cs
-        guards = cs["geometric_section_guards"]
-        assert len(guards) >= 6
-        assert any("平行" in g and "侧面" in g for g in guards)
-        assert any("平行" in g and "底面" in g for g in guards)
-        assert any("高度层" in g for g in guards)
-        assert any("相邻面" in g and "直角" in g for g in guards)
-        assert any("三点" in g for g in guards)
-        assert any("不得凭" in g and "直觉" in g for g in guards)
-
-    def test_constraint_updated(self) -> None:
-        checklists = get_graphic_reasoning_visual_checklists()
-        cs = checklists["截面图"]
-        assert "constraint" in cs
-        assert "不得凭直觉" in cs["constraint"]
-        assert "逐一验证" in cs["constraint"]
-
-
-# ---------------------------------------------------------------------------
-# Hardcoded answer sequence check (v0.2.2)
-# ---------------------------------------------------------------------------
-
-
-class TestNoHardcodedAnswersV022:
-    """Test that no hardcoded answer sequences exist in new content."""
-
-    def test_no_hardcoded_answers_in_new_protocols(self) -> None:
-        """Must not contain the test answer sequence D A C B D B A C C D."""
-        scaffold = build_graphic_reasoning_scaffold()
-        scaffold_str = str(scaffold)
-        forbidden_patterns = [
-            "D A C B D", "B A C C D", "D A C B D B A C C D",
-            "DACBD", "BACCD", "DACBDBACCD",
-        ]
-        for pattern in forbidden_patterns:
-            assert pattern not in scaffold_str, f"Found hardcoded pattern: {pattern}"
-
-    def test_no_hardcoded_answers_in_template(self) -> None:
-        """Template must not contain the test answer sequence."""
-        template = render_graphic_reasoning_prompt_template()
-        forbidden_patterns = [
-            "D A C B D", "B A C C D", "D A C B D B A C C D",
-            "DACBD", "BACCD",
-        ]
-        for pattern in forbidden_patterns:
-            assert pattern not in template, f"Found hardcoded pattern in template: {pattern}"

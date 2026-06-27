@@ -10,7 +10,7 @@
 [![License](https://img.shields.io/badge/许可证-MIT-green)](LICENSE)
 [![MCP](https://img.shields.io/badge/协议-MCP%201.0-purple?logo=modelcontextprotocol)](https://modelcontextprotocol.io/)
 [![测试](https://img.shields.io/badge/测试-592%20通过-brightgreen?logo=pytest&logoColor=white)](#测试)
-[![版本](https://img.shields.io/badge/最新版本-v0.5.1-orange)](https://github.com/heihei999/huasheng-mcp/releases)
+[![版本](https://img.shields.io/badge/最新版本-v0.6.0-orange)](https://github.com/heihei999/huasheng-mcp/releases)
 
 </div>
 
@@ -205,6 +205,7 @@ python smoke_test_core.py
 
 | 版本 | 更新内容 |
 |:---:|---------|
+| **v0.6.0** | 图形推理 scaffold 升级至 v0.2.1，新增视觉转写、规律证伪、8 类反模式守卫，662 项测试全部通过 |
 | **v0.5.1** | 边界 case 修复，三年真题 330/330 路由验证通过 |
 | **v0.5.0** | 新增 `module_hint`/`section_context` 参数，支持中文模块名 |
 | **v0.4.3** | 文本排列题和定义判断路由覆盖增强 |

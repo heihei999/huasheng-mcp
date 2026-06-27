@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "huasheng-mcp"
+name = "xingce-solver"
 version = "0.6.0"
 description = "Phase-1 CLI and retrieval utilities for the Xingce knowledge base."
 readme = "README.md"
@@ -11,8 +11,8 @@ requires-python = ">=3.10"
 dependencies = ["mcp>=1.0.0"]
 
 [project.scripts]
-huasheng-mcp = "xingce_solver.cli:main"
-huasheng-mcp-server = "xingce_solver.mcp_server:main"
+xingce-solver = "xingce_solver.cli:main"
+xingce-solver-mcp = "xingce_solver.mcp_server:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
