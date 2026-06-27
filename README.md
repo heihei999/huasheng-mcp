@@ -20,12 +20,12 @@ MCP Server 负责：题型路由 → 方法卡检索 → 解题脚手架 → 答
 ---
 
 ## ✨ 功能亮点
-
 - **🔀 题型路由**：自动识别题目所属模块（资料分析、逻辑判断、图形推理、定义判断、类比推理、数量关系、言语理解），返回置信度和推荐分析路径
 - **📚 方法检索**：从 **292 张**结构化方法卡片中检索匹配的解题方法，覆盖行测全部核心题型
 - **🧩 结构化求解**：资料分析和逻辑判断模块提供完整的解题草案
 - **🏗️ Scaffold 引导**：6 个模块的方法论脚手架，指导逐步分析和推理
 - **🛡️ 安全门控**：多层安全控制，信息不足时自动降级为分析模式，不强行作答
+- **🔍 视觉定位**：图形推理 scaffold v0.2.1 引入视觉转写协议、7 类专项模板、黑白运算规则、规律证伪和空间核验
 
 ---
 
@@ -255,7 +255,8 @@ huasheng-mcp/
 | 指标 | 结果 |
 |------|------|
 | 三年真题路由验证 | **330 / 330** ✅ |
-| 单元测试 | **592 tests passed** ✅ |
+| 单元测试 | **662 passed, 35 skipped, 0 failed** ✅ |
+| 图形推理 scaffold | **128 passed** ✅ |
 
 > 以上验证结果衡量的是 MCP 路由 / 门控 / 脚手架的行为正确性，而非独立的最终答案正确率。
 
@@ -276,7 +277,7 @@ huasheng-mcp/
 只包含项目源码、知识库和文档，不含任何依赖。
 
 ```powershell
-cd xingce-solver_v0.5.1_clean_runtime
+cd huasheng-mcp-v0.6.0-clean-runtime
 pip install -e .
 .\smoke_test.ps1
 .\install_claude_code_mcp.ps1   # 自动配置 Claude Code MCP
@@ -287,7 +288,7 @@ pip install -e .
 在 clean_runtime 基础上增加了一键安装脚本。
 
 ```powershell
-cd xingce-solver_v0.5.1_online_runtime
+cd huasheng-mcp-v0.6.0-online-runtime
 .\install_dependencies.ps1      # 自动 pip install
 .\smoke_test.ps1
 .\install_claude_code_mcp.ps1   # 自动配置 Claude Code MCP
@@ -298,7 +299,7 @@ cd xingce-solver_v0.5.1_online_runtime
 包含完整源码 + 31 个预编译 Python wheel 文件（Python 3.11 / Windows），无需联网。
 
 ```powershell
-cd xingce-solver_v0.5.1_offline_wheelhouse_runtime
+cd huasheng-mcp-v0.6.0-offline-wheelhouse-runtime
 .\install_dependencies_offline.ps1   # 从本地 wheels 安装
 .\smoke_test.ps1
 .\install_claude_code_mcp.ps1        # 自动配置 Claude Code MCP
@@ -312,6 +313,7 @@ cd xingce-solver_v0.5.1_offline_wheelhouse_runtime
 
 | 版本 | 更新内容 |
 |------|---------|
+| **v0.6.0** | 图形推理 scaffold v0.2.1 视觉定位增强：专项模板、视觉转写、黑白运算规则、证伪机制、空间核验、不确定性输出 |
 | **v0.5.1** | module_hint 边界 case 修复，三年真题 330/330 路由验证通过 |
 | **v0.5.0** | 新增 module_hint / section_context 参数，支持中文模块名 |
 | **v0.4.3** | 文本排列题和定义判断路由覆盖增强 |
