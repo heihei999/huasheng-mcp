@@ -1,0 +1,98 @@
+module: 判断推理-定义判断与类比推理
+version: audited_v2_with_huasheng_notes
+source_scope:
+  - 【判断推理】定义判断.pdf
+  - 【判断推理】类比推理.pdf
+  - 花生判断笔记总结.pdf
+routing:
+  definition_judgment:
+    question_type: 定义判断
+    stem_patterns:
+      - "根据上述定义"
+      - "下列属于"
+      - "下列不属于"
+      - "符合定义"
+      - "不符合定义"
+      - "与上述定义最为密切"
+    option_features:
+      - "四个选项为具体情境、行为、现象或案例"
+      - "题干先给出一个或多个概念定义"
+    priority_method_id:
+      - dj_total_flow_001
+      - dj_option_setting_001
+      - dj_defined_term_001
+    backup_method_id:
+      - dj_subject_check_001
+      - dj_object_check_001
+      - dj_special_requirement_001
+      - dj_multi_definition_001
+      - dj_keyword_lookup_001
+      - dj_time_change_001
+      - dj_common_traps_001
+    negative_cues:
+      - "如果题干只有词语对、冒号、括号式类比，不进入定义判断"
+  analogy_reasoning:
+    question_type: 类比推理
+    stem_patterns:
+      - "与这组词逻辑关系最为一致"
+      - "相当于"
+      - "对于"
+      - "与上述关系最相似"
+      - "::"
+      - "∶"
+    option_features:
+      - "题干通常为二词、三词或括号式词项"
+      - "选项也为词项组合，核心是比较词与词关系"
+    priority_method_id:
+      - ar_total_flow_001
+      - ar_secondary_check_001
+    backup_method_id:
+      semantic:
+        - ar_semantic_synonym_001
+        - ar_semantic_antonym_001
+        - ar_semantic_extended_001
+        - ar_semantic_secondary_001
+      grammar:
+        - ar_grammar_pos_001
+        - ar_grammar_structure_001
+      logic:
+        - ar_logic_cross_001
+        - ar_logic_species_genus_001
+        - ar_logic_composition_001
+        - ar_logic_opposition_contradiction_001
+        - ar_logic_equivalence_001
+      correspondence:
+        - ar_correspond_necessary_001
+        - ar_correspond_cause_effect_001
+        - ar_correspond_material_001
+        - ar_correspond_function_001
+        - ar_correspond_purpose_001
+        - ar_correspond_time_sequence_001
+        - ar_sentence_tool_object_place_001
+        - ar_correspond_subject_quantity_001
+      other:
+        - ar_split_word_001
+        - ar_common_traps_001
+    negative_cues:
+      - "如果题干有完整概念定义和属于/不属于问法，优先进入定义判断"
+field_requirements:
+  definition_judgment:
+    required_card_fields:
+      - definition_elements
+      - required_inputs
+      - calculation_policy
+      - solver_priority
+      - output_constraints
+  analogy_reasoning:
+    required_card_fields:
+      - relation_type
+      - secondary_check
+      - required_inputs
+      - calculation_policy
+      - solver_priority
+      - output_constraints
+final_verification:
+  - "定义判断必须说明属于/不属于方向"
+  - "定义判断必须给出至少一个核心定义要素与选项对应"
+  - "类比推理必须说明一级关系"
+  - "类比推理候选项相近时必须进行二级辨析"

@@ -1,0 +1,735 @@
+module: 资料分析
+version: 1.1-source-audited
+source_files:
+- 【花生十三】资料分析思维导图.pdf
+- 花生资料分析笔记.pdf
+schema_notes:
+  priority_method_id: 优先调用的卡片id
+  backup_method_id: 同题型或速算备用卡片id
+  source_audit: 仅保留可在两个原始PDF中定位到的题型/方法
+router_rules:
+- rule_id: da_route_precheck_terms
+  question_type: 基础知识
+  sub_type: 统计术语与审题原则
+  keywords:
+  - 同比
+  - 环比
+  - 倍数
+  - 翻番
+  - 顺差
+  - 逆差
+  - 产业增加值
+  - 人口自然增长率
+  stem_triggers:
+  - 材料包含基础统计术语
+  - 题干需要确认时间/主体/单位/图例
+  option_features:
+  - 所有资料分析题通用
+  priority_method_id: da_base_terms_001
+  backup_method_id:
+  - da_common_pitfalls_001
+  negative_triggers: []
+- rule_id: da_route_growth_rate_general
+  question_type: 增长率
+  sub_type: 一般增长率
+  keywords:
+  - 增长率
+  - 增速
+  - 同比增长
+  - 比上年增长
+  - 下降
+  - 提高
+  - 降低
+  stem_triggers:
+  - 增长率为多少
+  - 同比增长百分之几
+  - 增速为
+  - 比上年增长
+  option_features:
+  - 选项多为%
+  - 问法不含平均/人均/占比
+  priority_method_id: da_growth_rate_general_001
+  backup_method_id:
+  - da_truncate_division_001
+  - da_common_pitfalls_001
+  negative_triggers:
+  - 平均增长率
+  - 人均增长率
+  - 占
+  - 比重
+  - 百分点
+- rule_id: da_route_interval_growth_rate
+  question_type: 增长率
+  sub_type: 间隔增长率
+  keywords:
+  - 间隔
+  - 隔年
+  - 两年前
+  - 较上一年提高
+  - 较上一年下降
+  stem_triggers:
+  - 2015年比2013年
+  - 与两年前相比
+  - 增速比上年提高
+  - 增速比上年下降
+  option_features:
+  - 选项为%
+  - 给出连续两期增长率
+  priority_method_id: da_growth_rate_interval_002
+  backup_method_id:
+  - da_abx_base_interval_002
+  - da_truncate_division_001
+  negative_triggers:
+  - 占比
+  - 比重差
+- rule_id: da_route_ratio_growth
+  question_type: 增长率
+  sub_type: 比值增长率
+  keywords:
+  - 平均增长率
+  - 人均增长率
+  - 单位增长率
+  - 倍数增长率
+  stem_triggers:
+  - 平均...增长率
+  - 人均...同比增长
+  - 每...增长率
+  option_features:
+  - 选项为%
+  - 分子分母单位通常不同
+  priority_method_id: da_growth_rate_ratio_003
+  backup_method_id:
+  - da_ratio_share_diff_005
+  - da_truncate_division_001
+  negative_triggers:
+  - 占比
+  - 比重
+  - 百分点
+- rule_id: da_route_product_growth
+  question_type: 增长率
+  sub_type: 乘积增长率
+  keywords:
+  - 乘积
+  - A=B×C
+  - 总量=平均×人数
+  - 占比×整体
+  stem_triggers:
+  - 两个因素共同增长
+  - 求乘积型指标增长率
+  option_features:
+  - 给出两个因子的增长率
+  priority_method_id: da_growth_rate_product_004
+  backup_method_id:
+  - da_growth_rate_interval_002
+  - da_truncate_division_001
+  negative_triggers: []
+- rule_id: da_route_growth_amount
+  question_type: 增长量
+  sub_type: 直接求增长量
+  keywords:
+  - 增长量
+  - 增加
+  - 减少
+  - 多多少
+  - 少多少
+  - 下降量
+  stem_triggers:
+  - 增加了多少
+  - 减少了多少
+  - 增长量为
+  - 比上年多
+  option_features:
+  - 选项单位与材料原量单位相同
+  - 不是%或百分点
+  priority_method_id: da_growth_amount_001
+  backup_method_id:
+  - da_415_parts_001
+  - da_assumption_allocation_001
+  - da_truncate_division_001
+  negative_triggers:
+  - 增长率
+  - 增速
+  - 比重
+  - 百分点
+- rule_id: da_route_growth_amount_compare
+  question_type: 增长量
+  sub_type: 增长量大小比较
+  keywords:
+  - 增长量最大
+  - 增长量最小
+  - 增加最多
+  - 减少最多
+  - 增长最快
+  - 排序
+  stem_triggers:
+  - 增长量最大的是
+  - 增加最多的是
+  - 增长最快的年份是
+  - 按增长量排序
+  option_features:
+  - 选项为年份或对象
+  - 材料常给出现期量和增速
+  priority_method_id: da_growth_amount_compare_002
+  backup_method_id:
+  - da_growth_amount_001
+  - da_compare_ratio_growth_001
+  - da_chart_lookup_001
+  negative_triggers:
+  - 增长率最高
+  - 增速最高
+- rule_id: da_route_base_amount
+  question_type: 基期量
+  sub_type: 直接基期量
+  keywords:
+  - 上年
+  - 去年
+  - 前期
+  - 基期
+  - 上期
+  stem_triggers:
+  - 上年为多少
+  - 去年为多少
+  - 基期量为
+  - 2018年...为多少
+  option_features:
+  - 选项为具体数量单位
+  - 题干给出现期量和增长率
+  priority_method_id: da_abx_base_direct_001
+  backup_method_id:
+  - da_415_parts_001
+  - da_assumption_allocation_001
+  - da_truncate_division_001
+  negative_triggers:
+  - 年均增长量
+  - 平均增长率
+- rule_id: da_route_interval_base_amount
+  question_type: 基期量
+  sub_type: 隔年前期量
+  keywords:
+  - 隔年
+  - 两年前
+  - 与上上年相比
+  stem_triggers:
+  - 两年前为多少
+  - 隔年前期
+  - 2013年为多少
+  option_features:
+  - 给出连续两期增长率
+  - 选项为具体数量
+  priority_method_id: da_abx_base_interval_002
+  backup_method_id:
+  - da_growth_rate_interval_002
+  - da_abx_base_direct_001
+  negative_triggers: []
+- rule_id: da_route_base_difference
+  question_type: 基期量
+  sub_type: 前期差值
+  keywords:
+  - 前期差值
+  - 上年差值
+  - 去年相差
+  stem_triggers:
+  - 上年两者相差多少
+  - 前期差值为
+  option_features:
+  - 两个对象均给出现期量和增长率
+  priority_method_id: da_abx_base_diff_003
+  backup_method_id:
+  - da_abx_base_direct_001
+  - da_truncate_division_001
+  negative_triggers: []
+- rule_id: da_route_current_amount
+  question_type: 现期量
+  sub_type: 本期/未来现期量
+  keywords:
+  - 今年
+  - 本期
+  - 当年
+  - 未来
+  - 保持增长量
+  - 保持增速
+  - 达到
+  - 超过
+  stem_triggers:
+  - 今年为多少
+  - 未来第几年超过
+  - 保持同比增量不变
+  - 保持同比增速不变
+  option_features:
+  - 选项为年份或数量
+  - 题干给出基期和增长量/增速
+  priority_method_id: da_abx_current_001
+  backup_method_id:
+  - da_growth_amount_001
+  - da_truncate_division_001
+  negative_triggers:
+  - 年均增长率
+  - 年均增长量
+- rule_id: da_route_share_current
+  question_type: 比重
+  sub_type: 本期比重
+  keywords:
+  - 占
+  - 比重
+  - 占比
+  - 部分
+  - 整体
+  - 其中
+  - 比例
+  stem_triggers:
+  - 占...的比重
+  - 在...中占比
+  - 占全部...
+  - 占总量的
+  option_features:
+  - 选项为%
+  - 问本期或某年占比
+  priority_method_id: da_share_current_001
+  backup_method_id:
+  - da_truncate_division_001
+  - da_common_pitfalls_001
+  negative_triggers:
+  - 上年占比
+  - 比重比上年
+  - 百分点
+- rule_id: da_route_share_base
+  question_type: 比重
+  sub_type: 基期比重
+  keywords:
+  - 上年占比
+  - 去年占比
+  - 前期比重
+  - 基期比重
+  stem_triggers:
+  - 上年...占比
+  - 2018年...在...中的占比
+  - 去年...比重
+  option_features:
+  - 选项为%或区间
+  - 给出部分和整体的现期量及增长率
+  priority_method_id: da_share_base_002
+  backup_method_id:
+  - da_share_trend_003
+  - da_truncate_division_001
+  negative_triggers:
+  - 百分点
+  - 上升
+  - 下降
+- rule_id: da_route_share_trend
+  question_type: 比重变化
+  sub_type: 两期比重升降
+  keywords:
+  - 比重上升
+  - 比重下降
+  - 占比提高
+  - 占比降低
+  - 增速大于整体
+  stem_triggers:
+  - 比重是否上升
+  - 占比提高还是下降
+  - 哪个对象增长最快
+  option_features:
+  - 选项含上升/下降
+  - 可只比较部分与整体增速
+  priority_method_id: da_share_trend_003
+  backup_method_id:
+  - da_share_change_004
+  - da_ratio_share_diff_005
+  negative_triggers: []
+- rule_id: da_route_share_change
+  question_type: 比重变化
+  sub_type: 比重差/百分点变化
+  keywords:
+  - 提高百分点
+  - 降低百分点
+  - 比重差
+  - 占比变化
+  stem_triggers:
+  - 比上年上升了多少个百分点
+  - 比重比上年
+  - 占比提高多少
+  - 占比下降多少
+  option_features:
+  - 选项单位为百分点或%
+  priority_method_id: da_share_change_004
+  backup_method_id:
+  - da_share_trend_003
+  - da_assumption_allocation_001
+  negative_triggers:
+  - 平均增长率
+  - 人均增长率
+- rule_id: da_route_ratio_share_diff
+  question_type: 比重变化
+  sub_type: 比值增长率/比重差/比值差辨析
+  keywords:
+  - 比值增长率
+  - 比重差
+  - 比值差
+  - 平均增长率
+  - 占...比重
+  stem_triggers:
+  - 判断分式变化类型
+  - 区分百分数和百分点
+  option_features:
+  - 选项单位可能为%、百分点或实际单位
+  priority_method_id: da_ratio_share_diff_005
+  backup_method_id:
+  - da_growth_rate_ratio_003
+  - da_share_change_004
+  negative_triggers: []
+- rule_id: da_route_average_general
+  question_type: 平均数
+  sub_type: 一般平均值
+  keywords:
+  - 平均
+  - 平均每
+  - 人均
+  - 每
+  - 单位
+  - 单价
+  stem_triggers:
+  - 平均每
+  - 人均
+  - 每实现
+  - 单位...为多少
+  option_features:
+  - 选项为实际量单位
+  - 不是%或百分点
+  priority_method_id: da_average_general_001
+  backup_method_id:
+  - da_truncate_division_001
+  - da_growth_rate_ratio_003
+  negative_triggers:
+  - 平均增长率
+  - 年均增长率
+  - 年均增长量
+- rule_id: da_route_average_annual_amount
+  question_type: 平均数
+  sub_type: 年均增长量
+  keywords:
+  - 年均增长量
+  - 年平均增长量
+  - 年均增加
+  - 平均每年增加
+  stem_triggers:
+  - 年均增长量
+  - 平均每年增加
+  - 年平均增加量
+  option_features:
+  - 选项为数量单位
+  - 给出末期和初期
+  priority_method_id: da_average_annual_growth_amount_002
+  backup_method_id:
+  - da_chart_lookup_001
+  - da_common_pitfalls_001
+  negative_triggers:
+  - 年均增长率
+- rule_id: da_route_average_annual_rate
+  question_type: 平均数
+  sub_type: 年均增长率
+  keywords:
+  - 年均增长率
+  - 年平均增长率
+  - 年均增速
+  - 平均增速
+  stem_triggers:
+  - 年均增长率
+  - 年平均增速
+  - 平均每年增长率
+  option_features:
+  - 选项为%
+  - 给出末期/基期倍数关系
+  priority_method_id: da_average_annual_growth_rate_003
+  backup_method_id:
+  - da_truncate_division_001
+  - da_common_pitfalls_001
+  negative_triggers:
+  - 年均增长量
+- rule_id: da_route_ratio_comparison
+  question_type: 比较类
+  sub_type: 比值大小/增速大小比较
+  keywords:
+  - 分数大小
+  - 比值大小
+  - 增速大小
+  - 趋势
+  - 最大
+  - 最小
+  stem_triggers:
+  - 下列比值最大
+  - 增长率最高
+  - 增长最快
+  - 排序正确
+  option_features:
+  - 选项为年份/对象
+  - 可能只需比较趋势
+  priority_method_id: da_compare_ratio_growth_001
+  backup_method_id:
+  - da_fraction_compare_difference_001
+  - da_chart_lookup_001
+  negative_triggers: []
+- rule_id: da_route_chart_lookup
+  question_type: 图表查找比较
+  sub_type: 图表直接查找
+  keywords:
+  - 最大
+  - 最小
+  - 最高
+  - 最低
+  - 排序
+  - 图中
+  - 表中
+  - 下列正确
+  stem_triggers:
+  - 下列排序正确的是
+  - 最高的是
+  - 最低的是
+  - 根据图表
+  option_features:
+  - 选项为对象排序或年份
+  - 材料含图表
+  priority_method_id: da_chart_lookup_001
+  backup_method_id:
+  - da_compare_ratio_growth_001
+  - da_growth_amount_compare_002
+  negative_triggers: []
+- rule_id: da_route_truncate_division
+  question_type: 速算方法
+  sub_type: 截位直除
+  keywords:
+  - 除以
+  - 比值
+  - 占比
+  - 平均
+  - 人均
+  - 选项差距
+  stem_triggers:
+  - 最接近
+  - 约为
+  - 占
+  - 平均
+  option_features:
+  - 四个数值选项差距可比较
+  - 计算式以除法为主
+  priority_method_id: da_truncate_division_001
+  backup_method_id:
+  - da_common_pitfalls_001
+  negative_triggers:
+  - 精确到个位且选项接近
+- rule_id: da_route_415
+  question_type: 速算方法
+  sub_type: 415份数法
+  keywords:
+  - 增长量
+  - R接近分数
+  - 四分之一
+  - 三分之一
+  - 二分之一
+  - 五分之一
+  stem_triggers:
+  - 增长量约为
+  - 增加了多少
+  - 减少了多少
+  option_features:
+  - 给出现期B和增长率R
+  - R≥10%且接近常用分数
+  priority_method_id: da_415_parts_001
+  backup_method_id:
+  - da_growth_amount_001
+  - da_assumption_allocation_001
+  negative_triggers:
+  - R小于10%
+  - 选项差距极小
+- rule_id: da_route_assumption_allocation
+  question_type: 速算方法
+  sub_type: 假设分配法
+  keywords:
+  - 增长量
+  - 估算
+  - R较小
+  - 小于10%
+  stem_triggers:
+  - 增长量约为
+  - 减少量约为
+  option_features:
+  - R较小或不适合化分数
+  - 选项差距允许估算
+  priority_method_id: da_assumption_allocation_001
+  backup_method_id:
+  - da_growth_amount_001
+  - da_truncate_division_001
+  negative_triggers:
+  - R接近1/2
+  - R接近1/3
+  - R接近1/4
+- rule_id: da_route_add_sub_mul_estimation
+  question_type: 速算方法
+  sub_type: 加减乘速算
+  keywords:
+  - 尾数
+  - 高位叠加
+  - 削峰填谷
+  - 基准值
+  - 乘法拆分
+  - 小分互换
+  stem_triggers:
+  - 求和
+  - 求平均数
+  - 乘以百分数
+  - 选项尾数不同
+  option_features:
+  - 加减乘计算为主
+  - 可利用选项差距
+  priority_method_id: da_estimation_add_sub_mul_001
+  backup_method_id:
+  - da_truncate_division_001
+  negative_triggers: []
+- rule_id: da_route_fraction_compare
+  question_type: 速算方法
+  sub_type: 分数大小比较
+  keywords:
+  - 分数比较
+  - 判断分数大小
+  - 分子分母
+  - 同大同小
+  - 一大一小
+  stem_triggers:
+  - 两个分数谁大
+  - 比较占比大小
+  - 判断分数趋势
+  option_features:
+  - 只需比较大小
+  - 可用横向倍数或纵向直除
+  priority_method_id: da_fraction_compare_difference_001
+  backup_method_id:
+  - da_truncate_division_001
+  - da_compare_ratio_growth_001
+  negative_triggers: []
+- rule_id: da_route_salt_cross
+  question_type: 盐水类
+  sub_type: 十字交叉
+  keywords:
+  - 整体
+  - 部分
+  - 混合
+  - 城镇
+  - 农村
+  - 男性
+  - 女性
+  - 进口
+  - 出口
+  - 量之比
+  stem_triggers:
+  - 整体与部分
+  - 已知两个部分和整体
+  - 求量之比
+  option_features:
+  - 题干有三量加和关系
+  - 常问分母之比或占比
+  priority_method_id: da_salt_cross_001
+  backup_method_id:
+  - da_salt_qualitative_002
+  - da_salt_quantitative_003
+  negative_triggers:
+  - 三量无加和关系
+- rule_id: da_route_salt_qualitative
+  question_type: 盐水类
+  sub_type: 定性分析
+  keywords:
+  - 混合值
+  - 不居中
+  - 靠近
+  - 整体位于两部分之间
+  stem_triggers:
+  - 判断哪一部分量更大
+  - 整体值更靠近谁
+  option_features:
+  - 不一定要求精确计算
+  priority_method_id: da_salt_qualitative_002
+  backup_method_id:
+  - da_salt_cross_001
+  negative_triggers: []
+- rule_id: da_route_time_segments
+  question_type: 盐水类
+  sub_type: 时间分段
+  keywords:
+  - 累计
+  - 单月
+  - 1-7月
+  - 7月
+  - 上半年
+  - 月均
+  stem_triggers:
+  - 1-7月
+  - 7月
+  - 上半年月均
+  - 累计完成
+  option_features:
+  - 材料给累计期和单月
+  - 需要拆分时间段
+  priority_method_id: da_time_segments_001
+  backup_method_id:
+  - da_chart_lookup_001
+  - da_common_pitfalls_001
+  negative_triggers: []
+- rule_id: da_route_special_ladong
+  question_type: 特殊考点
+  sub_type: 拉动增长率/贡献率
+  keywords:
+  - 拉动增长率
+  - 拉动
+  - 贡献率
+  - 增量贡献率
+  stem_triggers:
+  - 拉动...增长
+  - 增量贡献率
+  - 贡献率为
+  option_features:
+  - 题干给部分增量、整体基期或整体增量
+  priority_method_id: da_ladong_contribution_001
+  backup_method_id:
+  - da_growth_amount_001
+  - da_common_pitfalls_001
+  negative_triggers:
+  - 普通增长率
+- rule_id: da_route_special_overlap
+  question_type: 特殊考点
+  sub_type: 容斥问题
+  keywords:
+  - 至少
+  - 至多
+  - 交集
+  - 占比超过100%
+  - 容斥
+  stem_triggers:
+  - 至少有多少
+  - 至多有多少
+  - 一定有交集
+  option_features:
+  - 两个集合占比或数量
+  - 同一总体
+  priority_method_id: da_capacity_overlap_001
+  backup_method_id:
+  - da_common_pitfalls_001
+  negative_triggers:
+  - 不同总体
+- rule_id: da_route_final_pitfalls
+  question_type: 易错点
+  sub_type: 最终校验
+  keywords:
+  - 陷阱
+  - 单位
+  - 百分点
+  - 时间
+  - 主体
+  - 图例
+  - 合计
+  - 总计
+  stem_triggers:
+  - 检查是否有陷阱
+  - 下列说法正确/错误
+  option_features:
+  - 可作为任何题型的末端校验
+  priority_method_id: da_common_pitfalls_001
+  backup_method_id: []
+  negative_triggers: []

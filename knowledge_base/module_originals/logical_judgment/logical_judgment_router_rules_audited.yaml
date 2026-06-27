@@ -1,0 +1,312 @@
+module: 判断推理-逻辑判断
+version: audited_v1
+routing_policy:
+  default_first_call:
+  - lj_total_flow_001
+  - lj_argument_structure_001
+  must_extract:
+  - question_stem
+  - claim
+  - evidence
+  - argument_link
+  avoid:
+  - 仅凭选项关键词作答
+  - 未识别问法就调用方法
+  - 使用题干外常识补全论证
+question_type_routes:
+- route_name: 加强
+  question_type: 加强
+  stem_keywords:
+  - 支持
+  - 加强
+  - 证明
+  - 最能支持
+  - 最能加强
+  - 最能证明
+  argument_features:
+  - 有论点
+  - 有论据
+  - 选项使结论更可信
+  option_features:
+  - 主体一致
+  - 话题一致
+  - 补断点
+  - 加入事实
+  - 解释机制
+  - 必要条件
+  - 排除漏洞
+  priority_method_id: lj_support_general_001
+  backup_method_id:
+  - lj_support_bridge_001
+  - lj_support_add_evidence_001
+  - lj_support_explain_mechanism_001
+  - lj_support_necessary_condition_001
+  - lj_support_self_block_001
+  - lj_strength_order_compare_001
+  negative_triggers:
+  - 最能解释
+  - 需要补充的前提
+  - 不能削弱
+  - 由此可以推出
+- route_name: 削弱
+  question_type: 削弱
+  stem_keywords:
+  - 削弱
+  - 质疑
+  - 反驳
+  - 不能支持
+  - 最能削弱
+  - 最能质疑
+  - 最能反驳
+  argument_features:
+  - 有结论
+  - 有因果/比例/实验/条件/样本漏洞
+  option_features:
+  - 另有他因
+  - 因果倒置
+  - 否定此因
+  - A且非B
+  - 样本不代表总体
+  - 分母差异
+  - 实验前差异
+  - 缺少对照
+  priority_method_id: lj_attribution_general_001
+  backup_method_id:
+  - lj_weaken_evidence_conclusion_001
+  - lj_weaken_general_no_premise_001
+  - lj_weaken_strict_conditional_001
+  - lj_proportion_argument_001
+  - lj_weaken_invalid_sample_001
+  - lj_strength_order_compare_001
+  negative_triggers:
+  - 最能解释
+  - 需要补充的前提
+  - 由此可以推出
+- route_name: 前提假设
+  question_type: 前提假设
+  stem_keywords:
+  - 前提
+  - 假设
+  - 依据
+  - 需要补充
+  - 还需基于
+  - 所需的假设
+  - 结论成立
+  argument_features:
+  - 论据到论点存在缺口
+  - 选项为没它不行条件
+  option_features:
+  - 断点搭桥
+  - 补充漏洞
+  - 能与不能
+  - 必要条件
+  priority_method_id: lj_premise_general_001
+  backup_method_id:
+  - lj_premise_bridge_001
+  - lj_premise_fill_gap_001
+  - lj_premise_enable_condition_001
+  - lj_support_necessary_condition_001
+  negative_triggers:
+  - 最能解释
+  - 最能削弱
+  - 最能支持但非前提
+- route_name: 解释说明
+  question_type: 解释说明
+  stem_keywords:
+  - 解释
+  - 说明上述现象
+  - 解释上述矛盾
+  - 最能解释
+  - 看似矛盾
+  argument_features:
+  - 两个事实表面冲突
+  - 不要求证明结论
+  option_features:
+  - 同时解释矛盾双方
+  - 合理事实
+  - 题干未提及但可接受
+  priority_method_id: lj_explanation_contradiction_001
+  backup_method_id:
+  - lj_argument_structure_001
+  - lj_irrelevant_options_001
+  negative_triggers:
+  - 加强
+  - 削弱
+  - 前提
+  - 由此推出
+- route_name: 评价论证
+  question_type: 评价论证
+  stem_keywords:
+  - 评价上述论证
+  - 最能评价
+  - 论证是否成立取决于
+  - 需要考察
+  - 判断该论证
+  argument_features:
+  - 题干有论点论据
+  - 选项用于检验关键断点
+  option_features:
+  - 回答不同会影响论证强弱
+  - 检验断点
+  - 检验变量是否相关
+  priority_method_id: lj_argument_evaluation_001
+  backup_method_id:
+  - lj_argument_structure_001
+  - lj_strength_order_compare_001
+  negative_triggers:
+  - 最能解释
+  - 直接问支持
+  - 直接问削弱
+- route_name: 结论推出
+  question_type: 结论推出
+  stem_keywords:
+  - 由此可以推出
+  - 一定为真
+  - 可以得出
+  - 据此可知
+  - 必然推出
+  argument_features:
+  - 题干给条件命题/量词/复合命题
+  - 要求必然结论
+  option_features:
+  - 原命题
+  - 逆否命题
+  - 保守结论
+  - 不超出题干
+  priority_method_id: lj_conclusion_translation_001
+  backup_method_id:
+  - lj_sufficient_necessary_001
+  - lj_translation_if_001
+  - lj_translation_only_001
+  - lj_translation_unless_001
+  - lj_inverse_contrapositive_001
+  - lj_or_and_negation_001
+  - lj_relation_quantifier_001
+  negative_triggers:
+  - 最能支持
+  - 最能削弱
+  - 最能解释
+- route_name: 比例类
+  question_type: 削弱
+  stem_keywords:
+  - 比例
+  - 比率
+  - 占比
+  - 死亡人数
+  - 患者人数
+  - 销量
+  - 人数显著低于
+  - 威胁
+  - 风险
+  argument_features:
+  - 由绝对数推出率或风险大小
+  option_features:
+  - 分母不同
+  - 总体人数不同
+  - 患者人数不同
+  - 率无法比较
+  priority_method_id: lj_proportion_argument_001
+  backup_method_id:
+  - lj_weaken_evidence_conclusion_001
+  - lj_strength_order_compare_001
+- route_name: 归因类削弱
+  question_type: 削弱
+  stem_keywords:
+  - 导致
+  - 影响
+  - 原因
+  - 归因
+  - 得益于
+  - 造成
+  - 由此得出
+  argument_features:
+  - A与B相关推出A导致B
+  option_features:
+  - 另有他因
+  - 因果倒置
+  - 否定此因
+  - 根表原因
+  priority_method_id: lj_attribution_general_001
+  backup_method_id:
+  - lj_weaken_alternative_cause_001
+  - lj_weaken_reverse_causation_001
+  - lj_weaken_not_this_cause_001
+  - lj_weaken_root_surface_cause_001
+- route_name: 对比实验
+  question_type: 加强削弱
+  stem_keywords:
+  - 实验
+  - 研究人员
+  - 两组
+  - 对照
+  - 实验组
+  - 测试者
+  - 小鼠
+  - 调查分析
+  argument_features:
+  - 由实验组和对照组差异推出处理变量导致结果
+  option_features:
+  - 初始状态
+  - 分组正确
+  - 对照组
+  - 变量一致
+  - 样本有效
+  priority_method_id: lj_experiment_initial_state_001
+  backup_method_id:
+  - lj_experiment_missing_control_001
+  - lj_compare_experiment_construct_001
+  - lj_weaken_invalid_sample_001
+- route_name: 真假分析
+  question_type: 分析推理
+  stem_keywords:
+  - 只有一真
+  - 只有一假
+  - 真话
+  - 假话
+  - 谁说的是真的
+  argument_features:
+  - 多条陈述真假受数量约束
+  option_features:
+  - 矛盾关系
+  - 假设代入
+  priority_method_id: lj_truth_value_analysis_001
+  backup_method_id:
+  - lj_or_and_negation_001
+- route_name: 范畴分析
+  question_type: 分析推理
+  stem_keywords:
+  - 所有
+  - 有些
+  - 某些
+  - 没有
+  - 不确定
+  - 属于
+  argument_features:
+  - 集合/范围关系
+  option_features:
+  - 文氏图
+  - 包含
+  - 相交
+  - 不相交
+  priority_method_id: lj_category_analysis_001
+  backup_method_id:
+  - lj_relation_quantifier_001
+- route_name: 日常分析
+  question_type: 分析推理
+  stem_keywords:
+  - 甲乙丙丁
+  - 安排
+  - 顺序
+  - 位置
+  - 对应
+  - 匹配
+  - 分别
+  argument_features:
+  - 多对象多条件约束
+  option_features:
+  - 代入法
+  - 列表法
+  - 画图法
+  priority_method_id: lj_daily_analysis_001
+  backup_method_id:
+  - lj_truth_value_analysis_001

@@ -1,0 +1,23 @@
+{
+  "_note": "Example only. Adjust the file location and environment for your local opencode MCP configuration.",
+  "mcp": {
+    "xingce-solver": {
+      "type": "local",
+      "command": ["xingce-solver-mcp"],
+      "env": {
+        "XINGCE_KB_DIR": "D:\\database\\xingce-solver\\knowledge_base"
+      }
+    }
+  },
+  "_python_module_alternative": {
+    "mcp": {
+      "xingce-solver": {
+        "type": "local",
+        "command": ["python", "-m", "xingce_solver.mcp_server"],
+        "env": {
+          "XINGCE_KB_DIR": "D:\\database\\xingce-solver\\knowledge_base"
+        }
+      }
+    }
+  }
+}

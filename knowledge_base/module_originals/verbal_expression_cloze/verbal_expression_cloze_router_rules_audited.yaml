@@ -1,0 +1,172 @@
+module: 言语理解-语句表达与逻辑填空
+version: audited_v1
+default_policy:
+  route_first: true
+  evidence_required: true
+  avoid_intuition_only: true
+routes:
+- route_name: 标题填入
+  question_type: 标题填入
+  stem_keywords:
+  - 标题
+  - 最适合做标题
+  - 标题最恰当
+  - 拟题
+  option_features:
+  - 短语式概括
+  - 标题化表达
+  - 含主题词或对策
+  priority_method_id: vecl_title_mainidea_001
+  backup_method_ids:
+  - vecl_title_keyword_002
+  - vecl_title_readability_003
+  - vecl_title_option_elimination_022
+  negative_triggers:
+  - 接下来
+  - 填入横线
+  - 排序
+  - 依次填入
+- route_name: 下文推断
+  question_type: 下文推断
+  stem_keywords:
+  - 接下来
+  - 下文
+  - 接着讲
+  - 最可能讲
+  option_features:
+  - 续写方向
+  - 原因/对策/新话题
+  priority_method_id: vecl_next_tail_newinfo_001
+  backup_method_ids:
+  - vecl_next_topic_finished_002
+  - vecl_next_problem_solution_003
+  - vecl_next_specific_solution_004
+  - vecl_next_already_discussed_005
+  - vecl_next_option_elimination_023
+  negative_triggers:
+  - 标题
+  - 排序
+  - 填入画横线部分最恰当的一句
+- route_name: 语句填入
+  question_type: 语句填入
+  stem_keywords:
+  - 填入画横线部分最恰当的一句
+  - 填入文中画横线处
+  - 横线处最恰当的一项
+  option_features:
+  - 完整句子
+  - 可作总领句/承接句/总结句
+  priority_method_id: vecl_sentence_fill_position_019
+  backup_method_ids:
+  - vecl_insert_global_001
+  - vecl_insert_keyword_002
+  - vecl_insert_topic_consistency_003
+  - vecl_insert_summary_004
+  - vecl_insert_pronoun_grammar_005
+  negative_triggers:
+  - 依次填入划横线部分最恰当的一项
+  - 成语
+  - 编号句子
+- route_name: 语句排序
+  question_type: 语句排序
+  stem_keywords:
+  - 重新排列
+  - 语序正确
+  - 排序最恰当
+  - 组成一段语意连贯的话
+  option_features:
+  - 选项为数字编号序列
+  - 句子编号①②③
+  priority_method_id: vecl_order_overall_001
+  backup_method_ids:
+  - vecl_order_first_sentence_002
+  - vecl_order_last_sentence_003
+  - vecl_order_binding_transition_004
+  - vecl_order_pronoun_005
+  - vecl_order_tail_head_006
+  - vecl_order_time_logic_007
+  - vecl_order_pair_binding_020
+  negative_triggers:
+  - 标题
+  - 接下来
+  - 依次填入
+- route_name: 逻辑填空
+  question_type: 逻辑填空
+  stem_keywords:
+  - 依次填入
+  - 填入划横线部分最恰当的一项
+  - 填入画横线部分最恰当的一项
+  - 横线部分最恰当
+  option_features:
+  - 选项为词语/成语组合
+  - 多空词语组
+  - 近义实词或成语
+  priority_method_id: vecl_cloze_total_001
+  backup_method_ids:
+  - vecl_cloze_multi_blank_024
+  - vecl_cloze_idiom_context_002
+  - vecl_cloze_realword_morpheme_003
+  - vecl_cloze_logic_correspondence_004
+  - vecl_cloze_relation_word_021
+  - vecl_cloze_fixed_collocation_010
+  negative_triggers:
+  - 完整句子填入
+  - 语句排序
+  - 接下来
+- route_name: 逻辑填空-成语辨析
+  question_type: 逻辑填空
+  stem_keywords:
+  - 成语
+  - 填入画横线部分最恰当
+  option_features:
+  - 四个选项均为成语
+  - 存在褒贬/望文生义差异
+  priority_method_id: vecl_cloze_idiom_context_002
+  backup_method_ids:
+  - vecl_cloze_idiom_misread_018
+  - vecl_cloze_sentiment_012
+  - vecl_cloze_degree_011
+  negative_triggers: []
+- route_name: 逻辑填空-实词辨析
+  question_type: 逻辑填空
+  stem_keywords:
+  - 依次填入
+  - 实词
+  option_features:
+  - 近义实词
+  - 单字差异明显
+  priority_method_id: vecl_cloze_realword_morpheme_003
+  backup_method_ids:
+  - vecl_cloze_common_words_016
+  - vecl_cloze_collocation_bank_017
+  - vecl_cloze_grammar_013
+  negative_triggers: []
+- route_name: 逻辑填空-关联词语境
+  question_type: 逻辑填空
+  stem_keywords:
+  - 但
+  - 然而
+  - 不仅
+  - 甚至
+  - 既不能
+  - 更不能
+  - 否则
+  option_features:
+  - 选项词义方向或程度不同
+  priority_method_id: vecl_cloze_relation_word_021
+  backup_method_ids:
+  - vecl_cloze_transition_007
+  - vecl_cloze_progressive_008
+  - vecl_cloze_parallel_009
+  negative_triggers: []
+global_elimination_rules:
+- name: 话题不一致
+  action: 排除选项主语或话题与文段主线不一致者
+- name: 已谈不再谈
+  action: 下文推断中排除上文已充分展开的内容
+- name: 指代不明
+  action: 语句填入/排序中排除代词无先行词的选项
+- name: 搭配不当
+  action: 逻辑填空中排除主谓宾或固定搭配不成立的选项
+- name: 只凭语感
+  action: 禁止无结构或语境证据直接选择

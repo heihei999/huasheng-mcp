@@ -1,0 +1,178 @@
+module: 言语理解-主旨意图
+version: audited_v1
+routing_policy:
+  first_step: "先识别题干问法，再做文段结构分析，最后做选项排除"
+  default_priority_method_id: vr_mi_total_flow_001
+  forbid:
+    - "只凭语感作答"
+    - "只凭关键词匹配作答"
+    - "未分析文段结构前直接选项"
+
+question_type_routes:
+  主旨概括:
+    question_triggers:
+      - "主要说明"
+      - "主要介绍"
+      - "主要讲述"
+      - "主要概括"
+      - "概括最准确"
+      - "主旨"
+    passage_features:
+      - "说明或议论文段"
+      - "需要概括主体+核心内容"
+    option_features:
+      prefer:
+        - "覆盖全文主体和重点层"
+        - "不扩大、不缩小、不片面"
+      reject:
+        - "只对应例子"
+        - "只对应背景"
+        - "无中生有"
+        - "绝对化"
+    priority_method_id:
+      - vr_mi_total_flow_001
+      - vr_mi_main_summary_001
+      - vr_mi_center_understanding_001
+    backup_method_id:
+      - vr_mi_subject_word_001
+      - vr_mi_topic_sentence_001
+      - vr_mi_eliminate_scope_001
+
+  意图判断:
+    question_triggers:
+      - "意在说明"
+      - "旨在说明"
+      - "旨在强调"
+      - "意图"
+      - "想表达"
+      - "重在说明"
+    passage_features:
+      - "有作者观点、问题或对策"
+      - "常见问题-对策、观点-解释结构"
+    option_features:
+      prefer:
+        - "体现作者观点或对策"
+        - "对策能针对文段问题"
+      reject:
+        - "仅复述背景"
+        - "仅陈述问题但原文已有对策"
+        - "过度引申的无依据对策"
+    priority_method_id:
+      - vr_mi_total_flow_001
+      - vr_mi_intention_solution_001
+      - vr_mi_problem_solution_001
+    backup_method_id:
+      - vr_mi_view_explain_001
+      - vr_mi_turning_point_001
+      - vr_mi_necessary_condition_001
+      - vr_mi_eliminate_none_001
+
+  标题填入:
+    question_triggers:
+      - "最适合做标题"
+      - "作为标题最恰当"
+      - "标题"
+      - "题目"
+    passage_features:
+      - "先确定主旨中心，再压缩标题"
+    option_features:
+      prefer:
+        - "包含核心主题词"
+        - "准确、简洁、醒目"
+        - "覆盖文段中心"
+      reject:
+        - "过泛"
+        - "过细"
+        - "缺核心主题词"
+        - "只对应例子"
+        - "不准确或态度不符"
+    priority_method_id:
+      - vr_mi_title_total_001
+      - vr_mi_title_keyword_001
+    backup_method_id:
+      - vr_mi_total_flow_001
+      - vr_mi_subject_word_001
+      - vr_mi_eliminate_scope_001
+
+  中心理解:
+    question_triggers:
+      - "中心意思"
+      - "核心观点"
+      - "这段文字主要讲了"
+      - "最能概括"
+      - "文段重点"
+    passage_features:
+      - "需要结构概括"
+      - "不宜过度推断作者未说内容"
+    option_features:
+      prefer:
+        - "主体一致"
+        - "结构重点一致"
+        - "整体概括"
+      reject:
+        - "出处不对"
+        - "偷换概念"
+        - "范围扩大或缩小"
+    priority_method_id:
+      - vr_mi_total_flow_001
+      - vr_mi_center_understanding_001
+    backup_method_id:
+      - vr_mi_subject_word_001
+      - vr_mi_topic_sentence_001
+      - vr_mi_eliminate_concept_shift_001
+
+structure_routes:
+  problem_solution:
+    passage_triggers: ["问题", "风险", "困境", "不足", "弊端", "应", "需要", "必须", "为此", "只有"]
+    priority_method_id: vr_mi_problem_solution_001
+    backup_method_id: [vr_mi_intention_solution_001, vr_mi_necessary_condition_001]
+
+  turning_point:
+    passage_triggers: ["但是", "然而", "不过", "可是", "其实"]
+    priority_method_id: vr_mi_turning_point_001
+    backup_method_id: [vr_mi_topic_sentence_001, vr_mi_problem_solution_001]
+
+  progression:
+    passage_triggers: ["不仅", "不但", "甚至", "更", "尤其"]
+    priority_method_id: vr_mi_progression_001
+    backup_method_id: [vr_mi_topic_sentence_001, vr_mi_total_flow_001]
+
+  causal:
+    passage_triggers: ["因为", "由于", "因此", "所以", "根源在于", "这是因为"]
+    priority_method_id: vr_mi_causality_001
+    backup_method_id: [vr_mi_topic_sentence_001, vr_mi_eliminate_none_001]
+
+  necessary_condition:
+    passage_triggers: ["只有", "才", "关键", "基础", "前提", "必须", "需要", "除非"]
+    priority_method_id: vr_mi_necessary_condition_001
+    backup_method_id: [vr_mi_problem_solution_001]
+
+  total_part:
+    passage_triggers: ["首先", "其次", "此外", "一方面", "另一方面", "总之"]
+    priority_method_id: vr_mi_total_part_001
+    backup_method_id: [vr_mi_parallel_001]
+
+  parallel:
+    passage_triggers: ["同时", "此外", "一方面", "另一方面", "古时候", "现代", "如今"]
+    priority_method_id: vr_mi_parallel_001
+    backup_method_id: [vr_mi_eliminate_scope_001]
+
+option_elimination_routes:
+  source_error:
+    triggers: ["选项来自背景", "选项来自例子", "选项来自转折前", "选项来自因此前"]
+    method_id: vr_mi_eliminate_source_001
+  concept_shift:
+    triggers: ["主语不一致", "对象变化", "关系方向变化", "偷换概念"]
+    method_id: vr_mi_eliminate_concept_shift_001
+  scope_error:
+    triggers: ["范围扩大", "范围缩小", "片面", "只说其一"]
+    method_id: vr_mi_eliminate_scope_001
+  absolute:
+    triggers: ["最", "唯一", "全部", "完全", "一定", "都"]
+    method_id: vr_mi_eliminate_absolute_001
+  none:
+    triggers: ["无中生有", "原文未提", "过度引申"]
+    method_id: vr_mi_eliminate_none_001
+  comparison:
+    triggers: ["高于", "低于", "区别", "优势", "不同"]
+    method_id: vr_mi_eliminate_compare_001

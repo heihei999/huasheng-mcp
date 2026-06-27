@@ -1,0 +1,491 @@
+module: "判断推理-图形推理"
+global_entry_card: "gr_total_flow_001"
+must_have_fields_per_card:
+  - "check_order 或 verification_steps"
+routing_policy:
+  composition_first: true
+  no_guess_without_verification: true
+  fallback_if_multiple_rules_match: "调用 gr_option_verification_001 和 gr_common_misjudgment_001"
+rules:
+  -
+    name: "总流程"
+    keywords:
+      - "图推"
+      - "图形推理"
+      - "规律"
+      - "缺一项"
+      - "选项"
+    visual_triggers:
+      - "任意图推题"
+    question_type: "图推总流程"
+    priority_method_id: "gr_total_flow_001"
+    backup_method_id:
+      - "gr_mnemonic_15_001"
+      - "gr_question_form_001"
+  -
+    name: "命题形式"
+    keywords:
+      - "一组图"
+      - "两组图"
+      - "九宫格"
+      - "分组分类"
+      - "立体类"
+    visual_triggers:
+      - "一行图形"
+      - "两行图形"
+      - "3x3九宫格"
+      - "要求分组"
+      - "立体图"
+    question_type: "图推总流程"
+    priority_method_id: "gr_question_form_001"
+    backup_method_id:
+      - "gr_total_flow_001"
+  -
+    name: "组成相同"
+    keywords:
+      - "相同"
+      - "位置"
+      - "移动"
+      - "方向"
+      - "旋转"
+      - "翻转"
+    visual_triggers:
+      - "元素种类和数量相同"
+      - "仅位置或方向变化"
+    question_type: "组成判断"
+    priority_method_id: "gr_composition_same_001"
+    backup_method_id:
+      - "gr_position_translate_001"
+      - "gr_position_rotation_001"
+      - "gr_position_flip_001"
+  -
+    name: "平移"
+    keywords:
+      - "平移"
+      - "移动"
+      - "位移"
+      - "路径"
+      - "格子"
+      - "位置变化"
+    visual_triggers:
+      - "小元素沿路径移动"
+      - "宫格位置改变"
+    question_type: "位置规律"
+    priority_method_id: "gr_position_translate_001"
+    backup_method_id:
+      - "gr_composition_same_001"
+      - "gr_option_verification_001"
+  -
+    name: "旋转"
+    keywords:
+      - "旋转"
+      - "顺时针"
+      - "逆时针"
+      - "角度"
+    visual_triggers:
+      - "图形方向按角度变化"
+    question_type: "位置规律"
+    priority_method_id: "gr_position_rotation_001"
+    backup_method_id:
+      - "gr_position_flip_001"
+  -
+    name: "翻转"
+    keywords:
+      - "翻转"
+      - "镜像"
+      - "横轴"
+      - "竖轴"
+      - "中心对称"
+    visual_triggers:
+      - "相邻图呈上下/左右镜像"
+    question_type: "位置规律"
+    priority_method_id: "gr_position_flip_001"
+    backup_method_id:
+      - "gr_position_rotation_001"
+  -
+    name: "组成相似"
+    keywords:
+      - "相似"
+      - "遍历"
+      - "叠加"
+      - "去同"
+      - "去异"
+      - "黑白运算"
+    visual_triggers:
+      - "元素局部重复"
+      - "相邻图可叠加"
+    question_type: "组成判断"
+    priority_method_id: "gr_composition_similar_001"
+    backup_method_id:
+      - "gr_style_traversal_001"
+      - "gr_style_add_sub_same_diff_001"
+      - "gr_black_white_operation_001"
+  -
+    name: "遍历"
+    keywords:
+      - "遍历"
+      - "缺失"
+      - "每行每列"
+      - "重复出现"
+    visual_triggers:
+      - "元素种类在行列中重复"
+    question_type: "样式规律"
+    priority_method_id: "gr_style_traversal_001"
+    backup_method_id:
+      - "gr_option_verification_001"
+  -
+    name: "加减同异"
+    keywords:
+      - "相加"
+      - "相减"
+      - "去同"
+      - "去异"
+      - "叠加"
+    visual_triggers:
+      - "两个图形叠成第三个"
+      - "线条同异变化"
+    question_type: "样式规律"
+    priority_method_id: "gr_style_add_sub_same_diff_001"
+    backup_method_id:
+      - "gr_black_white_operation_001"
+  -
+    name: "黑白运算"
+    keywords:
+      - "黑白"
+      - "黑块"
+      - "白块"
+      - "格子"
+      - "运算"
+    visual_triggers:
+      - "同尺寸黑白格"
+      - "黑白状态变化"
+    question_type: "样式规律"
+    priority_method_id: "gr_black_white_operation_001"
+    backup_method_id:
+      - "gr_black_white_block_001"
+      - "gr_position_translate_001"
+  -
+    name: "组成不同"
+    keywords:
+      - "属性"
+      - "数量"
+      - "曲直"
+      - "对称"
+      - "开闭"
+      - "点线面角素"
+    visual_triggers:
+      - "元素差异大"
+      - "没有重复元素可移动或叠加"
+    question_type: "组成判断"
+    priority_method_id: "gr_composition_different_001"
+    backup_method_id:
+      - "gr_property_symmetry_001"
+      - "gr_quantity_face_001"
+  -
+    name: "对称性"
+    keywords:
+      - "对称"
+      - "轴对称"
+      - "中心对称"
+      - "对称轴"
+    visual_triggers:
+      - "规整图形"
+      - "Z/S/风车/太极/正多边形"
+    question_type: "属性规律"
+    priority_method_id: "gr_property_symmetry_001"
+    backup_method_id:
+      - "gr_option_verification_001"
+  -
+    name: "开闭性"
+    keywords:
+      - "开闭"
+      - "开放"
+      - "封闭"
+      - "缺口"
+      - "封闭空间"
+    visual_triggers:
+      - "图形有缺口或闭合空间"
+    question_type: "属性规律"
+    priority_method_id: "gr_property_open_closed_001"
+    backup_method_id:
+      - "gr_quantity_face_001"
+  -
+    name: "曲直性"
+    keywords:
+      - "曲直"
+      - "曲线"
+      - "直线"
+      - "全曲"
+      - "全直"
+    visual_triggers:
+      - "直线曲线差异明显"
+    question_type: "属性规律"
+    priority_method_id: "gr_property_curve_straight_001"
+    backup_method_id:
+      - "gr_quantity_line_001"
+  -
+    name: "一笔画"
+    keywords:
+      - "一笔画"
+      - "笔画"
+      - "奇点"
+      - "端点"
+      - "T点"
+      - "出头"
+    visual_triggers:
+      - "五角星"
+      - "圆相切/相交"
+      - "田字变形"
+      - "分离图形"
+    question_type: "数量规律"
+    priority_method_id: "gr_quantity_one_stroke_001"
+    backup_method_id:
+      - "gr_quantity_point_001"
+  -
+    name: "点"
+    keywords:
+      - "点"
+      - "交点"
+      - "切点"
+      - "出头点"
+    visual_triggers:
+      - "交叉线条多"
+      - "相切/相交图形"
+    question_type: "数量规律"
+    priority_method_id: "gr_quantity_point_001"
+    backup_method_id:
+      - "gr_quantity_one_stroke_001"
+  -
+    name: "线"
+    keywords:
+      - "线"
+      - "线段"
+      - "直线"
+      - "曲线"
+      - "平行线"
+    visual_triggers:
+      - "线条数量或线组关系明显"
+    question_type: "数量规律"
+    priority_method_id: "gr_quantity_line_001"
+    backup_method_id:
+      - "gr_property_curve_straight_001"
+  -
+    name: "角"
+    keywords:
+      - "角"
+      - "直角"
+      - "锐角"
+      - "钝角"
+      - "中心角"
+    visual_triggers:
+      - "折线或三角结构明显"
+    question_type: "数量规律"
+    priority_method_id: "gr_quantity_angle_001"
+    backup_method_id:
+      - "gr_quantity_line_001"
+  -
+    name: "面"
+    keywords:
+      - "面"
+      - "封闭面"
+      - "封闭空间"
+      - "最大面"
+      - "面积"
+    visual_triggers:
+      - "明显封闭区域或分割图"
+    question_type: "数量规律"
+    priority_method_id: "gr_quantity_face_001"
+    backup_method_id:
+      - "gr_property_open_closed_001"
+  -
+    name: "素"
+    keywords:
+      - "元素"
+      - "种类"
+      - "个数"
+      - "小元素"
+      - "生活化图形"
+    visual_triggers:
+      - "多个小元素或生活化图形"
+    question_type: "数量规律"
+    priority_method_id: "gr_quantity_element_001"
+    backup_method_id:
+      - "gr_graph_relation_001"
+  -
+    name: "功能元素"
+    keywords:
+      - "功能元素"
+      - "黑点"
+      - "标记点"
+      - "箭头"
+      - "标记线"
+      - "标记面"
+    visual_triggers:
+      - "图中出现独立标记元素"
+    question_type: "数量/位置规律"
+    priority_method_id: "gr_functional_element_001"
+    backup_method_id:
+      - "gr_position_translate_001"
+  -
+    name: "黑白块专项"
+    keywords:
+      - "黑白块"
+      - "黑格"
+      - "白格"
+      - "黑色面积"
+      - "连通块"
+    visual_triggers:
+      - "主体为黑白格图"
+    question_type: "特殊题型"
+    priority_method_id: "gr_black_white_block_001"
+    backup_method_id:
+      - "gr_black_white_operation_001"
+  -
+    name: "汉字类"
+    keywords:
+      - "汉字"
+      - "偏旁"
+      - "部件"
+      - "笔画"
+      - "拼音"
+    visual_triggers:
+      - "主体为汉字"
+    question_type: "特殊题型"
+    priority_method_id: "gr_chinese_character_001"
+    backup_method_id:
+      - "gr_property_symmetry_001"
+  -
+    name: "数字类"
+    keywords:
+      - "数字"
+      - "封闭面"
+      - "数字本身"
+      - "大小"
+      - "运算"
+    visual_triggers:
+      - "主体为阿拉伯数字"
+    question_type: "特殊题型"
+    priority_method_id: "gr_digit_symbol_001"
+    backup_method_id:
+      - "gr_property_open_closed_001"
+  -
+    name: "字母类"
+    keywords:
+      - "字母"
+      - "字母表"
+      - "大小写"
+      - "alphabet"
+    visual_triggers:
+      - "主体为英文字母"
+    question_type: "特殊题型"
+    priority_method_id: "gr_letter_symbol_001"
+    backup_method_id:
+      - "gr_property_symmetry_001"
+  -
+    name: "六面体展开图"
+    keywords:
+      - "展开图"
+      - "折叠"
+      - "正方体"
+      - "六面体"
+      - "相对面"
+      - "公共边"
+    visual_triggers:
+      - "立方体展开图与立体选项"
+    question_type: "空间重构"
+    priority_method_id: "gr_cube_net_overall_001"
+    backup_method_id:
+      - "gr_cube_opposite_faces_001"
+      - "gr_cube_common_edge_001"
+      - "gr_cube_clockwise_method_001"
+  -
+    name: "相对面"
+    keywords:
+      - "相对面"
+      - "不能同时出现"
+    visual_triggers:
+      - "正方体选项同时展示多个面"
+    question_type: "空间重构"
+    priority_method_id: "gr_cube_opposite_faces_001"
+    backup_method_id:
+      - "gr_cube_common_edge_001"
+  -
+    name: "公共边"
+    keywords:
+      - "公共边"
+      - "相邻面"
+      - "L型"
+      - "画边"
+    visual_triggers:
+      - "需要比对面上图案方向"
+    question_type: "空间重构"
+    priority_method_id: "gr_cube_common_edge_001"
+    backup_method_id:
+      - "gr_cube_clockwise_method_001"
+  -
+    name: "时针法"
+    keywords:
+      - "时针法"
+      - "顺时针"
+      - "逆时针"
+      - "方向验证"
+    visual_triggers:
+      - "方向性图案且公共边不够排除"
+    question_type: "空间重构"
+    priority_method_id: "gr_cube_clockwise_method_001"
+    backup_method_id:
+      - "gr_cube_common_edge_001"
+  -
+    name: "截面图"
+    keywords:
+      - "截面"
+      - "切割"
+      - "六面体"
+      - "圆柱"
+      - "圆锥"
+    visual_triggers:
+      - "立体被平面切割"
+    question_type: "空间重构"
+    priority_method_id: "gr_spatial_section_001"
+    backup_method_id:
+      - "gr_option_verification_001"
+  -
+    name: "三视图"
+    keywords:
+      - "三视图"
+      - "主视图"
+      - "左视图"
+      - "俯视图"
+    visual_triggers:
+      - "给出立体或多视角平面图"
+    question_type: "空间重构"
+    priority_method_id: "gr_spatial_three_view_001"
+    backup_method_id:
+      - "gr_option_verification_001"
+  -
+    name: "立体拼合"
+    keywords:
+      - "立体拼合"
+      - "积木"
+      - "方块"
+      - "分层"
+    visual_triggers:
+      - "多个方块组合成目标立体"
+    question_type: "空间重构"
+    priority_method_id: "gr_spatial_assembly_001"
+    backup_method_id:
+      - "gr_spatial_three_view_001"
+  -
+    name: "选项验证"
+    keywords:
+      - "排除"
+      - "验证"
+      - "选项"
+      - "不确定"
+    visual_triggers:
+      - "多个选项可能满足"
+      - "空间/黑白/数量题"
+    question_type: "选项验证"
+    priority_method_id: "gr_option_verification_001"
+    backup_method_id:
+      - "gr_common_misjudgment_001"

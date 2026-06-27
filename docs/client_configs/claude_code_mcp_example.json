@@ -1,0 +1,23 @@
+{
+  "_note": "Example only. Adjust the file location and environment for your local Claude Code MCP configuration.",
+  "mcpServers": {
+    "xingce-solver": {
+      "command": "xingce-solver-mcp",
+      "args": [],
+      "env": {
+        "XINGCE_KB_DIR": "D:\\database\\xingce-solver\\knowledge_base"
+      }
+    }
+  },
+  "_python_module_alternative": {
+    "mcpServers": {
+      "xingce-solver": {
+        "command": "python",
+        "args": ["-m", "xingce_solver.mcp_server"],
+        "env": {
+          "XINGCE_KB_DIR": "D:\\database\\xingce-solver\\knowledge_base"
+        }
+      }
+    }
+  }
+}

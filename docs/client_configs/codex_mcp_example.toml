@@ -1,0 +1,17 @@
+# Example only. Adjust the file location and syntax for your local Codex MCP configuration.
+
+[mcp_servers.xingce-solver]
+command = "xingce-solver-mcp"
+args = []
+
+[mcp_servers.xingce-solver.env]
+XINGCE_KB_DIR = "D:\\database\\xingce-solver\\knowledge_base"
+
+# Python module alternative:
+#
+# [mcp_servers.xingce-solver]
+# command = "python"
+# args = ["-m", "xingce_solver.mcp_server"]
+#
+# [mcp_servers.xingce-solver.env]
+# XINGCE_KB_DIR = "D:\\database\\xingce-solver\\knowledge_base"

@@ -1,0 +1,413 @@
+module: 数量关系
+version: audited_v1
+routing_policy:
+  default: 先识别题干关键词和选项特征，再按 priority_method_id 调用；若触发条件不足，进入 backup_method_id 或 uncertain_items。
+rules:
+  - name: 排列组合基础
+    keywords:
+      - 排列
+      - 组合
+      - 方案数
+      - 选择
+      - 安排
+      - 至少
+      - 不能
+    option_features:
+      - 选项为整数方案数
+      - 题干有限元素计数
+    question_type: 排列组合与概率
+    priority_method_id: qr_perm_comb_basic_001
+    backup_method_id:
+      - qr_probability_basic_001
+      - qr_indeterminate_equation_001
+  - name: 相邻问题
+    keywords:
+      - 相邻
+      - 挨着
+      - 连续
+      - 必须在一起
+    option_features:
+      - 方案数可能含捆内排序
+    question_type: 排列组合与概率
+    priority_method_id: qr_adjacent_bundle_001
+    backup_method_id:
+      - qr_perm_comb_basic_001
+  - name: 不相邻问题
+    keywords:
+      - 不相邻
+      - 不能相邻
+      - 不能连续
+    option_features:
+      - 需数空位
+    question_type: 排列组合与概率
+    priority_method_id: qr_nonadjacent_insert_001
+    backup_method_id:
+      - qr_perm_comb_basic_001
+  - name: 平均分堆
+    keywords:
+      - 平均分成
+      - 分组
+      - 分堆
+      - 每组相同
+    option_features:
+      - 组是否有标签影响是否除以n!
+    question_type: 排列组合与概率
+    priority_method_id: qr_average_grouping_001
+    backup_method_id:
+      - qr_perm_comb_basic_001
+  - name: 相同元素分配
+    keywords:
+      - 相同小球
+      - 相同元素
+      - 每人至少
+      - 分给
+    option_features:
+      - 元素相同，下限约束明显
+    question_type: 排列组合与概率
+    priority_method_id: qr_same_elements_distribution_001
+    backup_method_id:
+      - qr_perm_comb_basic_001
+  - name: 错位排序
+    keywords:
+      - 错位
+      - 都不回
+      - 放错
+      - 不在原位置
+    option_features:
+      - n<=6时可记忆错排数
+    question_type: 排列组合与概率
+    priority_method_id: qr_derangement_001
+    backup_method_id:
+      - qr_perm_comb_basic_001
+  - name: 概率基础
+    keywords:
+      - 概率
+      - 随机
+      - 抽到
+      - 可能性
+      - 恰好
+    option_features:
+      - 需要分子分母同口径
+    question_type: 排列组合与概率
+    priority_method_id: qr_probability_basic_001
+    backup_method_id:
+      - qr_geometric_probability_001
+      - qr_lottery_probability_001
+  - name: 几何概型
+    keywords:
+      - 随机时刻
+      - 随机位置
+      - 区域
+      - 长度
+      - 面积
+      - 体积
+    option_features:
+      - 连续样本空间
+    question_type: 排列组合与概率
+    priority_method_id: qr_geometric_probability_001
+    backup_method_id:
+      - qr_probability_basic_001
+  - name: 几何计算
+    keywords:
+      - 面积
+      - 周长
+      - 体积
+      - 弧长
+      - 扇形
+      - 圆
+      - 三角形
+    option_features:
+      - 选项带面积/体积/长度单位
+    question_type: 几何问题
+    priority_method_id: qr_geometry_formula_001
+    backup_method_id:
+      - qr_geometry_scaling_001
+      - qr_geometry_extreme_001
+  - name: 几何最值
+    keywords:
+      - 面积最大
+      - 周长最小
+      - 体积最大
+      - 表面积最小
+      - 周长一定
+    option_features:
+      - 选项多为图形或最大/最小值
+    question_type: 几何问题
+    priority_method_id: qr_geometry_extreme_001
+    backup_method_id:
+      - qr_geometry_formula_001
+  - name: 最短距离
+    keywords:
+      - 最短距离
+      - 最短路径
+      - 点到直线
+      - 表面路径
+    option_features:
+      - 需要对称或展开
+    question_type: 几何问题
+    priority_method_id: qr_shortest_distance_001
+    backup_method_id:
+      - qr_one_stroke_001
+  - name: 普通行程
+    keywords:
+      - 速度
+      - 时间
+      - 路程
+      - 提前
+      - 晚到
+      - 提速
+    option_features:
+      - S=v*t，比例关系明显
+    question_type: 行程问题
+    priority_method_id: qr_travel_basic_001
+    backup_method_id:
+      - qr_meeting_chasing_001
+  - name: 相遇追及
+    keywords:
+      - 相遇
+      - 追上
+      - 相向
+      - 同向
+      - 距离差
+    option_features:
+      - 速度和/速度差
+    question_type: 行程问题
+    priority_method_id: qr_meeting_chasing_001
+    backup_method_id:
+      - qr_multiple_meeting_001
+      - qr_circular_motion_001
+  - name: 流水行船
+    keywords:
+      - 顺水
+      - 逆水
+      - 水速
+      - 船速
+      - 漂流
+    option_features:
+      - 顺逆速度可拆
+    question_type: 行程问题
+    priority_method_id: qr_stream_boat_001
+    backup_method_id:
+      - qr_travel_basic_001
+  - name: 工程问题
+    keywords:
+      - 工作总量
+      - 效率
+      - 时间
+      - 合作
+      - 单独完成
+    option_features:
+      - 适合赋值LCM
+    question_type: 工程问题
+    priority_method_id: qr_work_basic_001
+    backup_method_id:
+      - qr_work_rest_001
+  - name: 利润问题
+    keywords:
+      - 成本
+      - 售价
+      - 定价
+      - 折扣
+      - 利润率
+      - 总利润
+    option_features:
+      - 利润率分母为成本
+    question_type: 经济利润问题
+    priority_method_id: qr_profit_basic_001
+    backup_method_id:
+      - qr_profit_batch_001
+      - qr_profit_fund_flow_001
+  - name: 浓度问题
+    keywords:
+      - 浓度
+      - 溶质
+      - 溶液
+      - 加水
+      - 蒸发
+      - 混合
+    option_features:
+      - 溶质守恒或十字相乘
+    question_type: 浓度问题
+    priority_method_id: qr_concentration_basic_001
+    backup_method_id:
+      - qr_alligation_001
+  - name: 十字相乘
+    keywords:
+      - 两种浓度
+      - 混合浓度
+      - 比例
+      - 配成
+    option_features:
+      - 已知3个浓度求两部分量比
+    question_type: 浓度问题
+    priority_method_id: qr_alligation_001
+    backup_method_id:
+      - qr_concentration_basic_001
+  - name: 容斥问题
+    keywords:
+      - 参加
+      - 至少一种
+      - 同时
+      - 都不
+      - 只参加
+    option_features:
+      - 集合计数，交集/圈外
+    question_type: 容斥问题
+    priority_method_id: qr_inclusion_exclusion_001
+    backup_method_id:
+      - qr_inclusion_exclusion_extreme_001
+  - name: 周期循环
+    keywords:
+      - 周期
+      - 循环
+      - 每隔
+      - 每几天
+      - 第N天
+    option_features:
+      - 取余数，余0按周期末
+    question_type: 周期循环问题
+    priority_method_id: qr_cycle_mod_001
+    backup_method_id:
+      - qr_date_week_001
+  - name: 日期星期
+    keywords:
+      - 日期
+      - 星期
+      - 平年
+      - 闰年
+      - 几月几日
+    option_features:
+      - 天数拆整周和余天
+    question_type: 日期星期问题
+    priority_method_id: qr_date_week_001
+    backup_method_id:
+      - qr_cycle_mod_001
+  - name: 年龄问题
+    keywords:
+      - 年龄
+      - 几年前
+      - 几年后
+      - 岁数
+      - 属相
+    option_features:
+      - 年龄差不变
+    question_type: 年龄问题
+    priority_method_id: qr_age_problem_001
+    backup_method_id:
+      - qr_equation_method_001
+  - name: 最不利问题
+    keywords:
+      - 至少
+      - 保证
+      - 一定有
+      - 最坏情况
+    option_features:
+      - 抽屉原理，最后加1
+    question_type: 最值问题
+    priority_method_id: qr_extreme_unfavorable_001
+    backup_method_id:
+      - qr_extreme_sum_fixed_001
+  - name: 和定最值
+    keywords:
+      - 总和
+      - 最多
+      - 最少
+      - 第一名
+      - 最后一名
+    option_features:
+      - 排名约束、能否相等
+    question_type: 最值问题
+    priority_method_id: qr_extreme_sum_fixed_001
+    backup_method_id:
+      - qr_extreme_product_001
+  - name: 函数最值
+    keywords:
+      - 最大值
+      - 最小值
+      - 二次函数
+      - 乘积最大
+    option_features:
+      - 可化为二次函数或两因子和定
+    question_type: 最值问题
+    priority_method_id: qr_extreme_function_001
+    backup_method_id:
+      - qr_extreme_sum_fixed_001
+  - name: 鸡兔同笼
+    keywords:
+      - 鸡兔
+      - 对错题
+      - 得分
+      - 工资
+      - 阶梯收费
+    option_features:
+      - 两类贡献差
+    question_type: 特殊情景应用
+    priority_method_id: qr_chicken_rabbit_001
+    backup_method_id:
+      - qr_surplus_deficit_001
+  - name: 盈亏问题
+    keywords:
+      - 盈
+      - 亏
+      - 多出
+      - 不足
+      - 每车
+      - 每房
+    option_features:
+      - 两种分配标准差
+    question_type: 特殊情景应用
+    priority_method_id: qr_surplus_deficit_001
+    backup_method_id:
+      - qr_equation_method_001
+  - name: 植树问题
+    keywords:
+      - 植树
+      - 路灯
+      - 间隔
+      - 两端
+      - 环形
+    option_features:
+      - 棵数与间隔关系
+    question_type: 特殊情景应用
+    priority_method_id: qr_tree_planting_001
+    backup_method_id:
+      - qr_tree_overlap_001
+  - name: 钟表问题
+    keywords:
+      - 钟表
+      - 时针
+      - 分针
+      - 重合
+      - 垂直
+      - 夹角
+    option_features:
+      - 相对角速度5.5°/min
+    question_type: 特殊情景应用
+    priority_method_id: qr_clock_problem_001
+    backup_method_id:
+      - qr_meeting_chasing_001
+  - name: 比赛场次
+    keywords:
+      - 单循环
+      - 双循环
+      - 淘汰赛
+      - 轮空
+      - 场次
+    option_features:
+      - 赛制识别
+    question_type: 比赛问题
+    priority_method_id: qr_competition_schedule_001
+    backup_method_id:
+      - qr_match_probability_order_001
+  - name: 数字推理
+    keywords:
+      - 数字推理
+      - 数列
+      - 找规律
+      - 缺项
+    option_features:
+      - 选项为缺失数字
+    question_type: 数字推理
+    priority_method_id: qr_numeric_reasoning_001
+    backup_method_id:
+      - qr_sequence_formula_001
