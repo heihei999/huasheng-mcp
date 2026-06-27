@@ -5,7 +5,7 @@
 - **Release Version**: v0.6.0
 - **Package Version**: 0.6.0
 - **Component**: graphic_reasoning_scaffold v0.2.2 error-driven addendum
-- **GitHub Commit**: bf6a024
+- **GitHub Commit**: ef2537b
 - **Tag**: stable-v0.6.0-graphic-scaffold-visual-grounding
 - **Date**: 2026-06-27
 
@@ -13,9 +13,9 @@
 
 | Package | Filename |
 |---------|----------|
-| clean_runtime | xingce-solver_mcp_v0_6_0_graphic_scaffold_v0_2_2_error_driven_bf6a024_clean_runtime.zip |
-| online_runtime | xingce-solver_mcp_v0_6_0_graphic_scaffold_v0_2_2_error_driven_bf6a024_online_runtime.zip |
-| offline_wheelhouse_runtime | xingce-solver_mcp_v0_6_0_graphic_scaffold_v0_2_2_error_driven_bf6a024_offline_wheelhouse_runtime.zip |
+| clean_runtime | xingce-solver_mcp_v0_6_0_graphic_scaffold_v0_2_2_error_driven_ef2537b_clean_runtime.zip |
+| online_runtime | xingce-solver_mcp_v0_6_0_graphic_scaffold_v0_2_2_error_driven_ef2537b_online_runtime.zip |
+| offline_wheelhouse_runtime | xingce-solver_mcp_v0_6_0_graphic_scaffold_v0_2_2_error_driven_ef2537b_offline_wheelhouse_runtime.zip |
 
 ## Test Results
 
