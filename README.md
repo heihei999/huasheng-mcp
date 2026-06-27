@@ -177,16 +177,6 @@ powershell -ExecutionPolicy Bypass -File scripts/smoke_test.ps1
 - Full pytest: 576 passed (was 551, +25).
 - No external LLM/API call. No solver/scaffold/all_cards/cli modification.
 
-## v0.6.0 Graphic Reasoning Scaffold v0.2.2 Error-Driven Addendum
-
-- Upgraded graphic_reasoning_scaffold from v0.2.1 to v0.2.2.
-- New protocols: dot_grid_coordinate_protocol (6 set operations), nine_grid_fallback_protocol (rule fallback), cross_section_protocol (geometric guards), residual_check (solid assembly validation), forced_dimensions_by_type (grouping/classification).
-- 5 new anti-pattern guards.
-- 6 scaffold tools: get_graphic_reasoning_scaffold, get_definition_judgement_scaffold, get_analogy_reasoning_scaffold, get_logic_analysis_scaffold, get_quantity_relation_scaffold, get_verbal_reasoning_scaffold.
-- Tests: 712 passed, 35 skipped, 0 failed.
-- No OCR/OpenCV/PIL added. No image tests included.
-- knowledge_base/all_cards.jsonl unchanged. data_analysis solver unchanged.
-
 ## v0.5.1 Module Context Edge-Case Hardening
 
 - Fix 1: valid `module_hint` now overrides `insufficient_phrase_detected` — short questions with explicit hint no longer route to `unknown`.
