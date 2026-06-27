@@ -5,7 +5,7 @@ questions. It is NOT a solver. It does NOT recognize images. It does NOT
 output answers. It only generates structured guidance for future multi-modal
 LLM integration.
 
-Version: v0.2.1 — visual grounding addendum
+Version: v0.2.2 — error-driven addendum
 """
 
 from __future__ import annotations
@@ -28,7 +28,7 @@ def build_graphic_reasoning_scaffold() -> dict[str, Any]:
     """
     return {
         "module": "graphic_reasoning",
-        "version": "v0.2.1",
+        "version": "v0.2.2",
         "mode": "method_scaffold_only",
         "positioning": _build_positioning(),
         "stage_order": get_graphic_reasoning_stage_order(),
@@ -44,6 +44,8 @@ def build_graphic_reasoning_scaffold() -> dict[str, Any]:
         "falsification_protocol": get_falsification_protocol(),
         "spatial_verification_protocol": get_spatial_verification_protocol(),
         "uncertainty_reporting_protocol": get_uncertainty_reporting_protocol(),
+        "dot_grid_coordinate_protocol": get_dot_grid_coordinate_protocol(),
+        "nine_grid_fallback_protocol": get_nine_grid_fallback_protocol(),
     }
 
 
@@ -191,6 +193,35 @@ def get_anti_pattern_guards() -> list[dict[str, str]]:
             "id": "unique_option_required",
             "forbidden": "如果两个及以上选项符合，必须 analysis_only",
             "required": "只有唯一选项满足规律时才能输出答案",
+        },
+        {
+            "id": "no_intuitive_cross_section_rejection",
+            "forbidden": "截面图不得凭直觉排除矩形、梯形、三角形等规则图形",
+            "required": "必须验证切面是否平行于侧面/底面、是否经过同一高度层、"
+                       "是否穿过相邻面形成直角边，再判断截面形状",
+        },
+        {
+            "id": "no_color_count_assumption",
+            "forbidden": "立体拼合不得假设每个组件都必须包含某种颜色块",
+            "required": "必须计算已知组件颜色块总数和待选组件残差，"
+                       "允许待选组件全白（不含任何颜色块）",
+        },
+        {
+            "id": "no_fuzzy_face_count",
+            "forbidden": "分组分类数面时不得使用'较多/较少''大概'等模糊描述",
+            "required": "必须输出精确封闭区域数，例如：图1=3面，图2=4面",
+        },
+        {
+            "id": "no_single_dimension_grouping",
+            "forbidden": "分组分类不得只凭一个维度作答",
+            "required": "必须列出多个候选维度并逐一验证，"
+                       "线条类必须优先检查面数/部分数/一笔画/奇点数/端点数，"
+                       "黑白块类必须优先检查面积占比/重心/最大区域/接边/接角",
+        },
+        {
+            "id": "no_failed_rule_persistence",
+            "forbidden": "九宫格中数量/叠加规律失效后，不得继续硬套该规律",
+            "required": "必须切换到对称性、移动轨迹、重心变化、坐标集合映射等候选规律",
         },
     ]
 
@@ -384,6 +415,56 @@ def get_spatial_verification_protocol() -> dict[str, Any]:
                 "方块数或颜色数不匹配时，必须排除该选项。"
             ),
         },
+        "cross_section": {
+            "required_steps": [
+                "判断立体类型（六面体/圆柱/圆锥/棱柱/棱锥/组合体）",
+                "判断切面方向和位置",
+                "检查切面是否平行于某个侧面",
+                "检查切面是否平行于底面",
+                "检查切面是否经过同一高度层",
+                "检查切面是否穿过相邻面形成直角边",
+                "检查三点确定的平面是否可能形成规则截面",
+                "A/B/C/D 逐项验证截面可行性",
+            ],
+            "required_output": [
+                "立体类型",
+                "切面方向和位置描述",
+                "切面与各面的平行/垂直关系",
+                "截面边数和形状",
+                "规则图形（矩形/正方形/三角形/梯形/六边形）可行性分析",
+                "选项逐项验证过程",
+            ],
+            "geometric_guards": {
+                "parallel_to_side": (
+                    "如果切面平行于物体某个侧面，截面可能是矩形或正方形，"
+                    "不得凭视觉直觉排除。"
+                ),
+                "parallel_to_base": (
+                    "如果切面平行于底面，截面形状与底面相同或相似，"
+                    "不得凭视觉直觉排除。"
+                ),
+                "same_height_layer": (
+                    "如果切面经过同一高度层，截面边数由该层截面形状决定。"
+                ),
+                "adjacent_face_intersection": (
+                    "如果切面穿过相邻面，可能形成直角边，"
+                    "梯形和矩形都可能成立。"
+                ),
+                "three_point_plane": (
+                    "三点确定一个平面。如果三个点在不同面上，"
+                    "截面形状需要根据三点位置具体分析，不得直接排除规则图形。"
+                ),
+                "no_intuitive_rejection": (
+                    "截面图不得凭视觉直觉排除矩形、正方形、三角形、"
+                    "梯形、六边形等规则图形。必须逐一验证切面可行性。"
+                ),
+            },
+            "constraint": (
+                "不得凭直觉排除规则截面图形。"
+                "必须验证切面与侧面/底面的平行关系。"
+                "不确定时输出 analysis_only。"
+            ),
+        },
     }
 
 
@@ -433,11 +514,103 @@ def get_uncertainty_reporting_protocol() -> dict[str, Any]:
     }
 
 
+def get_dot_grid_coordinate_protocol() -> dict[str, Any]:
+    """Return the dot-grid coordinate protocol for dot/circle grid questions.
+
+    Applies to: honeycomb black-white dots, grid circles, nine-grid dots,
+    black-white dot movement/overlay/symmetry questions.
+
+    The protocol requires the model to build a virtual coordinate system
+    and output black-point coordinate sets for each known figure and each
+    option, then verify by coordinate set operations.
+    """
+    return {
+        "mandatory": True,
+        "applicability": (
+            "点阵/圆圈网格类图推题，包括：蜂窝状黑白圆圈、网格圆圈、"
+            "九宫格黑白圆圈、黑白点阵移动/叠加/对称题"
+        ),
+        "coordinate_system_required": (
+            "必须建立虚拟坐标系（行×列或蜂窝坐标），"
+            "标注每个点/圆圈的位置。"
+            "不允许只说'黑点移动'或'像叠加'或'像对称'。"
+        ),
+        "black_point_set_required": (
+            "必须输出每个已知图的黑点坐标集合，"
+            "例如：图1={(1,1),(2,3),(3,2)}，图2={(1,2),(2,1),(3,3)}。"
+            "必须用集合形式表达，不能只用文字描述。"
+        ),
+        "option_black_point_set_required": (
+            "必须输出 A/B/C/D 每个选项的黑点坐标集合，"
+            "用同样的坐标系和集合格式。"
+        ),
+        "coordinate_set_operations": {
+            "direct_overlay": "直接叠加：两个图的黑点坐标集合并集",
+            "xor_remove_same_keep_different": "去同存异：相同坐标的黑点抵消，不同坐标保留",
+            "intersection": "交集：两个图都有的黑点坐标",
+            "complement_or_inversion": "补集/反转：目标集合减去源集合",
+            "row_or_column_translation": "行列平移：黑点坐标整体偏移 (Δrow, Δcol)",
+            "rotation_or_reflection": "旋转/翻转：黑点坐标绕中心旋转或沿轴翻转",
+        },
+        "movement_trace_check": (
+            "如果规律是移动，必须输出每个黑点从图1到图2到图3的移动轨迹，"
+            "例如：(1,1)→(1,2)→(1,3)，并验证轨迹是否符合统一规律。"
+        ),
+        "symmetry_check": (
+            "如果规律是轴对称或中心对称，必须输出对称轴或对称中心位置，"
+            "并验证每个已知图的黑点坐标集合是否满足对称关系。"
+        ),
+        "fallback_to_analysis_only": (
+            "如果无法建立统一的坐标集合规律，或视觉转写无法确认"
+            "黑点位置，应输出 analysis_only。"
+        ),
+    }
+
+
+def get_nine_grid_fallback_protocol() -> dict[str, Any]:
+    """Return the nine-grid fallback protocol.
+
+    When a nine-grid question's quantity or overlay rule fails to
+    consistently explain all rows/columns, the model must switch to
+    alternative analysis modes instead of forcing the failing rule.
+    """
+    return {
+        "mandatory": True,
+        "applicability": "九宫格题型（3×3 格式）",
+        "horizontal_first": (
+            "必须优先横向看：检查每一行是否遵循统一规律。"
+        ),
+        "vertical_second": (
+            "必须再纵向看：检查每一列是否遵循统一规律。"
+        ),
+        "failure_detection": (
+            "如果数量规律、简单叠加、黑白运算在任一行或一列无法稳定解释，"
+            "即视为该规律失败。不允许在局部失效后继续硬套该规律。"
+        ),
+        "mandatory_switch_targets": [
+            "整体轴对称：检查整个九宫格是否关于某轴对称",
+            "中心对称：检查以中心格为对称点的对称关系",
+            "黑点移动轨迹：检查黑点在九宫格中的移动路径",
+            "黑点重心变化：检查黑点集合的重心（平均坐标）变化规律",
+            "坐标集合映射：检查黑点坐标集合从第一行到第二行到第三行的映射关系",
+        ],
+        "no_failed_rule_persistence": (
+            "如果数量/叠加规律在某一行或列失效，不得继续硬套该规律选答案。"
+            "必须切换到对称性、移动轨迹、重心变化等候选规律检查。"
+        ),
+        "competing_rule_output": (
+            "如果两个以上候选规律都能解释所有已知格，应输出 analysis_only，"
+            "不得随意选择其中一个。"
+        ),
+    }
+
+
 def render_graphic_reasoning_prompt_template() -> str:
     """Render a prompt template for multi-modal LLM graphic reasoning.
 
-    Updated in v0.2.1 to enforce falsification, competing rules,
-    spatial verification, and uncertainty reporting.
+    Updated in v0.2.2 to enforce dot-grid coordinates, nine-grid fallback,
+    cross-section guards, solid assembly residual check, and grouping
+    forced dimensions.
     """
     return (
         "你是图形推理多模态观察助手。\n"
@@ -458,6 +631,7 @@ def render_graphic_reasoning_prompt_template() -> str:
         "  - 网格题：建立虚拟坐标系，记录黑色块坐标集合、线条端点坐标、关键顶点、斜边方向、覆盖格\n"
         "  - 线条题：记录线段数、端点数、交点数、封闭区域数\n"
         "  - 空间题：记录坐标/面/块信息\n"
+        "  - 点阵/圆圈网格题：建立虚拟坐标系，输出每个已知图的黑点坐标集合，格式如 {(1,1),(2,3),(3,2)}\n"
         "- options_visual_facts：A/B/C/D 选项也必须做同样转写\n"
         "- uncertain_visual_details：哪些视觉细节看不清或无法确认\n"
         "如果视觉转写缺失或关键视觉事实不清楚，应输出 analysis_only。\n"
@@ -483,18 +657,22 @@ def render_graphic_reasoning_prompt_template() -> str:
         "提出第一个候选规律，说明为什么成立。\n"
         "候选规律必须能统一解释所有题干图形。\n"
         "叠加类必须展示运算规则代入过程。\n"
+        "点阵/圆圈网格题必须输出黑点坐标集合，并通过坐标集合运算验证规律。\n"
         "\n"
         "【候选规律 2 / 竞争规律】\n"
         "提出至少一个竞争规律，说明它是否也能解释已知图。\n"
         "如果竞争规律能推出不同答案，必须说明冲突。\n"
         "如果没有明显竞争规律，写'无明显竞争规律'。\n"
         "不允许只凭一个候选规律直接给答案。\n"
+        "九宫格题若数量/叠加规律在任一行/列失效，必须切换到对称性、移动轨迹、重心变化等候选规律。\n"
         "\n"
         "【证伪检查】（必须出现）\n"
         "- 当前规律是否能解释所有已知图？\n"
         "- A/B/C/D 逐项排除依据\n"
         "- 竞争规律是否尝试过？结果如何？\n"
         "- 如果两个及以上选项都能解释，输出 analysis_only\n"
+        "- 截面图：是否验证了切面与侧面/底面的平行关系？是否凭直觉排除了规则图形？\n"
+        "- 立体拼合：是否计算了残差（目标块数 - 已知组件块数 = 待选组件块数）？\n"
         "\n"
         "【选项逐项验证】（必须出现）\n"
         "逐一验证 A/B/C/D 是否符合候选规律：\n"
@@ -505,6 +683,10 @@ def render_graphic_reasoning_prompt_template() -> str:
         "空间类必须输出坐标/面/块的核验过程。\n"
         "分组分类必须输出候选维度表（至少 3 个维度）。\n"
         "叠加类必须展示运算规则代入。\n"
+        "截面图必须逐项验证截面可行性，不得凭直觉排除规则图形。\n"
+        "立体拼合必须输出目标块数、已知组件块数、待选组件残差。\n"
+        "分组分类线条类必须优先检查面数/部分数/一笔画/奇点数/端点数。\n"
+        "分组分类黑白块类必须优先检查面积占比/重心/最大区域/接边/接角。\n"
         "\n"
         "【唯一性判断】\n"
         "如果唯一，输出答案；如果不唯一，输出 analysis_only。\n"
@@ -522,6 +704,7 @@ def render_graphic_reasoning_prompt_template() -> str:
         "\n"
         "【最终答案或 analysis_only】\n"
         "根据以上分析，输出最终答案或 analysis_only。\n"
+        "如果关键视觉事实不清楚，输出 analysis_only。\n"
     )
 
 
@@ -705,21 +888,48 @@ def _template_solid_assembly() -> dict[str, Any]:
             "判断层数、凹凸、长短、高低",
             "逐组合验证是否多块、少块、重叠、颜色错位",
         ],
+        "residual_check": {
+            "description": (
+                "立体拼合残差校验：必须计算待选组件相对于已知组件的残差，"
+                "包括 remaining_total_blocks、remaining_color_blocks、"
+                "remaining_white_blocks。"
+            ),
+            "required_calculations": [
+                "目标总块数",
+                "目标颜色块数量",
+                "已知组件块数和颜色块数",
+                "待选组件的残差：remaining_total_blocks = 目标总块数 - 已知组件总块数",
+                "待选组件的残差：remaining_color_blocks = 目标颜色块数 - 已知组件颜色块数",
+                "待选组件的残差：remaining_white_blocks = remaining_total_blocks - remaining_color_blocks",
+            ],
+            "constraints": [
+                "如果已知组件颜色块数量已经等于目标颜色块数量，则待选组件必须不含该颜色块（可全白）",
+                "不得默认'每个组件至少含一个灰块/黑块'",
+                "若视觉转写无法确认已知组件颜色数量，必须输出 analysis_only",
+                "必须同时检查凹凸互补、层数、重叠、多块、少块、颜色错位",
+            ],
+            "keywords": [
+                "残差", "目标总块数", "颜色数", "已知组件",
+                "待选组件", "全白", "数量守恒", "凹凸互补",
+                "重叠", "颜色错位",
+            ],
+        },
         "verification_steps": [
             "1. 数目标立体的方块总数",
             "2. 数目标立体中各颜色方块数",
             "3. 数每个选项的方块总数",
             "4. 数每个选项中各颜色方块数",
-            "5. 检查方块总数是否匹配（目标 = 选项之和 或 目标 = 选项之差）",
-            "6. 检查颜色数是否匹配",
-            "7. 检查层数是否一致",
-            "8. 检查凹凸是否互补",
-            "9. 检查长短、高低是否一致",
+            "5. 计算已知组件的总块数和颜色块数",
+            "6. 计算待选组件的残差（总块数残差、颜色块残差、白色块残差）",
+            "7. 检查残差是否与待选组件匹配",
+            "8. 检查层数是否一致",
+            "9. 检查凹凸是否互补",
             "10. 逐组合验证：拼合后是否多块、少块、重叠、颜色错位",
         ],
         "constraint": (
             "如果数量矛盾，必须回到视觉转写重新核对，不得硬解释。"
             "方块数或颜色数不匹配时，必须排除该选项。"
+            "不得假设每个组件都必须包含某种颜色块。"
         ),
     }
 
@@ -749,6 +959,40 @@ def _template_grouping_classification() -> dict[str, Any]:
             "面积/边数/交点数",
             "功能元素位置",
         ],
+        "forced_dimensions_by_type": {
+            "line_polygon": {
+                "description": "线条/多边形分组必须优先检查以下维度",
+                "dimensions": [
+                    "封闭区域数/面数（使用封闭区域定义，输出精确数字，如：图1=3面，图2=4面）",
+                    "部分数（连通区域数量）",
+                    "一笔画/奇点数（奇点数为 0 或 2 时可一笔画）",
+                    "端点数（线段端点，不含交点）",
+                    "交点数（线段之间的交叉点）",
+                    "平行线组数",
+                    "直角数",
+                    "最大面的形状",
+                    "是否有相同构件",
+                ],
+                "precision_requirement": (
+                    "数面数时必须使用封闭区域定义，输出具体数字，"
+                    "例如：图1=3面，图2=4面。"
+                    "禁止使用'较多/较少''大概'等模糊描述。"
+                ),
+            },
+            "black_white_block": {
+                "description": "黑白块/黑白面分组必须优先检查以下维度",
+                "dimensions": [
+                    "黑块面积占比",
+                    "黑块重心位置",
+                    "最大黑色区域形状",
+                    "黑块是否接边（与外框边相邻）",
+                    "黑块是否接角（与外框角相邻）",
+                    "黑块是否形成轴对称或中心对称",
+                    "黑白区域是否分割成相同部分数",
+                    "最大面/最大黑块与外框的位置关系",
+                ],
+            },
+        },
         "verification_steps": [
             "1. 列出至少 3 个候选分类维度",
             "2. 对每个维度，标注 ①-⑥ 各图的特征值",
@@ -761,6 +1005,8 @@ def _template_grouping_classification() -> dict[str, Any]:
         "constraint": (
             "不能看到一个看似合理的特征就定答案。"
             "必须至少列出 3 个候选维度，逐维度验证后再选择。"
+            "线条类必须优先检查面数/部分数/一笔画/奇点数/端点数。"
+            "黑白块类必须优先检查面积占比/重心/最大区域/接边/接角。"
         ),
     }
 
@@ -1116,7 +1362,18 @@ def _checklist_cross_section() -> dict[str, Any]:
             "圆锥常见截面包括圆、椭圆、三角形等。",
             "圆锥通常不能截出四边形。",
         ],
-        "constraint": "如果选项形状需要曲面参与，必须确认原立体是否有曲面。",
+        "geometric_section_guards": [
+            "切面平行于侧面时，截面可能是矩形或正方形，不得凭直觉排除",
+            "切面平行于底面时，截面形状与底面相同或相似",
+            "切面经过同一高度层时，截面边数由该层截面形状决定",
+            "切面穿过相邻面时，可能形成直角边，梯形和矩形都可能成立",
+            "三点确定的平面：如果三个点在不同面上，截面形状需要具体分析",
+            "不得凭视觉直觉排除矩形、正方形、三角形、梯形、六边形等规则图形",
+        ],
+        "constraint": (
+            "如果选项形状需要曲面参与，必须确认原立体是否有曲面。"
+            "不得凭直觉排除规则截面图形，必须逐一验证切面可行性。"
+        ),
     }
 
 
