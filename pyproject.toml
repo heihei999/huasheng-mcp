@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "huasheng-mcp"
-version = "0.5.1"
+version = "0.6.0"
 description = "基于花生十三行测方法论的 MCP 解题辅助工具"
 readme = "README.md"
 license = "MIT"
