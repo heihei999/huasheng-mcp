@@ -9,7 +9,7 @@
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![License](https://img.shields.io/badge/许可证-MIT-green)](LICENSE)
 [![MCP](https://img.shields.io/badge/协议-MCP%201.0-purple?logo=modelcontextprotocol)](https://modelcontextprotocol.io/)
-[![测试](https://img.shields.io/badge/测试-592%20通过-brightgreen?logo=pytest&logoColor=white)](#测试)
+[![测试](https://img.shields.io/badge/测试-662%20通过-brightgreen?logo=pytest&logoColor=white)](#测试)
 [![版本](https://img.shields.io/badge/最新版本-v0.6.0-orange)](https://github.com/heihei999/huasheng-mcp/releases)
 
 </div>
@@ -197,7 +197,6 @@ python smoke_test_core.py
 - 不调用外部 LLM 或 API
 - 不重新解析 PDF 或重新生成知识卡片
 - 知识库基于花生十三方法论，不含其他来源
-- 逻辑判断暂不支持真假推理、分析推理、图形推理、定义判断、类比推理
 
 ---
 
