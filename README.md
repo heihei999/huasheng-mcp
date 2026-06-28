@@ -119,17 +119,16 @@ claude mcp add-json huasheng-mcp '{"type":"stdio","command":"python","args":["-m
 
 ## 🧠 工作原理
 
-```
-┌─────────────┐     ┌──────────────────────────┐     ┌─────────────┐
-│  用户输入题目  │ ──▶ │  花生十三 MCP Server       │ ──▶ │  AI 大模型    │
-│  （含图片/文字）│     │  路由 → 检索 → 脚手架组合    │     │  分析 → 作答   │
-└─────────────┘     └──────────────────────────┘     └─────────────┘
-                           │
-                    ┌──────┴──────┐
-                    │  知识库       │
-                    │  292张方法卡  │
-                    │  路由规则集   │
-                    └─────────────┘
+```mermaid
+graph LR
+    A[用户输入题目] --> B[花生十三 MCP Server]
+    B --> C[AI 大模型]
+    B -.-> D[(知识库<br>292张方法卡<br>路由规则集)]
+    
+    style A fill:#e3f2fd,stroke:#1565c0
+    style B fill:#fff3e0,stroke:#ef6c00
+    style C fill:#e8f5e9,stroke:#2e7d32
+    style D fill:#fce4ec,stroke:#c62828
 ```
 
 **核心约束**：MCP 工具永远不直接输出答案，只生成引导 prompt。答案由 AI 严格遵循约束后输出。
