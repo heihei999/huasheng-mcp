@@ -1,43 +1,60 @@
-# Release Manifest
+# RELEASE MANIFEST
 
-## Release Information
+## Release Identity
 
-- **Release Version**: v0.6.0
-- **Package Version**: 0.6.0
-- **Component**: graphic_reasoning_scaffold v0.2.1 visual grounding baseline
-- **Source Baseline**: 148400a
-- **GitHub Commit**: e08340c
-- **Tag**: stable-v0.6.0-graphic-scaffold-visual-grounding
-- **Date**: 2026-06-27
+- Release Version: huasheng-mcp v0.6.0
+- Python Package Version: 0.6.0
+- Graphic Reasoning Scaffold: v0.2.1 visual grounding baseline
+- Source Baseline Commit: 148400a
+- Runtime Package Kind: clean
 
-## Runtime Packages
+## Scope
 
-| Package | Filename |
-|---------|----------|
-| clean_runtime | xingce-solver_mcp_v0_6_0_graphic_scaffold_v0_2_1_visual_grounding_148400a_clean_runtime.zip |
-| online_runtime | xingce-solver_mcp_v0_6_0_graphic_scaffold_v0_2_1_visual_grounding_148400a_online_runtime.zip |
-| offline_wheelhouse_runtime | xingce-solver_mcp_v0_6_0_graphic_scaffold_v0_2_1_visual_grounding_148400a_offline_wheelhouse_runtime.zip |
+This release uses the original graphic_reasoning_scaffold v0.2.1 visual grounding baseline.
 
-## Test Results
+Included v0.2.1 fields:
+- specialized_templates
+- visual_transcription_protocol
+- anti_pattern_guards
+- black_white_operation_rules
+- falsification_protocol
+- spatial_verification_protocol
+- uncertainty_reporting_protocol
 
-| Test File | Result |
-|-----------|--------|
-| tests/test_graphic_reasoning_scaffold.py | 128 passed |
-| Full pytest | 662 passed, 35 skipped, 0 failed |
+Not included:
+- v0.2.2 error-driven addendum
+- v0.2.3 answer decision policy
+- v0.2.4 final answer fallback policy
+- v0.2.5 controlled fallback rollback
+- text-image external real exam fixtures
+- image test assets
+- OCR/OpenCV/PIL outputs
 
-## Verification Checklist
+## Test Policy
 
-- [x] No image tests included
-- [x] No OCR/OpenCV/PIL added
-- [x] knowledge_base/all_cards.jsonl unchanged
-- [x] data_analysis solver unchanged
-- [x] No hardcoded answer sequences
-- [x] No new dependencies introduced
-- [x] MCP tool count: 15 (unchanged)
+Runtime packages do not include external text-image real exam fixtures.
+Tests depending on unavailable external fixtures should be skipped, not failed.
 
-## Practical Boundary
+Known clean-runtime self-test baseline for original v0.2.1 package:
+- tests/test_graphic_reasoning_scaffold.py: 128 passed
+- tests/test_mcp_guidance_tools_preview.py: 261 passed
+- full pytest: 662 passed, 35 skipped, 0 failed
 
-- MCP server is NOT an independent auto-solver
-- Images are still read by the connected multi-modal LLM
-- This release does NOT include image tests
-- We do NOT claim graphic reasoning accuracy reaches any specific percentage
+Skipped reason:
+- external text-image real exam fixtures are not included in runtime packages.
+
+## Protection
+
+- knowledge_base/all_cards.jsonl unchanged
+- src/xingce_solver/solvers/data_analysis.py unchanged
+- No solver business logic changes
+- No OCR/OpenCV/PIL/sklearn/torch/tensorflow added
+- No hardcoded real exam answers
+
+## Archive Checksums
+
+Archive SHA256 and final archive sizes are listed outside the zip in:
+
+RELEASE_CHECKSUMS_v0.6.0.txt
+
+This internal manifest intentionally does not record the SHA256 of its containing zip to avoid self-referential checksum invalidation.

@@ -17,7 +17,7 @@ def test_all_cards_can_be_loaded() -> None:
     cards = load_cards(KB_DIR)
 
     assert cards
-    assert len(cards) == 292
+    assert len(cards) == 442
 
 
 def test_get_method_card_by_id() -> None:

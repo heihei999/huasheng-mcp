@@ -1223,3 +1223,73 @@
 - `qr_time_planning_001` 等待时间最少与煎饼共用时间（统筹规划问题 / 时间统筹，priority=45）
 - `qr_bottle_exchange_001` n瓶换1瓶转化为n-1个空瓶换无瓶酒（统筹规划问题 / 空瓶换酒，priority=45）
 - `qr_balance_weighing_001` 接近3^n判断称重次数（统筹规划问题 / 天平称重，priority=48）
+
+
+## [查漏补缺] 增量平行补充考点
+
+### 数量基础
+- **基础代数公式**: `qr_math_formula_001_new`
+
+### 数学运算
+- **等差等比数列公式与性质**: `qr_seq_001_alt`
+- **截位速算法**: `qr_calc_001_alt`
+- **倍数特性化简法**: `qr_prop_001_alt`
+- **整除特性判断法**: `qr_div_001_alt`
+- **同余定理速算法**: `qr_rem_001_new`
+- **代入排除与蒙题技巧**: `qr_sub_001_new`
+- **和差倍比普通方程法**: `qr_equation_001_new`
+- **不定方程(组)求解技巧**: `qr_equation_002_new`
+- **十字相乘法解决浓度与加权平均问题**: `qr_cross_001_new`
+- **牛吃草基本公式法**: `qr_cow_eating_grass_001_new`
+- **容斥问题公式与方程法**: `qr_inclusion_exclusion_001_alt`
+- **周期循环求解法**: `qr_periodic_cycle_001_new`
+- **日期推算法**: `qr_date_weekday_001_new`
+- **工程问题赋值法与比例法**: `qr_engineering_001_new`
+- **利润问题方程与赋值法**: `qr_profit_001_new`
+- **最不利原则法（抽屉原理）**: `qr_extremum_pigeonhole_001_new`
+- **和定最值构造法**: `qr_extremum_fixed_sum_001_new`
+- **二次函数与均值定理最值法**: `qr_extremum_function_001_alt`
+- **乘积最值与三端最值杠杆法**: `qr_extremum_product_three_end_001_new`
+
+### 排列组合与概率
+- **排列组合基本原理与计算**: `qr_perm_comb_basic_001_alt`
+- **正难则反（全部减不符）**: `qr_perm_comb_reverse_002_new`
+- **几何概型法**: `qr_prob_geometric_003_alt`
+- **相邻问题捆绑法**: `qr_perm_comb_bundle_004_alt`
+- **不相邻问题插空法**: `qr_perm_comb_gap_005_alt`
+- **定序问题除法原则**: `qr_perm_comb_fixed_order_006_alt`
+- **相同元素分配插板法**: `qr_perm_comb_stars_bars_007_alt`
+- **平均分堆消序原则**: `qr_perm_comb_grouping_008_alt`
+- **错位排序模型**: `qr_perm_comb_derangement_009_alt`
+- **圆桌/环形排列法**: `qr_perm_comb_circular_010_alt`
+- **可重复排列公式**: `qr_perm_comb_repeated_011_alt`
+- **两人同组概率无视首人法**: `qr_prob_same_group_012_alt`
+
+### 特殊情景应用
+- **鸡兔同笼假设法**: `qr_special_chicken_rabbit_013_new`
+- **一盈一余公式法**: `qr_special_surplus_deficit_014_alt`
+- **年龄问题恒等与方程法**: `qr_special_age_015_new`
+- **方阵边长圈数公式**: `qr_special_matrix_016_alt`
+- **植树问题段数棵数法**: `qr_special_tree_017_alt`
+- **钟表追及与坏表比例法**: `qr_special_clock_018_alt`
+- **淘汰赛与循环赛公式法**: `qr_special_tournament_019_alt`
+- **天平称重极值秒杀法**: `qr_special_balance_020_new`
+
+### 几何问题
+- **基本几何图形面积与体积计算**: `qr_geometry_shapes_021_alt`
+- **几何图形等比放缩规律**: `qr_geometry_scaling_022_alt`
+- **几何最值与最短距离原则**: `qr_geometry_extreme_value_023_alt`
+
+### 行程问题
+- **普通行程基本公式法**: `qr_travel_ordinary_001_alt`
+- **等距离平均速度公式法**: `qr_travel_average_speed_001_alt`
+- **直线多次相遇与追及法**: `qr_travel_encounter_catchup_001_alt`
+- **环形相遇追及模型**: `qr_travel_circular_001_alt`
+- **流水行船与漂流模型**: `qr_travel_stream_001_alt`
+- **上下扶梯变形行程法**: `qr_travel_escalator_001_alt`
+- **火车过桥车身补偿法**: `qr_travel_train_001_alt`
+- **队伍首尾行进追及法**: `qr_travel_team_001_alt`
+
+### 数字推理
+- **单调与趋势分析递推法**: `qr_num_seq_featureless_001_alt`
+- **多形态特征数列定位法**: `qr_num_seq_feature_001_new`

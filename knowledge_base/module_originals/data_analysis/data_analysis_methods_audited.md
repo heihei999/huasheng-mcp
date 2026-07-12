@@ -555,3 +555,49 @@
 3. 选项差距允许时，调用速算卡：截位直除、415份数法、假设分配法、分数比较。
 4. 题干出现盐水结构、拉动/贡献率、容斥时，优先调用特殊考点卡。
 5. 输出前统一调用 `da_common_pitfalls_001` 做最终口径校验。
+
+
+## [查漏补缺] 增量平行补充考点
+
+### 基础知识
+- **统计术语与常识基础**: `data_analysis_001_alt`
+
+### 速算技巧
+- **加减法速算技巧**: `data_analysis_002_new`
+- **乘法截位与拆分技巧**: `data_analysis_003_new`
+- **截位直除法与除法拆分**: `data_analysis_004_alt`
+- **415份数法求基期与变化量**: `data_analysis_005_alt`
+- **假设分配法求基期与增长量**: `data_analysis_006_alt`
+
+### ABRX类
+- **ABRX核心公式：基期与现期**: `data_analysis_007_new`
+- **ABRX核心公式：增长率与增长量**: `data_analysis_008_new`
+
+### 比重类
+- **比重计算与比重趋势判断**: `data_analysis_009_alt`
+- **比重差与比值差速算秒杀**: `data_analysis_010_alt`
+
+### 混合增长率/比值
+- **十字交叉法定性分析 (混合增速大小比较)**: `qr_cross_multiplication_qualitative_001_new`
+
+### 混合比值计算
+- **十字交叉法定量计算**: `qr_cross_multiplication_quantitative_001_new`
+
+### 大小比较
+- **双线法比较大小**: `qr_double_line_comparison_001_alt`
+- **增量比较法 (大大则大)**: `qr_increment_comparison_001_new`
+
+### 易错点提取
+- **图表查找四大坑**: `qr_chart_reading_pitfalls_001_alt`
+
+### 平均数
+- **一般平均值法则与技巧**: `qr_general_average_001_alt`
+
+### 年均增长量
+- **年均增长量基期判定法则**: `qr_annual_average_growth_amount_001_alt`
+
+### 年均增长率
+- **年均增长率估算公式及常数记忆**: `qr_annual_average_growth_rate_001_alt`
+
+### 特殊考点
+- **容斥问题极值分析 (至少至多判断)**: `qr_inclusion_exclusion_extreme_001_alt`

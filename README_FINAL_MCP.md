@@ -70,3 +70,13 @@ python -m pytest -q
 
 - Some legacy tests depend on external `text-image/` fixture directories containing real exam questions. These directories are NOT included in focused release packages. The affected tests will automatically skip when the fixtures are not present.
 - This is by design: the release package focuses on MCP server functionality, not on external test data.
+
+---
+
+## v0.6.0 Release Metadata
+
+- Release Version: huasheng-mcp v0.6.0
+- Python Package Version: 0.6.0
+- Graphic Reasoning Scaffold: v0.2.1 visual grounding baseline
+- Source Baseline Commit: 148400a
+- Notes: This v0.6.0 release intentionally uses the v0.2.1 graphic scaffold baseline. Later v0.2.2-v0.2.5 experimental fallback/output-policy changes are not included.

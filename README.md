@@ -9,8 +9,8 @@
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![License](https://img.shields.io/badge/许可证-MIT-green)](LICENSE)
 [![MCP](https://img.shields.io/badge/协议-MCP%201.0-purple?logo=modelcontextprotocol)](https://modelcontextprotocol.io/)
-[![测试](https://img.shields.io/badge/测试-662%20通过-brightgreen?logo=pytest&logoColor=white)](#测试)
-[![版本](https://img.shields.io/badge/最新版本-v0.6.0-orange)](https://github.com/heihei999/huasheng-mcp/releases)
+[![测试](https://img.shields.io/badge/测试-661%20通过-brightgreen?logo=pytest&logoColor=white)](#测试)
+[![版本](https://img.shields.io/badge/最新版本-v0.7.0-orange)](https://github.com/heihei999/huasheng-mcp/releases)
 
 </div>
 
@@ -41,7 +41,7 @@
 <td width="50%">
 
 ### 📚 方法检索
-从 **292 张结构化方法卡片** 中精准匹配解题方法，覆盖行测全部核心题型
+从 **442 张结构化方法卡片** 中精准匹配解题方法，覆盖行测全部核心题型
 
 </td>
 </tr>
@@ -49,7 +49,7 @@
 <td>
 
 ### 🏗️ 脚手架引导
-6 大模块的逐步分析脚手架，像老师一样带着你拆解每一道题
+6 大模块的逐步分析脚手架覆盖全题型，像老师一样带着你拆解每一道题
 
 </td>
 <td>
@@ -81,6 +81,9 @@ AI 会自动完成克隆、安装和配置，无需任何手动操作。
 git clone https://github.com/heihei999/huasheng-mcp.git
 cd huasheng-mcp
 pip install -e .
+
+# 如需 SSE 服务器支持（FastAPI + WebSocket）
+pip install -e ".[sse]"
 ```
 
 ### 方案二：接入 Claude Code
@@ -91,7 +94,7 @@ claude mcp add-json huasheng-mcp '{"type":"stdio","command":"python","args":["-m
 
 ---
 
-## 🛠️ 15 个 MCP 工具一览
+## 🛠️ MCP 工具一览
 
 <div align="center">
 
@@ -112,6 +115,7 @@ claude mcp add-json huasheng-mcp '{"type":"stdio","command":"python","args":["-m
 | 🏗️ 引导 | `get_logic_analysis_scaffold` | 分析推理方法论 |
 | 🏗️ 引导 | `get_quantity_relation_scaffold` | 数量关系方法论 |
 | 🏗️ 引导 | `get_verbal_reasoning_scaffold` | 言语理解方法论 |
+| 🖥️ 传输 | `xingce-mcp-sse` | SSE 传输协议服务器（FastAPI） |
 
 </div>
 
@@ -124,7 +128,7 @@ claude mcp add-json huasheng-mcp '{"type":"stdio","command":"python","args":["-m
                     │
                ┌────┴────┐
                │ 知识库    │
-               │ 292张方法卡│
+                │ 442张方法卡│
                └─────────┘
 ```
 
@@ -152,16 +156,20 @@ MCP 永远不直接输出答案，只生成引导 prompt。答案由 AI 严格�
 
 ```
 花生十三-mcp/
-├── src/xingce_solver/
-│   ├── mcp_server.py            # MCP 服务核心
-│   ├── router.py                # 基于规则的题型路由
-│   ├── kb.py                    # 知识库加载与检索
-│   ├── cli.py                   # 命令行接口
-│   ├── solvers/                 # 求解器（资料分析/逻辑判断）
-│   └── scaffolds/               # 6 大模块方法论脚手架
+├── src/
+│   ├── xingce_solver/           # 核心 MCP 服务
+│   │   ├── mcp_server.py        # stdio MCP 服务
+│   │   ├── router.py            # 基于规则的题型路由
+│   │   ├── kb.py                # 知识库加载与检索
+│   │   ├── cli.py               # 命令行接口
+│   │   ├── solvers/             # 求解器（资料分析/逻辑判断）
+│   │   └── scaffolds/           # 6 大模块方法论脚手架
+│   └── mcp_server/              # SSE 传输协议服务器（FastAPI）
 ├── knowledge_base/
-│   ├── all_cards.jsonl          # 292 张方法卡片
-│   └── global_router_rules.yaml # 路由规则
+│   ├── all_cards.jsonl          # 442 张方法卡片
+│   ├── global_router_rules.yaml # 路由规则
+│   └── module_originals/        # 各模块原始审计卡片
+├── outputs/                     # 回归测试与审计报告
 └── tests/                       # 自动化测试
 ```
 
@@ -193,6 +201,7 @@ python smoke_test_core.py
 - 不调用外部 LLM 或 API
 - 不重新解析 PDF 或重新生成知识卡片
 - 知识库基于花生十三方法论，不含其他来源
+- SSE 服务器需要额外安装 fastapi、uvicorn 等依赖（`pip install xingce-solver[sse]`）
 
 ---
 
@@ -200,6 +209,7 @@ python smoke_test_core.py
 
 | 版本 | 更新内容 |
 |:---:|---------|
+| **v0.7.0** | 知识库重构：292→442 张卡片，新增判断推理/言语理解/图形推理模块，合并定义判断与类比推理、语句表达与逻辑填空；数量关系 +53、资料分析 +19；新增 SSE MCP 服务器（FastAPI） |
 | **v0.6.0** | 图形推理 scaffold 升级至 v0.2.1，新增视觉转写、规律证伪、8 类反模式守卫，662 项测试全部通过 |
 | **v0.5.1** | 边界 case 修复，三年真题 330/330 路由验证通过 |
 | **v0.5.0** | 新增 `module_hint`/`section_context` 参数，支持中文模块名 |

@@ -1,8 +1,8 @@
 {
-  "total_cards": 292,
+  "total_cards": 442,
   "modules": {
     "资料分析": {
-      "card_count": 33,
+      "card_count": 52,
       "methods": [
         {
           "id": "da_chart_lookup_001",
@@ -592,11 +592,283 @@
           "confidence": 0.92,
           "need_review": false,
           "source_count": 2
+        },
+        {
+          "id": "data_analysis_004_alt",
+          "method_name": "截位直除法与除法拆分",
+          "question_type": "速算技巧",
+          "sub_type": "除法速算",
+          "tags": [
+            "除法速算",
+            "截位直除",
+            "除法拆分",
+            "分数比较"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 85
+        },
+        {
+          "id": "qr_increment_comparison_001_new",
+          "method_name": "增量比较法 (大大则大)",
+          "question_type": "大小比较",
+          "sub_type": "增量比较",
+          "tags": [
+            "资料分析",
+            "增量比较",
+            "大大则大"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 15
+        },
+        {
+          "id": "qr_inclusion_exclusion_extreme_001_alt",
+          "method_name": "容斥问题极值分析 (至少至多判断)",
+          "question_type": "特殊考点",
+          "sub_type": "容斥极值",
+          "tags": [
+            "资料分析",
+            "容斥问题",
+            "交集极值"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 15
+        },
+        {
+          "id": "qr_general_average_001_alt",
+          "method_name": "一般平均值法则与技巧",
+          "question_type": "平均数",
+          "sub_type": "一般平均值计算",
+          "tags": [
+            "资料分析",
+            "平均数",
+            "计算技巧"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 20
+        },
+        {
+          "id": "data_analysis_006_alt",
+          "method_name": "假设分配法求基期与增长量",
+          "question_type": "速算技巧",
+          "sub_type": "假设分配法",
+          "tags": [
+            "假设分配法",
+            "增长量",
+            "基期",
+            "小增长率"
+          ],
+          "solver_tier": "fallback",
+          "solver_rank": 70
+        },
+        {
+          "id": "qr_double_line_comparison_001_alt",
+          "method_name": "双线法比较大小",
+          "question_type": "大小比较",
+          "sub_type": "比值类比较",
+          "tags": [
+            "资料分析",
+            "双线法",
+            "增速比较",
+            "图表题"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 20
+        },
+        {
+          "id": "data_analysis_009_alt",
+          "method_name": "比重计算与比重趋势判断",
+          "question_type": "比重类",
+          "sub_type": "比重趋势与计算",
+          "tags": [
+            "比重",
+            "基期比重",
+            "隔级比重",
+            "比重趋势",
+            "两期比重比较"
+          ],
+          "solver_tier": "precheck",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_cross_multiplication_quantitative_001_new",
+          "method_name": "十字交叉法定量计算",
+          "question_type": "混合比值计算",
+          "sub_type": "定量分析",
+          "tags": [
+            "资料分析",
+            "十字交叉法",
+            "定量分析"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 10
+        },
+        {
+          "id": "data_analysis_007_new",
+          "method_name": "ABRX核心公式：基期与现期",
+          "question_type": "ABRX类",
+          "sub_type": "基期与现期计算",
+          "tags": [
+            "基期",
+            "现期",
+            "隔年基期",
+            "ABRX"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_annual_average_growth_amount_001_alt",
+          "method_name": "年均增长量基期判定法则",
+          "question_type": "年均增长量",
+          "sub_type": "基期判断",
+          "tags": [
+            "资料分析",
+            "年均增长量",
+            "基期选择"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 10
+        },
+        {
+          "id": "data_analysis_005_alt",
+          "method_name": "415份数法求基期与变化量",
+          "question_type": "速算技巧",
+          "sub_type": "415份数法",
+          "tags": [
+            "份数法",
+            "增长量",
+            "基期量",
+            "百分数转分数"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "data_analysis_003_new",
+          "method_name": "乘法截位与拆分技巧",
+          "question_type": "速算技巧",
+          "sub_type": "乘法速算",
+          "tags": [
+            "乘法速算",
+            "截位相乘",
+            "小分互换",
+            "乘法拆分"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 80
+        },
+        {
+          "id": "qr_annual_average_growth_rate_001_alt",
+          "method_name": "年均增长率估算公式及常数记忆",
+          "question_type": "年均增长率",
+          "sub_type": "近似计算",
+          "tags": [
+            "资料分析",
+            "年均增长率",
+            "近似公式"
+          ],
+          "solver_tier": "fallback",
+          "solver_rank": 30
+        },
+        {
+          "id": "data_analysis_008_new",
+          "method_name": "ABRX核心公式：增长率与增长量",
+          "question_type": "ABRX类",
+          "sub_type": "增长率与增长量计算",
+          "tags": [
+            "增长率",
+            "增长量",
+            "间隔增长率",
+            "比值增长率",
+            "乘积增长率",
+            "ABRX"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_cross_multiplication_qualitative_001_new",
+          "method_name": "十字交叉法定性分析 (混合增速大小比较)",
+          "question_type": "混合增长率/比值",
+          "sub_type": "定性分析",
+          "tags": [
+            "资料分析",
+            "混合增长率",
+            "十字交叉法",
+            "定性分析"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 10
+        },
+        {
+          "id": "data_analysis_002_new",
+          "method_name": "加减法速算技巧",
+          "question_type": "速算技巧",
+          "sub_type": "加减法速算",
+          "tags": [
+            "加法速算",
+            "减法速算",
+            "尾数法",
+            "高位叠加法",
+            "削峰填谷法",
+            "基准值法",
+            "分段法"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 80
+        },
+        {
+          "id": "data_analysis_001_alt",
+          "method_name": "统计术语与常识基础",
+          "question_type": "基础知识",
+          "sub_type": "统计术语与常识",
+          "tags": [
+            "统计术语",
+            "倍数",
+            "翻番",
+            "同比",
+            "环比",
+            "顺差",
+            "逆差",
+            "恩格尔系数",
+            "基尼系数"
+          ],
+          "solver_tier": "precheck",
+          "solver_rank": 90
+        },
+        {
+          "id": "data_analysis_010_alt",
+          "method_name": "比重差与比值差速算秒杀",
+          "question_type": "比重类",
+          "sub_type": "比重差与比值差",
+          "tags": [
+            "比重差",
+            "比值差",
+            "秒杀技",
+            "两期比重比较",
+            "两期平均数比较"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "qr_chart_reading_pitfalls_001_alt",
+          "method_name": "图表查找四大坑",
+          "question_type": "易错点提取",
+          "sub_type": "图表查找",
+          "tags": [
+            "资料分析",
+            "读图",
+            "易错点",
+            "坑点"
+          ],
+          "solver_tier": "precheck",
+          "solver_rank": 5
         }
       ]
     },
     "数量关系": {
-      "card_count": 65,
+      "card_count": 118,
       "methods": [
         {
           "id": "qr_indeterminate_equation_001",
@@ -1739,6 +2011,755 @@
           "confidence": 0.88,
           "need_review": false,
           "source_count": 1
+        },
+        {
+          "id": "qr_geometry_scaling_022_alt",
+          "method_name": "几何图形等比放缩规律",
+          "question_type": "几何问题",
+          "sub_type": "几何等比放缩",
+          "tags": [
+            "边长n倍",
+            "面积n平方",
+            "体积n立方",
+            "等比缩放"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_travel_train_001_alt",
+          "method_name": "火车过桥车身补偿法",
+          "question_type": "行程问题",
+          "sub_type": "过桥过洞",
+          "tags": [
+            "行程问题",
+            "火车",
+            "桥长",
+            "车身长",
+            "完全过桥"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_perm_comb_bundle_004_alt",
+          "method_name": "相邻问题捆绑法",
+          "question_type": "排列组合与概率",
+          "sub_type": "捆绑法",
+          "tags": [
+            "相邻",
+            "在一起",
+            "排列组合"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_inclusion_exclusion_001_alt",
+          "method_name": "容斥问题公式与方程法",
+          "question_type": "数学运算",
+          "sub_type": "容斥问题",
+          "tags": [
+            "容斥",
+            "交集",
+            "并集",
+            "两集合",
+            "三集合",
+            "文氏图"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 100
+        },
+        {
+          "id": "qr_rem_001_new",
+          "method_name": "同余定理速算法",
+          "question_type": "数学运算",
+          "sub_type": "余数特性",
+          "tags": [
+            "余数",
+            "同余",
+            "最小公倍数"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 80
+        },
+        {
+          "id": "qr_seq_001_alt",
+          "method_name": "等差等比数列公式与性质",
+          "question_type": "数学运算",
+          "sub_type": "等差数列",
+          "tags": [
+            "等差数列",
+            "等比数列",
+            "数列性质",
+            "平均数"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "qr_div_001_alt",
+          "method_name": "整除特性判断法",
+          "question_type": "数学运算",
+          "sub_type": "整除特性",
+          "tags": [
+            "整除",
+            "因数",
+            "数字拆分",
+            "倍数"
+          ],
+          "solver_tier": "precheck",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_perm_comb_basic_001_alt",
+          "method_name": "排列组合基本原理与计算",
+          "question_type": "排列组合与概率",
+          "sub_type": "基本原理",
+          "tags": [
+            "排列",
+            "组合",
+            "分类",
+            "分步"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "qr_travel_stream_001_alt",
+          "method_name": "流水行船与漂流模型",
+          "question_type": "行程问题",
+          "sub_type": "流水行船",
+          "tags": [
+            "行程问题",
+            "水速",
+            "船速",
+            "顺水",
+            "逆水",
+            "漂流"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "qr_perm_comb_repeated_011_alt",
+          "method_name": "可重复排列公式",
+          "question_type": "排列组合与概率",
+          "sub_type": "重复排列",
+          "tags": [
+            "可重复",
+            "每次独立",
+            "密码"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 80
+        },
+        {
+          "id": "qr_extremum_product_three_end_001_new",
+          "method_name": "乘积最值与三端最值杠杆法",
+          "question_type": "数学运算",
+          "sub_type": "最值问题",
+          "tags": [
+            "乘积最值",
+            "三端最值",
+            "十字相乘",
+            "天平原理",
+            "杠杆"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 100
+        },
+        {
+          "id": "qr_equation_001_new",
+          "method_name": "和差倍比普通方程法",
+          "question_type": "数学运算",
+          "sub_type": "方程法",
+          "tags": [
+            "普通方程",
+            "和差倍比",
+            "设未知数"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 70
+        },
+        {
+          "id": "qr_cow_eating_grass_001_new",
+          "method_name": "牛吃草基本公式法",
+          "question_type": "数学运算",
+          "sub_type": "牛吃草问题",
+          "tags": [
+            "牛吃草",
+            "存量",
+            "增量",
+            "消耗量"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 100
+        },
+        {
+          "id": "qr_perm_comb_stars_bars_007_alt",
+          "method_name": "相同元素分配插板法",
+          "question_type": "排列组合与概率",
+          "sub_type": "相同元素分配",
+          "tags": [
+            "元素相同",
+            "至少一个",
+            "分配问题"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_perm_comb_grouping_008_alt",
+          "method_name": "平均分堆消序原则",
+          "question_type": "排列组合与概率",
+          "sub_type": "平均分堆",
+          "tags": [
+            "平均分",
+            "组别人数一样",
+            "消序"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "qr_special_tree_017_alt",
+          "method_name": "植树问题段数棵数法",
+          "question_type": "特殊情景应用",
+          "sub_type": "植树问题",
+          "tags": [
+            "植树",
+            "两端",
+            "环形跑道",
+            "间隔"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_prob_same_group_012_alt",
+          "method_name": "两人同组概率无视首人法",
+          "question_type": "排列组合与概率",
+          "sub_type": "两人同组概率",
+          "tags": [
+            "同组",
+            "同排",
+            "在一块",
+            "概率"
+          ],
+          "solver_tier": "shortcut",
+          "solver_rank": 99
+        },
+        {
+          "id": "qr_num_seq_feature_001_new",
+          "method_name": "多形态特征数列定位法",
+          "question_type": "数字推理",
+          "sub_type": "特征数列",
+          "tags": [
+            "数字推理",
+            "特征数列",
+            "交叉",
+            "分组",
+            "机械拆分",
+            "幂次",
+            "分数"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "qr_travel_escalator_001_alt",
+          "method_name": "上下扶梯变形行程法",
+          "question_type": "行程问题",
+          "sub_type": "上下扶梯",
+          "tags": [
+            "行程问题",
+            "自动扶梯",
+            "级数",
+            "顺行",
+            "逆行"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "qr_perm_comb_circular_010_alt",
+          "method_name": "圆桌/环形排列法",
+          "question_type": "排列组合与概率",
+          "sub_type": "环形排列",
+          "tags": [
+            "圆桌",
+            "环形",
+            "围成一圈"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "qr_geometry_extreme_value_023_alt",
+          "method_name": "几何最值与最短距离原则",
+          "question_type": "几何问题",
+          "sub_type": "最值与最短距离",
+          "tags": [
+            "面积最大",
+            "体积最大",
+            "最短距离",
+            "切割"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "qr_num_seq_featureless_001_alt",
+          "method_name": "单调与趋势分析递推法",
+          "question_type": "数字推理",
+          "sub_type": "无特征数列",
+          "tags": [
+            "数字推理",
+            "无特征数列",
+            "做差",
+            "递推",
+            "单调性",
+            "倍数"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 80
+        },
+        {
+          "id": "qr_travel_encounter_catchup_001_alt",
+          "method_name": "直线多次相遇与追及法",
+          "question_type": "行程问题",
+          "sub_type": "相遇追及",
+          "tags": [
+            "行程问题",
+            "相遇",
+            "追及",
+            "相对速度",
+            "多次相遇"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "qr_sub_001_new",
+          "method_name": "代入排除与蒙题技巧",
+          "question_type": "数学运算",
+          "sub_type": "综合技巧",
+          "tags": [
+            "代入排除",
+            "最值原则",
+            "奇偶特性",
+            "尾数特性"
+          ],
+          "solver_tier": "precheck",
+          "solver_rank": 85
+        },
+        {
+          "id": "qr_special_surplus_deficit_014_alt",
+          "method_name": "一盈一余公式法",
+          "question_type": "特殊情景应用",
+          "sub_type": "盈亏问题",
+          "tags": [
+            "盈亏",
+            "有余",
+            "不足",
+            "分配"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_perm_comb_reverse_002_new",
+          "method_name": "正难则反（全部减不符）",
+          "question_type": "排列组合与概率",
+          "sub_type": "逆向思维",
+          "tags": [
+            "至少",
+            "否定词",
+            "排列组合"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 80
+        },
+        {
+          "id": "qr_profit_001_new",
+          "method_name": "利润问题方程与赋值法",
+          "question_type": "数学运算",
+          "sub_type": "利润问题",
+          "tags": [
+            "利润",
+            "成本",
+            "售价",
+            "利润率",
+            "折扣"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 100
+        },
+        {
+          "id": "qr_date_weekday_001_new",
+          "method_name": "日期推算法",
+          "question_type": "数学运算",
+          "sub_type": "日期星期问题",
+          "tags": [
+            "平年",
+            "闰年",
+            "大月",
+            "小月",
+            "余数"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 100
+        },
+        {
+          "id": "qr_special_balance_020_new",
+          "method_name": "天平称重极值秒杀法",
+          "question_type": "特殊情景应用",
+          "sub_type": "天平称重",
+          "tags": [
+            "天平",
+            "称重",
+            "最少几次",
+            "次品"
+          ],
+          "solver_tier": "shortcut",
+          "solver_rank": 99
+        },
+        {
+          "id": "qr_perm_comb_fixed_order_006_alt",
+          "method_name": "定序问题除法原则",
+          "question_type": "排列组合与概率",
+          "sub_type": "定序问题",
+          "tags": [
+            "顺序一定",
+            "先后顺序固定",
+            "定序"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "qr_perm_comb_gap_005_alt",
+          "method_name": "不相邻问题插空法",
+          "question_type": "排列组合与概率",
+          "sub_type": "插空法",
+          "tags": [
+            "不相邻",
+            "不能连续",
+            "排列组合"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_periodic_cycle_001_new",
+          "method_name": "周期循环求解法",
+          "question_type": "数学运算",
+          "sub_type": "周期循环问题",
+          "tags": [
+            "周期",
+            "循环",
+            "最小公倍数",
+            "余数"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 100
+        },
+        {
+          "id": "qr_special_age_015_new",
+          "method_name": "年龄问题恒等与方程法",
+          "question_type": "特殊情景应用",
+          "sub_type": "年龄问题",
+          "tags": [
+            "年龄差",
+            "几年前",
+            "倍数"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "qr_travel_average_speed_001_alt",
+          "method_name": "等距离平均速度公式法",
+          "question_type": "行程问题",
+          "sub_type": "等距离平均速度",
+          "tags": [
+            "行程问题",
+            "平均速度",
+            "等距离",
+            "往返"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_travel_team_001_alt",
+          "method_name": "队伍首尾行进追及法",
+          "question_type": "行程问题",
+          "sub_type": "队伍行进",
+          "tags": [
+            "行程问题",
+            "队伍长度",
+            "队头",
+            "队尾",
+            "相对速度"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_special_chicken_rabbit_013_new",
+          "method_name": "鸡兔同笼假设法",
+          "question_type": "特殊情景应用",
+          "sub_type": "鸡兔同笼",
+          "tags": [
+            "做对做错",
+            "得失分",
+            "腿数"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_cross_001_new",
+          "method_name": "十字相乘法解决浓度与加权平均问题",
+          "question_type": "数学运算",
+          "sub_type": "浓度问题",
+          "tags": [
+            "浓度问题",
+            "十字相乘法",
+            "溶质不变",
+            "加权平均"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_special_matrix_016_alt",
+          "method_name": "方阵边长圈数公式",
+          "question_type": "特殊情景应用",
+          "sub_type": "方阵问题",
+          "tags": [
+            "方阵",
+            "最外层",
+            "正方形"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_engineering_001_new",
+          "method_name": "工程问题赋值法与比例法",
+          "question_type": "数学运算",
+          "sub_type": "工程问题",
+          "tags": [
+            "工程问题",
+            "工作量",
+            "效率",
+            "时间",
+            "赋值法"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 100
+        },
+        {
+          "id": "qr_travel_circular_001_alt",
+          "method_name": "环形相遇追及模型",
+          "question_type": "行程问题",
+          "sub_type": "环形运动",
+          "tags": [
+            "行程问题",
+            "环形跑道",
+            "相遇",
+            "追及"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "qr_calc_001_alt",
+          "method_name": "截位速算法",
+          "question_type": "数学运算",
+          "sub_type": "四则运算",
+          "tags": [
+            "速算",
+            "截位",
+            "近似计算",
+            "尾数"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_extremum_function_001_alt",
+          "method_name": "二次函数与均值定理最值法",
+          "question_type": "数学运算",
+          "sub_type": "最值问题",
+          "tags": [
+            "二次函数",
+            "均值定理",
+            "中点最值",
+            "抛物线"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 100
+        },
+        {
+          "id": "qr_prob_geometric_003_alt",
+          "method_name": "几何概型法",
+          "question_type": "排列组合与概率",
+          "sub_type": "几何概型",
+          "tags": [
+            "概率",
+            "连续区间",
+            "无穷多情况"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 85
+        },
+        {
+          "id": "qr_special_tournament_019_alt",
+          "method_name": "淘汰赛与循环赛公式法",
+          "question_type": "特殊情景应用",
+          "sub_type": "比赛问题",
+          "tags": [
+            "比赛",
+            "淘汰",
+            "循环",
+            "轮空"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_travel_ordinary_001_alt",
+          "method_name": "普通行程基本公式法",
+          "question_type": "行程问题",
+          "sub_type": "普通行程",
+          "tags": [
+            "行程问题",
+            "普通行程",
+            "速度",
+            "路程",
+            "时间",
+            "比例法"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "qr_perm_comb_derangement_009_alt",
+          "method_name": "错位排序模型",
+          "question_type": "排列组合与概率",
+          "sub_type": "错位排序",
+          "tags": [
+            "都不在自己位置",
+            "全错",
+            "错排"
+          ],
+          "solver_tier": "shortcut",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_extremum_fixed_sum_001_new",
+          "method_name": "和定最值构造法",
+          "question_type": "数学运算",
+          "sub_type": "最值问题",
+          "tags": [
+            "和一定",
+            "最多",
+            "最少",
+            "排名",
+            "极值"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 100
+        },
+        {
+          "id": "qr_extremum_pigeonhole_001_new",
+          "method_name": "最不利原则法（抽屉原理）",
+          "question_type": "数学运算",
+          "sub_type": "最值问题",
+          "tags": [
+            "最不利情形",
+            "至少",
+            "保证",
+            "抽屉原理"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 100
+        },
+        {
+          "id": "qr_special_clock_018_alt",
+          "method_name": "钟表追及与坏表比例法",
+          "question_type": "特殊情景应用",
+          "sub_type": "钟表问题",
+          "tags": [
+            "时针分针",
+            "重合",
+            "垂直",
+            "坏表"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "qr_geometry_shapes_021_alt",
+          "method_name": "基本几何图形面积与体积计算",
+          "question_type": "几何问题",
+          "sub_type": "常考图形",
+          "tags": [
+            "面积",
+            "体积",
+            "三角形",
+            "圆",
+            "圆柱",
+            "圆锥"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_math_formula_001_new",
+          "method_name": "基础代数公式",
+          "question_type": "数量基础",
+          "sub_type": "数论",
+          "tags": [
+            "基础公式",
+            "代数",
+            "次幂"
+          ],
+          "solver_tier": "precheck",
+          "solver_rank": 100
+        },
+        {
+          "id": "qr_equation_002_new",
+          "method_name": "不定方程(组)求解技巧",
+          "question_type": "数学运算",
+          "sub_type": "方程法",
+          "tags": [
+            "不定方程",
+            "不定方程组",
+            "奇偶性",
+            "尾数法",
+            "特值法"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 80
+        },
+        {
+          "id": "qr_prop_001_alt",
+          "method_name": "倍数特性化简法",
+          "question_type": "数学运算",
+          "sub_type": "倍数特性",
+          "tags": [
+            "倍数",
+            "比例",
+            "公倍数",
+            "份数"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 85
         }
       ]
     },
@@ -5082,6 +6103,1147 @@
           "confidence": 0.72,
           "need_review": true,
           "source_count": 1
+        }
+      ]
+    },
+    "言语理解": {
+      "card_count": 18,
+      "methods": [
+        {
+          "id": "verbal_sentence_insertion_001_alt",
+          "method_name": "语句填入解题思路",
+          "question_type": "语句表达",
+          "sub_type": "语句填入",
+          "tags": [
+            "语句填入",
+            "宏观把握",
+            "细节把握",
+            "文段结构",
+            "行文逻辑"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 1
+        },
+        {
+          "id": "yylj_vocab_001_alt",
+          "method_name": "常考实词辨析速记口诀",
+          "question_type": "逻辑填空",
+          "sub_type": "实词辨析",
+          "tags": [
+            "言语理解",
+            "逻辑填空",
+            "实词辨析",
+            "词义辨析",
+            "易混词"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "yy_central_understanding_structure_001_alt",
+          "method_name": "五种常见文段结构分析法",
+          "question_type": "中心理解题",
+          "sub_type": "结构分析",
+          "tags": [
+            "文段结构",
+            "总分结构",
+            "并列结构",
+            "二层结构",
+            "中心句"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 10
+        },
+        {
+          "id": "verbal_idiom_specific_object_001_alt",
+          "method_name": "特定对象成语辨析法",
+          "question_type": "逻辑填空",
+          "sub_type": "成语辨析",
+          "tags": [
+            "成语辨析",
+            "特定对象",
+            "搭配范围"
+          ],
+          "solver_tier": "precheck",
+          "solver_rank": 92
+        },
+        {
+          "id": "yy_infer_following_001_alt",
+          "method_name": "下文推断题结构拆解法",
+          "question_type": "下文推断",
+          "sub_type": "结构分析",
+          "tags": [
+            "下文推断",
+            "尾句",
+            "提出问题",
+            "宏观对策",
+            "转折",
+            "总分"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 10
+        },
+        {
+          "id": "verbal_real_words_tips_001_alt",
+          "method_name": "常考实词语义侧重口诀",
+          "question_type": "逻辑填空",
+          "sub_type": "实词辨析",
+          "tags": [
+            "实词辨析",
+            "语意侧重",
+            "口诀"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 80
+        },
+        {
+          "id": "verbal_detail_judgment_001_new",
+          "method_name": "细节判断排坑法",
+          "question_type": "片段阅读",
+          "sub_type": "细节判断",
+          "tags": [
+            "细节判断",
+            "偷换概念",
+            "无中生有",
+            "绝对化",
+            "时态混淆",
+            "抓大放小"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 3
+        },
+        {
+          "id": "yylj_macro_001_alt",
+          "method_name": "逻辑填空之宏观把握",
+          "question_type": "逻辑填空",
+          "sub_type": "宏观语境",
+          "tags": [
+            "言语理解",
+            "逻辑填空",
+            "宏观语境",
+            "语体色彩",
+            "政治觉悟"
+          ],
+          "solver_tier": "fallback",
+          "solver_rank": 70
+        },
+        {
+          "id": "vr_segment_reading_001_new",
+          "method_name": "中心理解题文段分类与宏观解题法",
+          "question_type": "片段阅读",
+          "sub_type": "中心理解题",
+          "tags": [
+            "中心理解",
+            "片段阅读",
+            "文段分类",
+            "说理类",
+            "科普类",
+            "新闻类"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "verbal_idiom_respect_humble_trap_001_alt",
+          "method_name": "敬谦成语辨析法",
+          "question_type": "逻辑填空",
+          "sub_type": "成语辨析",
+          "tags": [
+            "成语辨析",
+            "敬辞",
+            "谦辞",
+            "人际交往"
+          ],
+          "solver_tier": "precheck",
+          "solver_rank": 95
+        },
+        {
+          "id": "verbal_idiom_literal_meaning_trap_001_alt",
+          "method_name": "成语防望文生义法",
+          "question_type": "逻辑填空",
+          "sub_type": "成语辨析",
+          "tags": [
+            "成语辨析",
+            "望文生义",
+            "易错成语"
+          ],
+          "solver_tier": "precheck",
+          "solver_rank": 90
+        },
+        {
+          "id": "verbal_logic_correspondence_001_alt",
+          "method_name": "语境逻辑提示法",
+          "question_type": "逻辑填空",
+          "sub_type": "逻辑对应",
+          "tags": [
+            "逻辑对应",
+            "对策问题对应",
+            "上下文解释",
+            "逻辑关联",
+            "因果转折",
+            "修饰对应"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 5
+        },
+        {
+          "id": "yy_central_understanding_option_analysis_001_new",
+          "method_name": "选项分析六大错误与优选法则",
+          "question_type": "中心理解题",
+          "sub_type": "选项排错与优选",
+          "tags": [
+            "选项排错",
+            "选项优选",
+            "对策选项",
+            "片面",
+            "杂糅",
+            "绝对化",
+            "下定义",
+            "无中生有",
+            "本身有误"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 30
+        },
+        {
+          "id": "vr_center_understanding_001_alt",
+          "method_name": "中心理解题结构与对策分析法",
+          "question_type": "片段阅读",
+          "sub_type": "中心理解题",
+          "tags": [
+            "中心理解",
+            "结构分析",
+            "找对策",
+            "引出方式"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "verbal_sentence_ordering_001_alt",
+          "method_name": "语句排序解题思路",
+          "question_type": "语句表达",
+          "sub_type": "语句排序",
+          "tags": [
+            "语句排序",
+            "首句特征",
+            "尾句特征",
+            "逻辑组合",
+            "行文结构",
+            "转折指代"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 2
+        },
+        {
+          "id": "yy_central_understanding_key_info_001_alt",
+          "method_name": "重视首句、主体和高频词句法",
+          "question_type": "中心理解题",
+          "sub_type": "关键信息定位",
+          "tags": [
+            "首句",
+            "主体",
+            "主语",
+            "高频词",
+            "关键词",
+            "对策句"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 20
+        },
+        {
+          "id": "verbal_word_discrimination_001_alt",
+          "method_name": "实词成语辨析法",
+          "question_type": "逻辑填空",
+          "sub_type": "词语辨析",
+          "tags": [
+            "词语辨析",
+            "拆分法",
+            "组词法",
+            "程度轻重",
+            "感情色彩",
+            "固定搭配"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 4
+        },
+        {
+          "id": "yy_title_formulation_001_alt",
+          "method_name": "标题拟定四原则",
+          "question_type": "标题拟定",
+          "sub_type": "选项要求",
+          "tags": [
+            "标题",
+            "关键词",
+            "主语",
+            "对策",
+            "趣味性",
+            "双引号"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 10
+        }
+      ]
+    },
+    "判断推理": {
+      "card_count": 50,
+      "methods": [
+        {
+          "id": "qr_graphic_open_closed_001_new",
+          "method_name": "开闭性规律",
+          "question_type": "图形推理",
+          "sub_type": "属性规律",
+          "tags": [
+            "全封闭",
+            "全开放",
+            "半开半闭"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 80
+        },
+        {
+          "id": "logic_ratio_trap_001_alt",
+          "method_name": "比例论证反基数法",
+          "question_type": "逻辑判断",
+          "sub_type": "削弱质疑",
+          "tags": [
+            "比例论证",
+            "分母",
+            "绝对数",
+            "相对数",
+            "数据造假"
+          ],
+          "solver_tier": "shortcut",
+          "solver_rank": 95
+        },
+        {
+          "id": "logic_causal_experiment_001_alt",
+          "method_name": "对比实验评价法",
+          "question_type": "逻辑判断",
+          "sub_type": "对比实验",
+          "tags": [
+            "对比实验",
+            "对照组",
+            "支持",
+            "削弱",
+            "归因"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 85
+        },
+        {
+          "id": "logic_reasoning_002_new",
+          "method_name": "“两个所有”秒杀法",
+          "question_type": "逻辑判断",
+          "sub_type": "翻译推理",
+          "tags": [
+            "逻辑判断",
+            "秒杀",
+            "所有"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "logic_contradiction_001_alt",
+          "method_name": "全变原则与常见矛盾关系",
+          "question_type": "逻辑判断",
+          "sub_type": "翻译推理",
+          "tags": [
+            "全变原则",
+            "矛盾关系",
+            "或且非"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 10
+        },
+        {
+          "id": "qr_solid_puzzle_001_new",
+          "method_name": "立体拼合分层法与凹凸匹配",
+          "question_type": "图形推理",
+          "sub_type": "立体拼合",
+          "tags": [
+            "立体拼合",
+            "分层画图",
+            "凑数法",
+            "凹凸拼合"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "logic_reasoning_004_new",
+          "method_name": "全对全错一对一错秒杀法",
+          "question_type": "逻辑判断",
+          "sub_type": "真假推理",
+          "tags": [
+            "真假推理",
+            "全对全错"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "graphic_reasoning_011_new",
+          "method_name": "图推位置分析与元素换算叠加",
+          "question_type": "图形推理",
+          "sub_type": "位置分析与特殊考法",
+          "tags": [
+            "位置变化",
+            "平移",
+            "旋转",
+            "翻转",
+            "叠加",
+            "元素换算"
+          ],
+          "solver_tier": "secondary_method",
+          "solver_rank": 75
+        },
+        {
+          "id": "qr_graphic_feature_thinking_001_new",
+          "method_name": "特征图思维法",
+          "question_type": "图形推理",
+          "sub_type": "特征图思维",
+          "tags": [
+            "元素相同",
+            "元素相似",
+            "元素不同"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_graphic_001_new",
+          "method_name": "立体展开图三板斧与还原母图",
+          "question_type": "图形推理",
+          "sub_type": "立体图形",
+          "tags": [
+            "图推",
+            "立体图形",
+            "展开图",
+            "平移"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "qr_three_views_001_alt",
+          "method_name": "立体三视图还原与排除法",
+          "question_type": "图形推理",
+          "sub_type": "立体三视图",
+          "tags": [
+            "三视图",
+            "图形推理",
+            "立体图形"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "logic_analogy_008_alt",
+          "method_name": "类比推理之造句与逻辑对应分析",
+          "question_type": "类比推理",
+          "sub_type": "逻辑与对应关系",
+          "tags": [
+            "类比推理",
+            "圈圈关系",
+            "对应关系",
+            "造句法"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 60
+        },
+        {
+          "id": "logic_analysis_006_alt",
+          "method_name": "日常分析列表赋值与范畴画图法",
+          "question_type": "逻辑判断",
+          "sub_type": "日常分析与范畴分析",
+          "tags": [
+            "日常推理",
+            "逻辑推演",
+            "所有与有些",
+            "列表",
+            "欧拉图"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 40
+        },
+        {
+          "id": "logic_analogy_009_alt",
+          "method_name": "类比推理之语义语法与二级辨析",
+          "question_type": "类比推理",
+          "sub_type": "语义与语法分析",
+          "tags": [
+            "语义关系",
+            "语法结构",
+            "二级辨析",
+            "拆词"
+          ],
+          "solver_tier": "secondary_method",
+          "solver_rank": 65
+        },
+        {
+          "id": "logic_reasoning_006_alt",
+          "method_name": "“只有xx说真话”点名法",
+          "question_type": "逻辑判断",
+          "sub_type": "真假推理",
+          "tags": [
+            "真假推理",
+            "只有一人说真话"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "logic_reasoning_009_alt",
+          "method_name": "分析推理“4+3+2+1”秒杀法",
+          "question_type": "逻辑判断",
+          "sub_type": "分析推理",
+          "tags": [
+            "分析推理",
+            "4+3+2+1",
+            "秒杀"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_graphic_add_sub_001_new",
+          "method_name": "加减同异规律",
+          "question_type": "图形推理",
+          "sub_type": "样式规律",
+          "tags": [
+            "叠加",
+            "去同存异",
+            "去异存同"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 87
+        },
+        {
+          "id": "logic_reasoning_008_alt",
+          "method_name": "分析推理“3+2”规律法",
+          "question_type": "逻辑判断",
+          "sub_type": "分析推理",
+          "tags": [
+            "分析推理",
+            "3+2",
+            "秒杀"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "logic_explain_phenomenon_001_alt",
+          "method_name": "解释矛盾合理化法",
+          "question_type": "逻辑判断",
+          "sub_type": "解释现象",
+          "tags": [
+            "解释现象",
+            "矛盾",
+            "转折",
+            "合理解释"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 80
+        },
+        {
+          "id": "qr_graphic_straight_curve_001_new",
+          "method_name": "曲直性规律",
+          "question_type": "图形推理",
+          "sub_type": "属性规律",
+          "tags": [
+            "直线",
+            "曲线",
+            "平行线",
+            "特殊线"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 81
+        },
+        {
+          "id": "logic_support_assumption_001_alt",
+          "method_name": "支持与前提搭桥法",
+          "question_type": "逻辑判断",
+          "sub_type": "加强支持",
+          "tags": [
+            "加强",
+            "支持",
+            "前提",
+            "假设",
+            "搭桥",
+            "必要条件"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "qr_graphic_black_white_op_001_new",
+          "method_name": "黑白运算规律",
+          "question_type": "图形推理",
+          "sub_type": "样式规律",
+          "tags": [
+            "黑白运算",
+            "颜色叠加"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 88
+        },
+        {
+          "id": "logic_true_false_005_alt",
+          "method_name": "真假推理之假设法与代入法",
+          "question_type": "逻辑判断",
+          "sub_type": "真假分析",
+          "tags": [
+            "无矛盾真假话",
+            "假设推导",
+            "选项代入"
+          ],
+          "solver_tier": "fallback_method",
+          "solver_rank": 35
+        },
+        {
+          "id": "logic_reasoning_003_alt",
+          "method_name": "三段论公式法：两个有的，一个所有",
+          "question_type": "逻辑判断",
+          "sub_type": "三段论",
+          "tags": [
+            "逻辑判断",
+            "三段论",
+            "去同存异"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "logic_reasoning_001_new",
+          "method_name": "“两个有的”秒杀法",
+          "question_type": "逻辑判断",
+          "sub_type": "翻译推理",
+          "tags": [
+            "逻辑判断",
+            "秒杀",
+            "有的"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "graphic_reasoning_010_alt",
+          "method_name": "图推十五字口诀之定性与定量",
+          "question_type": "图形推理",
+          "sub_type": "定性与定量分析",
+          "tags": [
+            "定性分析",
+            "定量分析",
+            "曲直",
+            "对称",
+            "封闭开放"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 70
+        },
+        {
+          "id": "logic_weaken_general_001_alt",
+          "method_name": "一般质疑论证法",
+          "question_type": "逻辑判断",
+          "sub_type": "削弱质疑",
+          "tags": [
+            "一般质疑",
+            "削弱",
+            "找矛盾",
+            "底层逻辑",
+            "逻辑漏洞"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 80
+        },
+        {
+          "id": "qr_graphic_split_contrast_001_alt",
+          "method_name": "拆分与对比思维",
+          "question_type": "图形推理",
+          "sub_type": "拆分与对比思维",
+          "tags": [
+            "位置拆分",
+            "样式拆分",
+            "对比选项"
+          ],
+          "solver_tier": "fallback",
+          "solver_rank": 80
+        },
+        {
+          "id": "logic_syllogism_induction_001_alt",
+          "method_name": "三段论与归纳类比识别法",
+          "question_type": "逻辑判断",
+          "sub_type": "推出类",
+          "tags": [
+            "三段论",
+            "归纳推理",
+            "类比推理",
+            "集合关系"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 70
+        },
+        {
+          "id": "qr_graphic_overall_observation_001_alt",
+          "method_name": "命题形式与观察路径",
+          "question_type": "图形推理",
+          "sub_type": "宏观观察思维",
+          "tags": [
+            "一组图",
+            "两组图",
+            "九宫格",
+            "分组分类"
+          ],
+          "solver_tier": "precheck",
+          "solver_rank": 90
+        },
+        {
+          "id": "qr_graphic_translation_001_new",
+          "method_name": "平移规律",
+          "question_type": "图形推理",
+          "sub_type": "位置规律",
+          "tags": [
+            "方向",
+            "步数",
+            "路径",
+            "黑白块移动"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 85
+        },
+        {
+          "id": "logic_true_false_004_alt",
+          "method_name": "真假推理之矛盾法",
+          "question_type": "逻辑判断",
+          "sub_type": "真假分析",
+          "tags": [
+            "真假话",
+            "矛盾关系"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 30
+        },
+        {
+          "id": "qr_graphic_points_001_new",
+          "method_name": "点的数量规律",
+          "question_type": "图形推理",
+          "sub_type": "数量规律",
+          "tags": [
+            "交点",
+            "切点",
+            "出头点",
+            "内部交点"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 75
+        },
+        {
+          "id": "logic_attribution_experiment_001_new",
+          "method_name": "对比实验归因质疑与支持法",
+          "question_type": "逻辑论证",
+          "sub_type": "归因论证",
+          "tags": [
+            "逻辑论证",
+            "削弱",
+            "加强",
+            "归因",
+            "对比实验",
+            "他因",
+            "因果倒置"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "logic_formal_translation_001_alt",
+          "method_name": "形式逻辑翻译及真假判定",
+          "question_type": "逻辑判断",
+          "sub_type": "翻译推理",
+          "tags": [
+            "翻译推理",
+            "形式逻辑",
+            "逆否命题",
+            "真假话",
+            "充分必要"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "logic_reasoning_007_new",
+          "method_name": "“只有一人说真话”找矛盾法",
+          "question_type": "逻辑判断",
+          "sub_type": "真假推理",
+          "tags": [
+            "真假推理",
+            "只有一人说真话",
+            "矛盾法"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "logic_reasoning_011_alt",
+          "method_name": "常用逻辑关系40组通式",
+          "question_type": "逻辑判断",
+          "sub_type": "翻译推理",
+          "tags": [
+            "翻译推理",
+            "形式逻辑",
+            "命题转化"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 100
+        },
+        {
+          "id": "logic_causal_weaken_001_alt",
+          "method_name": "归因论证削弱法",
+          "question_type": "逻辑判断",
+          "sub_type": "削弱质疑",
+          "tags": [
+            "逻辑论证",
+            "归因论证",
+            "削弱",
+            "原因",
+            "结果"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 80
+        },
+        {
+          "id": "qr_graphic_strokes_001_alt",
+          "method_name": "一笔画与多笔画规律",
+          "question_type": "图形推理",
+          "sub_type": "数量规律",
+          "tags": [
+            "一笔画",
+            "多笔画",
+            "奇点",
+            "连通图"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 89
+        },
+        {
+          "id": "qr_solid_section_001_alt",
+          "method_name": "立体截面图秒杀与穷举法",
+          "question_type": "图形推理",
+          "sub_type": "立体截面图",
+          "tags": [
+            "截面图",
+            "六面体",
+            "圆柱体",
+            "圆锥体",
+            "图形推理"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "qr_graphic_traversal_001_new",
+          "method_name": "遍历规律",
+          "question_type": "图形推理",
+          "sub_type": "样式规律",
+          "tags": [
+            "形状遍历",
+            "数量遍历",
+            "位置遍历",
+            "偏旁遍历"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 88
+        },
+        {
+          "id": "logic_implication_002_alt",
+          "method_name": "假言命题翻译与逆否推理",
+          "question_type": "逻辑判断",
+          "sub_type": "翻译推理",
+          "tags": [
+            "假言命题",
+            "如果那么",
+            "只有才",
+            "除非否则"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 15
+        },
+        {
+          "id": "logic_reasoning_005_new",
+          "method_name": "每个人都只猜对了一半秒杀法",
+          "question_type": "逻辑判断",
+          "sub_type": "真假推理",
+          "tags": [
+            "真假推理",
+            "猜对一半"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "qr_graphic_symmetry_001_new",
+          "method_name": "对称性规律",
+          "question_type": "图形推理",
+          "sub_type": "属性规律",
+          "tags": [
+            "对称性质",
+            "对称轴数量",
+            "对称轴方向",
+            "对称轴与原图形关系"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 82
+        },
+        {
+          "id": "logic_reasoning_010_alt",
+          "method_name": "大小比较：最大信息排除与大大则大",
+          "question_type": "逻辑判断",
+          "sub_type": "分析推理",
+          "tags": [
+            "大小比较",
+            "信息排序",
+            "大大则大"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        },
+        {
+          "id": "logic_deduction_003_alt",
+          "method_name": "等价推出与逆推法",
+          "question_type": "逻辑判断",
+          "sub_type": "推出类",
+          "tags": [
+            "等价推出",
+            "正推",
+            "逆推",
+            "两难推理"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 20
+        },
+        {
+          "id": "graphic_reasoning_012_new",
+          "method_name": "图推三大类与六提示法",
+          "question_type": "图形推理",
+          "sub_type": "分类与提示点",
+          "tags": [
+            "背景图",
+            "分割图",
+            "对称图",
+            "笔画数",
+            "平行线组数"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 80
+        },
+        {
+          "id": "logic_definition_007_alt",
+          "method_name": "定义判断核心技巧",
+          "question_type": "定义判断",
+          "sub_type": "单定义/多定义判断",
+          "tags": [
+            "定义判断",
+            "关键词法",
+            "选项对比",
+            "同构选项"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 50
+        },
+        {
+          "id": "qr_graphic_rotation_flip_001_new",
+          "method_name": "旋转与翻转规律",
+          "question_type": "图形推理",
+          "sub_type": "位置规律",
+          "tags": [
+            "顺逆时针",
+            "角度",
+            "轴对称翻转",
+            "中心对称翻转"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 85
+        },
+        {
+          "id": "qr_graphic_002_new",
+          "method_name": "常见几何体截面图总结",
+          "question_type": "图形推理",
+          "sub_type": "立体图形",
+          "tags": [
+            "图推",
+            "立体截面",
+            "几何体"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 90
+        }
+      ]
+    },
+    "图形推理": {
+      "card_count": 10,
+      "methods": [
+        {
+          "id": "qr_shape_function_element_001_alt",
+          "method_name": "图形推理-功能元素指向法",
+          "question_type": "位置与结构类",
+          "sub_type": "功能元素",
+          "tags": [
+            "图形推理",
+            "功能元素",
+            "标记",
+            "相对位置",
+            "小黑点"
+          ],
+          "solver_tier": "precheck",
+          "solver_rank": 80
+        },
+        {
+          "id": "qr_shape_numbers_001_new",
+          "method_name": "图形推理-数字考点综合",
+          "question_type": "符号与数字类",
+          "sub_type": "数字规律",
+          "tags": [
+            "图形推理",
+            "数字",
+            "曲直性",
+            "开闭性",
+            "面",
+            "运算",
+            "遍历"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 80
+        },
+        {
+          "id": "qr_shape_area_001_new",
+          "method_name": "图形推理-数面及面的特征",
+          "question_type": "数量类",
+          "sub_type": "数面",
+          "tags": [
+            "图形推理",
+            "数量类",
+            "面",
+            "最大面",
+            "相同面"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 60
+        },
+        {
+          "id": "qr_shape_element_001_new",
+          "method_name": "图形推理-数素与部分数",
+          "question_type": "数量类",
+          "sub_type": "素与部分",
+          "tags": [
+            "图形推理",
+            "数量类",
+            "元素",
+            "部分数",
+            "元素换算",
+            "相邻相同元素"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 40
+        },
+        {
+          "id": "qr_shape_letters_001_new",
+          "method_name": "图形推理-英文字母考点",
+          "question_type": "符号与数字类",
+          "sub_type": "字母规律",
+          "tags": [
+            "图形推理",
+            "英文字母",
+            "对称性",
+            "曲直",
+            "面",
+            "笔画",
+            "字母顺序"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 80
+        },
+        {
+          "id": "qr_shape_chinese_chars_001_new",
+          "method_name": "图形推理-汉字考点全解",
+          "question_type": "汉字类",
+          "sub_type": "汉字规律",
+          "tags": [
+            "图形推理",
+            "汉字",
+            "笔画",
+            "偏旁",
+            "结构",
+            "面",
+            "拼音"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 85
+        },
+        {
+          "id": "qr_shape_black_white_001_new",
+          "method_name": "图形推理-黑白块规律",
+          "question_type": "综合类",
+          "sub_type": "黑白块",
+          "tags": [
+            "图形推理",
+            "黑白块",
+            "平移",
+            "黑白运算",
+            "对称性",
+            "连通性"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 70
+        },
+        {
+          "id": "qr_shape_angle_001_alt",
+          "method_name": "图形推理-数角法",
+          "question_type": "数量类",
+          "sub_type": "数角",
+          "tags": [
+            "图形推理",
+            "数量类",
+            "角",
+            "直角",
+            "锐角",
+            "钝角"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 50
+        },
+        {
+          "id": "qr_shape_3d_net_001_alt",
+          "method_name": "图形推理-立体展开图解法(相对面/公共边/画边法)",
+          "question_type": "空间重构",
+          "sub_type": "六面体与四面体折纸盒",
+          "tags": [
+            "图形推理",
+            "空间重构",
+            "六面体",
+            "四面体",
+            "展开图",
+            "相对面",
+            "公共边"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 95
+        },
+        {
+          "id": "qr_shape_relation_001_new",
+          "method_name": "图形推理-图形间关系(交点/交线/交面)",
+          "question_type": "结构类",
+          "sub_type": "图形间关系",
+          "tags": [
+            "图形推理",
+            "图形间关系",
+            "相交",
+            "相离",
+            "交线",
+            "交面"
+          ],
+          "solver_tier": "core_method",
+          "solver_rank": 45
         }
       ]
     }

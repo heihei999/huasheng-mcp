@@ -1,37 +1,17 @@
-# Python
 __pycache__/
 *.py[cod]
-*$py.class
-*.egg-info/
-*.egg
-dist/
-build/
-*.whl
-
-# Virtual environments
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 .venv/
 venv/
 env/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS
+build/
+dist/
+*.egg-info/
 .DS_Store
 Thumbs.db
-
-# Testing
-.pytest_cache/
-.coverage
-htmlcov/
-
-# Outputs (generated)
+*.log
+.tmp/
+temp/
 outputs/
-
-# Temp
-*.tmp
-*.bak
