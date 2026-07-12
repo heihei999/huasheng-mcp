@@ -4,15 +4,25 @@
 
 ## 🚀 一分钟快速上手
 
-### 第一步：安装
+### 方法一：让 Agent 帮你安装（最省事）
+
+如果你是 **Claude Code**、**Codex CLI**、**Cursor**、**Windsurf** 等 AI 编程工具的用户，直接把下面这句话发给它：
+
+> **「帮我安装一下 https://github.com/heihei999/huasheng-mcp 这个 MCP 服务器」**
+
+Agent 会自动完成下载、安装、配置全部步骤，你什么都不用管。
+
+### 方法二：自己动手安装
+
+#### 第 1 步：安装
 
 ```powershell
 pip install xingce-solver[sse]
 ```
 
-> 如果你没有 Python，先安装 [Python 3.10+](https://www.python.org/downloads/)，安装时勾选"Add Python to PATH"。
+> 如果没装 Python，先去 https://www.python.org/downloads/ 下载安装，勾选"Add Python to PATH"。
 
-### 第二步：启动服务
+#### 第 2 步：启动服务
 
 ```powershell
 xingce-solver-mcp-sse
@@ -20,9 +30,9 @@ xingce-solver-mcp-sse
 
 看到 `Uvicorn running on http://0.0.0.0:8000` 即启动成功 👌
 
-### 第三步：连接 AI 助手
+#### 第 3 步：连接 AI 助手
 
-**Claude Desktop 用户**，在配置文件（`%APPDATA%\Claude\claude_desktop_config.json`）中加入：
+**Claude Desktop** 用户，在配置文件（`%APPDATA%\Claude\claude_desktop_config.json`）中加入：
 
 ```json
 {
@@ -36,6 +46,8 @@ xingce-solver-mcp-sse
 ```
 
 保存后**重启 Claude Desktop**，对话框中就能直接调用行测解题工具了！
+
+> **ChatGPT / 其他 AI 用户**：启动服务后，在支持 MCP SSE 的客户端中填入地址 `http://localhost:8000/sse` 即可。
 
 ---
 
@@ -81,17 +93,33 @@ xingce-solver-mcp-sse
 
 ## 🎯 在 AI 助手里的使用示例
 
-连接成功后，你可以在对话框里直接这样说：
+### 方式一：直接发文字题目
+
+连接成功后，直接打字问：
 
 > 「帮我解一道资料分析题：2020 年某产业收入为 132 亿元，同比增长 10%，问 2019 年收入约为多少？A.100 亿元 B.110 亿元 C.120 亿元 D.132 亿元」
 
-AI 助手会自动调用 `solve_data_analysis` 工具，返回分析过程和答案。
+AI 助手会自动调用工具，返回分析过程和答案。
 
-也可以这样说：
+### 方式二：发截图让 AI 自己读题（强烈推荐）
+
+> 你从练习 App、PDF 或网课上截一道题 → 直接把截图发给 AI 助手 → AI 用"眼睛"看图识字 → 自动调用解题工具 → 秒出答案
+
+**支持多模态的 AI 助手都能这样用**（Claude Desktop、ChatGPT、豆包等）。你不用手打字，拍照截图就行，特别适合手机端或平板端刷题。
+
+### 方式三：搜索解题方法
 
 > 「搜索一下关于增长率比较的解题方法」
 
-AI 助手会调用 `search_methods` 工具，从 442 张方法卡片中找到相关内容。
+AI 助手会调用 `search_methods` 工具，从 442 张方法卡片中找到匹配的解题技巧。
+
+### 方式四：让 Agent 批量刷题
+
+如果你在用 Claude Code、Codex 等编程 Agent，可以给它一个路径让它批量处理：
+
+> 「读取这个文件夹里的所有行测题图片，逐个调用解题工具，把答案汇总到一个表格里」
+
+适合考前突击刷题。
 
 ---
 
