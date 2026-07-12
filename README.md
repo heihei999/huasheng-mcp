@@ -1,245 +1,33 @@
-# xingce-solver
+# 花生十三 · 行测解题 MCP 助手
 
-基于已经整理好的花生十三行测知识库，实现跨平台行测解题辅助工具。
+📚 基于花生十三行测知识库，**442 张方法卡片**覆盖资料分析、数量关系、判断推理、言语理解四大模块。搭配 AI 助手（Claude Desktop 等），随时随地智能解题。
 
-## 当前状态
+## 🚀 一分钟快速上手
 
-- 资料分析：`solve_data_analysis v5 stable` 已冻结。
-- 逻辑判断：`solve_logic_reasoning v6.1 translation real-case audit` 已完成 real-case audited / tested。
-- CLI：`xingce-solver`
-- MCP Server（stdio）：`xingce-solver-mcp`
-- MCP Server（SSE）：`xingce-solver-mcp-sse`，适合非技术用户通过 HTTP 接入
-- 知识库：**442 张方法卡片**（v0.7.0 扩展），读取 `knowledge_base/all_cards.jsonl`，不重新解析 PDF，不重新生成卡片。
-- 多模态题图：项目本身不做 OCR 或图像识别，由多模态客户端先转写题干、材料和选项，再调用 MCP/CLI。
-
-## 基础命令
-
-```powershell
-xingce-solver search --query "比重 增长率"
-xingce-solver card --id da_share_change_004
-xingce-solver classify --question question.txt
-xingce-solver source --method-id da_share_change_004
-```
-
-资料分析：
-
-```powershell
-xingce-solver solve-data --text "2020年某产业收入为132亿元，同比增长10%，问2019年收入约为多少？ A.100亿元 B.110亿元 C.120亿元 D.132亿元"
-```
-
-逻辑判断：
-
-```powershell
-xingce-solver solve-logic --text "只有缴费，才可以报名。小王已经报名。根据上述信息，可以推出的是：A.小王没有缴费 B.缴费的人一定报名 C.小王已经缴费 D.没有报名的人一定没有缴费"
-```
-
-## MCP Server
-
-```powershell
-xingce-solver-mcp
-python -m xingce_solver.mcp_server
-```
-
-主要 tools (15)：
-
-- `route_xingce_question` - 题型路由（advisory，v0.5.0 支持 module_hint/section_context）
-- `compose_xingce_analysis_prompt` - 分析提示词组合（v0.5.0 支持 module_hint/section_context）
-- `compose_xingce_answer_prompt` - 保守型答题提示词（v0.4 新增，v0.5.0 支持 module_hint/section_context）
-- `get_graphic_reasoning_scaffold` - 图形推理 scaffold
-- `get_definition_judgement_scaffold` - 定义判断 scaffold
-- `get_analogy_reasoning_scaffold` - 类比推理 scaffold
-- `get_logic_analysis_scaffold` - 分析推理 scaffold
-- `get_quantity_relation_scaffold` - 数量关系 scaffold
-- `get_verbal_reasoning_scaffold` - 言语理解 scaffold
-- `get_method_card`
-- `search_methods`
-- `classify_question`
-- `get_source_reference`
-- `solve_data_analysis`
-- `solve_logic_reasoning`
-
-## 逻辑判断 v6.1
-
-v6.1 在 v6 翻译推理 v1 基础上，用 16 道开放获取真实翻译推理题做审计复测并小范围增强：
-
-- 支持链式条件、链式逆否。
-- 支持只有/才、除非/否则。
-- 支持且命题否定、或命题、至少一支成立。
-- 支持反对命题的摩根等价表达。
-- 保持论证类 v5/v6 回归能力。
-
-真实翻译题 16 道结果：
-
-- correct: 16
-- wrong: 0
-- null: 0
-
-论证类第二批 20 题回归：
-
-- correct: 18
-- wrong: 0
-- null: 2
-
-相关文件：
-
-- `docs/logic_reasoning_solver_usage.md`
-- `docs/logic_reasoning_translation_v1_plan.md`
-- `outputs/logic_reasoning_translation_real_v2_results.jsonl`
-- `outputs/logic_reasoning_translation_real_v2_summary.md`
-- `outputs/logic_reasoning_lr2_v6_1_regression_results.jsonl`
-- `outputs/logic_reasoning_lr2_v6_1_regression_summary.md`
-
-## 批量验证
-
-```powershell
-python scripts/run_logic_reasoning_real_cases.py --input text-image/logic_translation_real_cases_open_verified_v2/questions_manifest.json --output outputs/logic_reasoning_translation_real_v2_results.jsonl --summary outputs/logic_reasoning_translation_real_v2_summary.md
-```
-
-```powershell
-python scripts/run_logic_reasoning_real_cases.py --input text-image/lr2_real_verified_20_images/lr2_real_verified_20_images/questions_manifest.json --output outputs/logic_reasoning_lr2_v6_1_regression_results.jsonl --summary outputs/logic_reasoning_lr2_v6_1_regression_summary.md
-```
-
-## 当前限制
-
-- 不修改 `knowledge_base/all_cards.jsonl`。
-- 不重新解析 PDF。
-- 不重新生成知识卡片。
-- 不做 OCR、图片识别、联网或外部 LLM/API 调用。
-- 逻辑判断 v6.1 仍不支持真假推理、分析推理、图形推理、定义判断、类比推理。
-- 资料分析 v5 已冻结，后续逻辑判断迭代不应修改资料分析 solver。
-
-## v0.4 Actual Claude Code MCP Regression
-
-- The actual Claude Code MCP client loaded v0.4 successfully.
-- Actual visible MCP tools: 15.
-- compose_xingce_answer_prompt is visible.
-- The new tool returns answer_prompt / output_schema / safety_contract / analysis_only_required_if.
-- The tool does not return answer / selected_option / prediction.
-- route_xingce_question compatibility regression passed.
-- route_uncertain remains conservative.
-- No external LLM/API call.
-- No analyze_xingce_question.
-- Full regression report: `outputs/actual_claude_code_mcp_v0_4_regression.md`
-
-## v0.4.1 Conservative Answer Gate Hardening
-
-- Person arrangement "左边/右边" now correctly routes to logic_analysis (not graphic_reasoning).
-- graphic_reasoning without image/visual_description → answer_allowed=false.
-- data_analysis without material/table/material_text → answer_allowed=false.
-- New return fields: answer_block_reason, context_requirements.
-- MCP guidance tests: 198 passed (was 181, +17).
-- Full pytest: 529 passed (was 512, +17).
-- No external LLM/API call. No solver/scaffold modification.
-- Actual Claude Code MCP client regression passed.
-- Actual visible MCP tools: 15.
-- compose_xingce_answer_prompt is visible.
-- Full regression report: `outputs/actual_claude_code_mcp_v0_4_1_regression.md`
-
-## v0.4.2 Data Material Gate Hardening
-
-- Material/table/chart signals ("表中", "根据表格", "上述资料", "图中数据") now route to data_analysis.
-- Independent material gate: even if route misroutes, material signals require material/table context.
-- context_requirements.requires_table_or_material reflects material signal detection.
-- MCP guidance tests: 210 passed (was 198, +12).
-- Full pytest: 541 passed (was 529, +12).
-- No external LLM/API call. No solver/scaffold modification.
-
-## v0.4.3 Conservative Route Coverage Hardening
-
-- Text-based arrangement questions (books, programs, contestants) now route to logic_analysis.
-- Definition questions with "所谓...是指...下列体现" pattern now route to definition_judgement.
-- Both require multiple signal types to prevent false positives.
-- All v0.4.2 routing patterns and answer gates remain unchanged.
-- MCP guidance tests: 220 passed (was 210, +10).
-- Full pytest: 551 passed (was 541, +10).
-- No external LLM/API call. No solver/scaffold modification.
-- Actual Claude Code MCP v0.4.3 regression passed. Actual visible MCP tools: 15.
-- ChatGPT-side 60-case pressure test: 57/60 exact route matches, 60/60 safety gate passed.
-- Top-level answer/selected_option/prediction leakage: 0/60. No safety-level bug found.
-- Full regression report: `outputs/actual_claude_code_mcp_v0_4_3_regression.md`
-- Pressure test report: `outputs/v0_4_3_clean_candidate_60_case_pressure_eval_summary.md`
-- Recommended next step: tag + backup + build final clean/online/offline runtime packages.
-
-## v0.5.0 Module Context Override
-
-- Added `module_hint` / `section_context` parameters to route_xingce_question, compose_xingce_analysis_prompt, compose_xingce_answer_prompt.
-- Supports Chinese section names (类比推理, 言语理解, 资料分析, etc.) and prefixed variants (判断推理-类比推理).
-- module_hint overrides weak keyword routing; strong material signals ("表中/根据表格/图中数据/上述资料") still take priority.
-- Returns v0.5.0 fields: module_hint, section_context, module_hint_applied, module_hint_conflict, heuristic_module_guess.
-- Safety gates unchanged: missing_visual_content, missing_table_or_material, route_uncertain, allow_answer=false.
-- MCP guidance tests: 245 passed (was 220, +25).
-- Full pytest: 576 passed (was 551, +25).
-- No external LLM/API call. No solver/scaffold/all_cards/cli modification.
-
-## v0.5.1 Module Context Edge-Case Hardening
-
-- Fix 1: valid `module_hint` now overrides `insufficient_phrase_detected` — short questions with explicit hint no longer route to `unknown`.
-- Fix 2: removed `"图中"` from strong material signals (too broad); `"图中数据"` retained. When `module_hint` is present, material signal check only examines question text, not options — prevents distractor options ("折线图/柱状图") from overriding `module_hint=定义判断`.
-- Strong material signals in question text ("表中/根据表格/图中数据/统计图表/上述资料") still override any module_hint for safety.
-- All safety gates unchanged.
-- MCP guidance tests: 261 passed (was 245, +16).
-- Full pytest: 592 passed (was 576, +16).
-- No external LLM/API call. No solver/scaffold/all_cards/cli modification.
-
-## v0.5.1 Three-Year Practical Validation
-
-- Three consecutive national exam papers (2022-2024 行政执法卷) tested: 330 questions total.
-- v0.5.1 with module_hint: 330/330 route/gate validation.
-- Top-level answer/selected_option/prediction leakage: 0/330.
-- This is route/gate/scaffold validation, not final answer accuracy benchmark.
-- module_hint/section_context is required for full practical performance.
-- Full validation report: `docs/v0_5_1_three_year_practical_validation.md`
-
----
-
----
-
-## SSE MCP Server（推荐非技术用户使用）
-
-> 💡 **传统 stdio MCP** 适合在本地命令行使用。**SSE MCP** 可以让 MCP 跑在后台服务里，任何支持 HTTP 的客户端都能连接，不需要懂命令行。
-
-### 快速开始（三步搞定）
-
-#### 第 1 步：安装（带 SSE 支持）
+### 第一步：安装
 
 ```powershell
 pip install xingce-solver[sse]
 ```
 
-> 如果是从 ZIP 包安装，先解压，然后在解压目录下执行：
-> ```powershell
-> pip install -e ".[sse]"
-> ```
+> 如果你没有 Python，先安装 [Python 3.10+](https://www.python.org/downloads/)，安装时勾选"Add Python to PATH"。
 
-#### 第 2 步：启动 SSE 服务器
+### 第二步：启动服务
 
 ```powershell
 xingce-solver-mcp-sse
 ```
 
-看到以下输出即表示启动成功：
+看到 `Uvicorn running on http://0.0.0.0:8000` 即启动成功 👌
 
-```
-INFO:     Started server process [12345]
-INFO:     Waiting for application startup.
-INFO:     Application startup complete.
-INFO:     Uvicorn running on http://0.0.0.0:8000
-```
+### 第三步：连接 AI 助手
 
-默认地址：**http://localhost:8000**（端口可以通过 `MCP_PORT` 环境变量修改）
-
-#### 第 3 步：连接客户端
-
----
-
-### 方式一：Claude Desktop 连接（推荐）
-
-在 Claude Desktop 的 MCP 配置文件中添加：
+**Claude Desktop 用户**，在配置文件（`%APPDATA%\Claude\claude_desktop_config.json`）中加入：
 
 ```json
 {
   "mcpServers": {
-    "huasheng-sse": {
+    "行测解题": {
       "type": "sse",
       "url": "http://localhost:8000/sse"
     }
@@ -247,99 +35,103 @@ INFO:     Uvicorn running on http://0.0.0.0:8000
 }
 ```
 
-> **配置在哪？**
-> - Windows：`%APPDATA%\Claude\claude_desktop_config.json`
-> - macOS：`~/Library/Application Support/Claude/claude_desktop_config.json`
-
-保存后**重启 Claude Desktop**，就能在对话中直接调用行测解题工具了。
+保存后**重启 Claude Desktop**，对话框中就能直接调用行测解题工具了！
 
 ---
 
-### 方式二：OpenWebUI / 任意 HTTP 客户端
+## 📖 知识库总览
 
-服务器提供了 REST API 接口，适合集成到网页或自定义工具中：
+知识库共 **442 张方法卡片**，覆盖行测四大模块：
 
-| 接口 | 说明 | POST 参数 |
+| 模块 | 卡片数 | 说明 |
 |---|---|---|
-| `POST http://localhost:8000/route_xingce_question` | 题型路由 | `{"question": "..."}` |
-| `POST http://localhost:8000/compose_xingce_analysis_prompt` | 分析提示词 | `{"route": "...", "question": "..."}` |
-| `POST http://localhost:8000/compose_xingce_answer_prompt` | 答题提示词 | `{"analysis": "..."}` |
-| `POST http://localhost:8000/api/execute_tool` | 调用任意工具 | `{"name": "tool_name", "args": {...}}` |
-
-示例（用 PowerShell 调用）：
-
-```powershell
-$body = @{question="2020年收入132亿元，同比增长10%，问2019年收入？"} | ConvertTo-Json
-Invoke-RestMethod -Uri "http://localhost:8000/route_xingce_question" -Method Post -Body $body -ContentType "application/json"
-```
+| 📊 **资料分析** | 52 张 | 增长率、比重、倍数、平均数等 |
+| 🔢 **数量关系** | 118 张 | 工程问题、行程问题、排列组合等 |
+| 🧠 **判断推理** | 148 张 | 图形推理、逻辑判断、定义判断、类比推理 |
+| 💬 **言语理解** | 95 张 | 主旨意图、语句表达、逻辑填空 |
+| 🆕 **言语理解（新）** | 18 张 | 语句排序、细节判断等 |
+| 🆕 **图形推理（新）** | 10 张 | 图形规律专项 |
+| **合计** | **442 张** | 覆盖全部核心题型 |
 
 ---
 
-### 方式三：任意 MCP SSE 客户端（Cursor、Windsurf 等）
+## 🛠️ 可用解题工具（共 15 个）
 
-如果 MCP 客户端支持 SSE 协议，直接填写 SSE 端点地址：
+连接成功后，AI 助手会自动识别以下工具：
 
-```
-SSE Endpoint: http://localhost:8000/sse
-```
-
-配置时会自动从 `/.well-known/mcp.json` 获取服务器信息。
-
----
-
-### 可用工具（共 15 个）
-
-| 工具名 | 说明 |
+| 工具 | 干什么用 |
 |---|---|
-| `route_xingce_question` | 题型路由 |
-| `compose_xingce_analysis_prompt` | 分析提示词组合 |
-| `compose_xingce_answer_prompt` | 保守型答题提示词 |
-| `get_graphic_reasoning_scaffold` | 图形推理 scaffold |
-| `get_definition_judgement_scaffold` | 定义判断 scaffold |
-| `get_analogy_reasoning_scaffold` | 类比推理 scaffold |
-| `get_logic_analysis_scaffold` | 分析推理 scaffold |
-| `get_quantity_relation_scaffold` | 数量关系 scaffold |
-| `get_verbal_reasoning_scaffold` | 言语理解 scaffold |
-| `get_method_card` | 获取方法卡片 |
-| `search_methods` | 搜索解题方法 |
-| `classify_question` | 题型分类 |
-| `get_source_reference` | 获取来源引用 |
-| `solve_data_analysis` | 解资料分析题 |
-| `solve_logic_reasoning` | 解逻辑判断题 |
+| `solve_data_analysis` | 📊 解资料分析题 |
+| `solve_logic_reasoning` | 🧠 解逻辑判断题 |
+| `classify_question` | 🔍 识别题目属于哪个模块 |
+| `search_methods` | 🔎 搜索解题方法 |
+| `get_method_card` | 📇 查看某方法的详细内容 |
+| `get_source_reference` | 📋 查看方法的来源出处 |
+| `route_xingce_question` | 🧭 判断题型并推荐解法 |
+| `compose_xingce_analysis_prompt` | 📝 组合分析提示词 |
+| `compose_xingce_answer_prompt` | ✅ 生成保守型答题提示词 |
+| `get_graphic_reasoning_scaffold` | 🎨 图形推理方法框架 |
+| `get_definition_judgement_scaffold` | 📌 定义判断方法框架 |
+| `get_analogy_reasoning_scaffold` | 🔗 类比推理方法框架 |
+| `get_logic_analysis_scaffold` | ⚖️ 分析推理方法框架 |
+| `get_quantity_relation_scaffold` | 🔢 数量关系方法框架 |
+| `get_verbal_reasoning_scaffold` | 💬 言语理解方法框架 |
 
 ---
 
-### 高级设置
+## 🎯 在 AI 助手里的使用示例
 
-通过环境变量配置服务器：
+连接成功后，你可以在对话框里直接这样说：
+
+> 「帮我解一道资料分析题：2020 年某产业收入为 132 亿元，同比增长 10%，问 2019 年收入约为多少？A.100 亿元 B.110 亿元 C.120 亿元 D.132 亿元」
+
+AI 助手会自动调用 `solve_data_analysis` 工具，返回分析过程和答案。
+
+也可以这样说：
+
+> 「搜索一下关于增长率比较的解题方法」
+
+AI 助手会调用 `search_methods` 工具，从 442 张方法卡片中找到相关内容。
+
+---
+
+## ⚙️ 高级设置
+
+### 修改端口
+
+默认端口是 8000，如果被占用可以改：
 
 ```powershell
-# 修改端口（默认 8000）
-$env:MCP_PORT = "8080"
-
-# 修改监听地址（默认 0.0.0.0）
-$env:MCP_HOST = "127.0.0.1"
-
-# 启动
+set MCP_PORT=8080
 xingce-solver-mcp-sse
 ```
 
-> ⚠️ **注意**：如果启动时报 `ModuleNotFoundError: No module named 'fastapi'`，说明没有安装 SSE 依赖。请执行：
-> ```powershell
-> pip install xingce-solver[sse]
-> ```
+### 局域网共享
 
----
-
-## 测试
+想让同一局域网的其他设备也能用：
 
 ```powershell
-python -m pytest
-powershell -ExecutionPolicy Bypass -File scripts/smoke_test.ps1
+set MCP_HOST=0.0.0.0
+xingce-solver-mcp-sse
 ```
 
-> 当前测试状态：**661 passed, 35 skipped**（知识库 442 张方法卡片全覆盖）
+然后其他设备连接 `http://你的IP地址:8000/sse`。
 
 ---
 
+## 🧪 测试状态
 
+✅ **661 项测试通过，35 项跳过**，知识库 442 张方法卡片全部覆盖。
+
+---
+
+## 📋 版本历史
+
+| 版本 | 亮点 |
+|---|---|
+| **v0.7.0** | 知识库大扩容 292→442 张卡片，新增 SSE 服务器，新手友好 |
+| **v0.6.0** | 图形推理框架 v0.2.1，8 种反模式，662 项测试全部通过 |
+
+---
+
+> 💡 **有问题？** 在 [GitHub Issues](https://github.com/heihei999/huasheng-mcp/issues) 提出
