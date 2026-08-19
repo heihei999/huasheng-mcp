@@ -93,7 +93,7 @@ xingce-solver-mcp-sse
 
 ## 🎯 在 AI 助手里的使用示例
 
-所有支持 MCP SSE 的 AI 助手都能接入（Claude Desktop、ChatGPT、豆包、**Cherry Studio** 等）。其中 **Cherry Studio** 会把每次工具调用过程可视化展示出来，新手能直观看到 AI 是怎么一步步调用知识库解题的，特别适合刚接触 MCP 的朋友。
+所有支持 MCP SSE 的 AI 助手都能接入（Claude Desktop、ChatGPT、**Cherry Studio** 等）。其中 **Cherry Studio** 会把每次工具调用过程可视化展示出来，新手能直观看到 AI 是怎么一步步调用知识库解题的，特别适合刚接触 MCP 的朋友。
 
 ### 方式一：直接发文字题目
 
